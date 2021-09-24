@@ -14,7 +14,10 @@ My process:
 3. **TinyML** Took course for TinyML from EdX (complete)
 
 Next steps:
-1. Upon completion of EdX course, review the material and do all assignments again
-1. Decide whether these kinds of notes need to be in a **Wiki** instead
-1. Create new repository "hello-world-arduino"
-1. Document all assignments here in the documentation
+* Upon completion of EdX course, review the material and do all assignments again
+* Create **Wiki** showing Accomplishments
+  * Took Class
+  * Bought book
+  * Document assignments or examples
+* Create new repository "hello-world-arduino"
+* Document all assignments here in the documentation
