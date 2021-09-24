@@ -15,11 +15,18 @@ My process:
 
 Next steps:
 * Upon completion of EdX course, review the material and do all assignments again
-* Create **Wiki** showing Accomplishments
+* Create **Git Page** with [**this** guide](https://guides.github.com/features/pages/) to show Accomplishments
   * Took Class
   * Bought book
   * Document assignments or examples
+  * Include photos of certs, book, Arduino board
+    * make GIF of these
+  * Should be redirected here from **tech**.jeffreysorgen.com ?
+* OPTIONAL: Create **Wiki** showing Accomplishments
 * Create new repository "hello-world-arduino"
-* Document all assignments here in the documentation
+* Jot down ideas for projects here
+  * golf swing
+  * wind turbine
+    * is the popular product TinyML or IoT ?
 
 All I'm doing right now is working with the hello-world readme.md file to practice using Git. After building confidence just with the MD file, I'll start working with CODE
