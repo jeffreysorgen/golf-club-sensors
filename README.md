@@ -21,3 +21,5 @@ Next steps:
   * Document assignments or examples
 * Create new repository "hello-world-arduino"
 * Document all assignments here in the documentation
+
+All I'm doing right now is working with the hello-world readme.md file to practice using Git. After building confidence just with the MD file, I'll start working with CODE
