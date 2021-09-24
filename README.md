@@ -9,11 +9,12 @@ I am Jeff, new here. But __*not*__ new to tech and coding. Python predominantly,
 
 My process:
 
-1. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
-1. **TinyML** Took course for TinyML from EdX (complete)
+1. **Git** Practicing with Repositories, Branches, Commits, Pull Requests, and Merges with [help from this Guide](https://guides.github.com/activities/hello-world/)
+2. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
+3. **TinyML** Took course for TinyML from EdX (complete)
 
 Next steps:
-1. Upon completion, review the course a second time and do all assignments again
+1. Upon completion of EdX course, review the material and do all assignments again
 1. Decide whether these kinds of notes need to be in a **Wiki** instead
 1. Create new repository "hello-world-arduino"
 1. Document all assignments here in the documentation
