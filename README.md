@@ -29,4 +29,4 @@ Next steps:
   * wind turbine
     * is the popular product TinyML or IoT ?
 
-All I'm doing right now is working with the hello-world readme.md file to practice using Git. After building confidence just with the MD file, I'll start working with CODE
+*All I'm doing right now is working with the hello-world readme.md file to practice using Git. After building confidence just with the MD file, I'll start working with CODE*
