@@ -15,8 +15,8 @@ My process:
 1. Define the parts of [golf swing idea (ongoing)](https://github.com/jeffreysorgen/hello-world/blob/main/README.md#golf-swing-idea)
 
 Next steps:
-* Upon completion of EdX course, review the material and do all assignments again
 * Create **Git Page** with [**this** guide](https://guides.github.com/features/pages/) to show Accomplishments
+* Upon completion of EdX course, review the material and do all assignments again
 * Add Accomplishments to **Page**
   * Took Class
   * Bought book
@@ -32,6 +32,14 @@ Next steps:
   * Continue to flesh out golf swing idea, _below_
 
 ### Golf Swing Idea
+
+_This data flow will become clarified as I go through the EdX lessons a second time_
+
+This is a multi-tenancy model. Except for the BLE, the IMU and Microphone function in cascade fashion. 
+The following describes a way of collecting data for a golf swing. 
+It waits for the motion to stop, and then starts looking for the motion of a swing, and then I speak into the microphone 'yes' so that it gains a label, otherwise it is null. 
+The null swings are much more frequent, because the system records everything that follows a pause of motion if the orientation of the device is at the starting position.
+The BLE service provides a way to record data without restrictions. It's simply always on, without needing to go to a cloud service which is typically necessary for IoT devices, because the smartphone application collects the data. Only the smartphone needs to be near the device, within several feet, and the device does not need to connect to anything else. So this system is ideal for remote functionality, even without cellphone service, because a smartphone can connect via Bluetooth to the device without needing wifi or Cell service.
 
 Uses IMU:
 * IMU void loop waits until motion halts, orientation on plane, sets up to record swing motion (event loop)
