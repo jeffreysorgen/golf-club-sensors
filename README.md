@@ -12,21 +12,9 @@ My process:
 1. **Git** Practicing with Repositories, Branches, Commits, Pull Requests, and Merges with [help from this Guide](https://guides.github.com/activities/hello-world/)
 2. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
 3. **TinyML** Took course for TinyML from EdX (complete)
+1. Define the parts of golf swing idea (ongoing)
 
 Next steps:
-* Define the parts of golf swing idea _in separate document_
-  * Uses IMU
-    - loop waits until motion halts, orientation on plane, sets up to record swing motion
-    - MCU records motion event, prompts to listen for KWS 'yes' 
-  * Uses KWS
-    - loop waits for 'yes'
-    - hearing 'yes' records motion event
-      * fills available memory with event
-      * memory approaches full and prompts via BLE
-    - hearing nothing after delay, reverts to IMU loop
-  * Uses BLE
-    - loop waits to connect with BLE smartphone connection
-    - upon connection, motion data sends to smartphone 
 * Upon completion of EdX course, review the material and do all assignments again
 * Create **Git Page** with [**this** guide](https://guides.github.com/features/pages/) to show Accomplishments
 * Add Accomplishments to **Page**
@@ -39,9 +27,9 @@ Next steps:
 * OPTIONAL: Create **Wiki** showing Accomplishments
 * Create new repository "hello-world-arduino"
 * Jot down ideas for projects here
-  * golf swing
   * wind turbine
     * is the popular product TinyML or IoT ?
+  * Continue to flesh out golf swing idea, _below_
 
 ### Golf Swing Idea
 
