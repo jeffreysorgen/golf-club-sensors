@@ -12,7 +12,7 @@ My process:
 1. **Git** Practicing with Repositories, Branches, Commits, Pull Requests, and Merges with [help from this Guide](https://guides.github.com/activities/hello-world/)
 2. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
 3. **TinyML** Took course for TinyML from EdX (complete)
-1. Define the parts of golf swing idea (ongoing)
+1. Define the parts of [golf swing idea (ongoing)](https://github.com/jeffreysorgen/hello-world/blob/main/README.md#golf-swing-idea)
 
 Next steps:
 * Upon completion of EdX course, review the material and do all assignments again
