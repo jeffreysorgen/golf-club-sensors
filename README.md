@@ -14,19 +14,56 @@ My process:
 3. **TinyML** Took course for TinyML from EdX (complete)
 
 Next steps:
+* Define the parts of golf swing idea _in separate document_
+  * Uses IMU
+    - loop waits until motion halts, orientation on plane, sets up to record swing motion
+    - MCU records motion event, prompts to listen for KWS 'yes' 
+  * Uses KWS
+    - loop waits for 'yes'
+    - hearing 'yes' records motion event
+      * fills available memory with event
+      * memory approaches full and prompts via BLE
+    - hearing nothing after delay, reverts to IMU loop
+  * Uses BLE
+    - loop waits to connect with BLE smartphone connection
+    - upon connection, motion data sends to smartphone 
 * Upon completion of EdX course, review the material and do all assignments again
 * Create **Git Page** with [**this** guide](https://guides.github.com/features/pages/) to show Accomplishments
+* Add Accomplishments to **Page**
   * Took Class
   * Bought book
   * Document assignments or examples
   * Include photos of certs, book, Arduino board
     * make GIF of these
-  * Should be redirected here from **tech**.jeffreysorgen.com ?
+* Determine whether **Page** should be redirected here from **tech**.jeffreysorgen.com 
 * OPTIONAL: Create **Wiki** showing Accomplishments
 * Create new repository "hello-world-arduino"
 * Jot down ideas for projects here
   * golf swing
   * wind turbine
     * is the popular product TinyML or IoT ?
+
+### Golf Swing Idea
+
+Uses IMU:
+* IMU void loop waits until motion halts, orientation on plane, sets up to record swing motion (event loop)
+* MCU records motion event
+  - stores motion data
+  - engages KWS loop 
+
+Uses KWS:
+- KWS void loop listens for 'yes'
+- null records label then returns to IMU void loop
+- 'yes' records label then returns to IMU void loop
+
+Uses BLE:
+- data fills available memory with specific number of motion events
+- device connects with BLE and prompts signal from smartphone
+- waits to connect
+- drops data off
+- clears data out
+- returns to IMU void loop
+
+
 
 *All I'm doing right now is working with the hello-world readme.md file to practice using Git. After building confidence just with the MD file, I'll start working with CODE*
