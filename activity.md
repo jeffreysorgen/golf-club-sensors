@@ -6,6 +6,7 @@
 3. **TinyML** Took course for TinyML from EdX (complete)
 4. [**activity.md**](activity.md) (This) Describes my next steps, ideas, and this Completed list
 5. [**golf-swing-idea.md**](golf-swing-idea.md) Defines the parts of my golf swing idea (ongoing)
+6. **GitHub Pages** Added using [this guide](https://guides.github.com/features/pages/) and is accessible [here](https://jeffreysorgen.github.io/hello-world/) (ongoing)
 
 
 
