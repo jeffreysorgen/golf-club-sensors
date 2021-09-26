@@ -1,18 +1,18 @@
-## Golf Swing Idea
+# Golf Swing Idea
 
 _This data flow will become clarified as I go through the EdX lessons a second time_
 
-### Purpose:
+## Purpose:
 
 There are two. First, data collection which is described here. Its architecture expects me to say 'yes' following a good swing. 
 
 The other purpose is to use collected data for an ML model that beeps a signal when it identifies a good practice swing. **Unsure if it's possible to implement both purposes.**
 
-### Physical Description:
+## Physical Description:
 
 Attach a small form factor MCU to the back of a golf club head securely to engage movement sensors.
 
-### Technical Description:
+## Technical Description:
 
 This is a multi-tenancy model. The IMU and Microphone function in cascade fashion. The BLE is always enabled but only transmits during data collection. 
 **The following describes a way to collect data for a golf swing.** 
@@ -20,7 +20,7 @@ It waits for the motion to stop, and then starts looking for the motion of a swi
 The null swings are much more frequent, because the system records everything that follows a pause of motion if the orientation of the device is at the starting position.
 The BLE service provides a way to record data without restrictions. It's simply always on, without needing to go to a cloud service which is typically necessary for IoT devices, because the smartphone application collects the data. Only the smartphone needs to be near the device, within several feet, and the device does not need to connect to anything else. So this system is ideal for remote functionality, even without cellphone service, because a smartphone can connect via Bluetooth to the device without needing wifi or Cell service.
 
-### Flow:
+## Flow:
 
 Uses BLE:
 - Start by connecting the MCU to the smartphone (how is this done?)
