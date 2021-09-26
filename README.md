@@ -17,7 +17,7 @@ Completed:
 1. This README defines the parts of my [golf swing idea](https://github.com/jeffreysorgen/hello-world/blob/main/README.md#golf-swing-idea) (ongoing)
 
 Next steps:
-* Decide if or how to divide hello-world from my-journey, and make my-journey maybe private
+* Decide if or how to divide hello-world from my-progress, my-ideas, my-highlights
 * Create **GitHub Pages** with [**this** guide](https://guides.github.com/features/pages/) to show Accomplishments
 * Upon completion of EdX course, review the material and do all assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files and others)
