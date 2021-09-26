@@ -7,9 +7,17 @@
 4. [**activity.md**](activity.md) (This) Describes my next steps, ideas, and this Completed list
 5. [**golf-swing-idea.md**](golf-swing-idea.md) Defines the parts of my golf swing idea (ongoing)
 
+
+
+
+
+
 ## Next steps:
 * Create **GitHub Pages** with [**this** guide](https://guides.github.com/features/pages/)
   - LEARN about this (doing this now)
+  - Create a TEST site called jdsgithubpages
+  - Verify functionality of new Page
+  - Create another Page by importing the hello-world repository
 * Include in GitHubPages: Progress, Accomplishments, Highlights and Features
 * Upon completion of EdX course, review the material and do all assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files and others)
