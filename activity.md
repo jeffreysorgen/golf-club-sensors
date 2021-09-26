@@ -27,12 +27,12 @@
 * Include in GitHubPages: Progress, Accomplishments, Highlights and Features
   - Progress is recorded in THIS page, Accomplishments or Highlights likely to be ANOTHER page
   - what are GISTS ?
-* Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
 * Create new repository "hello-world-arduino" for book exercise (sine function)
 * Jot down ideas for other projects here
   * wind turbine ( Is the most popular product TinyML or IoT? )
   * Continue to flesh out golf swing idea, [_here_](golf-swing-idea.md)
 * Prototyping with KiCad, OSHPARK, and more
+* Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
 * Determine physical nature of MCU board form factor and its protection from damage
 * Determine whether learning SmartPhone App Development is necessary
 * Not Needed: **Wiki**
