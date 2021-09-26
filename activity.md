@@ -1,5 +1,6 @@
 # Documenting my activity:
-
+## Learning about this:
+KiCad, OSHPARK, GitHub, probably GitBASH
 ## Completed:
 1. **Git** Practicing with Repositories, Branches, Commits, Pull Requests, and Merges with [help from this Guide](https://guides.github.com/activities/hello-world/)
 2. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
@@ -7,8 +8,6 @@
 4. [**activity.md**](activity.md) (This) Describes my next steps, ideas, and this Completed list
 5. [**golf-swing-idea.md**](golf-swing-idea.md) Defines the parts of my golf swing idea (ongoing)
 6. **GitHub Pages** Added using [this guide](https://guides.github.com/features/pages/) and is accessible [here](https://jeffreysorgen.github.io/hello-world/) (ongoing)
-
-
 
 
 
