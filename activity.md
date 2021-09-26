@@ -14,21 +14,18 @@
 
 
 ## Next steps:
-* Create **GitHub Pages** with [**this** guide](https://guides.github.com/features/pages/)
-  - LEARN about this (doing this now)
-  - Create a TEST site called jdsgithubpages
-  - Verify functionality of new Page
-  - Create another Page by importing the hello-world repository
-* Include in GitHubPages: Progress, Accomplishments, Highlights and Features
 * Upon completion of EdX course, review the material and do all assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files and others)
   - **Fully utilize GitHub features and functionality**
-* Add Accomplishments to GitHub Pages
+* Make GIF of Accomplishments
   * Took Class
   * Bought book
   * Document assignments or examples
   * Include photos of certs, book, Arduino board
-    * make GIF of these
+* Continue working with **GitHub Pages** and decide whether to keep the TEST site called _jdsgithubpages_
+* Include in GitHubPages: Progress, Accomplishments, Highlights and Features
+  - Progress is recorded in THIS page, Accomplishments or Highlights likely to be ANOTHER page
+  - what are GISTS ?
 * Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
 * Create new repository "hello-world-arduino" for book exercise (sine function)
 * Jot down ideas for other projects here
