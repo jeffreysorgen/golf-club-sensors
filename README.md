@@ -17,10 +17,9 @@ Completed:
 5. This README defines the parts of my [golf swing idea](https://github.com/jeffreysorgen/hello-world/blob/main/README.md#golf-swing-idea) (ongoing)
 
 Next steps:
-* Create **GitHub Pages** with [**this** guide](https://guides.github.com/features/pages/) to show: 
-  - Progress
-  - Accomplishments
-  - Highlights and Features
+* Create **GitHub Pages** with [**this** guide](https://guides.github.com/features/pages/)
+  - LEARN about this (doing this now)
+* Include in GitHubPages: Progress, Accomplishments, Highlights and Features
 * Upon completion of EdX course, review the material and do all assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files and others)
   - **Fully utilize GitHub features and functionality**
@@ -31,8 +30,6 @@ Next steps:
   * Include photos of certs, book, Arduino board
     * make GIF of these
 * Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
-* Rename 'hello-world' or move this README to the best spot
-* OPTIONAL: Create **Wiki** showing Accomplishments (probably not yet)
 * Create new repository "hello-world-arduino" for book exercise (sine function)
 * Jot down ideas for other projects here
   * wind turbine ( Is the most popular product TinyML or IoT? )
@@ -40,6 +37,7 @@ Next steps:
 * Prototyping with KiCad, OSHPARK, and more
 * Determine physical nature of MCU board form factor and its protection from damage
 * Determine whether learning SmartPhone App Development is necessary
+* Not Needed: **Wiki**
 
 ## Golf Swing Idea
 
