@@ -5,8 +5,8 @@ Completed:
 1. **Git** Practicing with Repositories, Branches, Commits, Pull Requests, and Merges with [help from this Guide](https://guides.github.com/activities/hello-world/)
 2. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
 3. **TinyML** Took course for TinyML from EdX (complete)
-4. This **activity.md** describes my next steps and ideas as well as what's in this Completed list
-5. This README defines the parts of my [golf swing idea](https://github.com/jeffreysorgen/hello-world/blob/main/README.md#golf-swing-idea) (ongoing)
+4. [**activity.md**](activity.md) Describes my next steps, ideas, and this Completed list
+5. [**golf-swing-idea.md**](golf-swing-idea.md) Defines the parts of my golf swing idea (ongoing)
 
 Next steps:
 * Create **GitHub Pages** with [**this** guide](https://guides.github.com/features/pages/)
@@ -25,7 +25,7 @@ Next steps:
 * Create new repository "hello-world-arduino" for book exercise (sine function)
 * Jot down ideas for other projects here
   * wind turbine ( Is the most popular product TinyML or IoT? )
-  * Continue to flesh out golf swing idea, _below_
+  * Continue to flesh out golf swing idea, [_here_](golf-swing-idea.md)
 * Prototyping with KiCad, OSHPARK, and more
 * Determine physical nature of MCU board form factor and its protection from damage
 * Determine whether learning SmartPhone App Development is necessary
