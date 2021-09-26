@@ -3,7 +3,12 @@ Just another repository
 
 Hello Git Community!
 
-I am Jeff, new here. But __*not*__ new to tech and coding. Python predominantly, and beginning with TinyML and Arduino so far, so cpp is also going to be in the mix.
+I am Jeff, new here. But __*not*__ new to tech and coding. I've used Python predominantly, but beginning with TinyML and Arduino, so cpp is also going to be in the mix.
+
+*This hello-world repository was created as I learned Git.*
+
+# copy the text below into a new repository
+call the new repository __the-journey__ or __personal-development__
 
 ## Documenting my activity:
 
