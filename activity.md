@@ -14,6 +14,7 @@
 
 
 ## Next steps:
+* Determine whether to use GitHub Desktop and/or BASH
 * Upon completion of EdX course, review the material and do all assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files and others)
   - **Fully utilize GitHub features and functionality**
