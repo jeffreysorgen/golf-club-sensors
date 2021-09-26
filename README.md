@@ -10,8 +10,7 @@ I am Jeff - new to Git, but __*not*__ new to tech and coding. I've used Python p
 - My activity is documented in [activity.md](activity.md)
 - My golf swing idea is documented in [golf-swing-idea.md](golf-swing-idea.md)
 
-## Learning about this:
-KiCad, OSHPARK, GitHub, probably GitBASH
+##### [insert GIF]
 
 #
 *All I'm doing right now is working with the hello-world readme.md file to practice using Git. After building confidence just with the MD file, I'll start working with CODE*
