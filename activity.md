@@ -1,14 +1,13 @@
-## Documenting my activity:
+# Documenting my activity:
 
-Completed:
-
+## Completed:
 1. **Git** Practicing with Repositories, Branches, Commits, Pull Requests, and Merges with [help from this Guide](https://guides.github.com/activities/hello-world/)
 2. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
 3. **TinyML** Took course for TinyML from EdX (complete)
-4. [**activity.md**](activity.md) Describes my next steps, ideas, and this Completed list
+4. [**activity.md**](activity.md) (This) Describes my next steps, ideas, and this Completed list
 5. [**golf-swing-idea.md**](golf-swing-idea.md) Defines the parts of my golf swing idea (ongoing)
 
-Next steps:
+## Next steps:
 * Create **GitHub Pages** with [**this** guide](https://guides.github.com/features/pages/)
   - LEARN about this (doing this now)
 * Include in GitHubPages: Progress, Accomplishments, Highlights and Features
