@@ -2,8 +2,9 @@
 Just another repository
 
 Hello Git Community!
+I am Jeff - new to Git, but __*not*__ new to tech and coding. I've used Python predominantly, but I'm beginning with TinyML and Arduino, so C++ is also going to be in the mix very soon.
 
-I am Jeff, new here. But __*not*__ new to tech and coding. Python predominantly, and beginning with TinyML and Arduino so far, so cpp is also going to be in the mix.
+*This hello-world repository was created to learn Git and store my progress and ideas.*
 
 ## Documenting my activity:
 
@@ -12,11 +13,14 @@ Completed:
 1. **Git** Practicing with Repositories, Branches, Commits, Pull Requests, and Merges with [help from this Guide](https://guides.github.com/activities/hello-world/)
 2. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
 3. **TinyML** Took course for TinyML from EdX (complete)
-1. This README defines the parts of my [golf swing idea](https://github.com/jeffreysorgen/hello-world/blob/main/README.md#golf-swing-idea) (ongoing)
+4. This README describes my next steps and ideas as well as what's in this Completed list
+5. This README defines the parts of my [golf swing idea](https://github.com/jeffreysorgen/hello-world/blob/main/README.md#golf-swing-idea) (ongoing)
 
 Next steps:
-* Decide how to divide hello-world from my-journey, and make my-journey maybe private
-* Create **GitHub Pages** with [**this** guide](https://guides.github.com/features/pages/) to show Accomplishments
+* Create **GitHub Pages** with [**this** guide](https://guides.github.com/features/pages/) to show: 
+  - Progress
+  - Accomplishments
+  - Highlights and Features
 * Upon completion of EdX course, review the material and do all assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files and others)
   - **Fully utilize GitHub features and functionality**
