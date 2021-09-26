@@ -6,8 +6,9 @@ I am Jeff - new to Git, but __*not*__ new to tech and coding. I've used Python p
 
 *This hello-world repository was created to learn Git and store my progress and ideas.*
 
-My activity is documented in [__activity.md__]
-My golf swing idea is documented in [__golf-swing-idea.md__]
+**Files:**
+- My activity is documented in [activity.md](https://github.com/jeffreysorgen/hello-world/blob/7bd94fe77f16c863a019b92694e90602d6542bdf/activity.md)
+- My golf swing idea is documented in [__golf-swing-idea.md__]
 
 ## Documenting my activity:
 
