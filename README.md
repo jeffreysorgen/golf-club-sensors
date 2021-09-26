@@ -5,10 +5,7 @@ Hello Git Community!
 
 I am Jeff, new here. But __*not*__ new to tech and coding. I've used Python predominantly, but beginning with TinyML and Arduino, so cpp is also going to be in the mix.
 
-*This hello-world repository was created as I learned Git.*
-
-# copy the text below into a new repository
-call the new repository __the-journey__ or __personal-development__
+*This hello-world repository was created to learn Git.*
 
 ## Documenting my activity:
 
@@ -20,7 +17,7 @@ Completed:
 1. This README defines the parts of my [golf swing idea](https://github.com/jeffreysorgen/hello-world/blob/main/README.md#golf-swing-idea) (ongoing)
 
 Next steps:
-* Decide how to divide hello-world from my-journey, and make my-journey maybe private
+* Decide if or how to divide hello-world from my-journey, and make my-journey maybe private
 * Create **GitHub Pages** with [**this** guide](https://guides.github.com/features/pages/) to show Accomplishments
 * Upon completion of EdX course, review the material and do all assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files and others)
