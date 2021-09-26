@@ -8,7 +8,7 @@ I am Jeff - new to Git, but __*not*__ new to tech and coding. I've used Python p
 
 **Files:**
 - My activity is documented in [activity.md](https://github.com/jeffreysorgen/hello-world/blob/7bd94fe77f16c863a019b92694e90602d6542bdf/activity.md)
-- My golf swing idea is documented in [__golf-swing-idea.md__]
+- My golf swing idea is documented in [golf-swing-idea.md](https://github.com/jeffreysorgen/hello-world/blob/7b07c321b45f928e86106f0fd99a9ded52c8264f/golf-swing-idea.md)
 
 ## Documenting my activity:
 
