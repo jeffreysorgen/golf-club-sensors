@@ -13,18 +13,21 @@ KiCad, LTspice, OSHPARK, GitHub, probably GitBASH
 
 
 ## Next steps:
+Step one of [Golf Swing](golf-swing-idea.md) project is BLE:
+  1. _LEARN_ Install Git locally
+  1. Prepare a new repository, "ArduinoBLE-to-Android"
+  5. Push local code to Git repository
+
+#
+#### Future next steps:
 * Repeat EdX course material, do all TinyML assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files, c files and others)
   - **Fully utilize GitHub features and functionality**
-####
-* Identify Necessary Code for the [Golf Swing](golf-swing-idea.md) project
-  - BLE: First step is using BLE in the background
-    1. Prepare a new repository, "ArduinoBLE-to-Android"
 
 
 
 
-#
+###
 * Create new repository "hello-world-arduino" for book exercise (sine function)
 * Determine whether to use GitHub Desktop and/or BASH
 * Continue recording progress in THIS page
