@@ -4,7 +4,8 @@
 - [Next Steps](#next-steps)
   - [future next steps](#future-next-steps)
 ## Learning about this:
-KiCad, LTspice, OSHPARK, GitHub, probably GitBASH
+- GitHub Desktop, KiCad, LTspice, OSHPARK, probably GitBASH
+- Arduino Components and code requirements
 ## Completed:
 1. **Git** Practicing with Repositories, Branches, Commits, Pull Requests, and Merges with [help from this Guide](https://guides.github.com/activities/hello-world/)
 2. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
