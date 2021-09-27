@@ -20,7 +20,7 @@ KiCad, LTspice, OSHPARK, GitHub, probably GitBASH
 ## Next steps:
 Step one of [Golf Swing](golf-swing-idea.md) project is BLE
 - What are the next steps?
-  - watch video
+  - watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
   - implement BLE
   - if possible, copy the code I use for this step into the repo, _ArduinoBLE-to-Android_
 
