@@ -1,4 +1,5 @@
 # Documenting my activity:
+[Learning about this](#learning-about-this)
 ## Learning about this:
 KiCad, LTspice, OSHPARK, GitHub, probably GitBASH
 ## Completed:
