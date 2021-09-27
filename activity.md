@@ -1,6 +1,6 @@
 # Documenting my activity:
 ## Learning about this:
-KiCad, OSHPARK, GitHub, probably GitBASH
+KiCad, LTspice, OSHPARK, GitHub, probably GitBASH
 ## Completed:
 1. **Git** Practicing with Repositories, Branches, Commits, Pull Requests, and Merges with [help from this Guide](https://guides.github.com/activities/hello-world/)
 2. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
@@ -13,19 +13,20 @@ KiCad, OSHPARK, GitHub, probably GitBASH
 
 
 ## Next steps:
-* Determine whether to use GitHub Desktop and/or BASH
-* Upon completion of EdX course, review the material and do all assignments again
-  - Include Jupyter Notebooks, Python, C++ (the h files and others)
+* Repeat EdX course material, do all TinyML assignments again
+  - Include Jupyter Notebooks, Python, C++ (the h files, c files and others)
   - **Fully utilize GitHub features and functionality**
-* Continue working with **GitHub Pages** and decide whether to keep the TEST site called _jdsgithubpages_
-* Include in GitHubPages: Progress, Accomplishments, Highlights and Features
-  - Progress is recorded in THIS page, Accomplishments or Highlights likely to be ANOTHER page
-  - what are GISTS ?
+####
 * Create new repository "hello-world-arduino" for book exercise (sine function)
+* Determine whether to use GitHub Desktop and/or BASH
+* Continue recording progress in THIS page
+  - Accomplishments or Highlights likely to be ANOTHER page
+  - What are GISTS ?
 * Jot down ideas for other projects here
   * wind turbine ( Is the most popular product TinyML or IoT? )
   * Continue to flesh out golf swing idea, [_here_](golf-swing-idea.md)
 * Prototyping with KiCad, OSHPARK, and more
+* Determine whether to keep the TEST site called _jdsgithubpages_
 * Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
 * Determine physical nature of MCU board form factor and its protection from damage
 * Determine whether learning SmartPhone App Development is necessary
