@@ -2,6 +2,7 @@
 - [Learning about this](#learning-about-this)
 - [Completed](#completed)
 - [Next Steps](#next-steps)
+  - [future next steps](#future-next-steps)
 ## Learning about this:
 KiCad, LTspice, OSHPARK, GitHub, probably GitBASH
 ## Completed:
@@ -22,6 +23,8 @@ Step one of [Golf Swing](golf-swing-idea.md) project is BLE
 - What are the next steps?
   - watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
   - implement BLE
+    - What code was used? Can it be included in this documentation?
+    - Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_
   - if possible, copy the code I use for this step into the repo, _ArduinoBLE-to-Android_
   - **DOCUMENT** this activity and requirements
 Determine whether to open new golf-swing-steps.MD to describe the process of building this
