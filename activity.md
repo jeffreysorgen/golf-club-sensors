@@ -17,6 +17,7 @@ KiCad, LTspice, OSHPARK, GitHub, probably GitBASH
   - Include Jupyter Notebooks, Python, C++ (the h files, c files and others)
   - **Fully utilize GitHub features and functionality**
 ####
+* Identify Parts to Code for the [Golf Swing](golf-swing-idea.md) project
 * Create new repository "hello-world-arduino" for book exercise (sine function)
 * Determine whether to use GitHub Desktop and/or BASH
 * Continue recording progress in THIS page
