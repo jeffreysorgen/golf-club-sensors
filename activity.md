@@ -24,6 +24,14 @@
 What are the next steps?
 - Watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
 - Implement BLE. What code is used? Can it be included in this documentation?
+  - First thing I'm going to do is...
+    - Move the computer to the table, then plug in the Arduino, find the correct ports, upload the sketch given in the video
+    - Now BLE is enabled and can be found with my phone
+    - So connect with my phone
+    - **JOB DONE**
+    - Now enable one of the sensors, read it within the phone app
+    - Can this sensor trigger a Yes/No or On/Off?
+    - If so, then can the phone app trigger a vibration or a beep?
   - Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_
 - If possible, copy the code I use for this step into the repo, _ArduinoBLE-to-Android_
 - **DOCUMENT** this activity and requirements
