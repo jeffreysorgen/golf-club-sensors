@@ -17,11 +17,6 @@ KiCad, OSHPARK, GitHub, probably GitBASH
 * Upon completion of EdX course, review the material and do all assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files and others)
   - **Fully utilize GitHub features and functionality**
-* Make GIF of Accomplishments
-  * Took Class
-  * Bought book
-  * Document assignments or examples
-  * Include photos of certs, book, Arduino board
 * Continue working with **GitHub Pages** and decide whether to keep the TEST site called _jdsgithubpages_
 * Include in GitHubPages: Progress, Accomplishments, Highlights and Features
   - Progress is recorded in THIS page, Accomplishments or Highlights likely to be ANOTHER page
@@ -34,4 +29,5 @@ KiCad, OSHPARK, GitHub, probably GitBASH
 * Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
 * Determine physical nature of MCU board form factor and its protection from damage
 * Determine whether learning SmartPhone App Development is necessary
+* Not Needed: GIF of photos of certs, book, Arduino board, etc (not yet)
 * Not Needed: **Wiki**
