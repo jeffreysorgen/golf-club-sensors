@@ -22,7 +22,7 @@ Step one of [Golf Swing](golf-swing-idea.md) project is BLE
 - What are the next steps?
   - watch video
   - implement BLE
-  - copy the code I use into the repo
+  - if possible, copy the code I use for this step into the repo, _ArduinoBLE-to-Android_
 
 
 
