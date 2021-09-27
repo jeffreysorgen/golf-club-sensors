@@ -1,7 +1,7 @@
 # Documenting my activity:
-[Learning about this](#learning-about-this)
-[Completed](#completed)
-[Next Steps](#next-steps)
+- [Learning about this](#learning-about-this)
+- [Completed](#completed)
+- [Next Steps](#next-steps)
 ## Learning about this:
 KiCad, LTspice, OSHPARK, GitHub, probably GitBASH
 ## Completed:
