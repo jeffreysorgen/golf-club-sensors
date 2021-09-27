@@ -23,6 +23,9 @@ Step one of [Golf Swing](golf-swing-idea.md) project is BLE
   - watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
   - implement BLE
   - if possible, copy the code I use for this step into the repo, _ArduinoBLE-to-Android_
+  - **DOCUMENT** this activity and requirements
+Determine whether to open new golf-swing-steps.MD to describe the process of building this
+  - it is separate from simply being an idea, and is now in the execution stage
 
 
 
