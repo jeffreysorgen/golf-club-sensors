@@ -20,16 +20,15 @@
 
 
 ## Next steps:
-Step one of [Golf Swing](golf-swing-idea.md) project is BLE
-- What are the next steps?
-  - watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
-  - implement BLE
-    - What code was used? Can it be included in this documentation?
-    - Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_
-  - if possible, copy the code I use for this step into the repo, _ArduinoBLE-to-Android_
-  - **DOCUMENT** this activity and requirements
-Determine whether to open new golf-swing-steps.MD to describe the process of building this
-  - it is separate from simply being an idea, and is now in the execution stage
+### Step one of [Golf Swing](golf-swing-idea.md) project is BLE
+What are the next steps?
+- Watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
+- Implement BLE. What code is used? Can it be included in this documentation?
+  - Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_
+- If possible, copy the code I use for this step into the repo, _ArduinoBLE-to-Android_
+- **DOCUMENT** this activity and requirements
+- Determine whether to open new golf-swing-steps.md to describe building process
+  - This is out of the idea stage, and is now in the execution stage
 
 
 
