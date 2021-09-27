@@ -8,16 +8,15 @@ KiCad, LTspice, OSHPARK, GitHub, probably GitBASH
 4. [**activity.md**](activity.md) (This) Describes my next steps, ideas, and this Completed list
 5. [**golf-swing-idea.md**](golf-swing-idea.md) Defines the parts of my golf swing idea (ongoing)
 6. **GitHub Pages** Added using [this guide](https://guides.github.com/features/pages/) and is accessible [here](https://jeffreysorgen.github.io/hello-world/) (ongoing)
+7. Changed hello-world (this) repository to **PRIVATE**, so it isn't publicly available now on GitHub Pages either
+8. Installed **GitHub Desktop**, added ArduinoBLE-to-Android repository via Desktop
 
 
 
 
 ## Next steps:
-Step one of [Golf Swing](golf-swing-idea.md) project is BLE:
-  1. _LEARN_ Install Git locally
-  1. Prepare a new repository, "ArduinoBLE-to-Android"
-  5. Push local code to Git repository
-
+Step one of [Golf Swing](golf-swing-idea.md) project is BLE
+- What are the next steps?
 #
 #### Future next steps:
 * Repeat EdX course material, do all TinyML assignments again
