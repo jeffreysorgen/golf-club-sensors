@@ -21,22 +21,16 @@
 
 ## Next steps:
 ### Step one of [Golf Swing](golf-swing-idea.md) project is BLE
-What are the next steps?
+What are the next steps? _(The purpose here is to provide elaborate detail)_
 - Watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
-- Implement BLE. What code is used? Can it be included in this documentation?
-  - First thing I'm going to do is...
-    - Move the computer to the table, then plug in the Arduino, find the correct ports, upload the sketch given in the video
-    - Now BLE is enabled and can be found with my phone
-    - So connect with my phone
-    - **JOB DONE**
-    - Now enable one of the sensors, read it within the phone app
-    - Can this sensor trigger a Yes/No or On/Off?
-    - If so, then can the phone app trigger a vibration or a beep?
-  - Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_
+- Implement BLE. (What code is used? Can it be included in this documentation?)
+  - Move the computer to the table, then plug in the Arduino, find the correct ports
+  - **LABEL** this device in the code. Upload the sketch.
+  - Install the app in the smartphone, and connect to the BLE device
+- Enable a sensor and read it within the phone app. Can this sensor trigger a Yes/No or On/Off? Can the phone app trigger a vibration or a beep? Is this where **App Development** comes in? Turn on/off the phone's flashlight?
 - If possible, copy the code I use for this step into the repo, _ArduinoBLE-to-Android_
-- **DOCUMENT** this activity and requirements
-- Determine whether to open new golf-swing-steps.md to describe building process
-  - This is out of the idea stage, and is now in the execution stage
+- **DOCUMENT** this activity and requirements. Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. Decide whether to include these steps in a **BLOG**
+- Determine whether to open new _golf-swing-steps.md_ to describe building process. This is out of the idea stage, and is now in the execution stage.
 
 
 
@@ -61,6 +55,7 @@ What are the next steps?
 * Prototyping with KiCad, OSHPARK, and more
 * Determine whether to keep the TEST site called _jdsgithubpages_
 * Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
+  - Enable blogging somehow, with or without repositories, to publicly document actions taken
 * Determine physical nature of MCU board form factor and its protection from damage
 * Determine whether learning SmartPhone App Development is necessary
 * Not Needed: GIF of photos of certs, book, Arduino board, etc (not yet)
