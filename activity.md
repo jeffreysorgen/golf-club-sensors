@@ -16,8 +16,7 @@
 
 
 ## Next steps:
-* Develop [Flow for Golf Swing sensors](#flow-for-golf-swing-sensors)
-  - Set up BLE and Magnetometer
+* Set up BLE and Magnetometer (and document)
 * Develop [Testing for Golf Swing sensors](#setting-up-and-testing-the-sensors)
 * Repeat EdX course material, do all TinyML assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files, c files and others)
@@ -69,7 +68,7 @@
 Enable a sensor and TEST. Set up serial monitor displaying orientation, and signal "yes" that it senses that the orientation is at described 'zero' orientation. When it pulls away from that orientation, it continues to wait for it to get there again. And after 30 seconds, will stop looking. Pings the device every 5 to 10 seconds for that orientation, and remains idle until zero orientation is found.
 
 
-
+#### To Do:
 - Enable the magnetometer. Edit magnetometer sketch. Show Arduino is or is not oriented at 'zero'
   - Find magnetometer sketch
   - Upload sketch
