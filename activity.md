@@ -49,6 +49,7 @@ Enable a sensor and TEST. Set up serial monitor displaying orientation, and sign
   - Connect BLE to phone app
   - Watch phone app monitor for "Yes"
   - **Develop APP that can beep when it sees "Yes"**
+    - [nRF Connect SDK](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
 ###
 - For BLE, watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
 - Implement BLE. (What code is used? Can it be included in this documentation?)
