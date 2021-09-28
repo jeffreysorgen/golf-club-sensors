@@ -38,9 +38,19 @@
   - _Silent (or low tone) if no match_
 
 #### Setting up and testing the sensors:
-- Enable a sensor and TEST. Set up serial monitor displaying orientation, and signal "yes" that it senses that the orientation is at described 'zero' orientation. When it pulls away from that orientation, it continues to wait for it to get there again. And after 30 seconds, will stop looking. Pings the device every 5 to 10 seconds for that orientation, and remains idle until zero orientation is found.
-  - **LEARN** what part of the IMU is the right sensor that can show 'zero orientation'
-  - Enable the Magnetometer. (Likely not accelerometer nor gyro.) 
+Enable a sensor and TEST. Set up serial monitor displaying orientation, and signal "yes" that it senses that the orientation is at described 'zero' orientation. When it pulls away from that orientation, it continues to wait for it to get there again. And after 30 seconds, will stop looking. Pings the device every 5 to 10 seconds for that orientation, and remains idle until zero orientation is found.
+- Enable the magnetometer. Edit magnetometer sketch. Show Arduino is or is not oriented at 'zero'
+  - Find magnetometer sketch
+  - Upload sketch
+  - Enable serial monitor
+  - Watch orientation of magnetometer
+  - Edit sketch to identify whether orientation is zero=yes or zero=no.
+  - Upload sketch
+  - Enable serial monitor and watch for "Yes"
+  - Connect BLE to phone app
+  - Watch phone app monitor for "Yes"
+  - **Develop APP that can beep when it sees "Yes"**
+###
 - For BLE, watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
 - Implement BLE. (What code is used? Can it be included in this documentation?)
   - Move the computer to the table, then plug in the Arduino, find the correct ports
