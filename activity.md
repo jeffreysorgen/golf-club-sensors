@@ -1,10 +1,5 @@
 # Documenting my activity:
-- [Learning about this](#learning-about-this)
-- [Completed](#completed)
-- [Next Steps](#next-steps)
-  - [flow for golf swing sensors](#flow-for-golf-swing-sensors)
-  - [setting up and testing the sensors](#setting-up-and-testing-the-sensors)
-## Learning about this:
+**Learning about this:**
 - GitHub Desktop, KiCad, LTspice, OSHPARK, probably GitBASH
 - Arduino Components and code requirements
 ## Completed:
