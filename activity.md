@@ -20,18 +20,15 @@
 
 
 ## Next steps:
-
 * Develop [Flow for Golf Swing sensors](#flow-for-golf-swing-sensors)
+  - Set up BLE and Magnetometer
 * Develop [Testing for Golf Swing sensors](#setting-up-and-testing-the-sensors)
-###
 * Repeat EdX course material, do all TinyML assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files, c files and others)
   - **Fully utilize GitHub features and functionality**
-
-
-
-
 ###
+
+
 * Create new repository "hello-world-arduino" for book exercise (sine function)
 * Determine whether to use GitHub Desktop and/or BASH
 * Continue recording progress in THIS page
@@ -52,7 +49,9 @@
 
 
 
-#### Flow for [Golf Swing](golf-swing-idea.md) sensors:
+
+### Flow for [Golf Swing](golf-swing-idea.md) sensors:
+
 - **BLE** is enabled when the device is powered, waits for pairing forever.
 - Pairs with phone app.
 - Clear device buffer and **begin loop**
@@ -67,8 +66,14 @@
   - _Beep/buzz if good swing_
   - _Silent (or low tone) if no match_
 
-#### Setting up and testing the sensors:
+
+
+
+### Setting up and testing the sensors:
 Enable a sensor and TEST. Set up serial monitor displaying orientation, and signal "yes" that it senses that the orientation is at described 'zero' orientation. When it pulls away from that orientation, it continues to wait for it to get there again. And after 30 seconds, will stop looking. Pings the device every 5 to 10 seconds for that orientation, and remains idle until zero orientation is found.
+
+
+
 - Enable the magnetometer. Edit magnetometer sketch. Show Arduino is or is not oriented at 'zero'
   - Find magnetometer sketch
   - Upload sketch
