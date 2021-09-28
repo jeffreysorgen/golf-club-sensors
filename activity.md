@@ -22,12 +22,15 @@
 ## Next steps:
 ### Step one of [Golf Swing](golf-swing-idea.md) project is BLE
 What are the next steps? _(The purpose here is to provide elaborate detail)_
-- Watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
+- Enable a sensor and TEST. Set up serial monitor displaying orientation, and signal "yes" that it senses that the orientation is at described 'zero' orientation. When it pulls away from that orientation, it continues to wait for it to get there again. And after 30 seconds, will stop looking. Pings the device every 5 to 10 seconds for that orientation, and remains idle until zero orientation is found.
+  - **LEARN** what part of the IMU is the right sensor that can show 'zero orientation'
+  - Enable the Magnetometer. (Likely not accelerometer nor gyro.) 
+- For BLE, watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
 - Implement BLE. (What code is used? Can it be included in this documentation?)
   - Move the computer to the table, then plug in the Arduino, find the correct ports
   - **LABEL** this device in the code. Upload the sketch.
   - Install the app in the smartphone, and connect to the BLE device
-- Enable a sensor and read it within the phone app. Can this sensor trigger a Yes/No or On/Off? Can the phone app trigger a vibration or a beep? Is this where **App Development** comes in? Turn on/off the phone's flashlight?
+- connect to smartphone and read sensor within the phone app. Can this sensor trigger a Yes/No or On/Off? Can the phone app trigger a vibration or a beep? Is this where **App Development** comes in? Turn on/off the phone's flashlight?
 - If possible, copy the code I use for this step into the repo, _ArduinoBLE-to-Android_
 - **DOCUMENT** this activity and requirements. Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. Decide whether to include these steps in a **BLOG**
 - Determine whether to open new _golf-swing-steps.md_ to describe building process. This is out of the idea stage, and is now in the execution stage.
