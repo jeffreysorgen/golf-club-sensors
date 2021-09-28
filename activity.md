@@ -21,8 +21,8 @@
 
 ## Next steps:
 
-* Develop Flow for Golf Swing sensors - [flow for golf swing sensors](#flow-for-golf-swing-sensors)
-* Develop Testing for Golf Swing sensors
+* Develop [Flow for Golf Swing sensors](#flow-for-golf-swing-sensors)
+* Develop [Testing for Golf Swing sensors](#setting-up-and-testing-the-sensors)
 ###
 * Repeat EdX course material, do all TinyML assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files, c files and others)
