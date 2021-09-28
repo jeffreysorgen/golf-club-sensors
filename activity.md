@@ -2,6 +2,7 @@
 - [Learning about this](#learning-about-this)
 - [Completed](#completed)
 - [Next Steps](#next-steps)
+  - [flow for golf swing sensors](#flow-for-golf-swing-sensors)
   - [future next steps](#future-next-steps)
 ## Learning about this:
 - GitHub Desktop, KiCad, LTspice, OSHPARK, probably GitBASH
@@ -20,7 +21,7 @@
 
 
 ## Next steps:
-### [Golf Swing](golf-swing-idea.md) sensors:
+#### Flow for [Golf Swing](golf-swing-idea.md) sensors:
 - **BLE** is enabled when the device is powered, waits for pairing forever.
 - Pairs with phone app.
 - Clear device buffer and **begin loop**
@@ -35,7 +36,7 @@
   - _Beep/buzz if good swing_
   - _Silent (or low tone) if no match_
 
-##
+#### Setting up and testing the sensors:
 - Enable a sensor and TEST. Set up serial monitor displaying orientation, and signal "yes" that it senses that the orientation is at described 'zero' orientation. When it pulls away from that orientation, it continues to wait for it to get there again. And after 30 seconds, will stop looking. Pings the device every 5 to 10 seconds for that orientation, and remains idle until zero orientation is found.
   - **LEARN** what part of the IMU is the right sensor that can show 'zero orientation'
   - Enable the Magnetometer. (Likely not accelerometer nor gyro.) 
