@@ -4,7 +4,6 @@
 - [Next Steps](#next-steps)
   - [flow for golf swing sensors](#flow-for-golf-swing-sensors)
   - [setting up and testing the sensors](#setting-up-and-testing-the-sensors)
-  - [future next steps](#future-next-steps)
 ## Learning about this:
 - GitHub Desktop, KiCad, LTspice, OSHPARK, probably GitBASH
 - Arduino Components and code requirements
@@ -21,6 +20,38 @@
 
 
 ## Next steps:
+
+* Develop Flow for Golf Swing sensors - [flow for golf swing sensors](#flow-for-golf-swing-sensors)
+* Develop Testing for Golf Swing sensors
+###
+* Repeat EdX course material, do all TinyML assignments again
+  - Include Jupyter Notebooks, Python, C++ (the h files, c files and others)
+  - **Fully utilize GitHub features and functionality**
+
+
+
+
+###
+* Create new repository "hello-world-arduino" for book exercise (sine function)
+* Determine whether to use GitHub Desktop and/or BASH
+* Continue recording progress in THIS page
+  - Accomplishments or Highlights likely to be ANOTHER page
+  - What are GISTS ?
+* Jot down ideas for other projects here
+  * wind turbine ( Is the most popular product TinyML or IoT? )
+  * Continue to flesh out golf swing idea, [_here_](golf-swing-idea.md)
+* Prototyping with KiCad, OSHPARK, and more
+* Determine whether to keep the TEST site called _jdsgithubpages_
+* Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
+  - Enable blogging somehow, with or without repositories, to publicly document actions taken
+* Determine physical nature of MCU board form factor and its protection from damage
+* Determine whether learning SmartPhone App Development is necessary
+* Not Needed: GIF of photos of certs, book, Arduino board, etc (not yet)
+* Not Needed: **Wiki**
+
+
+
+
 #### Flow for [Golf Swing](golf-swing-idea.md) sensors:
 - **BLE** is enabled when the device is powered, waits for pairing forever.
 - Pairs with phone app.
@@ -62,30 +93,3 @@ Enable a sensor and TEST. Set up serial monitor displaying orientation, and sign
 - Determine whether to open new _golf-swing-steps.md_ to describe building process. This is out of the idea stage, and is now in the execution stage.
 
 
-
-#
-#### Future next steps:
-* Repeat EdX course material, do all TinyML assignments again
-  - Include Jupyter Notebooks, Python, C++ (the h files, c files and others)
-  - **Fully utilize GitHub features and functionality**
-
-
-
-
-###
-* Create new repository "hello-world-arduino" for book exercise (sine function)
-* Determine whether to use GitHub Desktop and/or BASH
-* Continue recording progress in THIS page
-  - Accomplishments or Highlights likely to be ANOTHER page
-  - What are GISTS ?
-* Jot down ideas for other projects here
-  * wind turbine ( Is the most popular product TinyML or IoT? )
-  * Continue to flesh out golf swing idea, [_here_](golf-swing-idea.md)
-* Prototyping with KiCad, OSHPARK, and more
-* Determine whether to keep the TEST site called _jdsgithubpages_
-* Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
-  - Enable blogging somehow, with or without repositories, to publicly document actions taken
-* Determine physical nature of MCU board form factor and its protection from damage
-* Determine whether learning SmartPhone App Development is necessary
-* Not Needed: GIF of photos of certs, book, Arduino board, etc (not yet)
-* Not Needed: **Wiki**
