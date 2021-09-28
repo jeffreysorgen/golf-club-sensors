@@ -21,20 +21,22 @@
 
 ## Next steps:
 ### [Golf Swing](golf-swing-idea.md) sensors:
-- **BLE** engages when the device is powered, waits for pairing forever.
+- **BLE** is enabled when the device is powered, waits for pairing forever.
 - Pairs with phone app.
-- Then engages mag/acc/gyro, which waits for stillness (no movement)
-- Mag then identifies direction of gravity. When Mag is away from gravity=zero, device loops until Mag finds it again.
+- Enables mag/acc/gyro, then acc/gyro wait for stillness (no movement)
+- Mag then identifies direction of gravity.
 - Acc/gyro starts recording movement. 
-- **Collection mode:** After movement, enables microphone. (_How long is duration of movement? How does it know?_)
+- **Collection mode:** After movement, enables microphone.
 - **Microphone** listens for 3 seconds, and records Null, unless it hears "yes" (**This is KWS**)
 - Sends data points to phone app.
-- **Inference mode:** Checks data points with **MODEL**
-  - Beep/buzz if good swing
-  - Silent (or low tone) if no match
 - Record data points in phone app with label. (_Is collection and inference possible together?_)
-- Clear device buffer. (_how?_)
-- Engage mag/acc/gyro again, and wait for stillness (_LOOP_)
+- _**Inference mode:** Checks data points with **MODEL**_
+  - _Beep/buzz if good swing_
+  - _Silent (or low tone) if no match_
+- Clear device buffer.
+- Magnetometer waits for gravity=zero orientation.
+- Acc/gyro waits for stillness (no movement)
+- Acc/gyro starts recording movement
 
 
 ##
