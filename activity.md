@@ -23,8 +23,11 @@
 ### [Golf Swing](golf-swing-idea.md) sensors:
 - **BLE** is enabled when the device is powered, waits for pairing forever.
 - Pairs with phone app.
-- Enables mag/acc/gyro, then acc/gyro wait for stillness (no movement)
-- Mag then identifies direction of gravity.
+#### LOOP
+- Clear device buffer
+- Enable mag/acc/gyro
+- Mag/acc/gyro wait for stillness (no movement)
+- Mag then identifies direction of gravity=zero.
 - Acc/gyro starts recording movement. 
 - **Collection mode:** After movement, enables microphone.
 - **Microphone** listens for 3 seconds, and records Null, unless it hears "yes" (**This is KWS**)
@@ -33,11 +36,7 @@
 - _**Inference mode:** Checks data points with **MODEL**_
   - _Beep/buzz if good swing_
   - _Silent (or low tone) if no match_
-- Clear device buffer.
-- Magnetometer waits for gravity=zero orientation.
-- Acc/gyro waits for stillness (no movement)
-- Acc/gyro starts recording movement
-
+[Loop](#loop)
 
 ##
 - Enable a sensor and TEST. Set up serial monitor displaying orientation, and signal "yes" that it senses that the orientation is at described 'zero' orientation. When it pulls away from that orientation, it continues to wait for it to get there again. And after 30 seconds, will stop looking. Pings the device every 5 to 10 seconds for that orientation, and remains idle until zero orientation is found.
