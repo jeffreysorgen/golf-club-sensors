@@ -16,8 +16,7 @@
 
 
 ## Next steps:
-* Set up BLE and Magnetometer (and document)
-* Develop [Testing for Golf Swing sensors](#setting-up-and-testing-the-sensors)
+* [Set up](#setting-up-and-testing-the-sensors) BLE and Magnetometer (and document)
 * Repeat EdX course material, do all TinyML assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files, c files and others)
   - **Fully utilize GitHub features and functionality**
