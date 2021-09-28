@@ -1,5 +1,5 @@
 # Documenting my activity:
-## Learning about this:
+**Learning about this:**
 - GitHub Desktop, KiCad, LTspice, OSHPARK, probably GitBASH
 - Arduino Components and code requirements
 ## Completed:
