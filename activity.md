@@ -3,6 +3,7 @@
 - [Completed](#completed)
 - [Next Steps](#next-steps)
   - [flow for golf swing sensors](#flow-for-golf-swing-sensors)
+  - [setting up and testing the sensors](#setting-up-and-testing-the-sensors)
   - [future next steps](#future-next-steps)
 ## Learning about this:
 - GitHub Desktop, KiCad, LTspice, OSHPARK, probably GitBASH
