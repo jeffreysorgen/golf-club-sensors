@@ -16,12 +16,20 @@
 
 
 ## Next steps:
-* [Set up](#setting-up-and-testing-the-sensors) BLE and Magnetometer (and document)
+### [Set up](#setting-up-and-testing-the-sensors) BLE and Magnetometer (and document)
+**Learn how to edit Arduino sketches!**
+
+#
 * Repeat EdX course material, do all TinyML assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files, c files and others)
   - **Fully utilize GitHub features and functionality**
-###
 
+
+
+
+
+
+###
 #### Future Steps:
 * Create new repository "hello-world-arduino" for book exercise (sine function)
 * Determine whether to use GitHub Desktop and/or BASH
