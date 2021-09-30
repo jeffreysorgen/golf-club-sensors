@@ -17,10 +17,14 @@
 
 ## Next steps:
 ### [Set up](#setting-up-and-testing-the-sensors) BLE and Magnetometer (and document)
-**Learn how to edit Arduino sketches!**
-- What are the specific physical instruments needed to determine whether the motion has stopped.
-  - I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
-    - reduce the sample rate 50%
+**Learn how to edit Arduino sketches!** (Created _test_IMU_custom.ino_ sketch)
+- __QUESTION__ What are the specific physical instruments needed to determine whether the motion has stopped. I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
+- **Slow down the sensor (do we need so many data points?)** In the SETUP loop, change the baud rate to lowest --> _Serial.begin(300);_ <-- from 9600
+#### Need yes/no for orientation of device
+Attach device to stick, orient in start [img] position, compare to opposite (rest) position [img]
+- use the Magnetometer readings to read its orientation
+
+
 
 #
 * Repeat EdX course material, do all TinyML assignments again
