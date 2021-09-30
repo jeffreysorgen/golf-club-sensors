@@ -23,6 +23,8 @@
 #### Need yes/no for orientation of device
 Attach device to stick, orient in start [img] position, compare to opposite (rest) position [img]
 - use the Magnetometer readings to read its orientation
+- The readings of the magnetometer, according to the setup in the images: if Y < X and Y < Z then orientation is in start position. So if y axis is less than the other two readings, then the device is in start position. The opposite is true. If Y is greater than the other 2 axes, then the device is idle and in rest, and is meant to WAIT for its orientation to return to the start position.
+     
 
 
 
