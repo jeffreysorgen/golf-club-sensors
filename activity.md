@@ -21,7 +21,11 @@
 - __QUESTION__ What are the specific physical instruments needed to determine whether the motion has stopped. I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
 - **Slow down the sensor (do we need so many data points?)** In the SETUP loop, change the baud rate to lowest --> _Serial.begin(300);_ <-- from 9600
 #### Need yes/no for orientation of device
-Attach device to stick, orient in start [img] position, compare to opposite (rest) position [img]
+Attach the device to a stick, oriented horizontally as shown. [image]
+[image] Start position, Y is less than both X and Z
+[image] Readings of the magnetometer
+[image] Rest position, where Y is greater than both X and Z
+
 - use the Magnetometer readings to read its orientation
 - The readings of the magnetometer, according to the setup in the images: if Y < X and Y < Z then orientation is in start position. So if y axis is less than the other two readings, then the device is in start position. The opposite is true. If Y is greater than the other 2 axes, then the device is idle and in rest, and is meant to WAIT for its orientation to return to the start position.
      
