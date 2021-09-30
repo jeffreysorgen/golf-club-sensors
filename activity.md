@@ -22,6 +22,12 @@
 - **Slow down the sensor (do we need so many data points?)** In the SETUP loop, change the baud rate to lowest --> _Serial.begin(300);_ <-- from 9600
 #### Need yes/no for orientation of device
 Attach the device to a stick, oriented horizontally as shown. [image]
+
+
+![attaching to a stick](https://user-images.githubusercontent.com/1236972/135545232-df909558-4230-4abe-8ede-7ffe137fa94c.png)
+
+
+
 [image] Start position, Y is less than both X and Z
 [image] Readings of the magnetometer
 [image] Rest position, where Y is greater than both X and Z
