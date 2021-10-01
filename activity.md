@@ -30,7 +30,7 @@
 ### Use the Magnetometer readings to determine its orientation to get start/rest orientation of the device
 Attach the device to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is back in the golf bag._
 
-#### Images: (1)Attach the device to a stick (2)Start orientation (3)Device orientation (4)Rest orientation
+#### Images: (1)Attach the device to a stick (2)Rest orientation (3)Device orientation (4)Start orientation
 
 (1)<img src="https://user-images.githubusercontent.com/1236972/135545687-3e1b9fda-1544-4802-93a2-572b97b9b99b.png" width="20%">
 (2)<img src="https://user-images.githubusercontent.com/1236972/135545966-edb098fe-ab01-4e57-8c80-1988ad779186.png" width="20%">
