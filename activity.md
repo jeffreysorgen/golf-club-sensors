@@ -66,7 +66,7 @@ Attach the device to a stick in a perpendicular fashion as shown here. _Imagine 
 #
 ### Set up BLE and Magnetometer (and document)
 
-- __QUESTION 2__ What are the specific physical instruments needed to determine whether the motion has stopped? I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
+- __QUESTION__ What are the specific physical instruments needed to determine whether the motion has stopped? I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
 
 
 - **Slow down the sensor (do we need so many data points?)** In the SETUP loop, change the baud rate to lowest --> _Serial.begin(300);_ <-- from 9600
