@@ -18,8 +18,14 @@
 ## Next steps:
 ### [Set up](#setting-up-and-testing-the-sensors) BLE and Magnetometer (and document)
 **Learn how to edit Arduino sketches!** (Created _test_IMU_custom.ino_ sketch)
-- __QUESTION__ What are the specific physical instruments needed to determine whether the motion has stopped. I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
+
+- __QUESTION 1__ What instrument determines when to begin doing something? __ANSWER__ The magnetometer. It is either ready for a swing, or it is back in the golf bag!
+- __QUESTION 2__ What are the specific physical instruments needed to determine whether the motion has stopped? I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
+
+
 - **Slow down the sensor (do we need so many data points?)** In the SETUP loop, change the baud rate to lowest --> _Serial.begin(300);_ <-- from 9600
+- The swing is brief, so the slow BAUD will be adequate. (Tentative premise)
+
 
 ### Use the Magnetometer readings to determine its orientation to get start/rest orientation of the device
 Attach the device to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is back in the golf bag._
