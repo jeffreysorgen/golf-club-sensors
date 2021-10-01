@@ -21,20 +21,19 @@
 - __QUESTION__ What are the specific physical instruments needed to determine whether the motion has stopped. I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
 - **Slow down the sensor (do we need so many data points?)** In the SETUP loop, change the baud rate to lowest --> _Serial.begin(300);_ <-- from 9600
 
+### Use the Magnetometer readings to determine its orientation to get start/rest orientation of the device
+Attach the device to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is back in the golf bag._
 
-### Need yes/no for orientation of device
-Attach the device to a stick in a perpendicular fashion as shown here. Imagine your golf club is either being used, or is back in the golf bag.
 #### Images: (1)Attach the device to a stick (2)Start orientation (3)Device orientation (4)Rest orientation
+
 (1)<img src="https://user-images.githubusercontent.com/1236972/135545687-3e1b9fda-1544-4802-93a2-572b97b9b99b.png" width="20%">
 (2)<img src="https://user-images.githubusercontent.com/1236972/135545966-edb098fe-ab01-4e57-8c80-1988ad779186.png" width="20%">
 (3)<img src="https://user-images.githubusercontent.com/1236972/135546061-106e68f4-bfba-4cd5-929e-49494486ad87.png" width="20%">
 (4)<img src="https://user-images.githubusercontent.com/1236972/135545934-7cb4dd34-7c12-46b9-ae8f-fa2e61835812.png" width="20%">
 - The graph(3) between the rest(2) and start(4) orientation shows the difference in the readings of the Y axis when the device is attached _"the long way"_ where the red Y-axis reading is always greater than both or less than both other axes. When the "stick" is in neither the start nor rest position, the Y-axis is not significantly separated from the X and Z readings.
-
-#
-
-- use the Magnetometer readings to read its orientation
-- The readings of the magnetometer, according to the setup in the images: if Y < X and Y < Z then its orientation is in start position. So if y axis readings are less (or more negative) than the other two readings, then the device is in start position. The opposite is true. If Y is greater than the other 2 axes, then the device is idle and in rest, and is meant to WAIT for its orientation to return to the start position.
+- The readings of the magnetometer, according to the setup in the images: 
+     - If Y < X  and  Y < Z  then its orientation is in the start position. So if the y axis readings are less (or more negative) than the other two readings, then the device is in the start position. 
+     - The opposite is true. If Y is greater than the other 2 axes, then the device is idle and in rest, **and is meant to WAIT FOREVER for its orientation to return to the start position.**
      
 
 
