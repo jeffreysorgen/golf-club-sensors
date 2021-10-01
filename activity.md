@@ -27,7 +27,8 @@ _! [Sm-attaching to a stick ] ( https: //github.com/jeffreysorgen/hello-world/bl
 #
 ![Sm-attaching to a stick](images/Sm-attaching%20to%20a%20stick.png){:height="50%" width="50%"}
 
-
+# this.
+<img src="https://user-images.githubusercontent.com/1236972/135545687-3e1b9fda-1544-4802-93a2-572b97b9b99b.png" width="20%">
 #
 ![Sm-attaching to a stick](https://user-images.githubusercontent.com/1236972/135545687-3e1b9fda-1544-4802-93a2-572b97b9b99b.png)
 
