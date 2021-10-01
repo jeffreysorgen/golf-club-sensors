@@ -23,7 +23,7 @@
 #### Need yes/no for orientation of device
 Attach the device to a stick, oriented horizontally as shown. [image]
 
-![Sm-attaching to a stick](https://github.com/jeffreysorgen/hello-world/blob/current-edits/images/Sm-attaching%20to%20a%20stick.png)
+_! [Sm-attaching to a stick ] ( https: //github.com/jeffreysorgen/hello-world/blob/current-edits/images/Sm-attaching%20to%20a%20stick.png )
 #
 ![Sm-attaching to a stick](https://user-images.githubusercontent.com/1236972/135545687-3e1b9fda-1544-4802-93a2-572b97b9b99b.png)
 
