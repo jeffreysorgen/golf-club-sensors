@@ -14,7 +14,6 @@
 8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository
 9. Defined Golf Swing Flow, [_here_](#flow-for-golf-swing-sensors)
 10. [Part One:](#part-one-the-magnetometer) Set up Magnetometer
-
 #
 ### Flow for [Golf Swing](golf-swing-idea.md) sensors:
 - **BLE** is enabled when the device is powered, waits for pairing forever.
@@ -30,7 +29,6 @@
 - _**Inference mode:** Checks data points with **MODEL**_
   - _Beep/buzz if good swing_
   - _Silent (or low tone) if no match_
-
 ## Part One: The Magnetometer
 What instrument determines when to begin doing something? The **magnetometer**. It is either ready for a swing, or it is back in the golf bag!
 ### Use the Magnetometer readings to determine its orientation to get start/rest orientation of the device
@@ -49,8 +47,6 @@ What instrument determines when to begin doing something? The **magnetometer**. 
 - The readings of the magnetometer, according to the setup in the images: 
      - If Y < X  and  Y < Z  then its orientation is in the start position. So if the y axis readings are less (or more negative) than the other two readings, then the device is in the start position. 
      - The opposite is true. If Y is greater than the other 2 axes, then the device is idle and in rest, **and is meant to WAIT FOREVER for its orientation to return to the start position.**
-     
-
 #
 ### Make the Serial Monitor show the word "Yes" or "Ready" when the device senses its Start orientation, and the word "Resting" when it senses its Rest orientation
 - Enable this activity within the Arduino IDE
@@ -65,8 +61,7 @@ What instrument determines when to begin doing something? The **magnetometer**. 
 
 
 #
-### Set up BLE and Magnetometer (and document)
-
+### Set up BLE and IMU (and document)
 - __QUESTION__ What are the specific physical instruments needed to determine whether the motion has stopped? I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
 
 
