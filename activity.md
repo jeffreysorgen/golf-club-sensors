@@ -28,10 +28,11 @@ _! [Sm-attaching to a stick ] ( https: //github.com/jeffreysorgen/hello-world/bl
 ![Sm-attaching to a stick](images/Sm-attaching%20to%20a%20stick.png){:height="50%" width="50%"}
 
 # this.
+Attach the device to a stick:
 <img src="https://user-images.githubusercontent.com/1236972/135545687-3e1b9fda-1544-4802-93a2-572b97b9b99b.png" width="20%">
-and then there will be lots of text and then there will be lots of text and then there will be lots of text and then there will be lots of text and then there will be lots of text and then there will be lots of text and then there will be lots of text 
+Start orientation:
 <img src="https://user-images.githubusercontent.com/1236972/135545934-7cb4dd34-7c12-46b9-ae8f-fa2e61835812.png" width="20%">
-and then there will be lots of text and then there will be lots of text and then there will be lots of text and then there will be lots of text and then there will be lots of text and then there will be lots of text and then there will be lots of text 
+Rest orientation: 
 <img src="https://user-images.githubusercontent.com/1236972/135545966-edb098fe-ab01-4e57-8c80-1988ad779186.png" width="20%">
 and then there will be lots of text and then there will be lots of text and then there will be lots of text and then there will be lots of text and then there will be lots of text and then there will be lots of text and then there will be lots of text 
 <img src="https://user-images.githubusercontent.com/1236972/135546061-106e68f4-bfba-4cd5-929e-49494486ad87.png" width="20%">
