@@ -14,8 +14,7 @@
 8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository
 9. Defined Golf Swing Flow, [_here_](#flow-for-golf-swing-sensors)
 10. [Part One:](#part-one-the-magnetometer) Set up Magnetometer
-11. __Created _test_IMU_custom.ino_ sketch__
-- Add this to repository? Where is the local file if it's in GitHub locally? Where is it now?
+
 #
 ### Flow for [Golf Swing](golf-swing-idea.md) sensors:
 - **BLE** is enabled when the device is powered, waits for pairing forever.
@@ -43,6 +42,11 @@ Attach the device to a stick in a perpendicular fashion as shown here. _Imagine 
 (2)<img src="https://user-images.githubusercontent.com/1236972/135545966-edb098fe-ab01-4e57-8c80-1988ad779186.png" width="20%">
 (3)<img src="https://user-images.githubusercontent.com/1236972/135546061-106e68f4-bfba-4cd5-929e-49494486ad87.png" width="20%">
 (4)<img src="https://user-images.githubusercontent.com/1236972/135545934-7cb4dd34-7c12-46b9-ae8f-fa2e61835812.png" width="20%">
+- __Created _test_IMU_custom.ino_ sketch__
+  - Slow down the sensor (do we need so many data points?) 
+    - In the SETUP loop, change the baud rate to lowest --> _Serial.begin(300);_ <-- from 9600
+    - The swing is brief, so the slow BAUD will be adequate. (Tentative premise)
+  - Add this to repository? Where is the local file if it's in GitHub locally? Where is it now?
 - The graph(3) between the rest(2) and start(4) orientation shows the difference in the readings of the Y axis when the device is attached _"the long way"_ where the red Y-axis reading is always greater than both or less than both other axes. When the "stick" is in neither the start nor rest position, the Y-axis is not significantly separated from the X and Z readings.
 - The readings of the magnetometer, according to the setup in the images: 
      - If Y < X  and  Y < Z  then its orientation is in the start position. So if the y axis readings are less (or more negative) than the other two readings, then the device is in the start position. 
