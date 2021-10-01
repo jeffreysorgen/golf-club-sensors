@@ -13,9 +13,9 @@
 7. Changed hello-world (this) repository to **PRIVATE**, so it isn't publicly available now on GitHub Pages either
 8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository
 9. Defined Golf Swing Flow, [_here_](#flow-for-golf-swing-sensors)
-10. [Part One:](#part-one-the-magnetometer) Set up Magnetometer, Created _test_IMU_custom.ino_ sketch
-- Add this to repository(?)
-- Where is the local file if it's in GitHub locally?
+10. [Part One:](#part-one-the-magnetometer) Set up Magnetometer
+11. __Created _test_IMU_custom.ino_ sketch__
+- Add this to repository? Where is the local file if it's in GitHub locally? Where is it now?
 #
 ### Flow for [Golf Swing](golf-swing-idea.md) sensors:
 - **BLE** is enabled when the device is powered, waits for pairing forever.
