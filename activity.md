@@ -24,7 +24,7 @@
 
 
 - **Slow down the sensor (do we need so many data points?)** In the SETUP loop, change the baud rate to lowest --> _Serial.begin(300);_ <-- from 9600
-- The swing is brief, so the slow BAUD will be adequate. (Tentative premise)
+  - The swing is brief, so the slow BAUD will be adequate. (Tentative premise)
 
 
 ### Use the Magnetometer readings to determine its orientation to get start/rest orientation of the device
