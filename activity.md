@@ -53,6 +53,9 @@ What instrument determines when to begin doing something? The **magnetometer**. 
 - Use boolean logic within the sketch _(how?)_
 #### Then make the smartphone beep when Ready
 - _HOW?_
+- Set up BLE and connect to phone
+- Open monitor in phone, and watch magnetometer state go from Ready to Resting, and back
+  - _What can be configured in my phone that receives commands from the nCF Connect application?_
 
 
 
