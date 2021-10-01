@@ -22,9 +22,18 @@
 - **Slow down the sensor (do we need so many data points?)** In the SETUP loop, change the baud rate to lowest --> _Serial.begin(300);_ <-- from 9600
 #### Need yes/no for orientation of device
 Attach the device to a stick, oriented horizontally as shown. [image]
+![Sm-attaching to a stick](https://user-images.githubusercontent.com/1236972/135545687-3e1b9fda-1544-4802-93a2-572b97b9b99b.png)
 
 
-![attaching to a stick](https://user-images.githubusercontent.com/1236972/135545232-df909558-4230-4abe-8ede-7ffe137fa94c.png)
+
+![Sm-start orientation](https://user-images.githubusercontent.com/1236972/135545934-7cb4dd34-7c12-46b9-ae8f-fa2e61835812.png)
+
+
+
+![Sm-rest orientation](https://user-images.githubusercontent.com/1236972/135545966-edb098fe-ab01-4e57-8c80-1988ad779186.png)
+
+
+![Sm-device orientation](https://user-images.githubusercontent.com/1236972/135546061-106e68f4-bfba-4cd5-929e-49494486ad87.png)
 
 
 
