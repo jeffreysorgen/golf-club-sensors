@@ -12,11 +12,14 @@
 7. Changed hello-world (this) repository to **PRIVATE**, so it isn't publicly available now on GitHub Pages either
 8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository
 9. Defined Golf Swing Flow, [_here_](#flow-for-golf-swing-sensors)
-10. Part One: [Set up Magnetometer](#use-the-magnetometer-readings-to-determine-its-orientation-to-get-startrest-orientation-of-the-device)
+10. [Part One:](#part-one-the-magnetometer) Set up Magnetometer, Created _test_IMU_custom.ino_ sketch
+
 
 
 
 ## Part One: The Magnetometer
+**Learn how to edit Arduino sketches!** (Created _test_IMU_custom.ino_ sketch)
+
 ### Use the Magnetometer readings to determine its orientation to get start/rest orientation of the device
 Attach the device to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is back in the golf bag._
 #### Images: (1)Attach the device to a stick (2)Rest orientation (3)Device orientation (4)Start orientation
