@@ -35,8 +35,10 @@
 
 
 ## Part One: The Magnetometer
+- __QUESTION__ What instrument determines when to begin doing something? 
+- __ANSWER__ The magnetometer. It is either ready for a swing, or it is back in the golf bag!
+#####
 **Learn how to edit Arduino sketches!** (Created _test_IMU_custom.ino_ sketch)
-
 ### Use the Magnetometer readings to determine its orientation to get start/rest orientation of the device
 Attach the device to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is back in the golf bag._
 #### Images: (1)Attach the device to a stick (2)Rest orientation (3)Device orientation (4)Start orientation
@@ -60,9 +62,7 @@ Attach the device to a stick in a perpendicular fashion as shown here. _Imagine 
 
 ## Magnetometer and BLE:
 ### [Set up](#setting-up-and-testing-the-sensors) BLE and Magnetometer (and document)
-**Learn how to edit Arduino sketches!** (Created _test_IMU_custom.ino_ sketch)
 
-- __QUESTION 1__ What instrument determines when to begin doing something? __ANSWER__ The magnetometer. It is either ready for a swing, or it is back in the golf bag!
 - __QUESTION 2__ What are the specific physical instruments needed to determine whether the motion has stopped? I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
 
 
