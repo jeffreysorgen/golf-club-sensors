@@ -24,7 +24,8 @@
 Attach the device to a stick, oriented horizontally as shown. [image]
 
 _! [Sm-attaching to a stick ] ( https: //github.com/jeffreysorgen/hello-world/blob/current-edits/images/Sm-attaching%20to%20a%20stick.png )_
-![Sm-attaching to a stick](images/Sm-attaching%20to%20a%20stick.png)
+#
+![Sm-attaching to a stick](images/Sm-attaching%20to%20a%20stick.png){:height="50%" width="50%"}
 
 
 #
