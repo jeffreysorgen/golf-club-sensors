@@ -45,6 +45,7 @@ Attach the device to a stick in a perpendicular fashion as shown here. _Imagine 
 
 
 #
+#### Future Steps:
 * Repeat EdX course material, do all TinyML assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files, c files and others)
   - **Fully utilize GitHub features and functionality**
@@ -55,7 +56,7 @@ Attach the device to a stick in a perpendicular fashion as shown here. _Imagine 
 
 
 ###
-#### Future Steps:
+
 * Create new repository "hello-world-arduino" for book exercise (sine function)
 * Determine whether to use GitHub Desktop and/or BASH
 * Continue recording progress in THIS page
