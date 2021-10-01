@@ -26,7 +26,7 @@
 - **Slow down the sensor (do we need so many data points?)** In the SETUP loop, change the baud rate to lowest --> _Serial.begin(300);_ <-- from 9600
   - The swing is brief, so the slow BAUD will be adequate. (Tentative premise)
 
-
+#
 ### Use the Magnetometer readings to determine its orientation to get start/rest orientation of the device
 Attach the device to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is back in the golf bag._
 
