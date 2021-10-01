@@ -29,14 +29,9 @@
   - _Beep/buzz if good swing_
   - _Silent (or low tone) if no match_
 
-
-
-
-
-
 ## Part One: The Magnetometer
-- __QUESTION__ What instrument determines when to begin doing something? 
-- __ANSWER__ The magnetometer. It is either ready for a swing, or it is back in the golf bag!
+__QUESTION__ What instrument determines when to begin doing something? 
+__ANSWER__ The magnetometer. It is either ready for a swing, or it is back in the golf bag!
 #####
 **Learn how to edit Arduino sketches!** (Created _test_IMU_custom.ino_ sketch)
 ### Use the Magnetometer readings to determine its orientation to get start/rest orientation of the device
@@ -53,6 +48,12 @@ Attach the device to a stick in a perpendicular fashion as shown here. _Imagine 
      
 
 
+#
+### Make the Serial Monitor show the word "Yes" or "Ready" when the device senses its Start orientation, and the word "Resting" when it senses its Rest orientation
+- Enable this activity within the Arduino IDE
+- Use boolean logic within the sketch _(how?)_
+#### Then make the smartphone beep when Ready
+- _HOW?_
 
 
 
@@ -60,8 +61,8 @@ Attach the device to a stick in a perpendicular fashion as shown here. _Imagine 
 
 
 
-## Magnetometer and BLE:
-### [Set up](#setting-up-and-testing-the-sensors) BLE and Magnetometer (and document)
+#
+### Set up BLE and Magnetometer (and document)
 
 - __QUESTION 2__ What are the specific physical instruments needed to determine whether the motion has stopped? I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
 
@@ -69,15 +70,6 @@ Attach the device to a stick in a perpendicular fashion as shown here. _Imagine 
 - **Slow down the sensor (do we need so many data points?)** In the SETUP loop, change the baud rate to lowest --> _Serial.begin(300);_ <-- from 9600
   - The swing is brief, so the slow BAUD will be adequate. (Tentative premise)
 
-
-
-
-#
-### Make the Serial Monitor show the word "Yes" or "Ready" when the device senses its Start orientation, and the word "Resting" when it senses its Rest orientation
-- Enable this activity within the Arduino IDE
-- Use boolean logic within the sketch _(how?)_
-#### Then make the smartphone beep when Ready
-- _HOW?_
 
 
 
