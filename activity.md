@@ -49,6 +49,7 @@ Attach the device to a stick in a perpendicular fashion as shown here. _Imagine 
 
 ### Setting up and testing the sensors:
 Enable a sensor and TEST. Set up serial monitor displaying orientation, and signal "yes" that it senses that the orientation is at described 'zero' orientation. When it pulls away from that orientation, it continues to wait for it to get there again. And after 30 seconds, will stop looking. Pings the device every 5 to 10 seconds for that orientation, and remains idle until zero orientation is found.
+- How to make the Serial Monitor show the word "Yes" or "Ready" when the device senses its Start orientation
 
 
 #### To Do:
