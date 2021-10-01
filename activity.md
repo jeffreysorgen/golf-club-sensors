@@ -13,6 +13,23 @@
 8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository
 9. Defined Golf Swing Flow, [_here_](#flow-for-golf-swing-sensors)
 10. [Part One:](#part-one-the-magnetometer) Set up Magnetometer, Created _test_IMU_custom.ino_ sketch
+#
+### Flow for [Golf Swing](golf-swing-idea.md) sensors:
+- **BLE** is enabled when the device is powered, waits for pairing forever.
+- Pairs with phone app.
+- Clear device buffer and **begin loop**
+- Enable mag/acc/gyro
+- Mag/acc/gyro wait for stillness (no movement)
+- Mag then identifies direction of gravity=zero.
+- Acc/gyro records movement. 
+- **Collection mode:** After movement, enables microphone.
+  - **Microphone** listens for 3 seconds, and records Null, unless it hears "yes" (**This is KWS**)
+  - Send data points to phone app with label. (_Is collection and inference possible together?_)
+- _**Inference mode:** Checks data points with **MODEL**_
+  - _Beep/buzz if good swing_
+  - _Silent (or low tone) if no match_
+
+
 
 
 
@@ -97,22 +114,6 @@ Enable a sensor and TEST. Set up serial monitor displaying orientation, and sign
 - **DOCUMENT** this activity and requirements. Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. Decide whether to include these steps in a **BLOG**
 - Determine whether to open new _golf-swing-steps.md_ to describe building process. This is out of the idea stage, and is now in the execution stage.
 
-#
-### Flow for [Golf Swing](golf-swing-idea.md) sensors:
-
-- **BLE** is enabled when the device is powered, waits for pairing forever.
-- Pairs with phone app.
-- Clear device buffer and **begin loop**
-- Enable mag/acc/gyro
-- Mag/acc/gyro wait for stillness (no movement)
-- Mag then identifies direction of gravity=zero.
-- Acc/gyro records movement. 
-- **Collection mode:** After movement, enables microphone.
-  - **Microphone** listens for 3 seconds, and records Null, unless it hears "yes" (**This is KWS**)
-  - Send data points to phone app with label. (_Is collection and inference possible together?_)
-- _**Inference mode:** Checks data points with **MODEL**_
-  - _Beep/buzz if good swing_
-  - _Silent (or low tone) if no match_
 
 
 
