@@ -23,10 +23,6 @@
 #### Need yes/no for orientation of device
 Attach the device to a stick, oriented horizontally as shown. [image]
 
-_! [Sm-attaching to a stick ] ( https: //github.com/jeffreysorgen/hello-world/blob/current-edits/images/Sm-attaching%20to%20a%20stick.png )_
-#
-![Sm-attaching to a stick](images/Sm-attaching%20to%20a%20stick.png){:height="50%" width="50%"}
-
 # this.
 #### Images: (1)Attach the device to a stick (2)Start orientation (3)Device orientation (4)Rest orientation
 (1)<img src="https://user-images.githubusercontent.com/1236972/135545687-3e1b9fda-1544-4802-93a2-572b97b9b99b.png" width="20%">
@@ -35,11 +31,7 @@ _! [Sm-attaching to a stick ] ( https: //github.com/jeffreysorgen/hello-world/bl
 (4)<img src="https://user-images.githubusercontent.com/1236972/135545966-edb098fe-ab01-4e57-8c80-1988ad779186.png" width="20%">
 - The graph (3) between the start(2) and rest(4) orientation shows the difference in the readings of the Y axis when the device is attached _"the long way"_ where the red Y-axis reading is always greater than both or less than both other axes. When the "stick" is in neither the start nor rest position, the Y-axis is not significantly separated from the X and Z readings.
 
-## .
-
-[image] Start position, Y is less than both X and Z
-[image] Readings of the magnetometer
-[image] Rest position, where Y is greater than both X and Z
+#
 
 - use the Magnetometer readings to read its orientation
 - The readings of the magnetometer, according to the setup in the images: if Y < X and Y < Z then orientation is in start position. So if y axis is less than the other two readings, then the device is in start position. The opposite is true. If Y is greater than the other 2 axes, then the device is idle and in rest, and is meant to WAIT for its orientation to return to the start position.
