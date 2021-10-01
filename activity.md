@@ -56,46 +56,57 @@ What instrument determines when to begin doing something? The **magnetometer**. 
 - Set up BLE and connect to phone
 - Open monitor in phone, and watch magnetometer state go from Ready to Resting, and back
   - _What can be configured in my phone that receives commands from the nCF Connect application?_
+- **Develop APP that can beep when it sees "Yes"**
+  -  [nRF Connect SDK](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
 
 
 
 
 
 
+
+#
 
 #
 ### Set up BLE and IMU (and document)
-- __QUESTION__ What are the specific physical instruments needed to determine whether the motion has stopped? I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
-
-
+- __QUESTION__ (to ask after working out how to make the phone beep when sensing Ready orientation)
+  - What are the specific physical instruments needed to determine whether the motion has stopped? I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
 #
 ### Setting up and testing the sensors:
-Enable a sensor and TEST. Set up serial monitor displaying orientation, and signal "yes" that it senses that the orientation is at described 'zero' orientation. When it pulls away from that orientation, it continues to wait for it to get there again. And after 30 seconds, will stop looking. Pings the device every 5 to 10 seconds for that orientation, and remains idle until zero orientation is found.
+Enable a sensor and TEST. (no kidding)
+Set up serial monitor displaying orientation, and signal "yes" that it senses that the orientation is at described 'zero' orientation. (this is the logic that I'm going to be setting up next)
+When it pulls away from that orientation, it continues to wait for it to get there again. (this is true, and I think it's been stated above)
+And after 30 seconds, will stop looking.  (Really? or is it always-on mode?)
+Pings the device every 5 to 10 seconds for that orientation, and remains idle until zero orientation is found. (Maybe doesn't need to ping anything, as long as it's 'on' when in Ready mode and 'off' when in Resting mode.)
+
+
+
 
 
 #### To Do:
-- Enable the magnetometer. Edit magnetometer sketch. Show Arduino is or is not oriented at 'zero'
-  - Find magnetometer sketch
+- Enable the magnetometer. Edit magnetometer sketch. Show Arduino is or is not oriented at 'zero' (x=got this info)
+  - Find magnetometer sketch x
+  - Upload sketch x
+  - Enable serial monitor x
+  - Watch orientation of magnetometer x
+  - Edit sketch to identify whether orientation is zero=yes or zero=no. x-working on it
   - Upload sketch
-  - Enable serial monitor
-  - Watch orientation of magnetometer
-  - Edit sketch to identify whether orientation is zero=yes or zero=no.
-  - Upload sketch
-  - Enable serial monitor and watch for "Yes"
-  - Connect BLE to phone app
-  - Watch phone app monitor for "Yes"
+  - Enable serial monitor and watch for "Yes" x
+  - Connect BLE to phone app x=said it
+  - Watch phone app monitor for "Yes" x
   - **Develop APP that can beep when it sees "Yes"**
-    - [nRF Connect SDK](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
+    - [nRF Connect SDK](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk) x
 ###
 - For BLE, watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
 - Implement BLE. (What code is used? Can it be included in this documentation?)
-  - Move the computer to the table, then plug in the Arduino, find the correct ports
-  - **LABEL** this device in the code. Upload the sketch.
+  - Move the computer to the table, then plug in the Arduino, find the correct ports x
+  - **LABEL** this device in the code. Upload the sketch. (label for the BLE connection)
   - Install the app in the smartphone, and connect to the BLE device
-- connect to smartphone and read sensor within the phone app. Can this sensor trigger a Yes/No or On/Off? Can the phone app trigger a vibration or a beep? Is this where **App Development** comes in? Turn on/off the phone's flashlight?
-- If possible, copy the code I use for this step into the repo, _ArduinoBLE-to-Android_
+- connect to smartphone and read sensor within the phone app. Can this sensor trigger a Yes/No or On/Off? Can the phone app trigger a vibration or a beep? Is this where **App Development** comes in? x 
+- TEST: Turn on/off the phone's flashlight? (Good Idea!)
+- If possible, copy the code I use for this step into the repo, _ArduinoBLE-to-Android_ (or wherever, ongoing)
 - **DOCUMENT** this activity and requirements. Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. Decide whether to include these steps in a **BLOG**
-- Determine whether to open new _golf-swing-steps.md_ to describe building process. This is out of the idea stage, and is now in the execution stage.
+- Determine whether to open new _golf-swing-steps.md_ to describe building process. This is out of the idea stage, and is now in the execution stage. (documentation elsewhere depends upon how complex this doc is, and I don't think it's complex enough)
 
 
 
