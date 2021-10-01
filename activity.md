@@ -13,7 +13,7 @@
 8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository
 9. Defined Golf Swing Flow, [_here_](#flow-for-golf-swing-sensors)
 10. Part One: [Set up Magnetometer](#use-the-magnetometer-readings-to-determine-its-orientation-to-get-startrest-orientation-of-the-device)
-###
+
 
 
 ## Part One: The Magnetometer
