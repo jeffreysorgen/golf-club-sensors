@@ -122,7 +122,9 @@ Pings the device every 5 to 10 seconds for that orientation, and remains idle un
 
 ###
 
+* Create **new-readme.md** that is EXACTLY what I want for new repository, _golf-swing-helper_
 * __RENAME__ this _hello_world_ repository to _golf-swing-helper_
+  - Then backup this (old) _readme_ and rename _new-readme.md_ to become the new **readme.md** for this repository
 * Create new repository "hello-world-arduino" for book exercise (sine function)
 * Determine whether to use GitHub Desktop and/or BASH
 * Continue recording progress in THIS page
