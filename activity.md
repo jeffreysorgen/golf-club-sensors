@@ -122,6 +122,7 @@ Pings the device every 5 to 10 seconds for that orientation, and remains idle un
 
 ###
 
+* __RENAME__ this _hello_world_ repository to _golf-swing-helper_
 * Create new repository "hello-world-arduino" for book exercise (sine function)
 * Determine whether to use GitHub Desktop and/or BASH
 * Continue recording progress in THIS page
