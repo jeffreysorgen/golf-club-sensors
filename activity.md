@@ -123,6 +123,7 @@ Pings the device every 5 to 10 seconds for that orientation, and remains idle un
 ###
 
 * Create _**new-readme.md**_ that is __EXACTLY__ what I want for new repository, _golf-swing-helper_
+  - by combining the current .md files with the local _golf swing TinyML.txt_ 
 
 ###
 
