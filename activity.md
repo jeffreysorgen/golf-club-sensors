@@ -20,7 +20,7 @@
 5. **WATCH** what the Serial Monitor displays ("Ready" to "Rest" and back again)
 
 ## Enable smartphone functions via nRF (Requires SDK)
-- Make the smartphone beep in Ready state
+### Make the smartphone beep in Ready state
 #### Research:
 - For BLE, watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
 - App Development
@@ -30,19 +30,15 @@
   - Can the phone app trigger **BEEP** or a vibration/buzz? 
   - Can the nRF App turn on/off the phone's flashlight? (_Good Idea!_)
 
-
-#
 ## AFTER enabling smartphone to beep when sensing Ready orientation
-QUESTION: What is the next physical step?
+#### QUESTION: What is the next physical step?
 - What are the specific physical instruments needed to determine whether the motion has stopped? 
   - I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
+- What is the Magnetometer doing at this point?
+  - Nothing is needed at this point, but should not mistake readings to be _Rest orientation_
 
- 
-#
-### Also
-- If possible, copy the code I use for this step into the repo, _ArduinoBLE-to-Android_ (or wherever, ongoing)
-- **DOCUMENT** this activity and requirements. Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. Decide whether to include these steps in a **BLOG**
-- Determine whether to open new _golf-swing-steps.md_ to describe building process. This is out of the idea stage, and is now in the execution stage. (documentation elsewhere depends upon how complex this doc is, and I don't think it's complex enough)
+#### Repository Question
+- Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. 
 
 
 
@@ -68,12 +64,14 @@ QUESTION: What is the next physical step?
   * wind turbine ( Is the most popular product TinyML or IoT? )
   * Continue to flesh out golf swing idea (golf-swing-idea.md)
 * Prototyping with KiCad, OSHPARK, and more
-* Determine whether _ArduinoBLE-to-Android_ repository is necessary. (all goes here)
+* Determine whether _ArduinoBLE-to-Android_ repository is necessary. (because all goes here)
+  - DO NOT NEED _ArduinoBLE-to-Android_ so probably delete it.
 * Determine whether learning SmartPhone App Development is necessary (might be!)
 * Determine whether to keep the TEST site called _jdsgithubpages_
 * Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
   - Enable blogging somehow, with or without repositories, to publicly document actions taken
 * Determine physical nature of MCU board form factor and its protection from damage
+* Determine whether a **BLOG** is useful
 * Not Needed: GIF of photos of certs, book, Arduino board, etc (not yet)
 * Not Needed: **Wiki**
 * "SWINGTASTIC"
