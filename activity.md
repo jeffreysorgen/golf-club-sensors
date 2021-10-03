@@ -49,8 +49,8 @@
 - how to record the KWS label to the golf swing data (in collect data mode)
 - how to build a dataset on my smartphone
 - how to add the record to the dataset
-- how to download a dataset of 100 records
-- how to develop and test a TinyML inference model
+- how to download a dataset of 100 records to PC
+- how to develop and test a TinyML inference model from this dataset
 - 
 - 
 
