@@ -14,6 +14,7 @@
 8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository
 9. Defined Golf Swing Flow, [_here_](#flow-for-golf-swing-sensors)
 10. [Part One:](#part-one-the-magnetometer) Set up Magnetometer
+11. Created new README.md ([new-readme.md](new-readme.md))
 #
 ### Flow for [Golf Swing](golf-swing-idea.md) sensors:
 - **BLE** is enabled when the device is powered, waits for pairing forever.
@@ -63,7 +64,7 @@ What instrument determines when to begin doing something? The **magnetometer**. 
 
 
 
-
+# [To_Do -->](activity.md)
 
 #
 
