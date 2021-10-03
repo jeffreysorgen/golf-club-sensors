@@ -51,15 +51,16 @@ The graph(3) between the rest(2) and start(4) orientation shows the difference i
 - The opposite is true. If Y is greater than the other 2 axes, then the device is idle and in rest, **and is meant to WAIT FOREVER for its orientation to return to the start position.** [_Fix Needed._](#fix-needed)
 
 ### Created _test_IMU_custom.ino_ sketch
-Slow down the sensor (_do we need so many data points? don't do this at all?_) 
+Slow down the sensor (_Q: do we need so many data points? don't do this at all?_) 
 - In the SETUP loop, change the baud rate to lowest --> `Serial.begin(300);` <-- from 9600
 - **Local file**
   - Add this to repository? Where is the local file if it's in GitHub locally? Where is it now?
-- **QUESTION** (for research):
-  - Leave baud rate at 9600? And then take fewer sample data points rather than just slowing it down?
+- **QUESTION** (research this):
+  - Leave baud rate at 9600 (default)? And then take _fewer_ sample data points rather than just slowing it down?
+  - **In the sketch, create a _delay_ of 10ms prior to the reading!** This would sample 100 per second.
 
 ## _FIX NEEDED:_ 
-Disable Magnetometer during swing, and enable after. Due to its orientation, Magnetometer might sense Rest state because of its orientation at top of swing!
+Disable(?) the Magnetometer during swing, and enable after. Due to its orientation, Magnetometer might sense Rest state because of its orientation at top of swing!
 
 # [NEXT STEPS -->](activity.md)
 ### Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor
