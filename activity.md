@@ -5,7 +5,7 @@
 
 
 ## Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor
-- Use boolean logic within the sketch _(How? Is this needed?)_
+- Use boolean logic within the sketch _(How?)_
 - "Ready" for when the device senses its Start orientation
 - "Resting" for when the device senses its Rest orientation
 
