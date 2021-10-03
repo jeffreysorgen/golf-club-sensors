@@ -92,6 +92,7 @@
   - __RENAME__ this _hello_world_ repository to _golf-swing-sensors
   - Then backup this (old) _readme_ and rename _new-readme.md_ to become the new **readme.md** for this repository
 
+[<-- back to Implementation](implementation.md)
 ## Also:
 * DOWNLOAD JupyterLab Desktop (look into this!)
 * Determine whether to use GitHub Desktop and/or BASH
