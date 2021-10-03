@@ -36,6 +36,9 @@
   - I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
 - What is the Magnetometer doing at this point?
   - Nothing is needed at this point, but should not mistake readings to be _Rest orientation_
+  - When the Magnetometer is in the Ready state, it turns off (?) and then turns on the gyro/acc
+- The gyro/acc record movement (_HOW MUCH MOVEMENT?_)
+  - This data will require normalization, eliminating noise (LEARN)
 
 #### Repository Question
 - Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. 
