@@ -52,6 +52,7 @@
 - how to download a dataset of 100 records to PC
 - how to develop and test a TinyML inference model from this dataset
 - how to IMPLEMENT data inference to the device
+- how to RECONFIGURE smartphone app from Ready state orientation to 'good swing' chirp
 - finally, is it possible to simultaneously collect data and provide inference?
 #### Next:
 - how to gather components/parts list
