@@ -15,7 +15,7 @@
 7. Changed _hello-world_ (this) repository to PRIVATE, so it now isn't publicly available on GitHub Pages either
 8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository (now may not be needed)
 9. Defined Golf Swing Data Flow, [_below_](#flow-for-golf-swing-sensors)
-10. [Part One:](#part-one-the-magnetometer) **Set up Magnetometer**
+10. [Implementation Part One:](#part-one-the-magnetometer) **Set up Magnetometer**
 11. Created _new-readme.md_ (now [README](README.md)), added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list
 12. Renamed (this) repository: _hello-world_ is now _golf-swing-sensors_, and updated [README.md](readme.md)
 
