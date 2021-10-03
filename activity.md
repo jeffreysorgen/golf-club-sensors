@@ -2,6 +2,28 @@
 
 [<-- back to README.md](new-readme.md)
 # To Do:
+
+
+
+### Make the Serial Monitor show the word "Yes" or "Ready" when the device senses its Start orientation, and the word "Resting" when it senses its Rest orientation
+- Enable this activity within the Arduino IDE
+- Use boolean logic within the sketch _(how?)_
+#### Then make the smartphone beep when Ready
+- _HOW?_
+- Set up BLE and connect to phone
+- Open monitor in phone, and watch magnetometer state go from Ready to Resting, and back
+  - _What can be configured in my phone that receives commands from the nCF Connect application?_
+- **Develop APP that can beep when it sees "Yes"**
+  -  [nRF Connect SDK](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
+
+
+
+
+
+
+#
+#
+
 ### Set up BLE and IMU (and document)
 - __QUESTION__ (to ask after working out how to make the phone beep when sensing Ready orientation)
   - What are the specific physical instruments needed to determine whether the motion has stopped? I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
