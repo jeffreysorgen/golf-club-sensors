@@ -1,4 +1,6 @@
-# To_Do
+[<-- back to Implementation](implementation.md)
+[<-- back to README.md](new-readme.md)
+# To Do:
 ### Set up BLE and IMU (and document)
 - __QUESTION__ (to ask after working out how to make the phone beep when sensing Ready orientation)
   - What are the specific physical instruments needed to determine whether the motion has stopped? I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
