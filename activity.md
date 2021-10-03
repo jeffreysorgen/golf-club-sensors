@@ -39,9 +39,13 @@
 - What is the Magnetometer doing at this point?
   - Nothing is needed at this point, but should not mistake readings to be _Rest orientation_
   - When the Magnetometer is in the Ready state, it turns off (?) and then turns on the gyro/acc
-- LEARN about the _magic-wand_ sketch to see how the DATA is recorded there and what gets transmitted to the Serial Monitor, and then how that data displays on the Monitor from that data. What converts that data to the 'readable' visualization of the motion?
+
+##
+- **LEARN** about the _magic-wand_ sketch to see how the DATA is recorded there and what gets transmitted to the Serial Monitor, and then how that data displays on the Monitor from that data. What converts that data to the 'readable' visualization of the motion?
   - **TEST the motion of the gyro/acc.** Can this motion show up on the Plotter or Monitor? What does this motion look like for gyro/acc individually? Is it helpful to sample the data more slowly for better visualization?
   - HOW does this data get recorded into a data point? We recorded a data set for the Exercise. So _how was that collected?_
+  - **_Can this activity happen LOCALLY?_** Because the exercise actually resided on _tinymlx.io_ or something. And that's where all the data got generated.
+    - **How much reliance upon external websites is necessary? Why not ALL local?**
 #### Then:
 - The gyro/acc record movement (_HOW MUCH MOVEMENT?_)
   - This data will require normalization, eliminating noise (LEARN)
