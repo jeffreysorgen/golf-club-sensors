@@ -26,10 +26,13 @@
 #
 **This has been stated elsewhere:**
 - Set up serial monitor displaying orientation, and signal "yes" that it senses that the orientation is at described 'zero' orientation. 
+
 **What is this saying?**
 - When it pulls away from that orientation, it continues to wait for it to get there again. (this is true, and I think it's been stated above)
+
 **Is there something that needs to stop looking for activity?**
 - And after 30 seconds, will stop looking.  (Really? or is it always-on mode?)
+
 **Not sure that this is true:**
 - Pings the device every 5 to 10 seconds for that orientation, and remains idle until zero orientation is found. (Maybe doesn't need to ping anything, as long as it's 'on' when in Ready mode and 'off' when in Resting mode.)
 
@@ -45,7 +48,7 @@
   - **LABEL** this device in the code. Upload the sketch. (label for the BLE connection)
   - Install the app in the smartphone, and connect to the BLE device
 - connect to smartphone and read sensor within the phone app. Can this sensor trigger a Yes/No or On/Off? Can the phone app trigger a vibration or a beep? Is this where **App Development** comes in? x 
-- TEST: Turn on/off the phone's flashlight? (Good Idea!)
+- **TEST: Turn on/off the phone's flashlight? (Good Idea!)**
 - If possible, copy the code I use for this step into the repo, _ArduinoBLE-to-Android_ (or wherever, ongoing)
 - **DOCUMENT** this activity and requirements. Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. Decide whether to include these steps in a **BLOG**
 - Determine whether to open new _golf-swing-steps.md_ to describe building process. This is out of the idea stage, and is now in the execution stage. (documentation elsewhere depends upon how complex this doc is, and I don't think it's complex enough)
@@ -59,7 +62,7 @@
   - **Fully utilize GitHub features and functionality**
 
 ###
-- Create _**new-readme.md**_ that is __EXACTLY__ what I want for new repository, _golf-swing-helper_
+- (done) Create _**new-readme.md**_ that is __EXACTLY__ what I want for new repository, _golf-swing-helper_
   - by combining the current .md files with the local _golf swing TinyML.txt_ 
 
 ###
@@ -81,4 +84,5 @@
 * Determine whether learning SmartPhone App Development is necessary
 * Not Needed: GIF of photos of certs, book, Arduino board, etc (not yet)
 * Not Needed: **Wiki**
+* "SWINGTASTIC"
 
