@@ -39,6 +39,9 @@
   - When the Magnetometer is in the Ready state, it turns off (?) and then turns on the gyro/acc
 - The gyro/acc record movement (_HOW MUCH MOVEMENT?_)
   - This data will require normalization, eliminating noise (LEARN)
+  - Then a label must be applied to the recorded data points ('yes'|null)
+- Then transmit the data points to smartphone
+- Then enables the Magnetometer again, waiting to be in Ready state again
 
 #### Repository Question
 - Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. 
