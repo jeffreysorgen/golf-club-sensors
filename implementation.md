@@ -12,10 +12,10 @@
 4. **activity.md** Describes my next steps, ideas, and this Completed list (now is a [to-do list](activity.md))
 5. **golf-swing-idea.md** Defines the parts of my golf swing idea (now incorporated into README)
 6. **GitHub Pages** Added using [this guide](https://guides.github.com/features/pages/) and is accessible _here_ (ongoing)
-7. Changed hello-world (this) repository to **PRIVATE**, so it isn't publicly available now on GitHub Pages either
+7. Changed _hello-world_ (this) repository to PRIVATE, so it now isn't publicly available on GitHub Pages either
 8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository (now may not be needed)
-9. Defined Golf Swing Data Flow _here_
-10. [Part One:](#part-one-the-magnetometer) Set up Magnetometer
+9. Defined Golf Swing Data Flow, [_below_](#flow-for-golf-swing-sensors)
+10. [Part One:](#part-one-the-magnetometer) **Set up Magnetometer**
 11. Created _new-readme.md_ (now [README](README.md)), added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list
 12. Renamed (this) repository: _hello-world_ is now _golf-swing-sensors_, and updated [README.md](readme.md)
 
@@ -45,11 +45,11 @@ What instrument determines when to begin doing something? The **magnetometer**. 
 (4)<img src="https://user-images.githubusercontent.com/1236972/135545934-7cb4dd34-7c12-46b9-ae8f-fa2e61835812.png" width="20%">
 - The graph(3) between the rest(2) and start(4) orientation shows the difference in the readings of the Y axis when the device is attached _"the long way"_ where the red Y-axis reading is always greater than both or less than both other axes. When the "stick" is in neither the start nor rest position, the Y-axis is not significantly separated from the X and Z readings.
 - The readings of the magnetometer, according to the setup in the images: 
-     - If Y < X  and  Y < Z  then its orientation is in the start position. So if the y axis readings are less (or more negative) than the other two readings, then the device is in the start position. 
+  - If `Y < X`  and  `Y < Z`  then its orientation is in the start position. So if the y axis readings are less (or more negative) than the other two readings, then the device is in the start position.
+  - The opposite is true. If Y is greater than the other 2 axes, then the device is idle and in rest, **and is meant to WAIT FOREVER for its orientation to return to the start position.**
 
 
-     - The opposite is true. If Y is greater than the other 2 axes, then the device is idle and in rest, **and is meant to WAIT FOREVER for its orientation to return to the start position.**
-       - BUT THIS DOES NOT HAPPEN MID-SWING while gyro/acc are engaged (_Fix this by disengaging mag mid-swing?_)
+    - BUT THIS DOES NOT HAPPEN MID-SWING while gyro/acc are engaged (_Fix this by disengaging mag mid-swing?_)
 
 
 ###
@@ -60,4 +60,4 @@ What instrument determines when to begin doing something? The **magnetometer**. 
   - **Add this to repository? Where is the local file if it's in GitHub locally? Where is it now?**
 # [NEXT STEPS -->](activity.md)
 ### Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor
-[<-- back to README.md](new-readme.md)
+[<-- back to README.md](readme.md)
