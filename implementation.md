@@ -63,6 +63,7 @@ What instrument determines when to begin doing something? The **magnetometer**. 
   -  [nRF Connect SDK](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
 
 
-
-# [To_Do -->](activity.md)
+# NEXT
+### Make the Serial Monitor show the word "Yes" or "Ready" when the device senses its Start orientation, and the word "Resting" when it senses its Rest orientation
+# [NEXT STEPS -->](activity.md)
 [<--readme.md](new-readme.md)
