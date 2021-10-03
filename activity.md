@@ -1,26 +1,14 @@
-
-
-
-
 # To_Do
-
-#
-
-#
 ### Set up BLE and IMU (and document)
 - __QUESTION__ (to ask after working out how to make the phone beep when sensing Ready orientation)
   - What are the specific physical instruments needed to determine whether the motion has stopped? I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
-#
 ### Setting up and testing the sensors:
 Enable a sensor and TEST. (no kidding)
 Set up serial monitor displaying orientation, and signal "yes" that it senses that the orientation is at described 'zero' orientation. (this is the logic that I'm going to be setting up next)
 When it pulls away from that orientation, it continues to wait for it to get there again. (this is true, and I think it's been stated above)
 And after 30 seconds, will stop looking.  (Really? or is it always-on mode?)
 Pings the device every 5 to 10 seconds for that orientation, and remains idle until zero orientation is found. (Maybe doesn't need to ping anything, as long as it's 'on' when in Ready mode and 'off' when in Resting mode.)
-
-
-
-
+#
 
 #### To Do:
 - Enable the magnetometer. Edit magnetometer sketch. Show Arduino is or is not oriented at 'zero' (x=got this info)
@@ -46,9 +34,6 @@ Pings the device every 5 to 10 seconds for that orientation, and remains idle un
 - If possible, copy the code I use for this step into the repo, _ArduinoBLE-to-Android_ (or wherever, ongoing)
 - **DOCUMENT** this activity and requirements. Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. Decide whether to include these steps in a **BLOG**
 - Determine whether to open new _golf-swing-steps.md_ to describe building process. This is out of the idea stage, and is now in the execution stage. (documentation elsewhere depends upon how complex this doc is, and I don't think it's complex enough)
-
-
-
 
 
 
