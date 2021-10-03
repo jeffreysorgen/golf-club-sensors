@@ -65,7 +65,7 @@
   - by combining the current .md files with the local _golf swing TinyML.txt_ 
 
 ###
-* __RENAME__ this _hello_world_ repository to _golf-swing-helper_
+* __RENAME__ this _hello_world_ repository to _golf-swing-sensors
   - Then backup this (old) _readme_ and rename _new-readme.md_ to become the new **readme.md** for this repository
 * Create new repository "hello-world-arduino" for book exercise (sine function)
 * Determine whether to use GitHub Desktop and/or BASH
