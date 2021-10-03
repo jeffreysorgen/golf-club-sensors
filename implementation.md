@@ -1,6 +1,5 @@
 # Documenting my activity:
 **Learning about this:**
-- IMU sensors, and Fourier Series, until I understand IMU aspects about a golf swing
 - **How to edit Arduino sketches!**
 - GitHub Desktop, KiCad, LTspice, OSHPARK, probably GitBASH
 - Arduino Components and code requirements
