@@ -3,51 +3,50 @@
 [<-- back to README.md](new-readme.md)
 # To Do:
 
-### Make the Serial Monitor show the word "Yes" or "Ready" when the device senses its Start orientation, and the word "Resting" when it senses its Rest orientation
-- Enable this activity within the Arduino IDE
-- Use boolean logic within the sketch _(how?)_
-  - Edit sketch to identify whether orientation is zero=yes or zero=no. x=working on it
 
-#### Then make the smartphone beep when Ready
-- _HOW?_
-- Set up BLE and connect to phone
-- Open monitor in phone, and watch magnetometer state go from Ready to Resting, and back
-  - _What can be configured in my phone that receives commands from the nCF Connect application?_
-- **Develop APP that can beep when it sees "Yes"**
-  -  [nRF Connect SDK](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
+## Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor
+- Use boolean logic within the sketch _(How? Is this needed?)_
+- "Ready" for when the device senses its Start orientation
+- "Resting" for when the device senses its Rest orientation
+
+## LEARN how to enable both BLE and Magnetometer
+- Enable BOTH Magnetometer and BLE into new custom sketch
+- **Test** Magnetometer, that it works as before
+
+## Enable smartphone nRF Connect App via BLE
+1. Download to Android (done)
+2. Modify the label of the device in the SKETCH
+3. Pair the device
+4. **WATCH** what the Serial Monitor displays ("Ready" to "Rest" and back again)
+
+## Enable smartphone functions via nRF (Requires SDK)
+- Make the smartphone beep in Ready state
+#### Research:
+- App Development
+  - Use [nRF Connect SDK](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
+- What can be configured in my phone that receives commands from the nRF Connect application?
+- **TEST:** 
+  - Can the phone app trigger **BEEP** or a vibration/buzz? 
+  - Can the nRF App turn on/off the phone's flashlight? (_Good Idea!_)
 
 
 #
 #
-### Set up BLE and IMU (and document)
-- __QUESTION__ (to ask after working out how to make the phone beep when sensing Ready orientation)
+#
+## Set up BLE and IMU (and document)
+- __QUESTION__ (to ask AFTER working out how to make the phone beep when sensing Ready orientation)
   - What are the specific physical instruments needed to determine whether the motion has stopped? I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
 
-#
-**This has been stated elsewhere:**
-- Set up serial monitor displaying orientation, and signal "yes" that it senses that the orientation is at described 'zero' orientation. 
 
-**What is this saying?**
-- When it pulls away from that orientation, it continues to wait for it to get there again. (this is true, and I think it's been stated above)
 
-**Is there something that needs to stop looking for activity?**
-- And after 30 seconds, will stop looking.  (Really? or is it always-on mode?)
-
-**Not sure that this is true:**
-- Pings the device every 5 to 10 seconds for that orientation, and remains idle until zero orientation is found. (Maybe doesn't need to ping anything, as long as it's 'on' when in Ready mode and 'off' when in Resting mode.)
-
-#
-**This is said elsewhere:**
-- Enable the magnetometer. Edit magnetometer sketch. Show Arduino is or is not oriented at 'zero' (x=got this info)
  
 #
-###
+### Also
 - For BLE, watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
 - Implement BLE. (What code is used? Can it be included in this documentation?)
   - Move the computer to the table, then plug in the Arduino, find the correct ports x
   - **LABEL** this device in the code. Upload the sketch. (label for the BLE connection)
   - Install the app in the smartphone, and connect to the BLE device
-- connect to smartphone and read sensor within the phone app. Can this sensor trigger a Yes/No or On/Off? Can the phone app trigger a vibration or a beep? Is this where **App Development** comes in? x 
 - **TEST: Turn on/off the phone's flashlight? (Good Idea!)**
 - If possible, copy the code I use for this step into the repo, _ArduinoBLE-to-Android_ (or wherever, ongoing)
 - **DOCUMENT** this activity and requirements. Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. Decide whether to include these steps in a **BLOG**
@@ -85,4 +84,14 @@
 * Not Needed: GIF of photos of certs, book, Arduino board, etc (not yet)
 * Not Needed: **Wiki**
 * "SWINGTASTIC"
+#
+### Old Notes:
 
+**What is this saying?**
+- When it pulls away from that orientation, it continues to wait for it to get there again. (this is true, and I think it's been stated above)
+
+**Is there something that needs to stop looking for activity?**
+- And after 30 seconds, will stop looking.  (Really? or is it always-on mode?)
+
+**Not sure that this is true:**
+- Pings the device every 5 to 10 seconds for that orientation, and remains idle until zero orientation is found. (Maybe doesn't need to ping anything, as long as it's 'on' when in Ready mode and 'off' when in Resting mode.)
