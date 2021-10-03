@@ -92,6 +92,8 @@
 
 [<-- back to Implementation](implementation.md)
 ## Also:
+* Delete golf-swing-idea.md because I've incorporated it already
+* Delete README-old.md because I don't need it
 * DOWNLOAD JupyterLab Desktop (look into this!)
 * Determine whether to use GitHub Desktop and/or BASH
 * Continue recording progress in THIS page
