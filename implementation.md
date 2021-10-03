@@ -55,5 +55,5 @@ What instrument determines when to begin doing something? The **magnetometer**. 
     - The swing is brief, so the slow BAUD will be adequate. (**_Tentative premise_**)
   - **Add this to repository? Where is the local file if it's in GitHub locally? Where is it now?**
 # [NEXT STEPS -->](activity.md)
-### Make the Serial Monitor show the word "Yes" or "Ready" when the device senses its Start orientation, and the word "Resting" when it senses its Rest orientation
+### Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor
 [<-- back to README.md](new-readme.md)
