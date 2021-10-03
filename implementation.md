@@ -15,8 +15,13 @@
 9. Defined Golf Swing Flow, [_here_](#flow-for-golf-swing-sensors)
 10. [Part One:](#part-one-the-magnetometer) Set up Magnetometer
 11. Created new README.md ([new-readme.md](new-readme.md))
-#
-### Flow for [Golf Swing](golf-swing-idea.md) sensors:
+
+
+
+
+
+# Implementation:
+### Flow for Golf Swing sensors:
 - **BLE** is enabled when the device is powered, waits for pairing forever.
 - Pairs with phone app.
 - Clear device buffer and **begin loop**
