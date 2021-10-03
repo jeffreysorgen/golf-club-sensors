@@ -45,6 +45,7 @@ What instrument determines when to begin doing something? The **magnetometer**. 
 - The readings of the magnetometer, according to the setup in the images: 
      - If Y < X  and  Y < Z  then its orientation is in the start position. So if the y axis readings are less (or more negative) than the other two readings, then the device is in the start position. 
      - The opposite is true. If Y is greater than the other 2 axes, then the device is idle and in rest, **and is meant to WAIT FOREVER for its orientation to return to the start position.**
+###
 - **Created _test_IMU_custom.ino_ sketch**
   - Slow down the sensor (_do we need so many data points? don't do this at all?_) 
     - In the SETUP loop, change the baud rate to lowest --> _Serial.begin(300);_ <-- from 9600
