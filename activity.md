@@ -88,9 +88,7 @@
 
 ## Next Steps
 #### (done) 
-- Created _**new-readme.md**_ that is __EXACTLY__ what I want for new repository, _golf-swing-sensors_ (ongoing)
-  - __RENAME__ this _hello_world_ repository to _golf-swing-sensors
-  - Then backup this (old) _readme_ and rename _new-readme.md_ to become the new **readme.md** for this repository
+- Renamed repository
 
 [<-- back to Implementation](implementation.md)
 ## Also:
