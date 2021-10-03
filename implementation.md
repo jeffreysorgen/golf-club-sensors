@@ -4,7 +4,7 @@
 - GitHub Desktop, KiCad, LTspice, OSHPARK, probably GitBASH
 - Arduino Components and code requirements
 
-[_(jump to --> Implementation)_](#implementation)
+[_(jump to --> Implementation)_](#implementation) [_(open for --> Discussion!)_](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
 ## Completed:
 1. **Git** Practicing with Repositories, Branches, Commits, Pull Requests, and Merges with [help from this Guide](https://guides.github.com/activities/hello-world/)
 2. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
