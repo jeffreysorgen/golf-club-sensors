@@ -59,6 +59,7 @@
   - Then backup this (old) _readme_ and rename _new-readme.md_ to become the new **readme.md** for this repository
 
 ## Also:
+* DOWNLOAD JupyterLab Desktop (look into this!)
 * Determine whether to use GitHub Desktop and/or BASH
 * Continue recording progress in THIS page
 * Jot down ideas for other projects here
