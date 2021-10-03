@@ -52,9 +52,20 @@
 - how to download a dataset of 100 records to PC
 - how to develop and test a TinyML inference model from this dataset
 - how to IMPLEMENT data inference to the device
-- 
-- 
-- finally, is it possible to simultaneously collect data and provide inference
+- finally, is it possible to simultaneously collect data and provide inference?
+#### Next:
+- how to gather components/parts list
+- LEARN about power requirements
+- DESIGN battery solution
+- LEARN about electronics configuration (physical)
+- how to reduce form factor
+- how to print schematic
+- determine if need for 3D printing
+- how to design PCB (KiCad)
+- how to prototype (OSHPARK)
+- testing prototype
+- collect 10X more data
+
 
 
 #
