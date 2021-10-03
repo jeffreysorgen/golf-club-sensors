@@ -46,13 +46,15 @@
 - how to begin recording a golf swing
 - how to finish recording a golf swing
 - how to engage the KWS after the golf swing
-- how to record the KWS label to the golf swing data (in collect data mode)
+- how to record the KWS label to the golf swing data (in data collection mode)
 - how to build a dataset on my smartphone
 - how to add the record to the dataset
 - how to download a dataset of 100 records to PC
 - how to develop and test a TinyML inference model from this dataset
+- how to IMPLEMENT data inference to the device
 - 
 - 
+- finally, is it possible to simultaneously collect data and provide inference
 
 
 #
