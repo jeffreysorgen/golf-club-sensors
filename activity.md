@@ -43,46 +43,42 @@
 
 
 #
-## Future Steps:
+## More Learning:
 - Repeat EdX course material, do all TinyML assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files, c files and others)
   - **Fully utilize GitHub features and functionality**
+- TinyML Book
+  - Create new repository "hello-world-arduino" for book exercise (sine function)
+- What are GISTS ?
+- Determine whether learning SmartPhone App Development is necessary (might be!)
 
-###
-- (done) Create _**new-readme.md**_ that is __EXACTLY__ what I want for new repository, _golf-swing-helper_
-  - by combining the current .md files with the local _golf swing TinyML.txt_ 
-
-###
-* __RENAME__ this _hello_world_ repository to _golf-swing-sensors
+## Next Steps
+#### (done) 
+- Created _**new-readme.md**_ that is __EXACTLY__ what I want for new repository, _golf-swing-sensors_ (ongoing)
+  - __RENAME__ this _hello_world_ repository to _golf-swing-sensors
   - Then backup this (old) _readme_ and rename _new-readme.md_ to become the new **readme.md** for this repository
-* Create new repository "hello-world-arduino" for book exercise (sine function)
+
+## Also:
 * Determine whether to use GitHub Desktop and/or BASH
 * Continue recording progress in THIS page
-  - Accomplishments or Highlights likely to be ANOTHER page
-  - What are GISTS ?
 * Jot down ideas for other projects here
   * wind turbine ( Is the most popular product TinyML or IoT? )
   * Continue to flesh out golf swing idea (golf-swing-idea.md)
 * Prototyping with KiCad, OSHPARK, and more
-* Determine whether _ArduinoBLE-to-Android_ repository is necessary. (because all goes here)
+* Determine whether _ArduinoBLE-to-Android_ repository is necessary. (probably not)
   - DO NOT NEED _ArduinoBLE-to-Android_ so probably delete it.
-* Determine whether learning SmartPhone App Development is necessary (might be!)
-* Determine whether to keep the TEST site called _jdsgithubpages_
+* Determine whether to keep the TEST site called _jdsgithubpages_ (probably not)
+  - But decide whether repo _golf-swing-sensors_ needs to convert to public
 * Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
-  - Enable blogging somehow, with or without repositories, to publicly document actions taken
+  - Enable blogging somehow, with or without repositories, to publicly document actions taken (or just this page!)
 * Determine physical nature of MCU board form factor and its protection from damage
 * Determine whether a **BLOG** is useful
 * Not Needed: GIF of photos of certs, book, Arduino board, etc (not yet)
 * Not Needed: **Wiki**
 * "SWINGTASTIC"
 #
-### Old Notes:
-
-**What is this saying?**
-- When it pulls away from that orientation, it continues to wait for it to get there again. (this is true, and I think it's been stated above)
-
-**Is there something that needs to stop looking for activity?**
-- And after 30 seconds, will stop looking.  (Really? or is it always-on mode?)
-
-**Not sure that this is true:**
-- Pings the device every 5 to 10 seconds for that orientation, and remains idle until zero orientation is found. (Maybe doesn't need to ping anything, as long as it's 'on' when in Ready mode and 'off' when in Resting mode.)
+#
+#
+#
+#
+#
