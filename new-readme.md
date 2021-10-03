@@ -47,3 +47,5 @@ Uses KWS:
 - KWS void loop listens for 'yes'
 - after delay, records null label then returns to IMU void loop
 - after 'yes' Keyword, records Yes label then returns to IMU void loop
+
+# [Implementation -->](implementation.md)
