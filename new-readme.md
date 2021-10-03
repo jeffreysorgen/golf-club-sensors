@@ -12,7 +12,7 @@ If you're like me trying to remember what you saw on YouTube, then it's hard to 
 
 **This project is going to help me with my swing by providing instant feedback when my practice swing is not where it needs to be. I'll instantly know the difference between a good swing and a bad one.** 
 - With a good swing I'll hear a positive chirp from my smartphone, which I keep in my golf cart or bag. 
-- With a not-so-good swing, I'll hear a sad chirp from my Golf Swing Helper.
+- With a not-so-good swing, I'll hear a sad chirp from my Golf Swing Sensors.
 
 ## Purpose of the Device:
 There are _two_. The first is data collection, described here. Its architecture expects me to say 'yes' following a good swing. 
