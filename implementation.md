@@ -51,17 +51,7 @@ What instrument determines when to begin doing something? The **magnetometer**. 
     - The swing is brief, so the slow BAUD will be adequate. (**_Tentative premise_**)
   - **Add this to repository? Where is the local file if it's in GitHub locally? Where is it now?**
 #
-### Make the Serial Monitor show the word "Yes" or "Ready" when the device senses its Start orientation, and the word "Resting" when it senses its Rest orientation
-- Enable this activity within the Arduino IDE
-- Use boolean logic within the sketch _(how?)_
-#### Then make the smartphone beep when Ready
-- _HOW?_
-- Set up BLE and connect to phone
-- Open monitor in phone, and watch magnetometer state go from Ready to Resting, and back
-  - _What can be configured in my phone that receives commands from the nCF Connect application?_
-- **Develop APP that can beep when it sees "Yes"**
-  -  [nRF Connect SDK](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
-
+### 
 
 # NEXT
 ### Make the Serial Monitor show the word "Yes" or "Ready" when the device senses its Start orientation, and the word "Resting" when it senses its Rest orientation
