@@ -40,6 +40,19 @@
 #### Repository Question
 - Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. 
 
+## More steps
+### What are more parts to the project?
+#### Figure out:
+- how to begin recording a golf swing
+- how to finish recording a golf swing
+- how to engage the KWS after the golf swing
+- how to record the KWS label to the golf swing data (in collect data mode)
+- how to build a dataset on my smartphone
+- how to add the record to the dataset
+- how to download a dataset of 100 records
+- how to develop and test a TinyML inference model
+- 
+- 
 
 
 #
@@ -47,8 +60,7 @@
 - Repeat EdX course material, do all TinyML assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files, c files and others)
   - **Fully utilize GitHub features and functionality**
-- TinyML Book
-  - Create new repository "hello-world-arduino" for book exercise (sine function)
+- **TinyML Book** Create new repository "hello-world-arduino" for book exercise (sine function)
 - What are GISTS ?
 - Determine whether learning SmartPhone App Development is necessary (might be!)
 
