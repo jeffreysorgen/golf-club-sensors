@@ -53,7 +53,7 @@ What instrument determines when to begin doing something? The **magnetometer**. 
 - **Created _test_IMU_custom.ino_ sketch**
   - Slow down the sensor (_do we need so many data points? don't do this at all?_) 
     - In the SETUP loop, change the baud rate to lowest --> `Serial.begin(300);` <-- from 9600
-    - The swing is brief, so the slow BAUD will be adequate. (**_Tentative premise_**)
+    - Determine whether to leave baud at 9600, and LEARN to take fewer sample data points (rather than just slowing it down)
   - **Add this to repository? Where is the local file if it's in GitHub locally? Where is it now?**
 # [NEXT STEPS -->](activity.md)
 ### Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor
