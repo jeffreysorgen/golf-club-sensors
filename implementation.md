@@ -12,9 +12,10 @@
 6. **GitHub Pages** Added using [this guide](https://guides.github.com/features/pages/) and is accessible [here](https://jeffreysorgen.github.io/hello-world/) (ongoing)
 7. Changed hello-world (this) repository to **PRIVATE**, so it isn't publicly available now on GitHub Pages either
 8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository
-9. Defined Golf Swing Flow, [_here_](#flow-for-golf-swing-sensors)
+9. Defined Golf Swing Data Flow, included in _new-readme.md_
 10. [Part One:](#part-one-the-magnetometer) Set up Magnetometer
-11. Created new README.md ([new-readme.md](new-readme.md))
+11. Created [_new-readme.md_,](new-readme.md) added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list
+
 # Implementation:
 ### Flow for Golf Swing sensors:
 - **BLE** is enabled when the device is powered, waits for pairing forever.
