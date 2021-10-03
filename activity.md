@@ -39,8 +39,8 @@ Pings the device every 5 to 10 seconds for that orientation, and remains idle un
 - Enable the magnetometer. Edit magnetometer sketch. Show Arduino is or is not oriented at 'zero' (x=got this info)
   - Edit sketch to identify whether orientation is zero=yes or zero=no. x=working on it
   - **Connect BLE to phone app** x=said it
-  - **Develop APP that can beep when it sees "Yes"**
-    - [nRF Connect SDK](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk) x
+
+#
 ###
 - For BLE, watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
 - Implement BLE. (What code is used? Can it be included in this documentation?)
