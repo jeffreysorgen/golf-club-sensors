@@ -3,18 +3,21 @@
 - **How to edit Arduino sketches!**
 - GitHub Desktop, KiCad, LTspice, OSHPARK, probably GitBASH
 - Arduino Components and code requirements
+
+[_(jump to --> Implementation)_](#implementation)
 ## Completed:
 1. **Git** Practicing with Repositories, Branches, Commits, Pull Requests, and Merges with [help from this Guide](https://guides.github.com/activities/hello-world/)
 2. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
-3. **TinyML** Took course for TinyML from EdX (complete)
-4. **activity.md** (This) Describes my next steps, ideas, and this Completed list
-5. **golf-swing-idea.md** Defines the parts of my golf swing idea (ongoing)
-6. **GitHub Pages** Added using [this guide](https://guides.github.com/features/pages/) and is accessible [here](https://jeffreysorgen.github.io/hello-world/) (ongoing)
+3. **TinyML** Took course for TinyML from EdX ([complete](https://credentials.edx.org/credentials/4601700d748c4de0b3a57315ff04831c/))
+4. **activity.md** Describes my next steps, ideas, and this Completed list (now is a [to-do list](activity.md))
+5. **golf-swing-idea.md** Defines the parts of my golf swing idea (now incorporated into README)
+6. **GitHub Pages** Added using [this guide](https://guides.github.com/features/pages/) and is accessible _here_ (ongoing)
 7. Changed hello-world (this) repository to **PRIVATE**, so it isn't publicly available now on GitHub Pages either
-8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository
-9. Defined Golf Swing Data Flow, included in _new-readme.md_
+8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository (now may not be needed)
+9. Defined Golf Swing Data Flow _here_
 10. [Part One:](#part-one-the-magnetometer) Set up Magnetometer
-11. Created [_new-readme.md_,](new-readme.md) added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list
+11. Created _new-readme.md_ (now [README](README.md)), added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list
+12. Renamed (this) repository: _hello-world_ is now _golf-swing-sensors_, and updated [README.md](readme.md)
 
 # Implementation:
 ### Flow for Golf Swing sensors:
