@@ -2,9 +2,12 @@
 
 [<-- back to README.md](new-readme.md)
 # To Do:
+
 ### Make the Serial Monitor show the word "Yes" or "Ready" when the device senses its Start orientation, and the word "Resting" when it senses its Rest orientation
 - Enable this activity within the Arduino IDE
 - Use boolean logic within the sketch _(how?)_
+  - Edit sketch to identify whether orientation is zero=yes or zero=no. x=working on it
+
 #### Then make the smartphone beep when Ready
 - _HOW?_
 - Set up BLE and connect to phone
@@ -14,32 +17,26 @@
   -  [nRF Connect SDK](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
 
 
-
-
-
-#
 #
 #
 ### Set up BLE and IMU (and document)
 - __QUESTION__ (to ask after working out how to make the phone beep when sensing Ready orientation)
   - What are the specific physical instruments needed to determine whether the motion has stopped? I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
 
-
-
-
-
-
-**Set up serial monitor displaying orientation, and signal "yes" that it senses that the orientation is at described 'zero' orientation. (this is the logic that I'm going to be setting up next)**
-When it pulls away from that orientation, it continues to wait for it to get there again. (this is true, and I think it's been stated above)
-And after 30 seconds, will stop looking.  (Really? or is it always-on mode?)
-Pings the device every 5 to 10 seconds for that orientation, and remains idle until zero orientation is found. (Maybe doesn't need to ping anything, as long as it's 'on' when in Ready mode and 'off' when in Resting mode.)
 #
+**This has been stated elsewhere:**
+- Set up serial monitor displaying orientation, and signal "yes" that it senses that the orientation is at described 'zero' orientation. 
+**What is this saying?**
+- When it pulls away from that orientation, it continues to wait for it to get there again. (this is true, and I think it's been stated above)
+**Is there something that needs to stop looking for activity?**
+- And after 30 seconds, will stop looking.  (Really? or is it always-on mode?)
+**Not sure that this is true:**
+- Pings the device every 5 to 10 seconds for that orientation, and remains idle until zero orientation is found. (Maybe doesn't need to ping anything, as long as it's 'on' when in Ready mode and 'off' when in Resting mode.)
 
-#### To Do:
+#
+**This is said elsewhere:**
 - Enable the magnetometer. Edit magnetometer sketch. Show Arduino is or is not oriented at 'zero' (x=got this info)
-  - Edit sketch to identify whether orientation is zero=yes or zero=no. x=working on it
-  - **Connect BLE to phone app** x=said it
-
+ 
 #
 ###
 - For BLE, watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
@@ -56,19 +53,16 @@ Pings the device every 5 to 10 seconds for that orientation, and remains idle un
 
 
 #
-###
-#### Future Steps:
-* Repeat EdX course material, do all TinyML assignments again
+## Future Steps:
+- Repeat EdX course material, do all TinyML assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files, c files and others)
   - **Fully utilize GitHub features and functionality**
 
 ###
-
-* Create _**new-readme.md**_ that is __EXACTLY__ what I want for new repository, _golf-swing-helper_
+- Create _**new-readme.md**_ that is __EXACTLY__ what I want for new repository, _golf-swing-helper_
   - by combining the current .md files with the local _golf swing TinyML.txt_ 
 
 ###
-
 * __RENAME__ this _hello_world_ repository to _golf-swing-helper_
   - Then backup this (old) _readme_ and rename _new-readme.md_ to become the new **readme.md** for this repository
 * Create new repository "hello-world-arduino" for book exercise (sine function)
@@ -87,7 +81,4 @@ Pings the device every 5 to 10 seconds for that orientation, and remains idle un
 * Determine whether learning SmartPhone App Development is necessary
 * Not Needed: GIF of photos of certs, book, Arduino board, etc (not yet)
 * Not Needed: **Wiki**
-
-
-
 
