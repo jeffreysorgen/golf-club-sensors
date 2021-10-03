@@ -10,18 +10,19 @@
 - "Resting" for when the device senses its Rest orientation
 
 ## LEARN how to enable both BLE and Magnetometer
-- Enable BOTH Magnetometer and BLE into new custom sketch
+- **Enable BOTH Magnetometer and BLE into new custom sketch**
 - **Test** Magnetometer, that it works as before
 
 ## Enable smartphone nRF Connect App via BLE
 1. Download to Android (done)
-2. Modify the label of the device in the SKETCH
-3. Pair the device
-4. **WATCH** what the Serial Monitor displays ("Ready" to "Rest" and back again)
+2. **LABEL** this device in the code, upload the SKETCH
+4. Pair the device
+5. **WATCH** what the Serial Monitor displays ("Ready" to "Rest" and back again)
 
 ## Enable smartphone functions via nRF (Requires SDK)
 - Make the smartphone beep in Ready state
 #### Research:
+- For BLE, watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
 - App Development
   - Use [nRF Connect SDK](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
 - What can be configured in my phone that receives commands from the nRF Connect application?
@@ -31,23 +32,14 @@
 
 
 #
-#
-#
-## Set up BLE and IMU (and document)
-- __QUESTION__ (to ask AFTER working out how to make the phone beep when sensing Ready orientation)
-  - What are the specific physical instruments needed to determine whether the motion has stopped? I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
-
-
+## AFTER enabling smartphone to beep when sensing Ready orientation
+QUESTION: What is the next physical step?
+- What are the specific physical instruments needed to determine whether the motion has stopped? 
+  - I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
 
  
 #
 ### Also
-- For BLE, watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
-- Implement BLE. (What code is used? Can it be included in this documentation?)
-  - Move the computer to the table, then plug in the Arduino, find the correct ports x
-  - **LABEL** this device in the code. Upload the sketch. (label for the BLE connection)
-  - Install the app in the smartphone, and connect to the BLE device
-- **TEST: Turn on/off the phone's flashlight? (Good Idea!)**
 - If possible, copy the code I use for this step into the repo, _ArduinoBLE-to-Android_ (or wherever, ongoing)
 - **DOCUMENT** this activity and requirements. Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. Decide whether to include these steps in a **BLOG**
 - Determine whether to open new _golf-swing-steps.md_ to describe building process. This is out of the idea stage, and is now in the execution stage. (documentation elsewhere depends upon how complex this doc is, and I don't think it's complex enough)
@@ -74,13 +66,14 @@
   - What are GISTS ?
 * Jot down ideas for other projects here
   * wind turbine ( Is the most popular product TinyML or IoT? )
-  * Continue to flesh out golf swing idea, [_here_](golf-swing-idea.md)
+  * Continue to flesh out golf swing idea (golf-swing-idea.md)
 * Prototyping with KiCad, OSHPARK, and more
+* Determine whether _ArduinoBLE-to-Android_ repository is necessary. (all goes here)
+* Determine whether learning SmartPhone App Development is necessary (might be!)
 * Determine whether to keep the TEST site called _jdsgithubpages_
 * Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
   - Enable blogging somehow, with or without repositories, to publicly document actions taken
 * Determine physical nature of MCU board form factor and its protection from damage
-* Determine whether learning SmartPhone App Development is necessary
 * Not Needed: GIF of photos of certs, book, Arduino board, etc (not yet)
 * Not Needed: **Wiki**
 * "SWINGTASTIC"
