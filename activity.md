@@ -112,7 +112,9 @@
 * Not Needed: **Wiki**
 * "SWINGTASTIC"
 #
-#
+# 
+### I would like to convert MOTION recorded here and stored in JSON into a Fourier Series because it seems that would be a good way to create 3D time-series illustrations
+
 #
 #
 #
