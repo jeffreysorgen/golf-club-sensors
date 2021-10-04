@@ -4,16 +4,18 @@
 # To Do:
 
 ## Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor
-- LEARN how to use boolean logic within the sketch
-  - This lesson will transfer to other processes
+- LEARN how to use boolean logic within the sketch. _This lesson will transfer to other processes._
   - Set up thresholds?
   - Simple as Y>X or Y>Z ?
 - Print "Ready" for when the device senses its Start orientation
 - Print "Resting" for when the device senses its Rest orientation
 
+
 ## LEARN how to enable both BLE and Magnetometer
-- **Enable BOTH Magnetometer and BLE into new custom sketch**
+- **Enable BOTH Magnetometer and BLE into _new_ custom sketch**
 - **Test** Magnetometer, that it works as before
+
+
 
 ## Enable smartphone nRF Connect App via BLE
 1. Download to Android (done)
