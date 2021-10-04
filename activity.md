@@ -2,7 +2,9 @@
 
 [<-- back to README.md](new-readme.md)
 # To Do:
-
+In the current Arduino SKETCH:
+- Reset the baud rate to its default 9600 (from 300)
+- In the sketch, create a delay of 10ms prior to the reading! This would sample 100 per second.
 ## Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor
 - LEARN how to use boolean logic within the sketch. _This lesson will transfer to other processes._
   - Set up thresholds?
