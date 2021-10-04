@@ -27,6 +27,7 @@ In the current Arduino SKETCH:
 
 ## Enable smartphone functions via nRF (Requires SDK)
 ### Make the smartphone beep in Ready state
+Proof of feasibility. Not used in final product. But other activity will require prompting a smartphone to act on something in some way.
 #### Research:
 - For BLE, watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
 - App Development
@@ -107,9 +108,10 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 [<-- back to Implementation](implementation.md)
 ## Also:
+* Determine whether some of this documentation would be better in the form of a _Jupyter notebook_
 * Delete golf-swing-idea.md because I've incorporated it already
 * Delete README-old.md because I don't need it
-* DOWNLOAD JupyterLab Desktop (look into this!)
+* DOWNLOAD JupyterLab Desktop (look into this! or maybe just using browser tabs is okay?)
 * Determine whether to use GitHub Desktop and/or BASH
 * Continue recording progress in THIS page
 * Jot down ideas for other projects here
@@ -130,10 +132,14 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 #
 # 
 ### I would like to convert MOTION recorded here and stored in JSON into a _Fourier Series_ because it seems that that would be a good way to create 3D time-series illustrations
-([3B1B Fourier Series video here](https://youtu.be/r6sGWTCMz2k))
+([3B1B Fourier Series video here](https://youtu.be/r6sGWTCMz2k?t=1226)) The video describes 2 dimensions, but what I'm interested in calculating is in 3 dimensions.
 
-This formula is full of hyperparameters, which I believe can be learned by a Neural Net. A golf swing consists of a time series of 3D points (say, 100 3-dimensional points per second).
+This formula is full of hyperparameters, which I believe can be learned by a Neural Net. A golf swing consists of a time series of 3D points (say, 100 3-dimensional points per second), and can entirely be drawn with a **Fourier Series!**
 
+Technically, although virtually impossible to visualize as a human being, this will work in _**n-dimensions!**_ 
+
+### This means that a _multi-dimensional_ line can be generated, against which comparisons can be made for a VERY QUICK INFERENCE!
+To illustrate, imagine a drone on a 3D path, and add 2 more dimensions (parameters) such as temperature and pressure. Now it's a 5-dimensional line upon which a model can make a quick inference!
 #
 #
 #
