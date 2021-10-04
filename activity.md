@@ -134,12 +134,12 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 ### I would like to convert MOTION recorded here and stored in JSON into a _Fourier Series_ because it seems that that would be a good way to create 3D time-series illustrations
 ([3B1B Fourier Series video here](https://youtu.be/r6sGWTCMz2k?t=1226)) The video describes 2 dimensions, but what I'm interested in calculating is in 3 dimensions.
 
-This formula is full of hyperparameters, which I believe can be learned by a Neural Net. A golf swing consists of a time series of 3D points (say, 100 3-dimensional points per second), and can entirely be drawn with a **Fourier Series!**
+This formula has hyperparameters which I believe can be learned by a Neural Net. A golf swing consists of a time series of 3D points (say, 100 3-dimensional points per second), and can entirely be drawn with a **Fourier Series!**
 
 Technically, although virtually impossible to visualize as a human being, this will work in _**n-dimensions!**_ 
 
 ### This means that a _multi-dimensional_ line can be generated, against which comparisons can be made for a VERY QUICK INFERENCE!
-To illustrate, imagine a drone on a 3D path, and add 2 more dimensions (parameters) such as temperature and pressure. Now it's a 5-dimensional line upon which a model can make a quick inference!
+To illustrate, imagine a drone on a 3D path, and add 2 more dimensions (parameters) such as temperature and pressure. Now it's a 5-dimensional line against which a model can make a quick inference!
 #
 #
 #
