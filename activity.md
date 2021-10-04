@@ -149,6 +149,8 @@ It's possible that all I really need is something that we learned about when we 
 
 So what am I looking for, anyway? (I'm exhausted.)
 
+I think all I'm actually looking for is a real-time 3d representation connecting all the data points of the golf swing. The ML can figure out all the other stuff on its own when I send it in the right direction.
+
 #
 #
 #
