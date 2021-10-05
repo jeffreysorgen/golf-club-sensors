@@ -38,6 +38,7 @@
 ## Part One: The Magnetometer
 What instrument determines when to begin doing something? The **magnetometer**. It is either ready for a swing, or it is back in the golf bag!
 - The following is a first-draft effort. 
+- I might be WRONG about the magnetometer, so I'm checking capabilities of the ACCELEROMETER
 
 #### IMPORTANT:
 - **The goal is to "turn off" readings when sensor is oriented with clubhead up shaft down.**
