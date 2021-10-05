@@ -37,6 +37,11 @@
   - _Silent (or low tone) if no match_
 ## Part One: The Magnetometer
 What instrument determines when to begin doing something? The **magnetometer**. It is either ready for a swing, or it is back in the golf bag!
+- The following is a first-draft effort. 
+
+#### IMPORTANT:
+- **The goal is to "turn off" readings when sensor is oriented with clubhead up shaft down.**
+
 ### Use the Magnetometer readings to determine its orientation to get start/rest orientation of the device
 - Attach the device to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is back in the golf bag._
 #### Images: (1)Attach the device to a stick (2)Rest orientation (3)Device orientation (4)Start orientation
