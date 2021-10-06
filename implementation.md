@@ -42,16 +42,27 @@
 
 
 ## Part One: The Accelerometer
-#### _Rewrite this section._
-- Learned that Accelerometer is going to be used, and magnetometer is unnecessary for the project.
-So this will be rewritten. Graphic of mag sensor readings should be swapped out for accelerometer readings.
+
+#### *Rewrite this entire section*
+- _Learned that Accelerometer is going to be used, and magnetometer is unnecessary for the project.
+So this section will be rewritten. 
+Graphic of mag sensor readings should be swapped out for accelerometer readings.
 Push towards understanding what to do with the acc readings. 
 Need to identify more specific steps for this project phase.
-Might need to rewrite the following documentation/progress so that it's more accurate.
+Might need to rewrite the following documentation/progress so that it's more accurate._
+
+### In Monitor:
+- Get the acc readings to say or "Resting" (IN PROGRESS) 
+  - Use code in the arduino IDE (the 'ino' file) like "if" statements
+- In Ready state, show x,y,z coordinates as a set of data points
+- Write out to screen at a rate of 100/sec rather than baud rate itself. 
+  - Later will get 100 3D data points per second (does this save on memory? Likely yes.)
+- When Resting, don't print more readings.
 
 
- 
-**The goal is to "turn on" readings when sensor is oriented with clubhead down to the ground.**
+
+#### Description: 
+**The goal is to "turn on" readings when sensor is oriented with clubhead down at the ground.**
 What instrument determines when to begin doing something? 
 The **accelerometer**. 
 Depending on how the device is attached, one axis determines the direction of gravity. 
@@ -79,15 +90,7 @@ This experiment needs to move to the next step.
 - How to separate out that parameter
 - How to modify sketch to say "Ready" or "Resting" depending that reading
 
-### To-do:
-1. In Monitor: Get the acc to say "Ready" or "Resting" 
-2. When Resting, don't print more readings.
-3. In Monitor: When Ready, show x,y,z coordinates as a set of data points
-4. Determine when time-series data ends.
-5. Stop/start recording when it's still again.
-6. When does this stop? How to stop recording? When does it go back to Ready?
-7. 
-8. 
+ 
 
 
 
