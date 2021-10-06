@@ -81,8 +81,20 @@ This experiment needs to move to the next step.
 
 The graph(3) between the rest(2) and start(4) orientation shows the difference in the readings of the Y axis when the device is attached _"the long way"_ where the red Y-axis reading is always greater than both or less than both other axes. When the "stick" is in neither the start nor rest position, the Y-axis is not significantly separated from the X and Z readings.
 
-#### The readings of the magnetometer, according to the setup in the images: 
-- If `Y < X`  and  `Y < Z`  then its orientation is in the start position. So if the y axis readings are less (or more negative) than the other two readings, then the device is in the start position.
+
+
+
+
+
+#### The readings of the accelerometer, according to the setup in the images: 
+- If `Y < X`  and  `Y < Z`  then its orientation is in the start position. So if the y axis readings are less (or more negative) than the other two readings, then the device is in the start position. _Edit:_ More simply, Z axis is positive, or Z axis is negative. (and if the device is attached "sideways" then it's a different axis)
+
+
+
+
+
+
+
 - The opposite is true. If Y is greater than the other 2 axes, then the device is idle and in rest, **and is meant to WAIT FOREVER for its orientation to return to the start position.** [_Fix Needed._](#fix-needed)
 
 ### Created _test_IMU_custom.ino_ sketch
