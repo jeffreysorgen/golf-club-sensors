@@ -44,12 +44,14 @@
 
 **The goal is to "turn on" readings when sensor is oriented with clubhead down to the ground.**
 What instrument determines when to begin doing something? 
-The **accelerometer**. Because one axis is determined by direction of gravity. 
-The Accelerometer always has reading of approximately 1G - the force of gravity in one direction. 
+The **accelerometer**. 
+Depending on how the device is attached, one axis determines the direction of gravity. 
+That axis has an approximate reading of 1G, the force of gravity in one direction.
+
+When the device is attached perpendicular to the stick as shown, then the Y axis is going to determine its orientation. 
 
 
-
-When the device is attached perpendicular to the stick as shown, then its Y axis is going to determine its orientation. Positive or negative depends upon whether the USB is pointing outward or back toward the stick. 
+_Some combination of coordinates might need to be calculated for gravity=zero. At this stage of development it probably in not necessary._
 
 
 
