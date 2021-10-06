@@ -16,9 +16,10 @@
 7. Changed _hello-world_ (this) repository to PRIVATE, so it now isn't publicly available on GitHub Pages either
 8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository (now may not be needed)
 9. Defined Golf Swing Data Flow, [_below_](#flow-for-golf-swing-sensors)
-10. [Implementation Part One:](#part-one-the-magnetometer) **Set up Magnetometer**
+10. [Implementation Part One:](#part-one-the-accelerometer) **Set up Accelerometer**
 11. Created _new-readme.md_ (now [README](README.md)), added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list
 12. Renamed (this) repository: _hello-world_ is now _golf-swing-sensors_, and updated [README.md](readme.md)
+13. Determined that the Magnetometer is not going to be used for Ready/Resting orientation.
 
 # Implementation:
 ### Flow for Golf Swing sensors:
@@ -27,7 +28,7 @@
 - Clear device buffer and **begin loop**
 - Enable mag/acc/gyro
 - Mag/acc/gyro wait for stillness (no movement)
-- Mag then identifies direction of gravity=zero.
+- Mag then identifies direction of gravity=zero. (_edit this_)
 - Acc/gyro records movement. 
 - **Collection mode:** After movement, enables microphone.
   - **Microphone** listens for 3 seconds, and records Null, unless it hears "yes" (**This is KWS**)
@@ -39,15 +40,38 @@
 
 
 
-## Part One: The Magnetometer (No, it's the accelerometer instead!)
-What instrument determines when to begin doing something? The **magnetometer**. (no, the acc.) It is either ready for a swing, or it is back in the golf bag!
-- The following is a first-draft effort. 
-- I might be WRONG about the magnetometer, so I'm checking capabilities of the ACCELEROMETER. Yes, I am wrong about the magnetometer. The reason this doesn't work for my purpose: I needed one reading - knowing the orientation of the device. So depending on which way the device is attached to the golf club head, either x,y, or z will be positive or negative.
-
+## Part One: The Accelerometer
+What instrument determines when to begin doing something? The **accelerometer**. Because its Z axis is determined by direction of gravity. 
 #### IMPORTANT:
-- **The goal is to "turn off" readings when sensor is oriented with clubhead up shaft down.**
+- **The goal is to "turn on" readings when sensor is oriented with clubhead down to the ground.**
 
-### Use the Magnetometer readings to determine its orientation to get start/rest orientation of the device
+I was wrong about the magnetometer. All this information needs to be rewritten.
+
+The Accelerometer always has reading of approximately 1G - the force of gravity in one direction
+
+
+
+
+
+
+
+
+
+
+I need one reading - knowing the orientation of the device. So depending on which way the device is attached to the golf club head, one of either x, y, or z will only be positive or negative. And since Accelerometer +/- Z axis is up/down, then this is the sensor to use. The axis is only "opposite" when the club handle is pointing down. So when the handle is upright, the club is in play. This is when the system needs to switch on and start measuring stuff.
+
+Depending on how the device is attached... it's one of the three axes. 
+
+Be sure to set a timeout for when the club has been Resting for more than two minutes. It will avoid the occasional 'negative' axis reading.
+
+
+This experiment needs to move to the next step.
+- How to identify that Z is positive or negative. 
+- How to separate out that parameter
+- How to modify sketch to say "Ready" or "Resting" depending that reading
+
+
+### Use the Accelerometer readings to determine its orientation to get start/rest orientation of the device
 - Attach the device to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is back in the golf bag._
 #### Images: (1)Attach the device to a stick (2)Rest orientation (3)Device orientation (4)Start orientation
 (1)<img src="https://user-images.githubusercontent.com/1236972/135545687-3e1b9fda-1544-4802-93a2-572b97b9b99b.png" width="20%">
