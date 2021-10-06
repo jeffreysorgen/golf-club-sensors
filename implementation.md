@@ -7,7 +7,9 @@
 - Arduino Components and code requirements
 
 [_(jump to --> Implementation)_](#implementation) [_(open for --> Discussion!)_](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
+
 ## Completed:
+
 1. **Git** Practicing with Repositories, Branches, Commits, Pull Requests, and Merges with [help from this Guide](https://guides.github.com/activities/hello-world/)
 2. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
 3. **TinyML** Took course for TinyML from EdX ([complete](https://credentials.edx.org/credentials/4601700d748c4de0b3a57315ff04831c/))
@@ -20,10 +22,14 @@
 10. Created _new-readme.md_ (now [README](README.md)), added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list
 12. Renamed (this) repository: _hello-world_ is now _golf-swing-sensors_, and updated [README.md](readme.md)
 13. [Implementation Part One:](#part-one-the-accelerometer) **Set up Accelerometer**
-14. Determined that the Magnetometer is not going to be used for Ready/Resting orientation. Major shift in understanding.
+14. Determined that the Magnetometer is _not_ going to be used for Ready/Resting orientation. _Gained understanding._
+15. Determined that it is _better_ to use `millis()` rather than `delay()`
+16. Figured out how to set up Ready/Resting states in Arduino Sketch. (in progress)
 
 # Implementation:
+
 ### Flow for Golf Swing sensors:
+
 - **BLE** is enabled when the device is powered, waits for pairing forever.
 - Pairs with phone app.
 - Clear device buffer and **begin loop**
@@ -38,9 +44,6 @@
   - _Beep/buzz if good swing_
   - _Silent (or low tone) if no match_
 
-
-
-
 ## Part One: The Accelerometer
 
 #### *Rewrite this entire section*
@@ -52,6 +55,7 @@ Need to identify more specific steps for this project phase.
 Might need to rewrite the following documentation/progress so that it's more accurate._
 
 ### In Monitor:
+
 - Get the acc readings to say or "Resting" (IN PROGRESS) 
   - Use code in the arduino IDE (the 'ino' file) like "if" statements
 - In Ready state, show x,y,z coordinates as a set of data points
@@ -59,20 +63,23 @@ Might need to rewrite the following documentation/progress so that it's more acc
   - Later will get 100 3D data points per second (does this save on memory? Likely yes.)
 - When Resting, don't print more readings.
 
-
-
 #### Description: 
+
 **The goal is to "turn on" readings when sensor is oriented with clubhead down at the ground.**
 What instrument determines when to begin doing something? 
 The **accelerometer**. 
 Depending on how the device is attached, one axis determines the direction of gravity. 
 That axis has an approximate reading of 1G, the force of gravity in one direction.
+Resting state is negative value to Ready state (or vice versa).
 
-When the device is attached perpendicular to the stick as shown, then the Y axis is going to determine its orientation. 
+When the device is attached perpendicular to the stick as shown, then the Y axis is going to determine its orientation. Some combination of coordinates might need to be calculated with advanced math for _gravity=zero._
+But at this stage of development it probably in not necessary.
 
-_Some combination of coordinates might need to be calculated with advanced math for gravity=zero. 
-At this stage of development it probably in not necessary._
 
+First, understand the orientation of the device.
+Then, make the device only identify the change in state so it can **beep**.
+
+#### Figuring out the sensors:
 _I need one reading - knowing the orientation of the device. 
 So depending on which way the device is attached to the golf club head, one of either x, y, or z will only be positive or negative. 
 And since Accelerometer +/- Z axis is up/down, then this is the sensor to use. 
@@ -82,10 +89,11 @@ This is when the system needs to switch on and start measuring stuff._
 
 Depending on how the device is attached, it's one of the three axes. 
 
+#### In the sketch:
 Be sure to set a timeout for when the club has been Resting for more than two minutes. It will avoid the occasional 'negative' axis reading.
 
 
-This experiment needs to move to the next step.
+### This experiment needs to move to the next step.
 - How to identify that Z is positive or negative. 
 - How to separate out that parameter
 - How to modify sketch to say "Ready" or "Resting" depending that reading
@@ -95,7 +103,7 @@ This experiment needs to move to the next step.
 
 
 
-
+#
 ## Accelerometer: Continued...
 ### Use the Accelerometer readings to determine its orientation to get start/rest orientation of the device
 - Attach the device to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is back in the golf bag._
