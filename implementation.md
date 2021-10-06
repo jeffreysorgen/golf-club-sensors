@@ -56,7 +56,7 @@ Might need to rewrite the following documentation/progress so that it's more acc
 
 ### In Monitor:
 
-- Get the acc readings to say or "Resting" (IN PROGRESS) 
+- Get the acc readings to say "Resting" (IN PROGRESS) 
   - Use code in the arduino IDE (the 'ino' file) like "if" statements
 - In Ready state, show x,y,z coordinates as a set of data points
 - Write out to screen at a rate of 100/sec rather than baud rate itself. 
@@ -75,30 +75,24 @@ Resting state is negative value to Ready state (or vice versa).
 When the device is attached perpendicular to the stick as shown, then the Y axis is going to determine its orientation. Some combination of coordinates might need to be calculated with advanced math for _gravity=zero._
 But at this stage of development it probably in not necessary.
 
+#### Notes:
 
 First, understand the orientation of the device.
 Then, make the device only identify the change in state so it can **beep**.
+After two minutes, state changes to Timeout state, and halts sensors to listen for Ready state. (For energy conservation.)
 
-#### Figuring out the sensors:
+#### Why the Accelerometer?
 _I need one reading - knowing the orientation of the device. 
-So depending on which way the device is attached to the golf club head, one of either x, y, or z will only be positive or negative. 
-And since Accelerometer +/- Z axis is up/down, then this is the sensor to use. 
-The axis is only "opposite" when the club handle is pointing down. 
-So when the handle is upright, the club is in play. 
-This is when the system needs to switch on and start measuring stuff._
-
+Since the Accelerometer +/- Z axis is up/down, then this is the sensor to use. 
 Depending on how the device is attached, it's one of the three axes. 
+It's mounted flat and perpendicular and 'long way' to the stick so the axis changes to the Y-axis.
+The axis is only "opposite" when the club handle is pointing down. 
+When the handle is upright, the club is in play and the sensor is in Ready state._
 
-#### In the sketch:
-Be sure to set a timeout for when the club has been Resting for more than two minutes. It will avoid the occasional 'negative' axis reading.
 
 
-### This experiment needs to move to the next step.
-- How to identify that Z is positive or negative. 
-- How to separate out that parameter
-- How to modify sketch to say "Ready" or "Resting" depending that reading
 
- 
+
 
 
 
