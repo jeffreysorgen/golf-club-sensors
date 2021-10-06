@@ -19,7 +19,7 @@
 10. [Implementation Part One:](#part-one-the-accelerometer) **Set up Accelerometer**
 11. Created _new-readme.md_ (now [README](README.md)), added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list
 12. Renamed (this) repository: _hello-world_ is now _golf-swing-sensors_, and updated [README.md](readme.md)
-13. Determined that the Magnetometer is not going to be used for Ready/Resting orientation.
+13. Determined that the Magnetometer is not going to be used for Ready/Resting orientation. Major shift in understanding.
 
 # Implementation:
 ### Flow for Golf Swing sensors:
@@ -41,24 +41,21 @@
 
 
 ## Part One: The Accelerometer
-What instrument determines when to begin doing something? The **accelerometer**. Because its Z axis is determined by direction of gravity. 
-#### IMPORTANT:
-- **The goal is to "turn on" readings when sensor is oriented with clubhead down to the ground.**
 
-I was wrong about the magnetometer. All this information needs to be rewritten.
-
-The Accelerometer always has reading of approximately 1G - the force of gravity in one direction
+**The goal is to "turn on" readings when sensor is oriented with clubhead down to the ground.**
+What instrument determines when to begin doing something? 
+The **accelerometer**. Because one axis is determined by direction of gravity. 
+The Accelerometer always has reading of approximately 1G - the force of gravity in one direction. 
 
 
 
-
+When the device is attached perpendicular to the stick as shown, then its Y axis is going to determine its orientation. Positive or negative depends upon whether the USB is pointing outward or back toward the stick. 
 
 
 
 
 
-
-I need one reading - knowing the orientation of the device. So depending on which way the device is attached to the golf club head, one of either x, y, or z will only be positive or negative. And since Accelerometer +/- Z axis is up/down, then this is the sensor to use. The axis is only "opposite" when the club handle is pointing down. So when the handle is upright, the club is in play. This is when the system needs to switch on and start measuring stuff.
+_I need one reading - knowing the orientation of the device. So depending on which way the device is attached to the golf club head, one of either x, y, or z will only be positive or negative. And since Accelerometer +/- Z axis is up/down, then this is the sensor to use. The axis is only "opposite" when the club handle is pointing down. So when the handle is upright, the club is in play. This is when the system needs to switch on and start measuring stuff._
 
 Depending on how the device is attached... it's one of the three axes. 
 
