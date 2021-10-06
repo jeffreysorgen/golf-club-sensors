@@ -35,10 +35,14 @@
 - _**Inference mode:** Checks data points with **MODEL**_
   - _Beep/buzz if good swing_
   - _Silent (or low tone) if no match_
-## Part One: The Magnetometer
-What instrument determines when to begin doing something? The **magnetometer**. It is either ready for a swing, or it is back in the golf bag!
+
+
+
+
+## Part One: The Magnetometer (No, it's the accelerometer instead!)
+What instrument determines when to begin doing something? The **magnetometer**. (no, the acc.) It is either ready for a swing, or it is back in the golf bag!
 - The following is a first-draft effort. 
-- I might be WRONG about the magnetometer, so I'm checking capabilities of the ACCELEROMETER
+- I might be WRONG about the magnetometer, so I'm checking capabilities of the ACCELEROMETER. Yes, I am wrong about the magnetometer. The reason this doesn't work for my purpose: I needed one reading - knowing the orientation of the device. So depending on which way the device is attached to the golf club head, either x,y, or z will be positive or negative.
 
 #### IMPORTANT:
 - **The goal is to "turn off" readings when sensor is oriented with clubhead up shaft down.**
