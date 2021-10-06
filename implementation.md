@@ -1,8 +1,9 @@
 # Documenting my activity:
 **Learning about this:**
+- GitHub Desktop, possibley GitBASH
 - IMU sensors, and Fourier Series, until I understand IMU aspects about a golf swing
 - **How to edit Arduino sketches!**
-- GitHub Desktop, KiCad, LTspice, OSHPARK, probably GitBASH
+- KiCad, LTspice, OSHPARK
 - Arduino Components and code requirements
 
 [_(jump to --> Implementation)_](#implementation) [_(open for --> Discussion!)_](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
@@ -16,10 +17,10 @@
 7. Changed _hello-world_ (this) repository to PRIVATE, so it now isn't publicly available on GitHub Pages either
 8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository (now may not be needed)
 9. Defined Golf Swing Data Flow, [_below_](#flow-for-golf-swing-sensors)
-10. [Implementation Part One:](#part-one-the-accelerometer) **Set up Accelerometer**
-11. Created _new-readme.md_ (now [README](README.md)), added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list
+10. Created _new-readme.md_ (now [README](README.md)), added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list
 12. Renamed (this) repository: _hello-world_ is now _golf-swing-sensors_, and updated [README.md](readme.md)
-13. Determined that the Magnetometer is not going to be used for Ready/Resting orientation. Major shift in understanding.
+13. [Implementation Part One:](#part-one-the-accelerometer) **Set up Accelerometer**
+14. Determined that the Magnetometer is not going to be used for Ready/Resting orientation. Major shift in understanding.
 
 # Implementation:
 ### Flow for Golf Swing sensors:
@@ -41,7 +42,15 @@
 
 
 ## Part One: The Accelerometer
+#### _Rewrite this section._
+- Learned that Accelerometer is going to be used, and magnetometer is unnecessary for the project.
+So this will be rewritten. Graphic of mag sensor readings should be swapped out for accelerometer readings.
+Push towards understanding what to do with the acc readings. 
+Need to identify more specific steps for this project phase.
+Might need to rewrite the following documentation/progress so that it's more accurate.
 
+
+ 
 **The goal is to "turn on" readings when sensor is oriented with clubhead down to the ground.**
 What instrument determines when to begin doing something? 
 The **accelerometer**. 
@@ -50,16 +59,17 @@ That axis has an approximate reading of 1G, the force of gravity in one directio
 
 When the device is attached perpendicular to the stick as shown, then the Y axis is going to determine its orientation. 
 
+_Some combination of coordinates might need to be calculated with advanced math for gravity=zero. 
+At this stage of development it probably in not necessary._
 
-_Some combination of coordinates might need to be calculated for gravity=zero. At this stage of development it probably in not necessary._
+_I need one reading - knowing the orientation of the device. 
+So depending on which way the device is attached to the golf club head, one of either x, y, or z will only be positive or negative. 
+And since Accelerometer +/- Z axis is up/down, then this is the sensor to use. 
+The axis is only "opposite" when the club handle is pointing down. 
+So when the handle is upright, the club is in play. 
+This is when the system needs to switch on and start measuring stuff._
 
-
-
-
-
-_I need one reading - knowing the orientation of the device. So depending on which way the device is attached to the golf club head, one of either x, y, or z will only be positive or negative. And since Accelerometer +/- Z axis is up/down, then this is the sensor to use. The axis is only "opposite" when the club handle is pointing down. So when the handle is upright, the club is in play. This is when the system needs to switch on and start measuring stuff._
-
-Depending on how the device is attached... it's one of the three axes. 
+Depending on how the device is attached, it's one of the three axes. 
 
 Be sure to set a timeout for when the club has been Resting for more than two minutes. It will avoid the occasional 'negative' axis reading.
 
@@ -69,7 +79,21 @@ This experiment needs to move to the next step.
 - How to separate out that parameter
 - How to modify sketch to say "Ready" or "Resting" depending that reading
 
+### To-do:
+1. In Monitor: Get the acc to say "Ready" or "Resting" 
+2. When Resting, don't print more readings.
+3. In Monitor: When Ready, show x,y,z coordinates as a set of data points
+4. Determine when time-series data ends.
+5. Stop/start recording when it's still again.
+6. When does this stop? How to stop recording? When does it go back to Ready?
+7. 
+8. 
 
+
+
+
+
+## Accelerometer: Continued...
 ### Use the Accelerometer readings to determine its orientation to get start/rest orientation of the device
 - Attach the device to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is back in the golf bag._
 #### Images: (1)Attach the device to a stick (2)Rest orientation (3)Device orientation (4)Start orientation
