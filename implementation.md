@@ -10,8 +10,11 @@
 
 ## Completed:
 
-##### _2021 Sept_ [_Oct_]()
+_skip to [\[Sept\]](#2021-sept)
+[\[Oct\]](#2021-oct)
+2021_
 
+##### _2021 Sept_ 
 1. **Git** Practicing with Repositories, Branches, Commits, Pull Requests, and Merges with [help from this Guide](https://guides.github.com/activities/hello-world/)
 2. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
 3. **TinyML** Took course for TinyML from EdX ([complete](https://credentials.edx.org/credentials/4601700d748c4de0b3a57315ff04831c/))
