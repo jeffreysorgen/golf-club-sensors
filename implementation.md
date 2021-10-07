@@ -14,12 +14,12 @@
 2. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
 3. **TinyML** Took course for TinyML from EdX ([complete](https://credentials.edx.org/credentials/4601700d748c4de0b3a57315ff04831c/))
 4. **activity.md** Describes my next steps, ideas, and this Completed list (now is a [to-do list](activity.md))
-5. **golf-swing-idea.md** Defines the parts of my golf swing idea (now incorporated into README)
+5. **golf-swing-idea.md** Defines the parts of my golf swing idea (now incorporated into README and deleted)
 6. **GitHub Pages** Added using [this guide](https://guides.github.com/features/pages/) and is accessible _here_ (ongoing)
 7. Changed _hello-world_ (this) repository to PRIVATE, so it now isn't publicly available on GitHub Pages either
 8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository (now may not be needed)
 9. Defined Golf Swing Data Flow, [_below_](#flow-for-golf-swing-sensors)
-10. Created _new-readme.md_ (now [README](README.md)), added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list
+10. Created _new-readme.md_ (now [README](README.md)), added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list. (Now deleted the old readme-old.md.)
 12. Renamed (this) repository: _hello-world_ is now _golf-swing-sensors_, and updated [README.md](readme.md)
 13. [Implementation Part One:](#part-one-the-accelerometer) **Set up Accelerometer**
 14. Determined that the Magnetometer is _not_ going to be used for Ready/Resting orientation. _Gained understanding._
