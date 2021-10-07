@@ -133,14 +133,15 @@ It then listens only for Ready state.
 ### Do the SimpleAccelerometer sketch _again_ in the IDE:
 
 - Save as _golf-sensors.ino_ 
-- Do standard test. Watch the plot.
-- Determine whether to delete X and Z in the sketch, because only Y is needed
+- Do standard test. Watch the plot. - Determine whether to delete X and Z in the sketch, because only Y is needed
 - Set up if statements `{ if Y < -.8 then it is Resting state }`
   - Do not allow Resting state during the SWING (figure it out)
     - There is no risk of this while determining orientation (Ready/Resting) (?)
     - The risk happens while waiting in Ready state to record data (?)
 - Stop printing data while in Resting state
 - But start printing data back in Ready state
+- **Take new illustration photo(3).**
+
 
 **\[Todo page] Try setting up BLE at this point**
 - \[Todo page] Read all this information on my Android!
@@ -167,7 +168,7 @@ It then listens only for Ready state.
 - Local file:
   - Add this to repository? Where is the local file if it's in GitHub locally? Where is it now?
 - \[Todo page] In the sketch: 
-  - \[Todo page] Create an _interval_ of 10ms prior to the reading, using `millis()` not `_delay()_`. This would sample 100 per second.
+  - \[Todo page] Create an _interval_ of 10ms prior to the reading, using `millis()` not `delay()`. This would sample 100 per second.
 
 
 # [NEXT STEPS -->](activity.md)
