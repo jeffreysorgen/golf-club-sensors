@@ -60,14 +60,7 @@ Might need to rewrite the following documentation/progress so that it's more acc
 - First part is assembling the device on the stick.
 - Second part is the Arduino IDE.
 - Third, make the monitor show "Ready" state, and that's the end of this page, because of clarity about the end of the section. 
-- The rest is to-do, next page.
 
-**\[Todo page] Next Page (to-do page)**
-1. \[Todo page] Make this information show up in my Android phone.
-2. \[Todo page] Finally, fine tune the readings using `millis()`
-3. \[Todo page] Get Gyro going.
-4. \[Todo page] Figure out the Gyro data on Monitor.
-5. \[Todo page] Begin data collection.
 
 
 #### Description: 
@@ -143,32 +136,11 @@ It then listens only for Ready state.
 - **Take new illustration photo(3).**
 
 
-**\[Todo page] Try setting up BLE at this point**
-- \[Todo page] Read all this information on my Android!
-
-**\[Todo page] COLLECT GYRO DATA**
-- \[Todo page] Once in Ready state, figure out how to **enable the Gyro** to collect a sweep of data once motion begins.
-- \[Todo page] Watch Gyro data in Monitor. Collect X,Y,Z coordinates of Gyro, as well as TIME STAMPS (so, 4 dimensions)
-  - \[Todo page] As soon as Gyro reads that it's sitting still, that's when the collection can begin. 
-- \[Todo page] WHAT do Gyroscope readings represent? Are these what we want for our DATA COLLECTION?
-
-**\[Todo page] MODIFY THE SKETCH:**
-- \[Todo page] Write out to Monitor at a rate of 100/sec rather than baud rate itself. 
-  - \[Todo page] Explore usage of `millis()` to set delay of 10ms prior to taking readings, rather than `delay()`
-  - \[Todo page] Later will get 100 3D data points per second (does this save on memory? Likely yes.)
-
-**\[Todo page] Also:**
-- \[Todo page] FIGURE OUT HOW TO COLLECT DATA. 
-- \[Todo page] Collect some data, and then stop when the Gyro is still again to SAVE THE DATA.
-
-
 
 ### Create new custom sketch
 (MERGE THIS STUFF WITH ABOVE STUFF)
 - Local file:
   - Add this to repository? Where is the local file if it's in GitHub locally? Where is it now?
-- \[Todo page] In the sketch: 
-  - \[Todo page] Create an _interval_ of 10ms prior to the reading, using `millis()` not `delay()`. This would sample 100 per second.
 
 
 # [NEXT STEPS -->](activity.md)
