@@ -1,6 +1,6 @@
 [<-- back to Implementation](implementation.md)
 
-[<-- back to README.md](new-readme.md)
+[<-- back to README.md](readme.md)
 # To Do:
 In the current Arduino SKETCH:
 - Reset the baud rate to its default 9600 (from 300)
