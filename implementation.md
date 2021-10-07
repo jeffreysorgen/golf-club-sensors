@@ -134,4 +134,4 @@ its orientation at top of swing!
 
 # [NEXT STEPS -->](activity.md)
 ### Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor
-[<-- back to README.md](readme.md)
+[<-- back to README.md](README.md)
