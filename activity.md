@@ -114,29 +114,31 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 ## Next Steps
 #### (done) 
-- Renamed repository
+- Deleted old _readme-old.md_ and old _golfswing-idea.md_
 
 [<-- back to Implementation](implementation.md)
+
 ## Also:
-* Determine whether some of this documentation would be better in the form of a _Jupyter notebook_
-* Delete golf-swing-idea.md because I've incorporated it already
-* Delete README-old.md because I don't need it
-* DOWNLOAD JupyterLab Desktop (look into this! or maybe just using browser tabs is okay?)
-* Determine whether to use GitHub Desktop and/or BASH
-* Continue recording progress in THIS page
-* Jot down ideas for other projects here
-  * wind turbine ( Is the most popular product TinyML or IoT? )
-  * Continue to flesh out golf swing idea (golf-swing-idea.md)
-* Prototyping with KiCad, OSHPARK, and more
+
+* Determine whether to keep the TEST site called _jdsgithubpages_ (probably not)
 * Determine whether _ArduinoBLE-to-Android_ repository is necessary. (probably not)
   - DO NOT NEED _ArduinoBLE-to-Android_ so probably delete it.
-* Determine whether to keep the TEST site called _jdsgithubpages_ (probably not)
-  - But decide whether repo _golf-swing-sensors_ needs to convert to public
-* Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
-  - Enable blogging somehow, with or without repositories, to publicly document actions taken (or just this page!)
+* Determine whether to add photo of Arduino project on Git Profile page
+* Determine whether to use GitHub Desktop and/or BASH
+* When needed, figure out how to incorporate JupyterLab Desktop
+  * DOWNLOAD JupyterLab Desktop (look into this! or maybe just using browser tabs is okay?)
+  * Determine whether some of this documentation would be better in the form of a _Jupyter notebook_
+
 * Determine physical nature of MCU board form factor and its protection from damage
-* Determine whether a **BLOG** is useful
-* Not Needed: GIF of photos of certs, book, Arduino board, etc (not yet)
+  * Prototyping with KiCad, OSHPARK, and more
+* Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
+  - Determine whether a **BLOG** is useful
+  - Enable blogging somehow, with or without repositories, to publicly document actions taken (or just this page!)
+
+* Jot down ideas for other projects here
+  * wind turbine ( Is the most popular product TinyML or IoT? )
+  * Continue recording _golf-swing-sensors_ progress in THIS repository
+* Not Needed: GIF of slideshow of certs, book, Arduino board, etc (not yet)
 * Not Needed: **Wiki**
 * "SWINGTASTIC"
 #
