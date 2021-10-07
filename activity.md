@@ -2,14 +2,9 @@
 
 [<-- back to README.md](README.md)
 # To Do:
-## CREATE NEW Arduino SKETCH:
-### REPEAT testing the IMU (SimpleAccelerometer)
-- Save as _golf-sensors.ino_ 
-- Do standard test. Watch the plot.
-- Determine whether to delete X and Z in the sketch, because only Y is needed
-- Set up if statements { if Y < -.8 ...etc } then print as "Resting"
-- Also, then don't keep printing, until not Resting state
-- In the sketch, create a delay of 10ms prior to the reading! This would sample 100 per second.
+
+#### _Note: Add this somewhere:_
+- Create an _interval_ of 10ms prior to the reading, using `millis()` not `delay()`. This would sample 100 per second.
 
 
 
@@ -53,8 +48,40 @@ Proof of feasibility. Not used in final product. But other activity will require
 - What is the Magnetometer doing at this point?
   - Nothing is needed at this point, but should not mistake readings to be _Rest orientation_
   - When the Magnetometer is in the Ready state, it turns off (?) and then turns on the gyro/acc
+#
+**\[Todo page] Next Page (to-do page)**
+1. \[Todo page] Make this information show up in my Android phone.
+2. \[Todo page] Finally, fine tune the readings using `millis()`
+3. \[Todo page] Get Gyro going.
+4. \[Todo page] Figure out the Gyro data on Monitor.
+5. \[Todo page] Begin data collection.
 
-##
+#
+
+**\[Todo page] Try setting up BLE at this point**
+- \[Todo page] Read all this information on my Android!
+
+**\[Todo page] COLLECT GYRO DATA**
+- \[Todo page] Once in Ready state, figure out how to **enable the Gyro** to collect a sweep of data once motion begins.
+- \[Todo page] Watch Gyro data in Monitor. Collect X,Y,Z coordinates of Gyro, as well as TIME STAMPS (so, 4 dimensions)
+  - \[Todo page] As soon as Gyro reads that it's sitting still, that's when the collection can begin. 
+- \[Todo page] WHAT do Gyroscope readings represent? Are these what we want for our DATA COLLECTION?
+
+**\[Todo page] MODIFY THE SKETCH:**
+- \[Todo page] Write out to Monitor at a rate of 100/sec rather than baud rate itself. 
+  - \[Todo page] Explore usage of `millis()` to set delay of 10ms prior to taking readings, rather than `delay()`
+  - \[Todo page] Later will get 100 3D data points per second (does this save on memory? Likely yes.)
+
+**\[Todo page] Also:**
+- \[Todo page] FIGURE OUT HOW TO COLLECT DATA. 
+- \[Todo page] Collect some data, and then stop when the Gyro is still again to SAVE THE DATA.
+
+
+
+
+
+
+#
 - **LEARN** 
 [from the course](https://learning.edx.org/course/course-v1:HarvardX+TinyML3+1T2021/block-v1:HarvardX+TinyML3+1T2021+type@sequential+block@e355a78c0dcd49b6acbeeaf8f7492859/block-v1:HarvardX+TinyML3+1T2021+type@vertical+block@6e2f8e18dd814e63ad68f60e380b6633)
 about the _magic-wand_ sketch to see how the DATA is recorded there and what gets transmitted to the Serial Monitor, and then how that data displays on the Monitor from that data. What converts that data to the 'readable' visualization of the motion?
@@ -114,29 +141,31 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 ## Next Steps
 #### (done) 
-- Renamed repository
+- Deleted old _readme-old.md_ and old _golfswing-idea.md_
 
 [<-- back to Implementation](implementation.md)
+
 ## Also:
-* Determine whether some of this documentation would be better in the form of a _Jupyter notebook_
-* Delete golf-swing-idea.md because I've incorporated it already
-* Delete README-old.md because I don't need it
-* DOWNLOAD JupyterLab Desktop (look into this! or maybe just using browser tabs is okay?)
-* Determine whether to use GitHub Desktop and/or BASH
-* Continue recording progress in THIS page
-* Jot down ideas for other projects here
-  * wind turbine ( Is the most popular product TinyML or IoT? )
-  * Continue to flesh out golf swing idea (golf-swing-idea.md)
-* Prototyping with KiCad, OSHPARK, and more
+
+* Determine whether to keep the TEST site called _jdsgithubpages_ (probably not)
 * Determine whether _ArduinoBLE-to-Android_ repository is necessary. (probably not)
   - DO NOT NEED _ArduinoBLE-to-Android_ so probably delete it.
-* Determine whether to keep the TEST site called _jdsgithubpages_ (probably not)
-  - But decide whether repo _golf-swing-sensors_ needs to convert to public
-* Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
-  - Enable blogging somehow, with or without repositories, to publicly document actions taken (or just this page!)
+* Determine whether to add photo of Arduino project on Git Profile page
+* Determine whether to use GitHub Desktop and/or BASH
+* When needed, figure out how to incorporate JupyterLab Desktop
+  * DOWNLOAD JupyterLab Desktop (look into this! or maybe just using browser tabs is okay?)
+  * Determine whether some of this documentation would be better in the form of a _Jupyter notebook_
+
 * Determine physical nature of MCU board form factor and its protection from damage
-* Determine whether a **BLOG** is useful
-* Not Needed: GIF of photos of certs, book, Arduino board, etc (not yet)
+  * Prototyping with KiCad, OSHPARK, and more
+* Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
+  - Determine whether a **BLOG** is useful
+  - Enable blogging somehow, with or without repositories, to publicly document actions taken (or just this page!)
+
+* Jot down ideas for other projects here
+  * wind turbine ( Is the most popular product TinyML or IoT? )
+  * Continue recording _golf-swing-sensors_ progress in THIS repository
+* Not Needed: GIF of slideshow of certs, book, Arduino board, etc (not yet)
 * Not Needed: **Wiki**
 * "SWINGTASTIC"
 #

@@ -6,26 +6,38 @@
 - KiCad, LTspice, OSHPARK
 - Arduino Components and code requirements
 
-[_(jump to --> Implementation)_](#implementation) [_(open for --> Discussion!)_](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
+[_[ jump to --> Implementation ]_](#implementation) [_[ open for --> Discussion! ]_](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
 
 ## Completed:
+
+_skip to
+[\[Sept\]](#2021-sept)
+[\[Oct\]](#2021-oct)
+2021_
+
+##### _2021 Sept_ 
 
 1. **Git** Practicing with Repositories, Branches, Commits, Pull Requests, and Merges with [help from this Guide](https://guides.github.com/activities/hello-world/)
 2. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
 3. **TinyML** Took course for TinyML from EdX ([complete](https://credentials.edx.org/credentials/4601700d748c4de0b3a57315ff04831c/))
 4. **activity.md** Describes my next steps, ideas, and this Completed list (now is a [to-do list](activity.md))
-5. **golf-swing-idea.md** Defines the parts of my golf swing idea (now incorporated into README)
+5. **golf-swing-idea.md** Defines the parts of my golf swing idea (now incorporated into README and deleted)
 6. **GitHub Pages** Added using [this guide](https://guides.github.com/features/pages/) and is accessible _here_ (ongoing)
-7. Changed _hello-world_ (this) repository to PRIVATE, so it now isn't publicly available on GitHub Pages either
+7. Changed _hello-world_ (this) repository to PRIVATE, so it now isn't publicly available on GitHub Pages either (Now renamed to _golf-swing-sensors_ and **is** public. GHPages not enabled.)
 8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository (now may not be needed)
 9. Defined Golf Swing Data Flow, [_below_](#flow-for-golf-swing-sensors)
-10. Created _new-readme.md_ (now [README](README.md)), added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list
-12. Renamed (this) repository: _hello-world_ is now _golf-swing-sensors_, and updated [README.md](readme.md)
-13. [Implementation Part One:](#part-one-the-accelerometer) **Set up Accelerometer**
-14. Determined that the Magnetometer is _not_ going to be used for Ready/Resting orientation. _Gained understanding._
-15. Determined that it is _better_ to use `millis()` rather than `delay()`
-16. Figured out how to set up Ready/Resting states in Arduino Sketch, and display in Monitor. (in progress)
-17. LEARNED that it's easy to mess up in GitHub desktop, so _be careful_
+10. Created _new-readme.md_ (now [README](README.md)), added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list. (Now deleted the old readme-old.md.)
+11. Renamed (this) repository: _hello-world_ is now _golf-swing-sensors_, and updated [README.md](readme.md)
+12. [Implementation Part One:](#part-one-the-accelerometer) **Set up Accelerometer**
+
+##### _2021 Oct_
+
+13. Determined that the Magnetometer is _not_ going to be used for Ready/Resting orientation. _Gained understanding._ Learned that Accelerometer is going to be used, and magnetometer is unnecessary for the project.
+14. Determined that it is _better_ to use `millis()` rather than `delay()`
+15. Figured out how to set up Ready/Resting states in Arduino Sketch, and display in Monitor. (in progress)
+16. LEARNED that it's easy to mess up in GitHub desktop, so _be careful_
+17. LEARNED Cursory principles of electronics from __LinkedIn Learning__.
+
 
 # Implementation:
 
@@ -49,8 +61,7 @@
 ## Part One: The Accelerometer
 
 #### *Rewrite this entire section*
-- Learned that Accelerometer is going to be used, and magnetometer is unnecessary for the project.
-So this section will be rewritten. 
+- This section will be rewritten. 
 Graphic of mag sensor readings should be swapped out for accelerometer readings.
 Push towards understanding what to do with the acc readings. 
 Need to identify more specific steps for this project phase.
@@ -59,18 +70,13 @@ Might need to rewrite the following documentation/progress so that it's more acc
 #### Rearrange this page:
 - First part is assembling the device on the stick.
 - Second part is the Arduino IDE.
-- Third, make the monitor show "Ready" state, and that's the end of this page, because of clarity about the end of the section. 
-- The rest is to-do, next page.
-
-**\[Todo page] Next Page (to-do page)**
-1. \[Todo page] Make this information show up in my Android phone.
-2. \[Todo page] Finally, fine tune the readings w `millis()`
-3. \[Todo page] Get Gyro going.
-4. \[Todo page] Figure out the Gyro data on Monitor.
-5. \[Todo page] Begin data collection.
+- Third, make the monitor show "Ready" state.
+- Finally, because of the clarity of the section so far, that's the end of this page.
 
 
-#### Description: 
+#
+### Description: 
+
 **The goal is to "turn on" readings when sensor is oriented with clubhead down at the ground.**
 What instrument determines when to begin doing something? 
 The **accelerometer**. 
@@ -84,19 +90,20 @@ But at this stage of development it probably isn't necessary.
 I need one reading - _knowing the orientation of the device._ 
 Since the Accelerometer +/- Z axis is up/down, then this is the sensor to use. 
 Depending on how the device is attached, it's one of the three axes. 
-It's mounted flat and perpendicular and 'long way' to the stick so the axis changes to the Y-axis.
-The axis is only "opposite" when the club handle is pointing down. 
-When the handle is upright, the club is in play and the sensor is in Ready state.
+It's mounted flat and perpendicular to the stick, so the axis changes to the Y-axis.
+The axis is "opposite" when the club handle is pointing down and in Resting state. 
+When the handle is upright the club is in play, and the sensor is in Ready state.
 
 #### For energy conservation: 
 First, understand the orientation of the device.
-Then, make the device **beep** only when it identifies a state change.
+Then, make the device **beep** only when it identifies a _state change_.
 After two minutes in Resting state, the state changes to Timeout state, and halts other sensors.
+(To-do: Technical description of Timeout state.)
 It then listens only for Ready state.
 
 
 
-## Accelerometer: Continued...
+## Accelerometer: Setting it up
 
 ### Use the Accelerometer readings to determine its orientation to get start/rest orientation of the device
 - Attach the device to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is put back in the golf bag._
@@ -116,12 +123,7 @@ It then listens only for Ready state.
 
 #### The readings of the accelerometer, according to the setup in the images: (edit needed) 
 
-- If `Y < X`  and  `Y < Z`  then its orientation is in the start position. So if the y axis readings are less (or more negative) than the other two readings, then the device is in the start position. More simply, Z axis is positive, or Z axis is negative. (and if the device is attached "sideways" then it's a different axis)
-
-(**Possible edits:**) ...
-
-
-
+- (**Possible edits needed?**) If `Y < X`  and  `Y < Z`  then its orientation is in the start position. So if the y axis readings are less (or more negative) than the other two readings, then the device is in the start position. More simply, Z axis is positive, or Z axis is negative. (and if the device is attached "sideways" then it's a different axis)
 
 **Edit this part:**
 - The opposite is true. If Y is greater than the other 2 axes, then the device is idle and in rest, **and is meant to WAIT FOREVER for its orientation to return to the start position.**
@@ -143,32 +145,11 @@ It then listens only for Ready state.
 - **Take new illustration photo(3).**
 
 
-**\[Todo page] Try setting up BLE at this point**
-- \[Todo page] Read all this information on my Android!
-
-**\[Todo page] COLLECT GYRO DATA**
-- \[Todo page] Once in Ready state, figure out how to **enable the Gyro** to collect a sweep of data once motion begins.
-- \[Todo page] Watch Gyro data in Monitor. Collect X,Y,Z coordinates of Gyro, as well as TIME STAMPS (so, 4 dimensions)
-  - \[Todo page] As soon as Gyro reads that it's sitting still, that's when the collection can begin. 
-- \[Todo page] WHAT do Gyroscope readings represent? Are these what we want for our DATA COLLECTION?
-
-**\[Todo page] MODIFY THE SKETCH:**
-- \[Todo page] Write out to Monitor at a rate of 100/sec rather than baud rate itself. 
-  - \[Todo page] Explore usage of `millis()` to set delay of 10ms prior to taking readings, rather than `delay()`
-  - \[Todo page] Later will get 100 3D data points per second (does this save on memory? Likely yes.)
-
-**\[Todo page] Also:**
-- \[Todo page] FIGURE OUT HOW TO COLLECT DATA. 
-- \[Todo page] Collect some data, and then stop when the Gyro is still again to SAVE THE DATA.
-
-
 
 ### Create new custom sketch
 (MERGE THIS STUFF WITH ABOVE STUFF)
 - Local file:
   - Add this to repository? Where is the local file if it's in GitHub locally? Where is it now?
-- \[Todo page] In the sketch: 
-  - \[Todo page] Create an _interval_ of 10ms prior to the reading, using `millis()` not `delay()`. This would sample 100 per second.
 
 
 # [NEXT STEPS -->](activity.md)
