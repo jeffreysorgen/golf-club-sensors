@@ -2,10 +2,17 @@
 
 [<-- back to README.md](README.md)
 # To Do:
-In the current Arduino SKETCH:
-- Reset the baud rate to its default 9600 (from 300)
+## CREATE NEW Arduino SKETCH:
+### REPEAT testing the IMU (SimpleAccelerometer)
+- Save as _golf-sensors.ino_ 
+- Do standard test. Watch the plot.
+- Determine whether to delete X and Z in the sketch, because only Y is needed
+- Set up if statements { if Y < -.8 ...etc } then print as "Resting"
+- Also, then don't keep printing, until not Resting state
 - In the sketch, create a delay of 10ms prior to the reading! This would sample 100 per second.
-- SAVE AS _golf-sensors.ino_ (??)
+
+
+
 ## Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor (in progress)
 - LEARN how to use boolean logic within the sketch. _This lesson will transfer to other processes._
   - Set up thresholds?
@@ -81,6 +88,7 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 - how to RECONFIGURE smartphone app from Ready state orientation to 'good swing' chirp
 - finally, is it possible to simultaneously collect data and provide inference?
 #### Next:
+- FIGURE OUT: don't mess up with GITHUB!
 - how to gather components/parts list
 - LEARN about power requirements
 - DESIGN battery solution
