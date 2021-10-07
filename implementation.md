@@ -47,6 +47,7 @@
 ## Part One: The Accelerometer
 
 #### *Rewrite this entire section*
+
 - _Learned that Accelerometer is going to be used, and magnetometer is unnecessary for the project.
 So this section will be rewritten. 
 Graphic of mag sensor readings should be swapped out for accelerometer readings.
@@ -54,9 +55,9 @@ Push towards understanding what to do with the acc readings.
 Need to identify more specific steps for this project phase.
 Might need to rewrite the following documentation/progress so that it's more accurate._
 
-### In Monitor:
+### In Monitor: (to-do)
 
-- Get the acc readings to say "Resting" (IN PROGRESS) 
+- Get the acc readings to say "Resting"
   - Use code in the arduino IDE (the 'ino' file) like "if" statements
 - In Ready state, show x,y,z coordinates as a set of data points
 - Write out to screen at a rate of 100/sec rather than baud rate itself. 
@@ -70,18 +71,12 @@ What instrument determines when to begin doing something?
 The **accelerometer**. 
 Depending on how the device is attached, one axis determines the direction of gravity. 
 That axis has an approximate reading of 1G, the force of gravity in one direction.
-Resting state is negative value to Ready state (or vice versa).
-
-When the device is attached perpendicular to the stick as shown, then the Y axis is going to determine its orientation. Some combination of coordinates might need to be calculated with advanced math for _gravity=zero._
-But at this stage of development it probably in not necessary.
-
-#### Notes:
-
-First, understand the orientation of the device.
-Then, make the device only identify the change in state so it can **beep**.
-After two minutes, state changes to Timeout state, and halts sensors to listen for Ready state. (For energy conservation.)
+Resting state is negative value of Ready state.
+Some combination of coordinates might need to be calculated with advanced math for _gravity=zero._
+But at this stage of development it probably is not necessary.
 
 #### Why the Accelerometer?
+
 _I need one reading - knowing the orientation of the device. 
 Since the Accelerometer +/- Z axis is up/down, then this is the sensor to use. 
 Depending on how the device is attached, it's one of the three axes. 
@@ -89,6 +84,11 @@ It's mounted flat and perpendicular and 'long way' to the stick so the axis chan
 The axis is only "opposite" when the club handle is pointing down. 
 When the handle is upright, the club is in play and the sensor is in Ready state._
 
+#### For energy conservation: 
+
+First, understand the orientation of the device.
+Then, make the device only identify the change in state so it can **beep**.
+After two minutes, state changes to Timeout state, and halts other sensors and listens only for Ready state.
 
 
 
