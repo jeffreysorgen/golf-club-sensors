@@ -25,6 +25,7 @@
 14. Determined that the Magnetometer is _not_ going to be used for Ready/Resting orientation. _Gained understanding._
 15. Determined that it is _better_ to use `millis()` rather than `delay()`
 16. Figured out how to set up Ready/Resting states in Arduino Sketch, and display in Monitor. (in progress)
+17. LEARNED that it's easy to mess up in GitHub desktop, so _be careful_
 
 # Implementation:
 
@@ -55,14 +56,19 @@ Push towards understanding what to do with the acc readings.
 Need to identify more specific steps for this project phase.
 Might need to rewrite the following documentation/progress so that it's more accurate.
 
-### Do the SimpleAccelerometer sketch again in the IDE, then:
-### In Monitor: (to-do)
-- Get the acc readings to say "Resting"
-  - Use code in the arduino IDE (the 'ino' file) like "if" statements
-- In Ready state, show x,y,z coordinates as a set of data points
-- Write out to screen at a rate of 100/sec rather than baud rate itself. 
-  - Later will get 100 3D data points per second (does this save on memory? Likely yes.)
-- When Resting, don't print more readings.
+#### Rearrange this page:
+- First part is assembling the device on the stick.
+- Second part is the Arduino IDE.
+- Third, make the monitor show "Ready" state, and that's the end of this page, because of clarity about the end of the section. 
+- The rest is to-do, next page.
+
+**\[Todo page] Next Page (to-do page)**
+1. \[Todo page] Make this information show up in my Android phone.
+2. \[Todo page] Finally, fine tune the readings w `millis()`
+3. \[Todo page] Get Gyro going.
+4. \[Todo page] Figure out the Gyro data on Monitor.
+5. \[Todo page] Begin data collection.
+
 
 #### Description: 
 **The goal is to "turn on" readings when sensor is oriented with clubhead down at the ground.**
@@ -83,13 +89,10 @@ The axis is only "opposite" when the club handle is pointing down.
 When the handle is upright, the club is in play and the sensor is in Ready state.
 
 #### For energy conservation: 
-
 First, understand the orientation of the device.
 Then, make the device **beep** only when it identifies a state change.
 After two minutes in Resting state, the state changes to Timeout state, and halts other sensors.
 It then listens only for Ready state.
-
-
 
 
 
@@ -124,12 +127,47 @@ It then listens only for Ready state.
 - The opposite is true. If Y is greater than the other 2 axes, then the device is idle and in rest, **and is meant to WAIT FOREVER for its orientation to return to the start position.**
 
 
-### Created new custom sketch
+
+## To do:
+
+### Do the SimpleAccelerometer sketch _again_ in the IDE:
+
+- Save as _golf-sensors.ino_ 
+- Do standard test. Watch the plot.
+- Determine whether to delete X and Z in the sketch, because only Y is needed
+- Set up if statements `{ if Y < -.8 then it is Resting state }`
+  - Do not allow Resting state during the SWING (figure it out)
+    - There is no risk of this while determining orientation (Ready/Resting) (?)
+    - The risk happens while waiting in Ready state to record data (?)
+- Stop printing data while in Resting state
+- But start printing data back in Ready state
+
+**\[Todo page] Try setting up BLE at this point**
+- \[Todo page] Read all this information on my Android!
+
+**\[Todo page] COLLECT GYRO DATA**
+- \[Todo page] Once in Ready state, figure out how to **enable the Gyro** to collect a sweep of data once motion begins.
+- \[Todo page] Watch Gyro data in Monitor. Collect X,Y,Z coordinates of Gyro, as well as TIME STAMPS (so, 4 dimensions)
+  - \[Todo page] As soon as Gyro reads that it's sitting still, that's when the collection can begin. 
+- \[Todo page] WHAT do Gyroscope readings represent? Are these what we want for our DATA COLLECTION?
+
+**\[Todo page] MODIFY THE SKETCH:**
+- \[Todo page] Write out to Monitor at a rate of 100/sec rather than baud rate itself. 
+  - \[Todo page] Explore usage of `millis()` to set delay of 10ms prior to taking readings, rather than `delay()`
+  - \[Todo page] Later will get 100 3D data points per second (does this save on memory? Likely yes.)
+
+**\[Todo page] Also:**
+- \[Todo page] FIGURE OUT HOW TO COLLECT DATA. 
+- \[Todo page] Collect some data, and then stop when the Gyro is still again to SAVE THE DATA.
+
+
+
+### Create new custom sketch
+(MERGE THIS STUFF WITH ABOVE STUFF)
 - Local file:
   - Add this to repository? Where is the local file if it's in GitHub locally? Where is it now?
-- In the sketch:
-  - Create a _delay_ of 10ms prior to the reading, using `millis()` not `_delay()_`. This would sample 100 per second.
-its orientation at top of swing!
+- \[Todo page] In the sketch: 
+  - \[Todo page] Create an _interval_ of 10ms prior to the reading, using `millis()` not `_delay()_`. This would sample 100 per second.
 
 
 # [NEXT STEPS -->](activity.md)
