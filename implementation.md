@@ -16,7 +16,7 @@
 4. **activity.md** Describes my next steps, ideas, and this Completed list (now is a [to-do list](activity.md))
 5. **golf-swing-idea.md** Defines the parts of my golf swing idea (now incorporated into README and deleted)
 6. **GitHub Pages** Added using [this guide](https://guides.github.com/features/pages/) and is accessible _here_ (ongoing)
-7. Changed _hello-world_ (this) repository to PRIVATE, so it now isn't publicly available on GitHub Pages either
+7. Changed _hello-world_ (this) repository to PRIVATE, so it now isn't publicly available on GitHub Pages either (Now renamed to _golf-swing-sensors_ and **is** public. GHPages not enabled.)
 8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository (now may not be needed)
 9. Defined Golf Swing Data Flow, [_below_](#flow-for-golf-swing-sensors)
 10. Created _new-readme.md_ (now [README](README.md)), added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list. (Now deleted the old readme-old.md.)
@@ -64,7 +64,7 @@ Might need to rewrite the following documentation/progress so that it's more acc
 
 **\[Todo page] Next Page (to-do page)**
 1. \[Todo page] Make this information show up in my Android phone.
-2. \[Todo page] Finally, fine tune the readings w `millis()`
+2. \[Todo page] Finally, fine tune the readings using `millis()`
 3. \[Todo page] Get Gyro going.
 4. \[Todo page] Figure out the Gyro data on Monitor.
 5. \[Todo page] Begin data collection.
