@@ -77,12 +77,12 @@ But at this stage of development it probably is not necessary.
 
 #### Why the Accelerometer?
 
-_I need one reading - knowing the orientation of the device. 
+I need one reading - _knowing the orientation of the device._ 
 Since the Accelerometer +/- Z axis is up/down, then this is the sensor to use. 
 Depending on how the device is attached, it's one of the three axes. 
 It's mounted flat and perpendicular and 'long way' to the stick so the axis changes to the Y-axis.
 The axis is only "opposite" when the club handle is pointing down. 
-When the handle is upright, the club is in play and the sensor is in Ready state._
+When the handle is upright, the club is in play and the sensor is in Ready state.
 
 #### For energy conservation: 
 
@@ -107,14 +107,14 @@ After two minutes, state changes to Timeout state, and halts other sensors and l
 (3)<img src="https://user-images.githubusercontent.com/1236972/135546061-106e68f4-bfba-4cd5-929e-49494486ad87.png" width="20%">
 (4)<img src="https://user-images.githubusercontent.com/1236972/135545934-7cb4dd34-7c12-46b9-ae8f-fa2e61835812.png" width="20%">
 
-The graph(3) between the rest(2) and start(4) orientation shows the difference in the readings of the Y axis when the device is attached _"the long way"_ where the red Y-axis reading is always greater than both or less than both other axes. When the "stick" is in neither the start nor rest position, the Y-axis is not significantly separated from the X and Z readings.
+(**Edit needed**) The graph(3) between the rest(2) and start(4) orientation shows the difference in the readings of the Y axis when the device is attached _"the long way"_ where the red Y-axis reading is always greater than both or less than both other axes. When the "stick" is in neither the start nor rest position, the Y-axis is not significantly separated from the X and Z readings.
 
 
 
 
 
 
-#### The readings of the accelerometer, according to the setup in the images: 
+#### The readings of the accelerometer, according to the setup in the images: (edit needed) 
 - If `Y < X`  and  `Y < Z`  then its orientation is in the start position. So if the y axis readings are less (or more negative) than the other two readings, then the device is in the start position. _Edit:_ More simply, Z axis is positive, or Z axis is negative. (and if the device is attached "sideways" then it's a different axis)
 
 
@@ -122,20 +122,15 @@ The graph(3) between the rest(2) and start(4) orientation shows the difference i
 
 
 
+**Edit this part:**
+- The opposite is true. If Y is greater than the other 2 axes, then the device is idle and in rest, **and is meant to WAIT FOREVER for its orientation to return to the start position.**
 
-- The opposite is true. If Y is greater than the other 2 axes, then the device is idle and in rest, **and is meant to WAIT FOREVER for its orientation to return to the start position.** [_Fix Needed._](#fix-needed)
-
-### Created _test_IMU_custom.ino_ sketch
-Slow down the sensor (_Q: do we need so many data points? don't do this at all?_) 
-- In the SETUP loop, change the baud rate to lowest --> `Serial.begin(300);` <-- from 9600
-- **Local file**
+### Created new custom sketch
+- Local file:
   - Add this to repository? Where is the local file if it's in GitHub locally? Where is it now?
-- **QUESTION** (research this):
-  - Leave baud rate at 9600 (default)? And then take _fewer_ sample data points rather than just slowing it down?
-  - **In the sketch, create a _delay_ of 10ms prior to the reading!** This would sample 100 per second.
-
-## _FIX NEEDED:_ 
-Disable(?) the Magnetometer during swing, and enable after. Due to its orientation, Magnetometer might sense Rest state because of its orientation at top of swing!
+- In the sketch:
+  - Create a _delay_ of 10ms prior to the reading, using `millis()` not `_delay()_`. This would sample 100 per second.
+its orientation at top of swing!
 
 # [NEXT STEPS -->](activity.md)
 ### Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor
