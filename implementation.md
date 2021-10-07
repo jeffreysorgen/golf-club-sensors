@@ -10,6 +10,8 @@
 
 ## Completed:
 
+_2021 Sept_
+
 1. **Git** Practicing with Repositories, Branches, Commits, Pull Requests, and Merges with [help from this Guide](https://guides.github.com/activities/hello-world/)
 2. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
 3. **TinyML** Took course for TinyML from EdX ([complete](https://credentials.edx.org/credentials/4601700d748c4de0b3a57315ff04831c/))
@@ -22,10 +24,14 @@
 10. Created _new-readme.md_ (now [README](README.md)), added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list. (Now deleted the old readme-old.md.)
 12. Renamed (this) repository: _hello-world_ is now _golf-swing-sensors_, and updated [README.md](readme.md)
 13. [Implementation Part One:](#part-one-the-accelerometer) **Set up Accelerometer**
-14. Determined that the Magnetometer is _not_ going to be used for Ready/Resting orientation. _Gained understanding._ Learned that Accelerometer is going to be used, and magnetometer is unnecessary for the project.
+
+_2021 Oct_
+
+13. Determined that the Magnetometer is _not_ going to be used for Ready/Resting orientation. _Gained understanding._ Learned that Accelerometer is going to be used, and magnetometer is unnecessary for the project.
 15. Determined that it is _better_ to use `millis()` rather than `delay()`
 16. Figured out how to set up Ready/Resting states in Arduino Sketch, and display in Monitor. (in progress)
 17. LEARNED that it's easy to mess up in GitHub desktop, so _be careful_
+18. LEARNED Cursory principles of electronics from LinkedIn Learning.
 
 # Implementation:
 
