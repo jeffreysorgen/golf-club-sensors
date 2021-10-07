@@ -1,6 +1,6 @@
 # Documenting my activity:
 **Learning about this:**
-- GitHub Desktop, possibley GitBASH
+- GitHub Desktop (don't mess it up!), possibley GitBASH
 - IMU sensors, and Fourier Series, until I understand IMU aspects about a golf swing
 - **How to edit Arduino sketches!**
 - KiCad, LTspice, OSHPARK
@@ -55,7 +55,7 @@ Push towards understanding what to do with the acc readings.
 Need to identify more specific steps for this project phase.
 Might need to rewrite the following documentation/progress so that it's more accurate.
 
-
+### Do the SimpleAccelerometer sketch again in the IDE, then:
 ### In Monitor: (to-do)
 - Get the acc readings to say "Resting"
   - Use code in the arduino IDE (the 'ino' file) like "if" statements
