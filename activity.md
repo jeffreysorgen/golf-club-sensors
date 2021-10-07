@@ -14,8 +14,6 @@ In the current Arduino SKETCH:
 - Print "Resting" for when the device senses its Rest orientation
 
 
-
-
 # Then:
 ## LEARN how to enable both BLE and Magnetometer
 - **Enable BOTH Magnetometer and BLE into _new_ custom sketch**
