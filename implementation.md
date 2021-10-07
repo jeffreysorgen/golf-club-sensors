@@ -22,7 +22,7 @@
 10. Created _new-readme.md_ (now [README](README.md)), added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list. (Now deleted the old readme-old.md.)
 12. Renamed (this) repository: _hello-world_ is now _golf-swing-sensors_, and updated [README.md](readme.md)
 13. [Implementation Part One:](#part-one-the-accelerometer) **Set up Accelerometer**
-14. Determined that the Magnetometer is _not_ going to be used for Ready/Resting orientation. _Gained understanding._
+14. Determined that the Magnetometer is _not_ going to be used for Ready/Resting orientation. _Gained understanding._ Learned that Accelerometer is going to be used, and magnetometer is unnecessary for the project.
 15. Determined that it is _better_ to use `millis()` rather than `delay()`
 16. Figured out how to set up Ready/Resting states in Arduino Sketch, and display in Monitor. (in progress)
 17. LEARNED that it's easy to mess up in GitHub desktop, so _be careful_
@@ -49,8 +49,7 @@
 ## Part One: The Accelerometer
 
 #### *Rewrite this entire section*
-- Learned that Accelerometer is going to be used, and magnetometer is unnecessary for the project.
-So this section will be rewritten. 
+- This section will be rewritten. 
 Graphic of mag sensor readings should be swapped out for accelerometer readings.
 Push towards understanding what to do with the acc readings. 
 Need to identify more specific steps for this project phase.
@@ -62,8 +61,9 @@ Might need to rewrite the following documentation/progress so that it's more acc
 - Third, make the monitor show "Ready" state, and that's the end of this page, because of clarity about the end of the section. 
 
 
+#
+### Description: 
 
-#### Description: 
 **The goal is to "turn on" readings when sensor is oriented with clubhead down at the ground.**
 What instrument determines when to begin doing something? 
 The **accelerometer**. 
@@ -77,19 +77,20 @@ But at this stage of development it probably isn't necessary.
 I need one reading - _knowing the orientation of the device._ 
 Since the Accelerometer +/- Z axis is up/down, then this is the sensor to use. 
 Depending on how the device is attached, it's one of the three axes. 
-It's mounted flat and perpendicular and 'long way' to the stick so the axis changes to the Y-axis.
-The axis is only "opposite" when the club handle is pointing down. 
-When the handle is upright, the club is in play and the sensor is in Ready state.
+It's mounted flat and perpendicular to the stick, so the axis changes to the Y-axis.
+The axis is "opposite" when the club handle is pointing down and in Resting state. 
+When the handle is upright the club is in play, and the sensor is in Ready state.
 
 #### For energy conservation: 
 First, understand the orientation of the device.
-Then, make the device **beep** only when it identifies a state change.
+Then, make the device **beep** only when it identifies a _state change_.
 After two minutes in Resting state, the state changes to Timeout state, and halts other sensors.
+(To-do: Technical description of Timeout state.)
 It then listens only for Ready state.
 
 
 
-## Accelerometer: Continued...
+## Accelerometer: Setting it up
 
 ### Use the Accelerometer readings to determine its orientation to get start/rest orientation of the device
 - Attach the device to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is put back in the golf bag._
@@ -109,12 +110,7 @@ It then listens only for Ready state.
 
 #### The readings of the accelerometer, according to the setup in the images: (edit needed) 
 
-- If `Y < X`  and  `Y < Z`  then its orientation is in the start position. So if the y axis readings are less (or more negative) than the other two readings, then the device is in the start position. More simply, Z axis is positive, or Z axis is negative. (and if the device is attached "sideways" then it's a different axis)
-
-(**Possible edits:**) ...
-
-
-
+- (**Possible edits needed?**) If `Y < X`  and  `Y < Z`  then its orientation is in the start position. So if the y axis readings are less (or more negative) than the other two readings, then the device is in the start position. More simply, Z axis is positive, or Z axis is negative. (and if the device is attached "sideways" then it's a different axis)
 
 **Edit this part:**
 - The opposite is true. If Y is greater than the other 2 axes, then the device is idle and in rest, **and is meant to WAIT FOREVER for its orientation to return to the start position.**
