@@ -10,7 +10,7 @@
 
 ## Completed:
 
-##### _2021 Sept_
+##### _2021 Sept_ [_Oct_]()
 
 1. **Git** Practicing with Repositories, Branches, Commits, Pull Requests, and Merges with [help from this Guide](https://guides.github.com/activities/hello-world/)
 2. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
