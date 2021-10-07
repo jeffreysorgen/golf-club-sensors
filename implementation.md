@@ -70,7 +70,8 @@ Might need to rewrite the following documentation/progress so that it's more acc
 #### Rearrange this page:
 - First part is assembling the device on the stick.
 - Second part is the Arduino IDE.
-- Third, make the monitor show "Ready" state, and that's the end of this page, because of clarity about the end of the section. 
+- Third, make the monitor show "Ready" state.
+- Finally, because of the clarity of the section so far, that's the end of this page.
 
 
 #
