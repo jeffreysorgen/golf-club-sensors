@@ -2,13 +2,8 @@
 
 [<-- back to README.md](README.md)
 # To Do:
-## CREATE NEW Arduino SKETCH:
-### REPEAT testing the IMU (SimpleAccelerometer)
-- Save as _golf-sensors.ino_ 
-- Do standard test. Watch the plot.
-- Determine whether to delete X and Z in the sketch, because only Y is needed
-- Set up if statements { if Y < -.8 ...etc } then print as "Resting"
-- Also, then don't keep printing, until not Resting state
+
+#### _Note: Add this somewhere:_
 - Create an _interval_ of 10ms prior to the reading, using `millis()` not `delay()`. This would sample 100 per second.
 
 
