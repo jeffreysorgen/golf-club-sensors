@@ -63,10 +63,7 @@ _skip to
 
 #### *Rewrite this entire section*
 - This section will be rewritten. 
-Graphic of mag sensor readings should be swapped out for accelerometer readings.
-Push towards understanding what to do with the acc readings. 
 Need to identify more specific steps for this project phase.
-Might need to rewrite the following documentation/progress so that it's more accurate.
 
 #### Rearrange this page:
 - First part is assembling the device on the stick.
