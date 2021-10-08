@@ -116,19 +116,10 @@ It then listens only for Ready state.
 (3)<img src="https://user-images.githubusercontent.com/1236972/135546061-106e68f4-bfba-4cd5-929e-49494486ad87.png" width="20%">
 (4)<img src="https://user-images.githubusercontent.com/1236972/135545934-7cb4dd34-7c12-46b9-ae8f-fa2e61835812.png" width="20%">
 
-The graph(3) shows readings of the magnetometer, but the principle is the same. There is a change between the rest(2) position and the start(4) orientation. When the device is attached as shown(1), one parameter, the Y-axis of the Accelerometer, tells the system whether it's in Ready state or Resting state. When Y-axis reading is positive then the sensor is in one state and when it is negative, it's in the other.
+In principle, the readings of the Accelerometer are the same as those shown in this graph(3) for the Magnetometer. There is a change between the rest(2) position and the start(4) orientation. When the device is attached as shown(1), one parameter, the Y-axis of the Accelerometer, tells the system whether it's in Ready state or Resting state. When its Y-axis reading is positive then the sensor is in one state, and when it's negative it's in the other.
 
 In this specific case, the graph would show that the Ready state is positive, and the Resting state is negative.
-The value of the Resting state reading is close to -1 (such as -0.85)
-
-
-
-#### The readings of the accelerometer, according to the setup in the images: (edit needed) 
-
-- (**Possible edits needed?**) If `Y < X`  and  `Y < Z`  then its orientation is in the start position. So if the y axis readings are less (or more negative) than the other two readings, then the device is in the start position. More simply, Z axis is positive, or Z axis is negative. (and if the device is attached "sideways" then it's a different axis)
-
-**Edit this part:**
-- The opposite is true. If Y is greater than the other 2 axes, then the device is idle and in rest, **and is meant to WAIT FOREVER for its orientation to return to the start position.**
+The value of the Resting state reading is close to -1 (such as `y < -0.85`) and then it **will wait _forever_ for its orientation to return to the start position.**
 
 
 
