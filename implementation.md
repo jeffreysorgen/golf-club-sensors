@@ -1,9 +1,9 @@
+
 # Documenting my activity:
+
 **Learning about this:**
-- GitHub Desktop (don't mess it up!), possibley GitBASH
-- IMU sensors, and Fourier Series, until I understand IMU aspects about a golf swing
-- **How to edit Arduino sketches!**
-- KiCad, LTspice, OSHPARK
+- IMU sensors, **How to edit Arduino sketches!** C++
+- GitHub Desktop, possibly GitBASH, KiCad, LTspice, OSHPARK
 - Arduino Components and code requirements
 
 [_[ jump to --> Implementation ]_](#implementation) [_[ open for --> Discussion! ]_](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
@@ -37,6 +37,7 @@ _skip to
 15. Figured out how to set up Ready/Resting states in Arduino Sketch, and display in Monitor. (in progress)
 16. LEARNED that it's easy to mess up in GitHub desktop, so _be careful_
 17. LEARNED Cursory principles of electronics from __LinkedIn Learning__.
+18. Created baseline Arduino sketch for IMU (ongoing edits) _golf-swing-acc_
 
 
 # Implementation:
@@ -48,7 +49,7 @@ _skip to
 - Clear device buffer and **begin loop**
 - Enable mag/acc/gyro
 - Mag/acc/gyro wait for stillness (no movement)
-- Mag then identifies direction of gravity=zero. (_edit this_)
+- Acc then identifies direction of gravity=down.
 - Acc/gyro records movement. 
 - **Collection mode:** After movement, enables microphone.
   - **Microphone** listens for 3 seconds, and records Null, unless it hears "yes" (**This is KWS**)
