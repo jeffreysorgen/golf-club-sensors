@@ -5,7 +5,8 @@
 
 #### _Note: Add this somewhere:_
 - Create an _interval_ of 10ms prior to the reading, using `millis()` not `delay()`. This would sample 100 per second.
-- (optional) **Take new illustration photo(3).**
+- (optional) **Take new illustration photo(3).** Graphic of mag sensor readings should be swapped out for accelerometer readings.
+
 
 
 ## Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor (in progress)
