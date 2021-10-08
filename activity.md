@@ -14,6 +14,7 @@
   - Simple as Y>X or Y>Z ?
 - Print "Ready" for when the device senses its Start orientation
 - Print "Resting" for when the device senses its Rest orientation
+- Create graphic for this and add here, resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
 
 
 # Then:
