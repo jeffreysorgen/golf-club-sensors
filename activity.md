@@ -115,10 +115,10 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 - how to RECONFIGURE smartphone app from Ready state orientation to 'good swing' chirp
 - finally, is it possible to simultaneously collect data and provide inference?
 #### Next:
-- FIGURE OUT: don't mess up with GITHUB!
+- **DESIGN battery solution** NEED connect to USBmicro w wire
+- FIGURE OUT --> don't mess up with GITHUB!
 - how to gather components/parts list
 - LEARN about power requirements
-- DESIGN battery solution
 - LEARN about electronics configuration (physical)
 - how to reduce form factor
 - how to print schematic
