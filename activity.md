@@ -20,7 +20,7 @@
 ## LEARN how to enable both BLE and Magnetometer
 - **Enable BOTH Magnetometer and BLE into _new_ custom sketch**
 - **Test** Magnetometer, that it works as before
-- Utilize BATTERY SOLUTION described in [this]() list
+- Utilize BATTERY SOLUTION described in [this](activity.md#next) list
 
 
 
