@@ -99,9 +99,10 @@ When the handle is upright the club is in play, and the sensor is in Ready state
 First, understand the orientation of the device.
 Then, make the device **beep** only when it identifies a _state change_.
 After two minutes in Resting state, the state changes to Timeout state, and halts other sensors.
-(To-do: Technical description of Timeout state.)
 It then listens only for Ready state.
-
+- Ready state listens for Resting state (inverse of Ready state at any point) X 240 readings, and waits 250millis each time (2 minutes total) before setting up Timeout state 
+- Timeout state waits 30,000 millis (half minute) and listens for Ready state
+- Should use `millis()` rather than `delay()`
 
 
 ## Accelerometer: Setting it up
@@ -115,10 +116,10 @@ It then listens only for Ready state.
 (3)<img src="https://user-images.githubusercontent.com/1236972/135546061-106e68f4-bfba-4cd5-929e-49494486ad87.png" width="20%">
 (4)<img src="https://user-images.githubusercontent.com/1236972/135545934-7cb4dd34-7c12-46b9-ae8f-fa2e61835812.png" width="20%">
 
-(**Edit needed**) The graph(3) between the rest(2) and start(4) orientation shows the difference in the readings of the Y axis when the device is attached _"the long way"_ where the red Y-axis reading is always greater than both or less than both other axes. When the "stick" is in neither the start nor rest position, the Y-axis is not significantly separated from the X and Z readings.
+The graph(3) shows readings of the magnetometer, but the principle is the same. There is a change between the rest(2) position and the start(4) orientation. When the device is attached as shown(1), one parameter, the Y-axis of the Accelerometer, tells the system whether it's in Ready state or Resting state. When Y-axis reading is positive then the sensor is in one state and when it is negative, it's in the other.
 
-(**Possible edits:**) One parameter, the Y-axis of the Accelerometer, tells the system whether it's in Ready state or Resting state. When Y-axis reading is positive then the sensor is in one state, and when it's negative it is in the other.
-
+In this specific case, the graph would show that the Ready state is positive, and the Resting state is negative.
+The value of the Resting state reading is close to -1 (such as -0.85)
 
 
 
