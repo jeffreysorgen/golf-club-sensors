@@ -116,16 +116,17 @@ It then listens only for Ready state.
 (3)<img src="https://user-images.githubusercontent.com/1236972/135546061-106e68f4-bfba-4cd5-929e-49494486ad87.png" width="20%">
 (4)<img src="https://user-images.githubusercontent.com/1236972/135545934-7cb4dd34-7c12-46b9-ae8f-fa2e61835812.png" width="20%">
 
+#### The readings of the accelerometer, according to the setup in the images:
 In principle, the readings of the Accelerometer are the same as those shown in this graph(3) for the Magnetometer. There is a change between the rest(2) position and the start(4) orientation. When the device is attached as shown(1), one parameter, the Y-axis of the Accelerometer, tells the system whether it's in Ready state or Resting state. When its Y-axis reading is positive then the sensor is in one state, and when it's negative it's in the other.
 
 In this specific case, the graph would show that the Ready state is positive, and the Resting state is negative.
-The value of the Resting state reading is close to -1 (such as `y < -0.85`) and then it **will wait _forever_ for its orientation to return to the start position.**
+The value of the Resting state reading is close to -1 (such as `y < -0.85`) and then at that point it **will wait _forever_ for its orientation to return to the start position.**
 
 
 
 ## To do:
 
-### Do the SimpleAccelerometer sketch _again_ in the IDE:
+### Do the SimpleAccelerometer sketch _again_ in the IDE: (Bump this to to-do page, and write it back here if appropriate.)
 
 - Save as _golf-sensors.ino_ 
 - Do standard test. Watch the plot. - Determine whether to delete X and Z in the sketch, because only Y is needed
@@ -135,7 +136,7 @@ The value of the Resting state reading is close to -1 (such as `y < -0.85`) and 
     - The risk happens while waiting in Ready state to record data (?)
 - Stop printing data while in Resting state
 - But start printing data back in Ready state
-- **Take new illustration photo(3).**
+- 
 
 
 
