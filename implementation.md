@@ -39,7 +39,7 @@ _skip to
 17. LEARNED Cursory principles of electronics from __LinkedIn Learning__.
 18. **Arduino sketch** baseline created for IMU - _golf-swing-acc_ (ongoing)
 19. **GitHub Markdown** Learned styling for tables, images and code block
-20. Researching BATTERY solution, ongoing documentation _here_(**insert link**)
+20. Researching BATTERY solution, ongoing documentation [_here_](activity.md#battery-info)
 
 
 # Implementation:
