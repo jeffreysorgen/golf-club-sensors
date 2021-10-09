@@ -38,6 +38,7 @@ _skip to
 16. LEARNED that it's easy to mess up in GitHub desktop, so _be careful_
 17. LEARNED Cursory principles of electronics from __LinkedIn Learning__.
 18. **Arduino sketch** baseline created for IMU - _golf-swing-acc_ (ongoing)
+19. **GitHub Markdown** Learned styling for tables, images and code block
 
 
 # Implementation:
@@ -104,8 +105,77 @@ In principle, the readings of the Accelerometer are the same as those shown in t
 In this specific case, the graph would show that the Ready state is positive, and the Resting state is negative.
 The value of the Resting state reading is close to -1 (such as `y < -0.85`) and then at that point it **will wait _forever_ for its orientation to return to the start position.**
 
-## IDE Code goes here.
-- 
+
+
+
+
+## Updating the Arduino Nano 33 BLE
+- Inside the _LOOP_, we added `if ( y > -.85 )` to establish the Resting state threshold, and pauses within the `else` statement
+- The _if/else_ statements establish thresholds for the Ready/Resting/Timeout states.
+  -  _**Ready**_ is always when the club is in play. Otherwise it's going to be in the _Resting_ state briefly, or it sort of "parks" in the _Timeout_ state
+  -  _**Resting**_ is when the sensor reads that its orientation is negative (-.85) and counts how long it stays that way. 
+  -  To go from _Ready_ to _Timeout_, **the _Resting_ state must remain engaged for two minutes.**
+  -  _**Timeout**_ state keeps checking if the state changes back to _Ready_ 
+  -  The table below shows the calculations used
+
+
+
+##### The states and their respective multiples and total durations
+state --> | Ready | Resting | Timeout
+---- | :----: | :----: | :----:
+__pause:__ | always on | millis(250) | millis(30000)
+__iterations:__ | n/a | 240 times | every 30sec
+__total:__ | n/a | 2 minutes | forever
+
+
+
+
+### Edit the sketch. 
+- Before _SETUP_, add this line so we can start counting Resting states when they happen:
+    ```
+    int r = 0;
+    ```
+- Here's the new _LOOP_:
+    ```
+    void loop() {
+      float x, y, z;
+      if (IMU.accelerationAvailable())
+      {
+      IMU.readAcceleration(x, y, z);
+      if ( y > -.85 ) // almost 1G (rewrite this note)
+        { 
+        Serial.print("X = ");
+        Serial.print(x);
+        Serial.print('\t');
+        Serial.print("Y = ");
+        Serial.print(y);
+        Serial.print('\t');
+        Serial.print("Z = ");
+        Serial.println(z);
+        }
+      else {
+        ++r; // 10 chances, and then assumes Resting state
+        Serial.println(r);
+        Serial.print(y);
+        Serial.print('\t');
+        Serial.println("Checking...");
+        delay(250); // delay to avoid counting too quickly
+        if (r==9)
+          {
+          Serial.println("Resting state. Stand by for reset.");
+          /*
+           * INSERT TRIGGER FOR -beep- HERE
+           * Beep would indicate attained Resting state
+           */
+          delay(10000);
+          r=0; // now resets
+          }
+        }
+      }
+    }
+    ```
+ 
+
 
 ## To do:
 - **Implement the Timeout state** (see calcs defined above)

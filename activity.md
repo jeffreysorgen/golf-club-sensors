@@ -1,61 +1,67 @@
 [<-- back to Implementation](implementation.md)
 
 [<-- back to README.md](README.md)
-# To Do:
 
-#### _Note: Add this somewhere:_
+### Battery Info:
+- _Create Battery Info section for here_
+### Reference Info:
+- For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
+### Add this info somewhere:
 - Create an _interval_ for the sensor readings, using `millis()` not `delay()`. This would sample 100 per second. **Save this step, get more done using `delay()`**
 - Take new illustration photo(3). Graphic of mag sensor readings should be swapped out for accelerometer readings. **Also** need one for Serial Monitor showing Ready/Resting/Timeout states.
 
-
 #
-## (this section is nearly done) Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor
+# To Do:
+
+## Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor (done)
+
 - LEARN how to use boolean logic within the sketch. _This lesson will transfer to other processes._
-  - Set up thresholds?
-  - Simple as Y>X or Y>Z ?
-- Print "Ready" for when the device senses its Start orientation
-- Print "Resting" for when the device senses its Rest orientation
-- Create graphic for this and add here, resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
+  - Set up thresholds? (done)
+  - Simple as Y>X or Y>Z ? (yes it is. done.)
+- Print "Ready" for when the device senses its Start orientation (done, delete)
+- Print "Resting" for when the device senses its Rest orientation (done, delete)
 
-
-# Then:
 ## ENABLE both BLE and Accelerometer
-- **Enable BOTH Accelerometer and BLE into _new_ custom sketch**
+
+- Enable BOTH Accelerometer and BLE into _new_ custom sketch
 - **Test** Accelerometer, that it works as before
 - Utilize BATTERY SOLUTION described in [**this**](activity.md#next) list
-- Finish connecting BLE 100% as planned before moving on to the SDK part
-
+  - _Create "Battery" section in the docs_
+- **Finish connecting BLE 100% as planned before moving on to the SDK part**
+- For BLE, watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
 
 ## Enable smartphone nRF Connect App via BLE
 1. Download to Android (done)
-2. For pairing, **LABEL** this device in the code and upload the SKETCH
-4. Pair the device
-5. **WATCH** what the Serial Monitor displays ("Ready" to "Rest" and back again)
+1. For pairing, **LABEL** this device in the code and upload the SKETCH
+1. Pair the device
+1. **WATCH** what the Serial Monitor displays ("Ready" to "Rest" and back again)
 
 #
+# Then:
 ## Enable smartphone functions via nRF (Requires SDK)
 ### Make the smartphone beep in Ready state
-Proof of feasibility. Not used in final product. But other activity will require prompting a smartphone to act on something in some way.
-#### Research:
-- For BLE, watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
+Proof of feasibility. Beep triggered by in/out of Ready state is not for final product. But there is other activity that will require prompting smartphone to act on something in some way.
+
+### Research:
 - App Development
   - Use [nRF Connect SDK](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
 - What can be configured in my phone that receives commands from the nRF Connect application?
 - **TEST:** 
   - Can the phone app trigger **BEEP** or a vibration/buzz? 
-  - Can the nRF App turn on/off the phone's flashlight? (_Good Idea!_)
+  - Can the nRF App turn on/off the phone's **flashlight**? (_Good Idea!_)
 
+# And then:
 ## AFTER enabling smartphone to beep when sensing Ready orientation
 #### QUESTION: What is the next physical step?
 - What are the specific physical instruments needed to determine whether the motion has stopped? 
   - I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
-- What is the Magnetometer doing at this point?
+- What is the Magnetometer doing at this point? (edit this)
   - Nothing is needed at this point, but should not mistake readings to be _Rest orientation_
-  - When the Magnetometer is in the Ready state, it turns off (?) and then turns on the gyro/acc
+  - When the Magnetometer is in the Ready state, it turns off (?) and then turns on the gyro/acc (edit this)
 #
 #
 ## more todo:
-1. Make this information show up in my Android phone.
+1. Make this information show up in my Android phone. (current to-do)
 2. Finally, fine tune the readings using `millis()`
 3. Get Gyro going.
 4. Figure out the Gyro data on Monitor.
@@ -63,9 +69,11 @@ Proof of feasibility. Not used in final product. But other activity will require
 
 #
 
-(move this) **Try setting up BLE at this point**
+(move or remove this) **Try setting up BLE at this point**
 - Read all this information on my Android!
 
+#
+## more next steps
 **COLLECT GYRO DATA**
 - Once in Ready state, figure out how to **enable the Gyro** to collect a sweep of data once motion begins.
 - Watch Gyro data in Monitor. Collect X,Y,Z coordinates of Gyro, as well as TIME STAMPS (so, 4 dimensions)
@@ -73,9 +81,9 @@ Proof of feasibility. Not used in final product. But other activity will require
 - WHAT do Gyroscope readings represent? Are these what we want for our DATA COLLECTION?
 
 **MODIFY THE SKETCH:**
-- Write out to Monitor at a rate of 100/sec rather than baud rate itself. 
+- Write out to Monitor at a rate of 100/sec rather than baud rate itself. (I think this is also said elsewhere.)
   - Explore usage of `millis()` to set delay of 10ms prior to taking readings, rather than `delay()`
-  - Later will get 100 3D data points per second (does this save on memory? Likely yes.)
+  - Later will get 100 3D data points per second (Does this save on memory? Likely yes. But is it necessary to save memory like this? Maybe not. Might need >100 data points.)
 
 **Also:**
 - FIGURE OUT HOW TO COLLECT DATA. 
@@ -118,7 +126,9 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 - finally, is it possible to simultaneously collect data and provide inference?
 #### Next:
 - **DESIGN battery solution** NEED connect to USBmicro female to power. _I can use the battery backup utility which has USB-C output, just like the one on my computer!_ Just need a shoulder strap or pocket or something for it. And then later can build an obviously better solution. But for now, **I can connect with BLE and be _physically detached_ from my computer!** Probably can purchase a lightweight **PHONE CHARGER** to serve this purpose during development.
-- FIGURE OUT --> don't mess up with GITHUB!
+  - For permanent power solution, enable _Sleep_ state, same as _Timeout_ state, but checks every 60-120secs, rather than 30secs 
+  - In [this list](#battery-info) there is a question/answer about possible battery devices 
+  - **Create a "Battery Info" section in a more significant spot in theses docs**
 - how to gather components/parts list
 - LEARN about power requirements
 - LEARN about electronics configuration (physical)
@@ -143,7 +153,7 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 ## Next Steps
 #### (done) 
-- Deleted old _readme-old.md_ and old _golfswing-idea.md_
+- Added code block to _Accelerometer_ section.
 
 [<-- back to Implementation](implementation.md)
 
@@ -159,6 +169,7 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
   * Determine whether some of this documentation would be better in the form of a _Jupyter notebook_
 * Determine physical nature of MCU board form factor and its protection from damage
   * Prototyping with KiCad, OSHPARK, and more
+  * Think about battery
 * Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
   - Determine whether a **BLOG** is useful
   - Enable blogging somehow, with or without repositories, to publicly document actions taken (or just this page!)
@@ -169,7 +180,11 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 * Not Needed: **Wiki**
 * "SWINGTASTIC"
 #
-# 
+## Battery info:
+- **Qi coil** is a wireless charging device
+- I am looking for those 2-prong "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
+- MOVE this section up where I can find it
+# Thoughts and notes
 ### I would like to convert MOTION recorded here and stored in JSON into a _Fourier Series_ because it seems that that would be a good way to create 3D time-series illustrations
 ([3B1B Fourier Series video here](https://youtu.be/r6sGWTCMz2k?t=1226)) The video describes 2 dimensions, but what I'm interested in calculating is in 3 dimensions.
 
@@ -189,7 +204,7 @@ It's possible that all I really need is something that we learned about when we 
 So what am I looking for, anyway? (I'm exhausted.)
 
 I think all I'm actually looking for is a real-time 3d representation connecting all the data points of the golf swing. The ML can figure out all the other stuff on its own when I send it in the right direction.
-
+- **is FFT useful here?** is this going to be like converting audio spectrograms?
 #
 #
 #
