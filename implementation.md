@@ -127,8 +127,22 @@ The value of the Resting state reading is close to -1 (such as `y < -0.85`) and 
 - **Implement the Timeout state**
 - **Set up device precisely as described here**
 - **Thoroughly documented**
+- AND FINALLY, verify that what's in the [Conclusion](#conclusion) is actually accomplished and true
 - The all-inclusive file will be saved as _golf-sensors.ino_ when more sensors are involved. (_send to to-do page_)
 
+
+## Conclusion:
+This page was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
+The goal was to basically create on/off states, accomplished here by using thresholds for the Ready/Resting/Timeout states. 
+
+Before moving forward to **BLE** (and then to the _nRF Connect SDK_ and the Gyroscope), it's important that the Sketch has been created 100% as planned, the code documented, and the resulting Serial Monitor screen shown for an example.
+
+#### This phase is done when I can show the expected results:
+- Holding the golf club in the ready position shows all the readings streaming through (acc readings for now)
+- Swinging the club around won't put it into a Resting state if it's not really meant to be, because thresholds have been set up to prevent it from happening
+- But once it has been put in Resting state, it changes to the Timeout state and then checks for a state change only every 30 seconds
+- When it finds the Ready state again, the process repeats! 
+
 # [NEXT STEPS -->](activity.md)
-### (_change this_)Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor
+### Implementing BLE
 [<-- back to README.md](README.md)
