@@ -121,44 +121,44 @@ The value of the Resting state reading is close to -1 (such as `y < -0.85`) and 
  
  - Here's the new `void loop()`:
 
-        ```
-        void loop() {
-          float x, y, z;
-          if (IMU.accelerationAvailable())
+    ```
+    void loop() {
+      float x, y, z;
+      if (IMU.accelerationAvailable())
+      {
+      IMU.readAcceleration(x, y, z);
+      if ( y > -.85 ) // almost 1G (rewrite this note)
+        { 
+        Serial.print("X = ");
+        Serial.print(x);
+        Serial.print('\t');
+        Serial.print("Y = ");
+        Serial.print(y);
+        Serial.print('\t');
+        Serial.print("Z = ");
+        Serial.println(z);
+        }
+      else {
+        ++r; // 10 chances, and then assumes Resting state
+        Serial.println(r);
+        Serial.print(y);
+        Serial.print('\t');
+        Serial.println("Checking...");
+        delay(250); // delay to avoid counting too quickly
+        if (r==9)
           {
-          IMU.readAcceleration(x, y, z);
-          if ( y > -.85 ) // almost 1G (rewrite this note)
-            { 
-            Serial.print("X = ");
-            Serial.print(x);
-            Serial.print('\t');
-            Serial.print("Y = ");
-            Serial.print(y);
-            Serial.print('\t');
-            Serial.print("Z = ");
-            Serial.println(z);
-            }
-          else {
-            ++r; // 10 chances, and then assumes Resting state
-            Serial.println(r);
-            Serial.print(y);
-            Serial.print('\t');
-            Serial.println("Checking...");
-            delay(250); // delay to avoid counting too quickly
-            if (r==9)
-              {
-              Serial.println("Resting state. Stand by for reset.");
-              /*
-               * INSERT TRIGGER FOR -beep- HERE
-               * Beep would indicate attained Resting state
-               */
-              delay(10000);
-              r=0; // now resets
-              }
-            }
+          Serial.println("Resting state. Stand by for reset.");
+          /*
+           * INSERT TRIGGER FOR -beep- HERE
+           * Beep would indicate attained Resting state
+           */
+          delay(10000);
+          r=0; // now resets
           }
         }
-        ```
+      }
+    }
+    ```
  
 
 
