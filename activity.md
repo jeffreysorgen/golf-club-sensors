@@ -5,12 +5,14 @@
 Previous page is about setting up the Accelerometer, physically, and with the IDE, so that it performs as expected.
 Goal was to basically create on/off states, and used Ready/Resting/Timeout threshold states. Before moving forward to BLE (and then the Gyroscope), be sure to finish creating the Sketch 100% as planned. Document the code. Document what's displayed in the resulting Serial Monitor screen. The phase is done when I can show the results as expected. Holding the golf club in the ready position shows all the readings (currently the acc only) streaming through. Swinging the club around won't set it into a Resting state if it's not really meant to be, because the threshold has been set up to prevent it. But once it has been placed in Resting state, it changes to Timeout state, and checks for state change only every 30 seconds. When it finds the Ready state again, the process repeats! 
 
+### Implementation page is basically complete for today. **So spend time going from here down on this page.**
+
 #### _Note: Add this somewhere:_
 - Create an _interval_ of 10ms prior to the reading, using `millis()` not `delay()`. This would sample 100 per second.
 - (optional) **Take new illustration photo(3).** Graphic of mag sensor readings should be swapped out for accelerometer readings.
 
 
-
+#
 ## Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor (in progress)
 - LEARN how to use boolean logic within the sketch. _This lesson will transfer to other processes._
   - Set up thresholds?
@@ -120,7 +122,7 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 - how to RECONFIGURE smartphone app from Ready state orientation to 'good swing' chirp
 - finally, is it possible to simultaneously collect data and provide inference?
 #### Next:
-- **DESIGN battery solution** NEED connect to USBmicro female to power. _I can use the battery utility which has USB-C output, just like the one on my computer!_ Just need a shoulder strap or something for it. And then later can build an obviously better solution. But for now, **I can connect with BLE and be _physically detached_ from my computer!**
+- **DESIGN battery solution** NEED connect to USBmicro female to power. _I can use the battery backup utility which has USB-C output, just like the one on my computer!_ Just need a shoulder strap or pocket or something for it. And then later can build an obviously better solution. But for now, **I can connect with BLE and be _physically detached_ from my computer!** Probably can purchase a lightweight **PHONE CHARGER** to serve this purpose during development.
 - FIGURE OUT --> don't mess up with GITHUB!
 - how to gather components/parts list
 - LEARN about power requirements
