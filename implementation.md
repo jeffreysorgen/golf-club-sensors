@@ -38,6 +38,7 @@ _skip to
 16. LEARNED that it's easy to mess up in GitHub desktop, so _be careful_
 17. LEARNED Cursory principles of electronics from __LinkedIn Learning__.
 18. **Arduino sketch** baseline created for IMU - _golf-swing-acc_ (ongoing)
+19. **GitHub Markdown** Learned styling for tables, images and code block
 
 
 # Implementation:
