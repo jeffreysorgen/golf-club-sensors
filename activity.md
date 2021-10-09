@@ -2,26 +2,6 @@
 
 [<-- back to README.md](README.md)
 # To Do:
-##### Move this section to the bottom of previous page, Implementation, as a conclusion. :)
-
-## Conclusion:
-This page was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
-The goal was to basically create on/off states, accomplished here by using thresholds for the Ready/Resting/Timeout states. 
-
-Before moving forward to **BLE** (and then to the _nRF Connect SDK_ and the Gyroscope), it's important that the Sketch has been created 100% as planned, the code documented, and the resulting Serial Monitor screen shown for an example.
-
-#### This phase is done when I can show the expected results:
-- Holding the golf club in the ready position shows all the readings streaming through (acc readings for now)
-- Swinging the club around won't put it into a Resting state if it's not really meant to be, because thresholds have been set up to prevent it from happening
-- But once it has been put in Resting state, it changes to the Timeout state and then checks for a state change only every 30 seconds
-- When it finds the Ready state again, the process repeats! 
-
-# END
-
-
-#
-
-### Implementation page is basically complete for today. **So spend time going from here down on this page.**
 
 #### _Note: Add this somewhere:_
 - Create an _interval_ for the sensor readings, using `millis()` not `delay()`. This would sample 100 per second. **Save this step, get more done using `delay()`**
