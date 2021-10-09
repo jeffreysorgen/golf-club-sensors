@@ -105,8 +105,21 @@ In this specific case, the graph would show that the Ready state is positive, an
 The value of the Resting state reading is close to -1 (such as `y < -0.85`) and then at that point it **will wait _forever_ for its orientation to return to the start position.**
 
 ## IDE Code goes here.
-Add this before `void setup()`
-- `int r = 0; // set r=0 and count up to 10 times before saying "Resting"`
+- Before `void setup()` add this line so we can start counting Resting states when they happen:
+
+        ```int r = 0;```
+
+- Inside the `void loop()` add a line right after the reading:
+
+        ```
+        IMU.readAcceleration(x, y, z);
+        if ( y > -.85 )
+         {
+         ```
+ 
+ 
+ 
+
 
 ## To do:
 - **Implement the Timeout state** (see calcs defined above)
