@@ -107,17 +107,58 @@ The value of the Resting state reading is close to -1 (such as `y < -0.85`) and 
 ## IDE Code goes here.
 - Before `void setup()` add this line so we can start counting Resting states when they happen:
 
-        ```int r = 0;```
+    ```
+    int r = 0;
+    ```
+    
+- Inside the `void loop()` add this line right after the reading so we establish _**-0.85**_ as a threshold:
 
-- Inside the `void loop()` add a line right after the reading:
+    ```
+    IMU.readAcceleration(x, y, z);
+    if ( y > -.85 )
+     {
+    ```
+ 
+ - Here's the new `void loop()`:
 
         ```
-        IMU.readAcceleration(x, y, z);
-        if ( y > -.85 )
-         {
-         ```
- 
- 
+        void loop() {
+          float x, y, z;
+          if (IMU.accelerationAvailable())
+          {
+          IMU.readAcceleration(x, y, z);
+          if ( y > -.85 ) // almost 1G (rewrite this note)
+            { 
+            Serial.print("X = ");
+            Serial.print(x);
+            Serial.print('\t');
+            Serial.print("Y = ");
+            Serial.print(y);
+            Serial.print('\t');
+            Serial.print("Z = ");
+            Serial.println(z);
+            }
+          else {
+            ++r; // 10 chances, and then assumes Resting state
+            Serial.println(r);
+            Serial.print(y);
+            Serial.print('\t');
+            Serial.println("Checking...");
+            delay(250); // delay to avoid counting too quickly
+            if (r==9)
+              {
+              Serial.println("Resting state. Stand by for reset.");
+              /*
+               * INSERT TRIGGER FOR -beep- HERE
+               * Beep would indicate attained Resting state
+               */
+              delay(10000);
+              r=0; // now resets
+              }
+            }
+          }
+        }
+        ```
  
 
 
