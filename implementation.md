@@ -95,7 +95,7 @@ First, understand the orientation of the device.
 Then, make the device **beep** only when it identifies a _state change_.
 After two minutes in Resting state, the state changes to Timeout state, and halts other sensors.
 It then listens only for Ready state.
-- Ready state listens for Resting state (inverse of Ready state at any point) X 240 readings, and waits 250millis each time (2 minutes total) before setting up Timeout state 
+- Ready state listens for Resting state (inverse of Ready state at any point) X 240 readings, and waits 250millis each time (2 minutes total) before setting up Timeout state (_edit this_)
 - Timeout state waits 30,000 millis (half minute) and listens for Ready state
 - Should use `millis()` rather than `delay()`
 
@@ -124,7 +124,9 @@ The value of the Resting state reading is close to -1 (such as `y < -0.85`) and 
 - Show the Serial Monitor display for example.
 - Describe the functionality of the Ready/Resting/Timeout states 
 - **Implement the Timeout state**
-- Inclusive file will be saved as _golf-sensors.ino_ when more sensors are involved. 
+- **Set up device precisely as described here**
+- **Thoroughly documented**
+- The all-inclusive file will be saved as _golf-sensors.ino_ when more sensors are involved. 
 
 # [NEXT STEPS -->](activity.md)
 ### (_change this_)Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor
