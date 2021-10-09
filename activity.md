@@ -119,6 +119,7 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 #### Next:
 - **DESIGN battery solution** NEED connect to USBmicro female to power. _I can use the battery backup utility which has USB-C output, just like the one on my computer!_ Just need a shoulder strap or pocket or something for it. And then later can build an obviously better solution. But for now, **I can connect with BLE and be _physically detached_ from my computer!** Probably can purchase a lightweight **PHONE CHARGER** to serve this purpose during development.
   - For permanent power solution, enable _Sleep_ state, same as _Timeout_ state, but checks every 60-120secs, rather than 30secs 
+  - In [this list](#battery-info) there is a question/answer about possible battery devices 
 - how to gather components/parts list
 - LEARN about power requirements
 - LEARN about electronics configuration (physical)
@@ -169,6 +170,9 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 * Not Needed: **Wiki**
 * "SWINGTASTIC"
 #
+## Battery info:
+- **Qi coil** is a wireless charging device
+- I am looking for those 2-prong "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
 # 
 ### I would like to convert MOTION recorded here and stored in JSON into a _Fourier Series_ because it seems that that would be a good way to create 3D time-series illustrations
 ([3B1B Fourier Series video here](https://youtu.be/r6sGWTCMz2k?t=1226)) The video describes 2 dimensions, but what I'm interested in calculating is in 3 dimensions.
