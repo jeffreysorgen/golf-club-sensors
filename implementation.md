@@ -124,9 +124,9 @@ The value of the Resting state reading is close to -1 (such as `y < -0.85`) and 
 ##### The states and their respective multiples and total durations
 state --> | Ready | Resting | Timeout
 ---- | :----: | :----: | :----:
-__pause:__ | always on | millis(250) | millis(30000)
-__iterations:__ | n/a | 240 times | every 30sec
-__total:__ | n/a | 2 minutes | forever
+_pause:_ | always on | millis(250) | millis(30000)
+_iterations:_ | n/a | 240 times | every 30sec
+_total:_ | n/a | 2 minutes | forever
 
 
 
