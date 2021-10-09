@@ -37,9 +37,9 @@ _skip to
 15. Figured out how to set up Ready/Resting states in Arduino Sketch, and display in Monitor. (in progress)
 16. LEARNED that it's easy to mess up in GitHub desktop, so _be careful_
 17. LEARNED Cursory principles of electronics from __LinkedIn Learning__.
-18. **Arduino sketch** baseline created for IMU - _golf-swing-acc_ (ongoing)
+18. **Arduino sketch** baseline created for IMU - _golf-swing-acc_ ([ongoing improvements](#updating-the-arduino-nano-33-ble))
 19. **GitHub Markdown** Learned styling for tables, images and code block
-20. Researching BATTERY solution, ongoing documentation [_here_](activity.md#battery-info)
+20. DOCUMENTED progress towards battery solution [_here_](activity.md#battery-info) (ongoing)
 
 
 # Implementation:
