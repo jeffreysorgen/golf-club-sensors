@@ -86,11 +86,10 @@ After two minutes in Resting state, the state changes to Timeout state, and halt
 It then listens only for Ready state.
 - Ready state listens for Resting state (inverse of Ready state at any point) X 240 readings, and waits 250millis each time (2 minutes total) before setting up Timeout state (_edit this_)
 - Timeout state waits 30,000 millis (half minute) and listens for Ready state
-- Should use `millis()` rather than `delay()`
+- _Should use `millis()` rather than `delay()`_
 
-## Accelerometer: Setting it up
-
-### Accelerometer orientation readings determine Ready and Resting states
+### Setting up the Accelerometer:
+**These readings will determine the Ready or Resting state orientation**
 - Attach the device to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is put back in the golf bag._
 
 #### Images: (1)Attach the device to a stick (2)Rest orientation (3)Device orientation (4)Start orientation
@@ -109,33 +108,30 @@ The value of the Resting state reading is close to -1 (such as `y < -0.85`) and 
 - 
 
 ## To do:
-- Show the IDE code
-- Determine if the `.ino` file should be in the repo or instead just described here
-  - _Paste it here for expediency_
-- Show the Serial Monitor display for example (_image needed_) 
+- **Implement the Timeout state** (see calcs defined above)
+- **Set up device precisely as described on this page**
+- Paste the `.ino` file here in the CODE section
+- **Screenshot** the Serial Monitor display for an example 
 - **Describe** the functionality of the Ready/Resting/Timeout states 
-- **Implement the Timeout state**
-- **Set up device precisely as described here**
-- **Thoroughly documented**
-- AND FINALLY, verify that what's in the [Conclusion](#conclusion) is actually accomplished and true
+- AND FINALLY, **verify** that what's in the [Conclusion](#conclusion) is actually accomplished and true
 - The all-inclusive file will be saved as _golf-sensors.ino_ when more sensors are involved. (_send to to-do page_)
 #
-#### Rearrange this page:
-- First part is assembling the device on the stick.
-- Second part is the Arduino IDE.
-- Third, make the monitor show "Ready" state.
-- Finally, because of the clarity of the section so far, that's the end of this page.
+### Sections of this page:
+- First part is assembling the device on the stick. (done)
+- Second part is the Arduino IDE. (in progress, paste code)
+- Third, make the monitor show "Ready" state. (get screenshot)
+- Finally, because of the clarity of the section so far, that's the end of this page. (until BLE is fully written)
 #
 ## Conclusion:
-This page was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
+This page/section was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
 The goal was to basically create on/off states, accomplished here by using thresholds for the Ready/Resting/Timeout states. 
 
-Before moving forward to **BLE** (and then to the _nRF Connect SDK_ and the Gyroscope), it's important that the Sketch has been created 100% as planned, the code documented, and the resulting Serial Monitor screen shown for an example.
+Before moving forward to **BLE** section, it's important that the Sketch has been created 100% as planned, the code documented, and the resulting Serial Monitor screen shown as an example.
 
 #### This phase is done when I can show the expected results:
 - Holding the golf club in the ready position shows all the readings streaming through (acc readings for now)
-- Swinging the club around won't put it into a Resting state if it's not really meant to be, because thresholds have been set up to prevent it from happening
-- But once it has been put in Resting state, it changes to the Timeout state and then checks for a state change only every 30 seconds
+- Swinging the club around won't put it into a Resting state if it's not really meant to be there, because thresholds have been set up to prevent it from happening
+- But once it gets to the Resting state, it changes to the Timeout state and then checks for a state change only every 30 seconds
 - When it finds the Ready state again, the process repeats! 
 
 # [NEXT STEPS -->](activity.md)
