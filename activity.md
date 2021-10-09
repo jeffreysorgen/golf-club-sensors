@@ -2,6 +2,8 @@
 
 [<-- back to README.md](README.md)
 # To Do:
+Previous page is about setting up the Accelerometer, physically, and with the IDE, so that it performs as expected.
+Goal was to basically create on/off states, and used Ready/Resting/Timeout threshold states. Before moving forward to BLE (and then the Gyroscope) be sure to finish creating the Sketch 100% as planned. Document the code. Document what's displayed in the resulting Serial Monitor screen. The phase is done when I can show the results as expected. Holding the golf club in the ready position shows all the readings (currently the acc only) streaming through. Swinging the club around won't set it into a Resting state if it's not really there, because the threshold has been set up to prevent it. But once it has been placed in Resting state, it changes to Timeout state, and checks for state change only every 30 seconds. When it finds it, the process repeats! 
 
 #### _Note: Add this somewhere:_
 - Create an _interval_ of 10ms prior to the reading, using `millis()` not `delay()`. This would sample 100 per second.
@@ -19,9 +21,9 @@
 
 
 # Then:
-## LEARN how to enable both BLE and Magnetometer
-- **Enable BOTH Magnetometer and BLE into _new_ custom sketch**
-- **Test** Magnetometer, that it works as before
+## LEARN how to enable both BLE and Accelerometer
+- **Enable BOTH Accelerometer and BLE into _new_ custom sketch**
+- **Test** Accelerometer, that it works as before
 - Utilize BATTERY SOLUTION described in [**this**](activity.md#next) list
 
 
