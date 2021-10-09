@@ -37,7 +37,7 @@ _skip to
 15. Figured out how to set up Ready/Resting states in Arduino Sketch, and display in Monitor. (in progress)
 16. LEARNED that it's easy to mess up in GitHub desktop, so _be careful_
 17. LEARNED Cursory principles of electronics from __LinkedIn Learning__.
-18. Created baseline Arduino sketch for IMU (ongoing edits) _golf-swing-acc_
+18. **Arduino sketch** baseline created for IMU - _golf-swing-acc_ (ongoing)
 
 
 # Implementation:
