@@ -61,17 +61,6 @@ _skip to
 
 ## Part One: The Accelerometer
 
-
-
-#
-#### Rearrange this page:
-- First part is assembling the device on the stick.
-- Second part is the Arduino IDE.
-- Third, make the monitor show "Ready" state.
-- Finally, because of the clarity of the section so far, that's the end of this page.
-
-
-#
 ### Description: 
 **The goal is to "turn on" readings when sensor is oriented with clubhead down at the ground.**
 What instrument determines when to begin doing something? 
@@ -130,8 +119,13 @@ The value of the Resting state reading is close to -1 (such as `y < -0.85`) and 
 - **Thoroughly documented**
 - AND FINALLY, verify that what's in the [Conclusion](#conclusion) is actually accomplished and true
 - The all-inclusive file will be saved as _golf-sensors.ino_ when more sensors are involved. (_send to to-do page_)
-
-
+#
+#### Rearrange this page:
+- First part is assembling the device on the stick.
+- Second part is the Arduino IDE.
+- Third, make the monitor show "Ready" state.
+- Finally, because of the clarity of the section so far, that's the end of this page.
+#
 ## Conclusion:
 This page was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
 The goal was to basically create on/off states, accomplished here by using thresholds for the Ready/Resting/Timeout states. 
