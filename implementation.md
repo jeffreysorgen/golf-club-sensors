@@ -61,10 +61,9 @@ _skip to
 
 ## Part One: The Accelerometer
 
-#### *Rewrite this entire section*
-- This section will be rewritten. 
-Need to identify more specific steps for this project phase.
 
+
+#
 #### Rearrange this page:
 - First part is assembling the device on the stick.
 - Second part is the Arduino IDE.
@@ -74,7 +73,6 @@ Need to identify more specific steps for this project phase.
 
 #
 ### Description: 
-
 **The goal is to "turn on" readings when sensor is oriented with clubhead down at the ground.**
 What instrument determines when to begin doing something? 
 The **accelerometer**. 
@@ -101,7 +99,6 @@ It then listens only for Ready state.
 - Timeout state waits 30,000 millis (half minute) and listens for Ready state
 - Should use `millis()` rather than `delay()`
 
-
 ## Accelerometer: Setting it up
 
 ### Use the Accelerometer readings to determine its orientation to get start/rest orientation of the device
@@ -119,30 +116,16 @@ In principle, the readings of the Accelerometer are the same as those shown in t
 In this specific case, the graph would show that the Ready state is positive, and the Resting state is negative.
 The value of the Resting state reading is close to -1 (such as `y < -0.85`) and then at that point it **will wait _forever_ for its orientation to return to the start position.**
 
-
-
+#
 ## To do:
-
-### Do the SimpleAccelerometer sketch _again_ in the IDE: (Bump this to to-do page, and write it back here if appropriate.)
-
-- Save as _golf-sensors.ino_ 
-- Do standard test. Watch the plot. - Determine whether to delete X and Z in the sketch, because only Y is needed
-- Set up if statements `{ if Y < -.8 then it is Resting state }`
-  - Do not allow Resting state during the SWING (figure it out)
-    - There is no risk of this while determining orientation (Ready/Resting) (?)
-    - The risk happens while waiting in Ready state to record data (?)
-- Stop printing data while in Resting state
-- But start printing data back in Ready state
-- 
-
-
-
-### Create new custom sketch
-(MERGE THIS STUFF WITH ABOVE STUFF)
-- Local file:
-  - Add this to repository? Where is the local file if it's in GitHub locally? Where is it now?
-
+### Need more information about the IDE for this.
+- Show the code
+- Import the `.ino` file to the repo?
+- Show the Serial Monitor display for example.
+- Describe the functionality of the Ready/Resting/Timeout states 
+- **Implement the Timeout state**
+- Inclusive file will be saved as _golf-sensors.ino_ when more sensors are involved. 
 
 # [NEXT STEPS -->](activity.md)
-### Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor
+### (_change this_)Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor
 [<-- back to README.md](README.md)
