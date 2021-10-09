@@ -4,31 +4,35 @@
 # To Do:
 
 #### _Note: Add this somewhere:_
-- Create an _interval_ of 10ms prior to the reading, using `millis()` not `delay()`. This would sample 100 per second.
+- Create an _interval_ for the sensor readings, using `millis()` not `delay()`. This would sample 100 per second. **Save this step, get more done using `delay()`**
+- Take new illustration photo(3). Graphic of mag sensor readings should be swapped out for accelerometer readings. **Also** need one for Serial Monitor showing Ready/Resting/Timeout states.
 
 
-
-## Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor (in progress)
+#
+## (this section is nearly done) Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor
 - LEARN how to use boolean logic within the sketch. _This lesson will transfer to other processes._
   - Set up thresholds?
   - Simple as Y>X or Y>Z ?
 - Print "Ready" for when the device senses its Start orientation
 - Print "Resting" for when the device senses its Rest orientation
+- Create graphic for this and add here, resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
 
 
 # Then:
-## LEARN how to enable both BLE and Magnetometer
-- **Enable BOTH Magnetometer and BLE into _new_ custom sketch**
-- **Test** Magnetometer, that it works as before
-
+## ENABLE both BLE and Accelerometer
+- **Enable BOTH Accelerometer and BLE into _new_ custom sketch**
+- **Test** Accelerometer, that it works as before
+- Utilize BATTERY SOLUTION described in [**this**](activity.md#next) list
+- Finish connecting BLE 100% as planned before moving on to the SDK part
 
 
 ## Enable smartphone nRF Connect App via BLE
 1. Download to Android (done)
-2. **LABEL** this device in the code, upload the SKETCH
+2. For pairing, **LABEL** this device in the code and upload the SKETCH
 4. Pair the device
 5. **WATCH** what the Serial Monitor displays ("Ready" to "Rest" and back again)
 
+#
 ## Enable smartphone functions via nRF (Requires SDK)
 ### Make the smartphone beep in Ready state
 Proof of feasibility. Not used in final product. But other activity will require prompting a smartphone to act on something in some way.
@@ -49,35 +53,33 @@ Proof of feasibility. Not used in final product. But other activity will require
   - Nothing is needed at this point, but should not mistake readings to be _Rest orientation_
   - When the Magnetometer is in the Ready state, it turns off (?) and then turns on the gyro/acc
 #
-**\[Todo page] Next Page (to-do page)**
-1. \[Todo page] Make this information show up in my Android phone.
-2. \[Todo page] Finally, fine tune the readings using `millis()`
-3. \[Todo page] Get Gyro going.
-4. \[Todo page] Figure out the Gyro data on Monitor.
-5. \[Todo page] Begin data collection.
+#
+## more todo:
+1. Make this information show up in my Android phone.
+2. Finally, fine tune the readings using `millis()`
+3. Get Gyro going.
+4. Figure out the Gyro data on Monitor.
+5. Begin data collection.
 
 #
 
-**\[Todo page] Try setting up BLE at this point**
-- \[Todo page] Read all this information on my Android!
+(move this) **Try setting up BLE at this point**
+- Read all this information on my Android!
 
-**\[Todo page] COLLECT GYRO DATA**
-- \[Todo page] Once in Ready state, figure out how to **enable the Gyro** to collect a sweep of data once motion begins.
-- \[Todo page] Watch Gyro data in Monitor. Collect X,Y,Z coordinates of Gyro, as well as TIME STAMPS (so, 4 dimensions)
-  - \[Todo page] As soon as Gyro reads that it's sitting still, that's when the collection can begin. 
-- \[Todo page] WHAT do Gyroscope readings represent? Are these what we want for our DATA COLLECTION?
+**COLLECT GYRO DATA**
+- Once in Ready state, figure out how to **enable the Gyro** to collect a sweep of data once motion begins.
+- Watch Gyro data in Monitor. Collect X,Y,Z coordinates of Gyro, as well as TIME STAMPS (so, 4 dimensions)
+  - As soon as Gyro reads that it's sitting still, that's when the collection can begin. 
+- WHAT do Gyroscope readings represent? Are these what we want for our DATA COLLECTION?
 
-**\[Todo page] MODIFY THE SKETCH:**
-- \[Todo page] Write out to Monitor at a rate of 100/sec rather than baud rate itself. 
-  - \[Todo page] Explore usage of `millis()` to set delay of 10ms prior to taking readings, rather than `delay()`
-  - \[Todo page] Later will get 100 3D data points per second (does this save on memory? Likely yes.)
+**MODIFY THE SKETCH:**
+- Write out to Monitor at a rate of 100/sec rather than baud rate itself. 
+  - Explore usage of `millis()` to set delay of 10ms prior to taking readings, rather than `delay()`
+  - Later will get 100 3D data points per second (does this save on memory? Likely yes.)
 
-**\[Todo page] Also:**
-- \[Todo page] FIGURE OUT HOW TO COLLECT DATA. 
-- \[Todo page] Collect some data, and then stop when the Gyro is still again to SAVE THE DATA.
-
-
-
+**Also:**
+- FIGURE OUT HOW TO COLLECT DATA. 
+- Collect some data, and then stop when the Gyro is still again to SAVE THE DATA.
 
 
 
@@ -115,10 +117,10 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 - how to RECONFIGURE smartphone app from Ready state orientation to 'good swing' chirp
 - finally, is it possible to simultaneously collect data and provide inference?
 #### Next:
-- FIGURE OUT: don't mess up with GITHUB!
+- **DESIGN battery solution** NEED connect to USBmicro female to power. _I can use the battery backup utility which has USB-C output, just like the one on my computer!_ Just need a shoulder strap or pocket or something for it. And then later can build an obviously better solution. But for now, **I can connect with BLE and be _physically detached_ from my computer!** Probably can purchase a lightweight **PHONE CHARGER** to serve this purpose during development.
+- FIGURE OUT --> don't mess up with GITHUB!
 - how to gather components/parts list
 - LEARN about power requirements
-- DESIGN battery solution
 - LEARN about electronics configuration (physical)
 - how to reduce form factor
 - how to print schematic
@@ -155,13 +157,11 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 * When needed, figure out how to incorporate JupyterLab Desktop
   * DOWNLOAD JupyterLab Desktop (look into this! or maybe just using browser tabs is okay?)
   * Determine whether some of this documentation would be better in the form of a _Jupyter notebook_
-
 * Determine physical nature of MCU board form factor and its protection from damage
   * Prototyping with KiCad, OSHPARK, and more
 * Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
   - Determine whether a **BLOG** is useful
   - Enable blogging somehow, with or without repositories, to publicly document actions taken (or just this page!)
-
 * Jot down ideas for other projects here
   * wind turbine ( Is the most popular product TinyML or IoT? )
   * Continue recording _golf-swing-sensors_ progress in THIS repository
