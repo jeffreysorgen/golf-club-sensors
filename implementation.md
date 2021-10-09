@@ -88,9 +88,9 @@ It then listens only for Ready state.
 - Timeout state waits 30,000 millis (half minute) and listens for Ready state
 - _Should use `millis()` rather than `delay()`_
 
-### Setting up the Accelerometer:
+### Setting up the device:
 **These readings will determine the Ready or Resting state orientation**
-- Attach the device to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is put back in the golf bag._
+- For ease of use, put the Arduino into a breadboard and then attach it to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is put back in the golf bag._
 
 #### Images: (1)Attach the device to a stick (2)Rest orientation (3)Device orientation (4)Start orientation
 (1)<img src="https://user-images.githubusercontent.com/1236972/135545687-3e1b9fda-1544-4802-93a2-572b97b9b99b.png" width="20%">
