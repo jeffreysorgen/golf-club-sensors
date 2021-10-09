@@ -122,7 +122,7 @@ The value of the Resting state reading is close to -1 (such as `y < -0.85`) and 
 ## To do:
 - Show the IDE code
 - Determine if the `.ino` file should be in the repo or instead just described here
-- Show the (_image needed_) Serial Monitor display for example.
+- Show the Serial Monitor display for example (_image needed_) 
 - **Describe** the functionality of the Ready/Resting/Timeout states 
 - **Implement the Timeout state**
 - **Set up device precisely as described here**
