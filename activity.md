@@ -2,18 +2,34 @@
 
 [<-- back to README.md](README.md)
 # To Do:
-Previous page is about setting up the Accelerometer, physically, and with the IDE, so that it performs as expected.
-Goal was to basically create on/off states, and used Ready/Resting/Timeout threshold states. Before moving forward to BLE (and then the Gyroscope), be sure to finish creating the Sketch 100% as planned. Document the code. Document what's displayed in the resulting Serial Monitor screen. The phase is done when I can show the results as expected. Holding the golf club in the ready position shows all the readings (currently the acc only) streaming through. Swinging the club around won't set it into a Resting state if it's not really meant to be, because the threshold has been set up to prevent it. But once it has been placed in Resting state, it changes to Timeout state, and checks for state change only every 30 seconds. When it finds the Ready state again, the process repeats! 
+##### Move this section to the bottom of previous page, Implementation, as a conclusion. :)
+
+## Conclusion:
+This page was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
+The goal was to basically create on/off states, accomplished here by using thresholds for the Ready/Resting/Timeout states. 
+
+Before moving forward to **BLE** (and then to the _nRF Connect SDK_ and the Gyroscope), it's important that the Sketch has been created 100% as planned, the code documented, and the resulting Serial Monitor screen shown for an example.
+
+#### This phase is done when I can show the expected results:
+- Holding the golf club in the ready position shows all the readings streaming through (acc readings for now)
+- Swinging the club around won't put it into a Resting state if it's not really meant to be, because thresholds have been set up to prevent it from happening
+- But once it has been put in Resting state, it changes to the Timeout state and then checks for a state change only every 30 seconds
+- When it finds the Ready state again, the process repeats! 
+
+# END
+
+
+#
 
 ### Implementation page is basically complete for today. **So spend time going from here down on this page.**
 
 #### _Note: Add this somewhere:_
-- Create an _interval_ of 10ms prior to the reading, using `millis()` not `delay()`. This would sample 100 per second.
-- (optional) **Take new illustration photo(3).** Graphic of mag sensor readings should be swapped out for accelerometer readings.
+- Create an _interval_ for the sensor readings, using `millis()` not `delay()`. This would sample 100 per second. **Save this step, get more done using `delay()`**
+- Take new illustration photo(3). Graphic of mag sensor readings should be swapped out for accelerometer readings. **Also** need one for Serial Monitor showing Ready/Resting/Timeout states.
 
 
 #
-## Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor (in progress)
+## (this section is nearly done) Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor
 - LEARN how to use boolean logic within the sketch. _This lesson will transfer to other processes._
   - Set up thresholds?
   - Simple as Y>X or Y>Z ?
@@ -23,19 +39,20 @@ Goal was to basically create on/off states, and used Ready/Resting/Timeout thres
 
 
 # Then:
-## LEARN how to enable both BLE and Accelerometer
+## ENABLE both BLE and Accelerometer
 - **Enable BOTH Accelerometer and BLE into _new_ custom sketch**
 - **Test** Accelerometer, that it works as before
 - Utilize BATTERY SOLUTION described in [**this**](activity.md#next) list
-
+- Finish connecting BLE 100% as planned before moving on to the SDK part
 
 
 ## Enable smartphone nRF Connect App via BLE
 1. Download to Android (done)
-2. **LABEL** this device in the code, upload the SKETCH
+2. For pairing, **LABEL** this device in the code and upload the SKETCH
 4. Pair the device
 5. **WATCH** what the Serial Monitor displays ("Ready" to "Rest" and back again)
 
+#
 ## Enable smartphone functions via nRF (Requires SDK)
 ### Make the smartphone beep in Ready state
 Proof of feasibility. Not used in final product. But other activity will require prompting a smartphone to act on something in some way.
@@ -56,35 +73,33 @@ Proof of feasibility. Not used in final product. But other activity will require
   - Nothing is needed at this point, but should not mistake readings to be _Rest orientation_
   - When the Magnetometer is in the Ready state, it turns off (?) and then turns on the gyro/acc
 #
-**\[Todo page] Next Page (to-do page)**
-1. \[Todo page] Make this information show up in my Android phone.
-2. \[Todo page] Finally, fine tune the readings using `millis()`
-3. \[Todo page] Get Gyro going.
-4. \[Todo page] Figure out the Gyro data on Monitor.
-5. \[Todo page] Begin data collection.
+#
+## more todo:
+1. Make this information show up in my Android phone.
+2. Finally, fine tune the readings using `millis()`
+3. Get Gyro going.
+4. Figure out the Gyro data on Monitor.
+5. Begin data collection.
 
 #
 
-**\[Todo page] Try setting up BLE at this point**
-- \[Todo page] Read all this information on my Android!
+(move this) **Try setting up BLE at this point**
+- Read all this information on my Android!
 
-**\[Todo page] COLLECT GYRO DATA**
-- \[Todo page] Once in Ready state, figure out how to **enable the Gyro** to collect a sweep of data once motion begins.
-- \[Todo page] Watch Gyro data in Monitor. Collect X,Y,Z coordinates of Gyro, as well as TIME STAMPS (so, 4 dimensions)
-  - \[Todo page] As soon as Gyro reads that it's sitting still, that's when the collection can begin. 
-- \[Todo page] WHAT do Gyroscope readings represent? Are these what we want for our DATA COLLECTION?
+**COLLECT GYRO DATA**
+- Once in Ready state, figure out how to **enable the Gyro** to collect a sweep of data once motion begins.
+- Watch Gyro data in Monitor. Collect X,Y,Z coordinates of Gyro, as well as TIME STAMPS (so, 4 dimensions)
+  - As soon as Gyro reads that it's sitting still, that's when the collection can begin. 
+- WHAT do Gyroscope readings represent? Are these what we want for our DATA COLLECTION?
 
-**\[Todo page] MODIFY THE SKETCH:**
-- \[Todo page] Write out to Monitor at a rate of 100/sec rather than baud rate itself. 
-  - \[Todo page] Explore usage of `millis()` to set delay of 10ms prior to taking readings, rather than `delay()`
-  - \[Todo page] Later will get 100 3D data points per second (does this save on memory? Likely yes.)
+**MODIFY THE SKETCH:**
+- Write out to Monitor at a rate of 100/sec rather than baud rate itself. 
+  - Explore usage of `millis()` to set delay of 10ms prior to taking readings, rather than `delay()`
+  - Later will get 100 3D data points per second (does this save on memory? Likely yes.)
 
-**\[Todo page] Also:**
-- \[Todo page] FIGURE OUT HOW TO COLLECT DATA. 
-- \[Todo page] Collect some data, and then stop when the Gyro is still again to SAVE THE DATA.
-
-
-
+**Also:**
+- FIGURE OUT HOW TO COLLECT DATA. 
+- Collect some data, and then stop when the Gyro is still again to SAVE THE DATA.
 
 
 
