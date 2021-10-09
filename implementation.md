@@ -75,7 +75,7 @@ _skip to
 ### Description: 
 **The goal is to "turn on" readings when sensor is oriented with clubhead down at the ground.**
 What instrument determines when to begin doing something? 
-The **accelerometer**. 
+**The accelerometer**. 
 Depending on how the device is attached, one axis determines the direction of gravity. 
 That axis has an approximate reading of 1G, the force of gravity in one direction.
 Resting state is the negative value of its Ready state.
@@ -88,7 +88,7 @@ Since the Accelerometer +/- Z axis is up/down, then this is the sensor to use.
 Depending on how the device is attached, it's one of the three axes. 
 It's mounted flat and perpendicular to the stick, so the axis changes to the Y-axis.
 The axis is "opposite" when the club handle is pointing down and in Resting state. 
-When the handle is upright the club is in play, and the sensor is in Ready state.
+When the handle is upright, the club is in play and the sensor is in Ready state.
 
 #### For energy conservation: 
 First, understand the orientation of the device.
@@ -101,7 +101,7 @@ It then listens only for Ready state.
 
 ## Accelerometer: Setting it up
 
-### Use the Accelerometer readings to determine its orientation to get start/rest orientation of the device
+### Accelerometer orientation readings determine Ready and Resting states
 - Attach the device to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is put back in the golf bag._
 
 #### Images: (1)Attach the device to a stick (2)Rest orientation (3)Device orientation (4)Start orientation
@@ -116,17 +116,18 @@ In principle, the readings of the Accelerometer are the same as those shown in t
 In this specific case, the graph would show that the Ready state is positive, and the Resting state is negative.
 The value of the Resting state reading is close to -1 (such as `y < -0.85`) and then at that point it **will wait _forever_ for its orientation to return to the start position.**
 
-#
+## IDE Code goes here.
+- 
+
 ## To do:
-### Need more information about the IDE for this.
-- Show the code
-- Import the `.ino` file to the repo?
-- Show the Serial Monitor display for example.
-- Describe the functionality of the Ready/Resting/Timeout states 
+- Show the IDE code
+- Determine if the `.ino` file should be in the repo or instead just described here
+- Show the (_image needed_) Serial Monitor display for example.
+- **Describe** the functionality of the Ready/Resting/Timeout states 
 - **Implement the Timeout state**
 - **Set up device precisely as described here**
 - **Thoroughly documented**
-- The all-inclusive file will be saved as _golf-sensors.ino_ when more sensors are involved. 
+- The all-inclusive file will be saved as _golf-sensors.ino_ when more sensors are involved. (_send to to-do page_)
 
 # [NEXT STEPS -->](activity.md)
 ### (_change this_)Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor
