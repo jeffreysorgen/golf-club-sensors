@@ -118,6 +118,7 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 - finally, is it possible to simultaneously collect data and provide inference?
 #### Next:
 - **DESIGN battery solution** NEED connect to USBmicro female to power. _I can use the battery backup utility which has USB-C output, just like the one on my computer!_ Just need a shoulder strap or pocket or something for it. And then later can build an obviously better solution. But for now, **I can connect with BLE and be _physically detached_ from my computer!** Probably can purchase a lightweight **PHONE CHARGER** to serve this purpose during development.
+  - For permanent power solution, enable _Sleep_ state, same as _Timeout_ state, but checks every 60-120secs, rather than 30secs 
 - FIGURE OUT --> don't mess up with GITHUB!
 - how to gather components/parts list
 - LEARN about power requirements
