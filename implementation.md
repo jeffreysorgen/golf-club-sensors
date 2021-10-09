@@ -104,23 +104,29 @@ In principle, the readings of the Accelerometer are the same as those shown in t
 In this specific case, the graph would show that the Ready state is positive, and the Resting state is negative.
 The value of the Resting state reading is close to -1 (such as `y < -0.85`) and then at that point it **will wait _forever_ for its orientation to return to the start position.**
 
-## IDE Code goes here.
-- Before `void setup()` add this line so we can start counting Resting states when they happen:
-
+## Updating the Arduino Nano 33 BLE
+Edit the sketch. 
+- Before _SETUP_, add this line so we can start counting Resting states when they happen:
     ```
     int r = 0;
     ```
-    
-- Inside the `void loop()` add this line right after the reading so we establish _**-0.85**_ as a threshold:
-
+- (rewrite this) Inside the _LOOP_, add this line right after the reading so we establish _-0.85_ as a Resting state threshold:
     ```
     IMU.readAcceleration(x, y, z);
     if ( y > -.85 )
      {
     ```
- 
- - Here's the new `void loop()`:
+- We added the _if_ and _else_ statements so that we can establish thresholds for the Ready/Resting/Timeout states. _**Ready**_ is always when the club is in play. _**Resting**_ is when the sensor reads that its orientation is negative and counts how long it stays that way. To go from _Ready_ to _Timeout_, the _Resting_ state stays engaged for two minutes. 
 
+
+ label | Ready | Resting | Timeout
+:---- | :----: | :----: | ----:
+Time | always on | millis(250) | millis(30000)
+Iterations | n/a | 240 | forever
+Total | n/a | 2 minutes | every 30sec
+
+
+- Here's the new _LOOP_:
     ```
     void loop() {
       float x, y, z;
