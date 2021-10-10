@@ -169,13 +169,12 @@ void loop() {
   }
 ```
 
+## Watch the Serial Monitor:
+INSERT IMAGE HERE AND center IT
 ## To do:
 - **Set up device precisely as described on this page**
-- Paste the `.ino` file here in the CODE section (done)
 - **Screenshot** the Serial Monitor display for an example (done but not here yet) 
-- **Describe** the functionality of the Ready/Resting states (in progress)
 - AND FINALLY, **verify** that what's in the [Conclusion](#conclusion) is actually accomplished and true (true, but exception has been noted)
-- The all-inclusive file will be saved as _golf-sensors.ino_ when more sensors are involved. (_move to TO-DO page_)
 #
 ### Sections of this page:
 - First part is assembling the device on the stick. (done)
@@ -184,15 +183,15 @@ void loop() {
 - Finally, because of the clarity of the section so far, that's the end of this page. (until BLE is fully written)
 #
 ## Conclusion:
-This page/section was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
+This section was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
 The goal was to basically create on/off states, accomplished here by using a threshold for the Ready and Resting states. 
 
-Before moving forward to **BLE** section, it's important that the Sketch has been created 100% as planned, the code documented, and the resulting Serial Monitor screen shown as an example. (done)
-
-#### This phase is done when I can show the expected results:
+### This phase is done when I can show the expected results:
 - When the golf club is in its bag, then little energy is spent because `delay()` is being used until it senses that it's in the Ready state
 - While the golf club in the Ready position, all the readings are streaming through (acc readings for now)
-- Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low. So it's possible that `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason.
+- Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. 
+  - While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason.
+- Before moving forward to **BLE** section, it's important that the Sketch has been created 100% as planned, the code documented, and the resulting Serial Monitor screen shown as an example. (done)
 
 # [NEXT STEPS -->](activity.md)
 ### Implementing BLE
