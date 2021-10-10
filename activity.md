@@ -3,11 +3,7 @@
 [<-- back to README.md](README.md)
 
 ### Battery Info:
-- _Create Battery Info section for here_
 - **DESIGN battery solution** NEED connect to USBmicro female to power. _I can use the battery backup utility which has USB-C output, just like the one on my computer!_ Just need a shoulder strap or pocket or something for it. And then later can build an obviously better solution. But for now, **I can connect with BLE and be _physically detached_ from my computer!** Probably can purchase a lightweight **PHONE CHARGER** to serve this purpose during development.
-  - For permanent power solution, enable _Sleep_ state, same as _Timeout_ state, but checks every 60-120secs, rather than 30secs 
-  - In [this list](#battery-info) there is a question/answer about possible battery devices 
-  - **Create a "Battery Info" section in a more significant spot in theses docs**
 
 ### Reference Info:
 - For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
