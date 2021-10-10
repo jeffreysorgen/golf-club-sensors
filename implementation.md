@@ -170,7 +170,7 @@ void loop() {
 ```
 
 ## Watch the Serial Monitor:
-<p align="center"><img src="images/one second delay.PNG" width="50%" style="border:5px solid black"/></p>
+<p align="center"><img src="images/one second delay.PNG" width="50%" style="border:5px"/></p>
 
 ## To do:
 - **Set up device precisely as described on this page**
