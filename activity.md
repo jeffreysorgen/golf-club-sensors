@@ -10,6 +10,7 @@
 - Create an _interval_ for some sensor readings, using `millis()` not `delay()`. But `delay()` is good during Resting state, because all sensors are meant to be off.
 ### Add this info somewhere:
 - Take new illustration photo(3). Graphic of mag sensor readings should be swapped out for accelerometer readings. **Also** need one for Serial Monitor showing Ready/Resting states. (this is written elsewhere, and image is created but not posted)
+- The all-inclusive file will be saved as _golf-sensors.ino_ when more sensors are involved. (_move to TO-DO page_)
 
 #
 # To Do:
