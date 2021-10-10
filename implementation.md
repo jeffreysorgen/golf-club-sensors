@@ -136,9 +136,10 @@ What is Resting state meant for? It's meant to sense when the club is in the bag
   -  _**Resting**_ is when the sensor reads that its orientation is negative (-.85) 
 
 ### Edit the sketch. 
-- Open _SimpleAccelerometer_ from the Example files in the Arduino_LSM9DS1 folder **and Save as...** _golf-swing-acc_
-- There are no changes except for within `void loop()`
-- In `void loop()`, add the _if/else_ statements as shown here 
+- Find _SimpleAccelerometer_ from the Example files in the Arduino_LSM9DS1 folder
+- **Save it as** _golf-swing-acc_
+- There are no changes to it except for within the `void loop()`
+  - Add the _if-else_ statements as shown 
 #### Here's the new _LOOP_:
 ```
 void loop() {
@@ -169,14 +170,16 @@ void loop() {
   }
 ```
 
-#### In the Serial Monitor:
+#### Serial Monitor result:
 <img src="images/one second delay.PNG" width="50%"/>
+
+#
 #
 ### Sections of this page:
 - First part is assembling the device on the stick. (done)
 - Second part is the Arduino IDE. (code is pasted here)
-- Third, make the monitor show "Ready" state. (got screenshot, must paste)
-- Finally, because of the clarity of the section so far, that's the end of this page. (until BLE is fully written)
+- Third, make the monitor show "Ready" state. (done)
+
 #
 ## Conclusion:
 This section was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
