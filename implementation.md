@@ -37,7 +37,7 @@ _skip to
 15. Figured out how to set up Ready/Resting states in Arduino Sketch, and display in Monitor. (in progress)
 16. LEARNED that it's easy to mess up in GitHub desktop, so _be careful_
 17. LEARNED Cursory principles of electronics from __LinkedIn Learning__.
-18. **Arduino sketch** baseline created for IMU - _golf-swing-acc_ ([ongoing improvements](#updating-the-arduino-nano-33-ble)) and also, **made sure not to overcomplicate it** and kept it SIMPLE
+18. **Arduino sketch** created for Accelerometer - _golf-swing-acc_ ([here](#updating-the-arduino-nano-33-ble)) and kept it **simple**
 19. **GitHub Markdown** Learned styling for tables, images and code block
 20. DOCUMENTED progress towards **battery** solution [_here_](activity.md#battery-info) (ongoing)
 
@@ -136,9 +136,10 @@ What is Resting state meant for? It's meant to sense when the club is in the bag
   -  _**Resting**_ is when the sensor reads that its orientation is negative (-.85) 
 
 ### Edit the sketch. 
-- Open _SimpleAccelerometer_ from the Example files in the Arduino_LSM9DS1 folder **and Save as...** _golf-swing-acc_
-- There are no changes except for within `void loop()`
-- In `void loop()`, add the _if/else_ statements as shown here 
+- Find _SimpleAccelerometer_ from the Example files in the Arduino_LSM9DS1 folder
+- **Save it as** _golf-swing-acc_
+- There are no changes to it except for within the `void loop()`
+  - Add the _if-else_ statements as shown 
 #### Here's the new _LOOP_:
 ```
 void loop() {
@@ -169,19 +170,16 @@ void loop() {
   }
 ```
 
-## Watch the Serial Monitor:
-<p align="center"><img src="http://some_place.com/image.png" /></p>
+#### Serial Monitor result:
+<img src="images/one second delay.PNG" width="50%"/>
 
-## To do:
-- **Set up device precisely as described on this page**
-- **Screenshot** the Serial Monitor display for an example (done but not here yet) 
-- AND FINALLY, **verify** that what's in the [Conclusion](#conclusion) is actually accomplished and true (true, but exception has been noted)
+#
 #
 ### Sections of this page:
 - First part is assembling the device on the stick. (done)
 - Second part is the Arduino IDE. (code is pasted here)
-- Third, make the monitor show "Ready" state. (got screenshot, must paste)
-- Finally, because of the clarity of the section so far, that's the end of this page. (until BLE is fully written)
+- Third, make the monitor show "Ready" state. (done)
+
 #
 ## Conclusion:
 This section was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
@@ -192,7 +190,6 @@ The goal was to basically create on/off states, accomplished here by using a thr
 - While the golf club in the Ready position, all the readings are streaming through (acc readings for now)
 - Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. 
   - While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason.
-- Before moving forward to **BLE** section, it's important that the Sketch has been created 100% as planned, the code documented, and the resulting Serial Monitor screen shown as an example. (done)
 
 # [NEXT STEPS -->](activity.md)
 ### Implementing BLE
