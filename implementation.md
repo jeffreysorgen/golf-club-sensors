@@ -108,7 +108,7 @@ The Resting state meant for when the club is in the bag. If it's in the bag then
 1. powered on
 2. in the bag, so Resting state
 3. pulled out of the bag, senses Ready state
-4. at this point, **waits to settle** so it can begin recording motion [(in the next section)](#next-steps)
+4. at this point, **waits to settle** so it can begin recording motion [(in the next section)](activity.md)
 
 #### As shown in the serial monitor:
 - The Resting state:
