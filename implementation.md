@@ -106,40 +106,41 @@ The Resting state meant for when the club is in the bag. If it's in the bag then
 
 The value of the Resting state reading is close to -1 (such as `y < -0.85`) and then at that point it **will wait _forever_ for its orientation to return to the start position.**
 
+#### As shown in the serial monitor:
+- In Resting state:
+  - The Monitor shows "One second delay..." because `y < -.85`
+  - and checks every second using `delay(1000)`
+- When NOT `y < -.85`, then the Monitor shows "Ready!" 
+  - and displays all the sensor readings (currently just acc)
+
+<img src="images/one second delay.PNG" width="50%"/>
 #
-### So... 
+
+### What happens: 
 1. powered on
 2. in the bag, so Resting state
 3. pulled out of the bag, senses Ready state
 4. at this point, **waits to settle** so it can begin recording motion
-##### The way this should work is:
-- Enable Resting state. (This is in the code already)
-  - Serial.Monitor shows "Resting..." because `y < -.85`
-  - and checks every second with `delay(1000)`
-- When NOT `y < -.85`, then Serial.Monitor shows "Ready!" 
-  - and displays all the sensor readings (currently just acc)
-### Basically...
-1. Device is powered up and attached to a club in the golf bag
-2. `( y < -.85 )` so the only thing it's doing is waiting with `delay(1000)`
-3. Then once it's not true anymore, it goes back to Ready state and does everything else
+
+
+
+
+
+
 #
-
-
-
-
-
 ## Updating the Arduino Nano 33 BLE
 - Inside the _LOOP_, we added `if ( y > -.85 )` to establish the Ready state threshold, and pauses within the `else` statement for one second when it's in the Resting state
 - The _if/else_ statements establish thresholds for the Ready and Resting states.
   -  _**Ready**_ is always when the club is in play.
   -  _**Resting**_ is when the sensor reads that its orientation is negative (-.85) 
 
-### Edit the sketch. 
+### Do this: 
 - Find _SimpleAccelerometer_ from the Example files in the Arduino_LSM9DS1 folder
 - **Save it as** _golf-swing-acc_
 - There are no changes to it except for within the `void loop()`
   - Add the _if-else_ statements as shown 
-#### Here's the new _LOOP_:
+
+#### Code for the new _LOOP_ is here:
 ```
 void loop() {
   float x, y, z;
@@ -169,22 +170,22 @@ void loop() {
   }
 ```
 
-#### Serial Monitor result:
-<img src="images/one second delay.PNG" width="50%"/>
 
-#
+
 #
 ### Sections of this page:
 - First part is assembling the device on the stick. (done)
 - Second part is the Arduino IDE. (code is pasted here)
 - Third, make the monitor show "Ready" state. (done)
+#
+
 
 #
 ## Conclusion:
 This section was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
 The goal was to basically create on/off states, accomplished here by using a threshold for the Ready and Resting states. 
 
-### This phase is done when I can show the expected results:
+### This phase is DONE when I can show the expected results:
 - When the golf club is in its bag, then little energy is spent because `delay()` is being used until it senses that it's in the Ready state
 - While the golf club in the Ready position, all the readings are streaming through (acc readings for now)
 - Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. 
