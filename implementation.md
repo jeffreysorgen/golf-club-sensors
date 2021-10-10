@@ -170,12 +170,7 @@ void loop() {
 ```
 
 #### In the Serial Monitor:
-<img src="images/one second delay.PNG" width="50%" style="border:5px"/>
-
-## To do:
-- **Set up device precisely as described on this page**
-- **Screenshot** the Serial Monitor display for an example (done but not here yet) 
-- AND FINALLY, **verify** that what's in the [Conclusion](#conclusion) is actually accomplished and true (true, but exception has been noted)
+<img src="images/one second delay.PNG" width="50%"/>
 #
 ### Sections of this page:
 - First part is assembling the device on the stick. (done)
