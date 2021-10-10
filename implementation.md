@@ -197,8 +197,7 @@ Before moving forward to **BLE** section, it's important that the Sketch has bee
 #### This phase is done when I can show the expected results:
 - When the golf club is in its bag, then little energy is spent because `delay()` is being used until it senses that it's in the Ready state
 - While the golf club in the Ready position, all the readings are streaming through (acc readings for now)
-- While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low. Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia that's below _-0.85_
-  - So the risk may be small, because through some testing and watching the plotter while waving the device around, it's possible that `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason.
+- Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low. So it's possible that `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason.
 
 # [NEXT STEPS -->](activity.md)
 ### Implementing BLE
