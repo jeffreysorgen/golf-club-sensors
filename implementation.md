@@ -170,7 +170,7 @@ void loop() {
 ```
 
 ## Watch the Serial Monitor:
-INSERT IMAGE HERE AND center IT
+<p align="center"><img src="http://some_place.com/image.png" /></p>
 ## To do:
 - **Set up device precisely as described on this page**
 - **Screenshot** the Serial Monitor display for an example (done but not here yet) 
