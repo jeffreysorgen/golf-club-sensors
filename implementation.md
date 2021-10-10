@@ -37,8 +37,9 @@ _skip to
 15. Figured out how to set up Ready/Resting states in Arduino Sketch, and display in Monitor. (in progress)
 16. LEARNED that it's easy to mess up in GitHub desktop, so _be careful_
 17. LEARNED Cursory principles of electronics from __LinkedIn Learning__.
-18. **Arduino sketch** baseline created for IMU - _golf-swing-acc_ (ongoing)
+18. **Arduino sketch** baseline created for IMU - _golf-swing-acc_ ([ongoing improvements](#updating-the-arduino-nano-33-ble)) and also, **made sure not to overcomplicate it** and kept it SIMPLE
 19. **GitHub Markdown** Learned styling for tables, images and code block
+20. DOCUMENTED progress towards **battery** solution [_here_](activity.md#battery-info) (ongoing)
 
 
 # Implementation:
@@ -82,12 +83,9 @@ When the handle is upright, the club is in play and the sensor is in Ready state
 
 #### For energy conservation: 
 First, understand the orientation of the device.
-Then, make the device **beep** only when it identifies a _state change_.
-After two minutes in Resting state, the state changes to Timeout state, and halts other sensors.
-It then listens only for Ready state.
-- Ready state listens for Resting state (inverse of Ready state at any point) X 240 readings, and waits 250millis each time (2 minutes total) before setting up Timeout state (_edit this_)
-- Timeout state waits 30,000 millis (half minute) and listens for Ready state
-- _Should use `millis()` rather than `delay()`_
+Then, make the device **beep** only when it identifies a _state change_ (for development purposes only).
+When the sensor identifies orientation is as if the club has been put back in the golf bag, then the device just uses one parameter in the accelerometer, `y < -.85` meaning club is in Resting state, and continues to check every second for a change with `delay(1000)`. 
+BLE will remain engaged though.
 
 ### Setting up the device:
 **These readings will determine the Ready or Resting state orientation**
@@ -105,104 +103,96 @@ In principle, the readings of the Accelerometer are the same as those shown in t
 In this specific case, the graph would show that the Ready state is positive, and the Resting state is negative.
 The value of the Resting state reading is close to -1 (such as `y < -0.85`) and then at that point it **will wait _forever_ for its orientation to return to the start position.**
 
+#### Notes about Resting state
+What is Resting state meant for? It's meant to sense when the club is in the bag. If it's in the bag then it's not going to take readings. That would be wasteful. So it's meant to pause the readings. To pause the readings, there is a `delay(1000)` before more readings are taken. The sensor will be in Resting state until it senses Ready state. Once in Ready state, other sensors are turned on. (working this way now)
+
+
+#
+### So... 
+1. powered on
+2. in the bag, so Resting state
+3. pulled out of the bag, senses Ready state
+4. at this point, **waits to settle** so it can begin recording motion
+##### The way this should work is:
+- Enable Resting state. (This is in the code already)
+  - Serial.Monitor shows "Resting..." because `y < -.85`
+  - and checks every second with `delay(1000)`
+- When NOT `y < -.85`, then Serial.Monitor shows "Ready!" 
+  - and displays all the sensor readings (currently just acc)
+### Basically...
+1. Device is powered up and attached to a club in the golf bag
+2. `( y < -.85 )` so the only thing it's doing is waiting with `delay(1000)`
+3. Then once it's not true anymore, it goes back to Ready state and does everything else
+#
+
 
 
 
 
 ## Updating the Arduino Nano 33 BLE
-- Inside the _LOOP_, we added `if ( y > -.85 )` to establish the Resting state threshold, and pauses within the `else` statement
-- The _if/else_ statements establish thresholds for the Ready/Resting/Timeout states.
-  -  _**Ready**_ is always when the club is in play. Otherwise it's going to be in the _Resting_ state briefly, or it sort of "parks" in the _Timeout_ state
-  -  _**Resting**_ is when the sensor reads that its orientation is negative (-.85) and counts how long it stays that way. 
-  -  To go from _Ready_ to _Timeout_, **the _Resting_ state must remain engaged for two minutes.**
-  -  _**Timeout**_ state keeps checking if the state changes back to _Ready_ 
-  -  The table below shows the calculations used
-
-
-
-##### The states and their respective multiples and total durations
-state --> | Ready | Resting | Timeout
----- | :----: | :----: | :----:
-__pause:__ | always on | millis(250) | millis(30000)
-__iterations:__ | n/a | 240 times | every 30sec
-__total:__ | n/a | 2 minutes | forever
-
-
-
+- Inside the _LOOP_, we added `if ( y > -.85 )` to establish the Ready state threshold, and pauses within the `else` statement for one second when it's in the Resting state
+- The _if/else_ statements establish thresholds for the Ready and Resting states.
+  -  _**Ready**_ is always when the club is in play.
+  -  _**Resting**_ is when the sensor reads that its orientation is negative (-.85) 
 
 ### Edit the sketch. 
-- Before _SETUP_, add this line so we can start counting Resting states when they happen:
-    ```
-    int r = 0;
-    ```
-- Here's the new _LOOP_:
-    ```
-    void loop() {
-      float x, y, z;
-      if (IMU.accelerationAvailable())
-      {
-      IMU.readAcceleration(x, y, z);
-      if ( y > -.85 ) // almost 1G (rewrite this note)
-        { 
-        Serial.print("X = ");
-        Serial.print(x);
-        Serial.print('\t');
-        Serial.print("Y = ");
-        Serial.print(y);
-        Serial.print('\t');
-        Serial.print("Z = ");
-        Serial.println(z);
-        }
-      else {
-        ++r; // 10 chances, and then assumes Resting state
-        Serial.println(r);
-        Serial.print(y);
-        Serial.print('\t');
-        Serial.println("Checking...");
-        delay(250); // delay to avoid counting too quickly
-        if (r==9)
-          {
-          Serial.println("Resting state. Stand by for reset.");
-          /*
-           * INSERT TRIGGER FOR -beep- HERE
-           * Beep would indicate attained Resting state
-           */
-          delay(10000);
-          r=0; // now resets
-          }
-        }
+- Open _SimpleAccelerometer_ from the Example files in the Arduino_LSM9DS1 folder **and Save as...** _golf-swing-acc_
+- There are no changes except for within `void loop()`
+- In `void loop()`, add the _if/else_ statements as shown here 
+#### Here's the new _LOOP_:
+```
+void loop() {
+  float x, y, z;
+
+  if (IMU.accelerationAvailable()) {
+    IMU.readAcceleration(x, y, z);
+    if ( y > -.85 ) {  // -1G is the threshold
+      Serial.print("Ready!");
+      Serial.print('\t');
+      Serial.print("X = ");
+      Serial.print(x);
+      Serial.print('\t');
+      Serial.print("Y = ");
+      Serial.print(y);
+      Serial.print('\t');
+      Serial.print("Z = ");
+      Serial.println(z);
+      }
+    else { 
+      Serial.print("One second delay...");
+      Serial.print('\t');
+      Serial.print("Y = ");
+      Serial.println(y);
+      delay(1000); // one second delay
       }
     }
-    ```
- 
+  }
+```
 
+## Watch the Serial Monitor:
+<p align="center"><img src="http://some_place.com/image.png" /></p>
 
 ## To do:
-- **Implement the Timeout state** (see calcs defined above)
 - **Set up device precisely as described on this page**
-- Paste the `.ino` file here in the CODE section
-- **Screenshot** the Serial Monitor display for an example 
-- **Describe** the functionality of the Ready/Resting/Timeout states 
-- AND FINALLY, **verify** that what's in the [Conclusion](#conclusion) is actually accomplished and true
-- The all-inclusive file will be saved as _golf-sensors.ino_ when more sensors are involved. (_send to to-do page_)
+- **Screenshot** the Serial Monitor display for an example (done but not here yet) 
+- AND FINALLY, **verify** that what's in the [Conclusion](#conclusion) is actually accomplished and true (true, but exception has been noted)
 #
 ### Sections of this page:
 - First part is assembling the device on the stick. (done)
-- Second part is the Arduino IDE. (in progress, paste code)
-- Third, make the monitor show "Ready" state. (get screenshot)
+- Second part is the Arduino IDE. (code is pasted here)
+- Third, make the monitor show "Ready" state. (got screenshot, must paste)
 - Finally, because of the clarity of the section so far, that's the end of this page. (until BLE is fully written)
 #
 ## Conclusion:
-This page/section was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
-The goal was to basically create on/off states, accomplished here by using thresholds for the Ready/Resting/Timeout states. 
+This section was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
+The goal was to basically create on/off states, accomplished here by using a threshold for the Ready and Resting states. 
 
-Before moving forward to **BLE** section, it's important that the Sketch has been created 100% as planned, the code documented, and the resulting Serial Monitor screen shown as an example.
-
-#### This phase is done when I can show the expected results:
-- Holding the golf club in the ready position shows all the readings streaming through (acc readings for now)
-- Swinging the club around won't put it into a Resting state if it's not really meant to be there, because thresholds have been set up to prevent it from happening
-- But once it gets to the Resting state, it changes to the Timeout state and then checks for a state change only every 30 seconds
-- When it finds the Ready state again, the process repeats! 
+### This phase is done when I can show the expected results:
+- When the golf club is in its bag, then little energy is spent because `delay()` is being used until it senses that it's in the Ready state
+- While the golf club in the Ready position, all the readings are streaming through (acc readings for now)
+- Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. 
+  - While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason.
+- Before moving forward to **BLE** section, it's important that the Sketch has been created 100% as planned, the code documented, and the resulting Serial Monitor screen shown as an example. (done)
 
 # [NEXT STEPS -->](activity.md)
 ### Implementing BLE

@@ -3,12 +3,14 @@
 [<-- back to README.md](README.md)
 
 ### Battery Info:
-- _Create Battery Info section for here_
+- **DESIGN battery solution** NEED connect to USBmicro female to power. _I can use the battery backup utility which has USB-C output, just like the one on my computer!_ Just need a shoulder strap or pocket or something for it. And then later can build an obviously better solution. But for now, **I can connect with BLE and be _physically detached_ from my computer!** Probably can purchase a lightweight **PHONE CHARGER** to serve this purpose during development.
+
 ### Reference Info:
 - For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
+- Create an _interval_ for some sensor readings, using `millis()` not `delay()`. But `delay()` is good during Resting state, because all sensors are meant to be off.
 ### Add this info somewhere:
-- Create an _interval_ for the sensor readings, using `millis()` not `delay()`. This would sample 100 per second. **Save this step, get more done using `delay()`**
-- Take new illustration photo(3). Graphic of mag sensor readings should be swapped out for accelerometer readings. **Also** need one for Serial Monitor showing Ready/Resting/Timeout states.
+- Take new illustration photo(3). Graphic of mag sensor readings should be swapped out for accelerometer readings. **Also** need one for Serial Monitor showing Ready/Resting states. (this is written elsewhere, and image is created but not posted)
+- The all-inclusive file will be saved as _golf-sensors.ino_ when more sensors are involved.
 
 #
 # To Do:
@@ -25,8 +27,7 @@
 
 - Enable BOTH Accelerometer and BLE into _new_ custom sketch
 - **Test** Accelerometer, that it works as before
-- Utilize BATTERY SOLUTION described in [**this**](activity.md#next) list
-  - _Create "Battery" section in the docs_
+- Utilize BATTERY SOLUTION described [_here_](#battery-info)
 - **Finish connecting BLE 100% as planned before moving on to the SDK part**
 - For BLE, watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
 
@@ -41,13 +42,9 @@
 ## Enable smartphone functions via nRF (Requires SDK)
 ### Make the smartphone beep in Ready state
 Proof of feasibility. Beep triggered by in/out of Ready state is not for final product. But there is other activity that will require prompting smartphone to act on something in some way.
-
-### Research:
-- App Development
-  - Use [nRF Connect SDK](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
+- App Development: Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
 - What can be configured in my phone that receives commands from the nRF Connect application?
-- **TEST:** 
-  - Can the phone app trigger **BEEP** or a vibration/buzz? 
+  - Can the phone app trigger **BEEP** or a vibration/buzz? (But should be just once, at change of its state)
   - Can the nRF App turn on/off the phone's **flashlight**? (_Good Idea!_)
 
 # And then:
@@ -62,7 +59,7 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
 #
 ## more todo:
 1. Make this information show up in my Android phone. (current to-do)
-2. Finally, fine tune the readings using `millis()`
+2. Finally, fine tune the readings using `millis()` (maybe not necessary right now)
 3. Get Gyro going.
 4. Figure out the Gyro data on Monitor.
 5. Begin data collection.
@@ -82,8 +79,9 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
 
 **MODIFY THE SKETCH:**
 - Write out to Monitor at a rate of 100/sec rather than baud rate itself. (I think this is also said elsewhere.)
-  - Explore usage of `millis()` to set delay of 10ms prior to taking readings, rather than `delay()`
+  - Explore usage of `millis()` to set delay of 10ms prior to taking readings, rather than `delay()` (said this elsewhere)
   - Later will get 100 3D data points per second (Does this save on memory? Likely yes. But is it necessary to save memory like this? Maybe not. Might need >100 data points.)
+
 
 **Also:**
 - FIGURE OUT HOW TO COLLECT DATA. 
@@ -105,7 +103,7 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
   - This data will require normalization, eliminating noise (LEARN)
   - Then a label must be applied to the recorded data points ('yes'|null)
 - Then transmit the data points to smartphone
-- Then enables the Magnetometer again, waiting to be in Ready state again
+- Then enables the Accelerometer again, waiting to be in Ready state again
 
 #### Repository Question
 - Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. 
@@ -125,10 +123,6 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 - how to RECONFIGURE smartphone app from Ready state orientation to 'good swing' chirp
 - finally, is it possible to simultaneously collect data and provide inference?
 #### Next:
-- **DESIGN battery solution** NEED connect to USBmicro female to power. _I can use the battery backup utility which has USB-C output, just like the one on my computer!_ Just need a shoulder strap or pocket or something for it. And then later can build an obviously better solution. But for now, **I can connect with BLE and be _physically detached_ from my computer!** Probably can purchase a lightweight **PHONE CHARGER** to serve this purpose during development.
-  - For permanent power solution, enable _Sleep_ state, same as _Timeout_ state, but checks every 60-120secs, rather than 30secs 
-  - In [this list](#battery-info) there is a question/answer about possible battery devices 
-  - **Create a "Battery Info" section in a more significant spot in theses docs**
 - how to gather components/parts list
 - LEARN about power requirements
 - LEARN about electronics configuration (physical)
