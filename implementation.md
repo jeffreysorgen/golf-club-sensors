@@ -83,12 +83,9 @@ When the handle is upright, the club is in play and the sensor is in Ready state
 
 #### For energy conservation: 
 First, understand the orientation of the device.
-Then, make the device **beep** only when it identifies a _state change_.
-After two minutes in Resting state, the state changes to Timeout state, and halts other sensors.
-It then listens only for Ready state.
-- Ready state listens for Resting state (inverse of Ready state at any point) X 240 readings, and waits 250millis each time (2 minutes total) before setting up Timeout state (_edit this_)
-- Timeout state waits 30,000 millis (half minute) and listens for Ready state
-- _Should use `millis()` rather than `delay()`_
+Then, make the device **beep** only when it identifies a _state change_. (for development purposes only)
+When the sensor identifies orientation is as if the club has been put back in the golf bag, then the device just uses one parameter in the accelerometer, `y < -.85` meaning club is in Resting state, and continues to check every second for a change with `delay(1000)`. 
+BLE will remain engaged though.
 
 ### Setting up the device:
 **These readings will determine the Ready or Resting state orientation**
@@ -107,31 +104,30 @@ In this specific case, the graph would show that the Ready state is positive, an
 The value of the Resting state reading is close to -1 (such as `y < -0.85`) and then at that point it **will wait _forever_ for its orientation to return to the start position.**
 
 #### Notes about Resting state
-What is Resting state meant for? It's meant to sense when the club is in the bag. If it's in the bag then it's not going to take readings. That would be wasteful. So it's meant to pause the readings. To pause the readings, there is a `delay(1000)` before more readings are taken.
-
-I want the sensor to always be in Resting state, until it senses Ready state. 
-When it senses Ready state, it should turn on the other sensors. (working this way now)
-
-Maybe I'm approaching this backwards?
+What is Resting state meant for? It's meant to sense when the club is in the bag. If it's in the bag then it's not going to take readings. That would be wasteful. So it's meant to pause the readings. To pause the readings, there is a `delay(1000)` before more readings are taken. The sensor will be in Resting state until it senses Ready state. Once in Ready state, other sensors are turned on. (working this way now)
 
 
+#
 ### So... 
 1. powered on
 2. in the bag, so Resting state
 3. pulled out of the bag, senses Ready state
 4. at this point, **waits to settle** so it can begin recording motion
-
 ##### The way this should work is:
-- Enable Resting state. This is in the code already
+- Enable Resting state. (This is in the code already)
   - Serial.Monitor shows "Resting..." because `y < -.85`
   - and checks every second with `delay(1000)`
 - When NOT `y < -.85`, then Serial.Monitor shows "Ready!" 
   - and displays all the sensor readings (currently just acc)
-
 ### Basically...
 1. Device is powered up and attached to a club in the golf bag
 2. `( y < -.85 )` so the only thing it's doing is waiting with `delay(1000)`
 3. Then once it's not true anymore, it goes back to Ready state and does everything else
+#
+
+
+
+
 
 ## Updating the Arduino Nano 33 BLE
 - Inside the _LOOP_, we added `if ( y > -.85 )` to establish the Ready state threshold, and pauses within the `else` statement for one second when it's in the Resting state
@@ -172,7 +168,6 @@ Maybe I'm approaching this backwards?
         }
       }
     ```
-
 
 ## To do:
 - **Set up device precisely as described on this page**
