@@ -33,13 +33,15 @@ _skip to
 ##### _2021 Oct_
 
 13. Determined that the Magnetometer is _not_ going to be used for Ready/Resting orientation. _Gained understanding._ Learned that Accelerometer is going to be used, and magnetometer is unnecessary for the project.
-14. Determined that it is _better_ to use `millis()` rather than `delay()`
-15. Figured out how to set up Ready/Resting states in Arduino Sketch, and display in Monitor. (in progress)
+14. Determined that it is _better_ to use `millis()` rather than `delay()` in some cases.
+15. Figured out how to set up Ready/Resting states in Arduino Sketch, and display in Monitor.
 16. LEARNED that it's easy to mess up in GitHub desktop, so _be careful_
 17. LEARNED Cursory principles of electronics from __LinkedIn Learning__.
-18. **Arduino sketch** created for Accelerometer - _golf-swing-acc_ ([here](#updating-the-arduino-nano-33-ble)) and kept it **simple**
+18. **Arduino sketch** created for Accelerometer - _golf-swing-acc_ ([here](#updating-the-arduino-nano-33-ble)) and kept it **simple**. 
 19. **GitHub Markdown** Learned styling for tables, images and code block
 20. DOCUMENTED progress towards **battery** solution [_here_](activity.md#battery-info) (ongoing)
+21. Added code block and image from Monitor to this documentation. 
+22. COMPLETED Part One documentation, and it's time to move on to **adding BLE** to the system!
 
 
 # Implementation:
@@ -60,10 +62,9 @@ _skip to
   - _Beep/buzz if good swing_
   - _Silent (or low tone) if no match_
 
-
 ## Part One: The Accelerometer
 
-### Description: 
+#### Description: 
 **The goal is to "turn on" readings when sensor is oriented with clubhead down at the ground.**
 What instrument determines when to begin doing something? 
 **The accelerometer**. 
@@ -83,64 +84,50 @@ When the handle is upright, the club is in play and the sensor is in Ready state
 
 #### For energy conservation: 
 First, understand the orientation of the device.
-Then, make the device **beep** only when it identifies a _state change_ (for development purposes only).
-When the sensor identifies orientation is as if the club has been put back in the golf bag, then the device just uses one parameter in the accelerometer, `y < -.85` meaning club is in Resting state, and continues to check every second for a change with `delay(1000)`. 
-BLE will remain engaged though.
+When the sensor identifies its orientation is as if the club has been put back in the golf bag, then the device just uses one accelerometer parameter, `y < -.85`, meaning Resting state, and then continues to check every second for a change in state. 
+BLE will remain engaged.
+The connected smartphone device will **beep** only when it identifies a _state change_.
+This _beep_ at this point is just for development purposes, but is intended for future use elsewhere.
 
 ### Setting up the device:
 **These readings will determine the Ready or Resting state orientation**
-- For ease of use, put the Arduino into a breadboard and then attach it to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is put back in the golf bag._
+- For ease of use, put the Arduino into a breadboard and then attach it to a stick in a perpendicular fashion as shown here. 
+- _Imagine your golf club is either being used, or is put back in the golf bag._
 
-#### Images: (1)Attach the device to a stick (2)Rest orientation (3)Device orientation (4)Start orientation
-(1)<img src="https://user-images.githubusercontent.com/1236972/135545687-3e1b9fda-1544-4802-93a2-572b97b9b99b.png" width="20%">
-(2)<img src="https://user-images.githubusercontent.com/1236972/135545966-edb098fe-ab01-4e57-8c80-1988ad779186.png" width="20%">
-(3)<img src="images/Sm-device%20orientation.png" width="20%">
-(4)<img src="https://user-images.githubusercontent.com/1236972/135545934-7cb4dd34-7c12-46b9-ae8f-fa2e61835812.png" width="20%">
+#### Images: (1)Attach the device to a stick (2)Ready orientation (3)Device orientation (4)Resting orientation
+(1)<img src="images/Sm-attaching to a stick.png" width="20%">
+(2)<img src="images/Sm-start orientation.png" width="20%">
+(3)<img src="images/Sm-device orientation.png" width="20%">
+(4)<img src="images/Sm-rest orientation.png" width="20%">
 
 #### The readings of the accelerometer, according to the setup in the images:
-In principle, the readings of the Accelerometer are the same as those shown in this graph(3) for the Magnetometer. There is a change between the rest(2) position and the start(4) orientation. When the device is attached as shown(1), one parameter, the Y-axis of the Accelerometer, tells the system whether it's in Ready state or Resting state. When its Y-axis reading is positive then the sensor is in one state, and when it's negative it's in the other.
-
-In this specific case, the graph would show that the Ready state is positive, and the Resting state is negative.
-The value of the Resting state reading is close to -1 (such as `y < -0.85`) and then at that point it **will wait _forever_ for its orientation to return to the start position.**
+There is a difference between the Ready(2) position and the Resting(4) orientation. When the device is attached as shown(1), one parameter, the Y-axis (in red) of the Accelerometer, tells the system whether it's in Ready state or it's in Resting state. When the Y-axis reading is positive then the sensor is in one state, and when it's negative it's in the other. Attached this way, the graph(3) shows that the Ready state is positive and the Resting state is negative.
 
 #### Notes about Resting state
-What is Resting state meant for? It's meant to sense when the club is in the bag. If it's in the bag then it's not going to take readings. That would be wasteful. So it's meant to pause the readings. To pause the readings, there is a `delay(1000)` before more readings are taken. The sensor will be in Resting state until it senses Ready state. Once in Ready state, other sensors are turned on. (working this way now)
+The Resting state is meant for when the club is in the bag. If it's in the bag then it's not going to take readings. That would be wasteful. So it's meant to pause all the readings before any more readings are taken. The sensor will stay in Resting state until it senses Ready state. Once in Ready state, the other sensors are turned back on again.
 
-
-#
-### So... 
+#### What happens: 
 1. powered on
 2. in the bag, so Resting state
 3. pulled out of the bag, senses Ready state
-4. at this point, **waits to settle** so it can begin recording motion
-##### The way this should work is:
-- Enable Resting state. (This is in the code already)
-  - Serial.Monitor shows "Resting..." because `y < -.85`
-  - and checks every second with `delay(1000)`
-- When NOT `y < -.85`, then Serial.Monitor shows "Ready!" 
+4. at this point, **waits to settle** so it can begin recording motion [(in the next section)](activity.md)
+
+#### As shown in the serial monitor:
+- The Resting state:
+  - the y-axis reading is near -1G (_-0.85_) and displays "One second delay..." 
+  - then checks every 1 second using `delay(1000)`
+- When `y > -.85`, then the Monitor shows "Ready!" 
   - and displays all the sensor readings (currently just acc)
-### Basically...
-1. Device is powered up and attached to a club in the golf bag
-2. `( y < -.85 )` so the only thing it's doing is waiting with `delay(1000)`
-3. Then once it's not true anymore, it goes back to Ready state and does everything else
-#
 
-
-
-
+<img src="images/one second delay.PNG" width="50%"/>
 
 ## Updating the Arduino Nano 33 BLE
-- Inside the _LOOP_, we added `if ( y > -.85 )` to establish the Ready state threshold, and pauses within the `else` statement for one second when it's in the Resting state
-- The _if/else_ statements establish thresholds for the Ready and Resting states.
-  -  _**Ready**_ is always when the club is in play.
-  -  _**Resting**_ is when the sensor reads that its orientation is negative (-.85) 
+- **Find** _SimpleAccelerometer_ from the Example files in the **Arduino_LSM9DS1 folder**
+- IMPORTANT: **Save it as** _golf-swing-acc_
+- **Add the _if-else_ statements within the _void() loop_ as shown** 
+  - The _if/else_ statement creates the _-0.85_ threshold between the Ready and Resting states.
 
-### Edit the sketch. 
-- Find _SimpleAccelerometer_ from the Example files in the Arduino_LSM9DS1 folder
-- **Save it as** _golf-swing-acc_
-- There are no changes to it except for within the `void loop()`
-  - Add the _if-else_ statements as shown 
-#### Here's the new _LOOP_:
+#### Code for the new _LOOP_ is here:
 ```
 void loop() {
   float x, y, z;
@@ -170,26 +157,13 @@ void loop() {
   }
 ```
 
-#### Serial Monitor result:
-<img src="images/one second delay.PNG" width="50%"/>
 
-#
-#
-### Sections of this page:
-- First part is assembling the device on the stick. (done)
-- Second part is the Arduino IDE. (code is pasted here)
-- Third, make the monitor show "Ready" state. (done)
-
-#
 ## Conclusion:
 This section was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
 The goal was to basically create on/off states, accomplished here by using a threshold for the Ready and Resting states. 
 
-### This phase is done when I can show the expected results:
-- When the golf club is in its bag, then little energy is spent because `delay()` is being used until it senses that it's in the Ready state
-- While the golf club in the Ready position, all the readings are streaming through (acc readings for now)
-- Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. 
-  - While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason.
+### Possible exception to this configuration
+Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason.
 
 # [NEXT STEPS -->](activity.md)
 ### Implementing BLE
