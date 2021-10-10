@@ -104,13 +104,11 @@ There is a difference between the Ready(2) position and the Resting(4) orientati
 #### Notes about Resting state
 The Resting state meant for when the club is in the bag. If it's in the bag then it's not going to take readings. That would be wasteful. So it's meant to pause all the readings by using `delay(1000)` in the code, before any more readings are taken. The sensor will stay in Resting state until it senses Ready state. Once in Ready state, the other sensors are turned back on again.
 
-The value of the Resting state reading is close to -1 (such as `y < -0.85`) and then at that point it **will wait _forever_ for its orientation to return to the start position.**
-
 #### As shown in the serial monitor:
-- In Resting state:
-  - The Monitor shows "One second delay..." because `y < -.85`
-  - and checks every second using `delay(1000)`
-- When NOT `y < -.85`, then the Monitor shows "Ready!" 
+- The Resting state:
+  - the y-axis reading is near -1G (_-0.85_) and displays "One second delay..." 
+  - then checks every 1 second using `delay(1000)`
+- When `y > -.85`, then the Monitor shows "Ready!" 
   - and displays all the sensor readings (currently just acc)
 
 <img src="images/one second delay.PNG" width="50%"/>
