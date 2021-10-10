@@ -92,9 +92,9 @@ BLE will remain engaged though.
 - For ease of use, put the Arduino into a breadboard and then attach it to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is put back in the golf bag._
 
 #### Images: (1)Attach the device to a stick (2)Rest orientation (3)Device orientation (4)Start orientation
-(1)<img src="https://user-images.githubusercontent.com/1236972/135545687-3e1b9fda-1544-4802-93a2-572b97b9b99b.png" width="20%">
+(1)<img src="images/Sm-attaching to a stick.png" width="20%">
 (2)<img src="images/Sm-start orientation.png" width="20%">
-(3)<img src="images/Sm-device%20orientation.png" width="20%">
+(3)<img src="images/Sm-device orientation.png" width="20%">
 (4)<img src="images/Sm-rest orientation.png" width="20%">
 
 #### The readings of the accelerometer, according to the setup in the images:
