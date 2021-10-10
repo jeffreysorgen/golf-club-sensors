@@ -140,35 +140,34 @@ What is Resting state meant for? It's meant to sense when the club is in the bag
 - There are no changes except for within `void loop()`
 - In `void loop()`, add the _if/else_ statements as shown here 
 #### Here's the new _LOOP_:
+      ```
+      void loop() {
+        float x, y, z;
 
-    ```
-    void loop() {
-      float x, y, z;
-
-      if (IMU.accelerationAvailable()) {
-        IMU.readAcceleration(x, y, z);
-        if ( y > -.85 ) {  // -1G is the threshold
-          Serial.print("Ready!");
-          Serial.print('\t');
-          Serial.print("X = ");
-          Serial.print(x);
-          Serial.print('\t');
-          Serial.print("Y = ");
-          Serial.print(y);
-          Serial.print('\t');
-          Serial.print("Z = ");
-          Serial.println(z);
-          }
-        else { 
-          Serial.print("One second delay...");
-          Serial.print('\t');
-          Serial.print("Y = ");
-          Serial.println(y);
-          delay(1000); // one second delay
+        if (IMU.accelerationAvailable()) {
+          IMU.readAcceleration(x, y, z);
+          if ( y > -.85 ) {  // -1G is the threshold
+            Serial.print("Ready!");
+            Serial.print('\t');
+            Serial.print("X = ");
+            Serial.print(x);
+            Serial.print('\t');
+            Serial.print("Y = ");
+            Serial.print(y);
+            Serial.print('\t');
+            Serial.print("Z = ");
+            Serial.println(z);
+            }
+          else { 
+            Serial.print("One second delay...");
+            Serial.print('\t');
+            Serial.print("Y = ");
+            Serial.println(y);
+            delay(1000); // one second delay
+            }
           }
         }
-      }
-    ```
+      ```
 
 ## To do:
 - **Set up device precisely as described on this page**
