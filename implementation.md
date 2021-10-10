@@ -89,23 +89,22 @@ BLE will remain engaged though.
 
 ### Setting up the device:
 **These readings will determine the Ready or Resting state orientation**
-- For ease of use, put the Arduino into a breadboard and then attach it to a stick in a perpendicular fashion as shown here. _Imagine your golf club is either being used, or is put back in the golf bag._
+- For ease of use, put the Arduino into a breadboard and then attach it to a stick in a perpendicular fashion as shown here. 
+- _Imagine your golf club is either being used, or is put back in the golf bag._
 
-#### Images: (1)Attach the device to a stick (2)Rest orientation (3)Device orientation (4)Start orientation
+#### Images: (1)Attach the device to a stick (2)Ready orientation (3)Device orientation (4)Resting orientation
 (1)<img src="images/Sm-attaching to a stick.png" width="20%">
 (2)<img src="images/Sm-start orientation.png" width="20%">
 (3)<img src="images/Sm-device orientation.png" width="20%">
 (4)<img src="images/Sm-rest orientation.png" width="20%">
 
 #### The readings of the accelerometer, according to the setup in the images:
-In principle, the readings of the Accelerometer are the same as those shown in this graph(3) for the Magnetometer. There is a change between the rest(2) position and the start(4) orientation. When the device is attached as shown(1), one parameter, the Y-axis of the Accelerometer, tells the system whether it's in Ready state or Resting state. When its Y-axis reading is positive then the sensor is in one state, and when it's negative it's in the other.
-
-In this specific case, the graph would show that the Ready state is positive, and the Resting state is negative.
-The value of the Resting state reading is close to -1 (such as `y < -0.85`) and then at that point it **will wait _forever_ for its orientation to return to the start position.**
+There is a difference between the Ready(2) position and the Resting(4) orientation. When the device is attached as shown(1), one parameter, the Y-axis of the Accelerometer, tells the system whether it's in Ready state or it's in Resting state. When the Y-axis reading is positive then the sensor is in one state, and when it's negative it's in the other. Attached this way, the graph(3) shows that the Ready state is positive and the Resting state is negative.
 
 #### Notes about Resting state
-What is Resting state meant for? It's meant to sense when the club is in the bag. If it's in the bag then it's not going to take readings. That would be wasteful. So it's meant to pause the readings. To pause the readings, there is a `delay(1000)` before more readings are taken. The sensor will be in Resting state until it senses Ready state. Once in Ready state, other sensors are turned on. (working this way now)
+The Resting state meant for when the club is in the bag. If it's in the bag then it's not going to take readings. That would be wasteful. So it's meant to pause all the readings by using `delay(1000)` in the code, before any more readings are taken. The sensor will stay in Resting state until it senses Ready state. Once in Ready state, the other sensors are turned back on again.
 
+The value of the Resting state reading is close to -1 (such as `y < -0.85`) and then at that point it **will wait _forever_ for its orientation to return to the start position.**
 
 #
 ### So... 
