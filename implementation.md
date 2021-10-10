@@ -102,7 +102,13 @@ BLE will remain engaged though.
 There is a difference between the Ready(2) position and the Resting(4) orientation. When the device is attached as shown(1), one parameter, the Y-axis of the Accelerometer, tells the system whether it's in Ready state or it's in Resting state. When the Y-axis reading is positive then the sensor is in one state, and when it's negative it's in the other. Attached this way, the graph(3) shows that the Ready state is positive and the Resting state is negative.
 
 #### Notes about Resting state
-The Resting state meant for when the club is in the bag. If it's in the bag then it's not going to take readings. That would be wasteful. So it's meant to pause all the readings by using `delay(1000)` in the code, before any more readings are taken. The sensor will stay in Resting state until it senses Ready state. Once in Ready state, the other sensors are turned back on again.
+The Resting state meant for when the club is in the bag. If it's in the bag then it's not going to take readings. That would be wasteful. So it's meant to pause all the readings before any more readings are taken. The sensor will stay in Resting state until it senses Ready state. Once in Ready state, the other sensors are turned back on again.
+
+#### What happens: 
+1. powered on
+2. in the bag, so Resting state
+3. pulled out of the bag, senses Ready state
+4. at this point, **waits to settle** so it can begin recording motion [(in the next section)](#next-steps)
 
 #### As shown in the serial monitor:
 - The Resting state:
@@ -112,14 +118,8 @@ The Resting state meant for when the club is in the bag. If it's in the bag then
   - and displays all the sensor readings (currently just acc)
 
 <img src="images/one second delay.PNG" width="50%"/>
+
 #
-
-### What happens: 
-1. powered on
-2. in the bag, so Resting state
-3. pulled out of the bag, senses Ready state
-4. at this point, **waits to settle** so it can begin recording motion
-
 
 
 
