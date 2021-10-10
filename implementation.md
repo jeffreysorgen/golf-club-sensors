@@ -37,7 +37,7 @@ _skip to
 15. Figured out how to set up Ready/Resting states in Arduino Sketch, and display in Monitor. (in progress)
 16. LEARNED that it's easy to mess up in GitHub desktop, so _be careful_
 17. LEARNED Cursory principles of electronics from __LinkedIn Learning__.
-18. **Arduino sketch** baseline created for IMU - _golf-swing-acc_ ([ongoing improvements](#updating-the-arduino-nano-33-ble)) and also, **made sure not to overcomplicate it** and kept it SIMPLE
+18. **Arduino sketch** created for Accelerometer - _golf-swing-acc_ ([here](#updating-the-arduino-nano-33-ble)) and kept it **simple**
 19. **GitHub Markdown** Learned styling for tables, images and code block
 20. DOCUMENTED progress towards **battery** solution [_here_](activity.md#battery-info) (ongoing)
 
@@ -190,7 +190,6 @@ The goal was to basically create on/off states, accomplished here by using a thr
 - While the golf club in the Ready position, all the readings are streaming through (acc readings for now)
 - Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. 
   - While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason.
-- Before moving forward to **BLE** section, it's important that the Sketch has been created 100% as planned, the code documented, and the resulting Serial Monitor screen shown as an example. (done)
 
 # [NEXT STEPS -->](activity.md)
 ### Implementing BLE
