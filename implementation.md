@@ -140,6 +140,7 @@ What is Resting state meant for? It's meant to sense when the club is in the bag
 - There are no changes except for within `void loop()`
 - In `void loop()`, add the _if/else_ statements as shown here 
 #### Here's the new _LOOP_:
+
     ```
     void loop() {
       float x, y, z;
