@@ -83,7 +83,7 @@ When the handle is upright, the club is in play and the sensor is in Ready state
 
 #### For energy conservation: 
 First, understand the orientation of the device.
-Then, make the device **beep** only when it identifies a _state change_. (for development purposes only)
+Then, make the device **beep** only when it identifies a _state change_ (for development purposes only).
 When the sensor identifies orientation is as if the club has been put back in the golf bag, then the device just uses one parameter in the accelerometer, `y < -.85` meaning club is in Resting state, and continues to check every second for a change with `delay(1000)`. 
 BLE will remain engaged though.
 
