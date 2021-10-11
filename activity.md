@@ -1,6 +1,8 @@
 [_[ <-- back to README ]_](README.md)
 [_[ <-- back to Implementation ]_](implementation.md)
 
+[_[ jump to Battery Info --> ]_](#battery-info)
+
 # To Do:
 1. Enable BLE [(_here_)](#enable-ble)
 2. Enable BLE and Accelerometer together [(_here_)](#enable-accelerometer-together)
@@ -18,10 +20,9 @@
   - **WATCH** that the Android displays "Ready" to "Resting" and back again
 - Utilize BATTERY SOLUTION described [_here_](#battery-info)
 
-## Finish connecting BLE 100% as planned before moving on to the SDK part
-#
+#### Finish connecting BLE 100% as planned before moving on to the SDK part
 
-#
+
 ## Enable Smartphone to BEEP
 **Description** Proof of feasibility. Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way.
 - Requires App Development: Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
@@ -39,6 +40,7 @@
 - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
 - Later can build an obviously better solution.  
 - **Qi coil** is a wireless charging device.
+- When 100% finished prototyping with my Arduino Nano 33 BLE Sense, I will be looking into using a different board, and a battery solution will be a huge part of the research.
 
 
 ## Reference Info:
