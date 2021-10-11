@@ -6,7 +6,9 @@
 - GitHub Desktop, possibly GitBASH, KiCad, LTspice, OSHPARK
 - Arduino Components and code requirements
 
-[_[ jump to --> Implementation ]_](#implementation) [_[ open for --> Discussion! ]_](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
+[_[ jump to --> Implementation ]_](#implementation) 
+[_[ skip to --> Next steps ]_](activity.md)
+[_[ open for --> Discussion! ]_](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
 
 ## Completed:
 
