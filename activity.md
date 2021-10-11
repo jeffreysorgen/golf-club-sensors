@@ -8,12 +8,41 @@
 [(_Enable BLE and Accelerometer together_)](#enable-accelerometer-together)
 [(_Enable Smartphone to BEEP_)](#enable-smartphone-to-beep)
 
+
 ## Part Two: Enabling BLE
 1. For BLE, watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
 1. Use nRF Connect App via BLE
 1. Download to Android (done)
 1. Pair the device. **LABEL** this device in the sketch code
 
+(Watch video, see what obvious first steps are.)
+
+#### Description
+
+Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app that I downloaded from Google Play called _nRF Connect_. I'm going to go through the process of getting that going right here.
+
+1. Find the sketch in the Examples
+2. Edit the sketch, include the label, _"ble-sense"_
+3. Upload to the Arduino
+4. (If the code is simple enough, then just incorporate it into _golf-swing-acc_)
+5. THEN: Download the app from Google Play (done)
+6. Enable Bluetooth on my phone
+7. Scan for devices in nRF Connect
+
+### nRF Connect looks like this
+(screenshot of my phone screen with device listed)
+<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
+
+Now that we can see that it's been paired, we can talk about our [battery solution](#battery-info). Originally I used a USB cable to connect from my computer, but now I have a lightweight phone recharger with the same USB connection as the one on my computer.
+<p align="center"><img src="http://some_place.com/battery-connection.png" /></p>
+
+
+
+
+
+
+
+#
 ## Enable Accelerometer together
 - Enable BOTH Accelerometer and BLE into _new_ custom sketch
 - **Test** Accelerometer, that it works as before
