@@ -28,7 +28,7 @@ Before we can get it to chirp in response to a good or bad swing, the smartphone
 
 ### Find the BLE sketch
 I found -[_**this video**_](https://youtu.be/2q_tA8v5l1Y)- from _Robocraze_ to be helpful, 
-and copied the `.ino` code from its [_accompanying GitHub repository_](environment_sensor_ble/environment_sensor_ble.ino).
+and copied the `.ino` code from its [_accompanying GitHub repository_](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
 
 #
 #
