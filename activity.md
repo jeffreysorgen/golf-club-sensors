@@ -4,9 +4,9 @@
 [_[ jump to Battery Info --> ]_](#battery-info)
 
 ### To Do:
-[[ *Enable BLE* ]](#part-two-enabling-ble)
+[[ *Part Two: Enable BLE* ]](#part-two-enabling-ble)
 [[ *Enable BLE and Accelerometer together* ]](#enable-accelerometer-together)
-[[ *Enable Smartphone to BEEP* ]](#enable-smartphone-to-beep)
+[[ *Part Three: Enable Smartphone to BEEP* ]](#enable-smartphone-to-beep)
 
 
 ## Part Two: Enabling BLE
@@ -217,6 +217,4 @@ The above might describe some complete science fiction. I  may be thinking about
 ### So what am I looking for, anyway? (I'm exhausted.)
 - I think all I'm actually looking for is a real-time 3d representation connecting all the data points of the golf swing. The ML can figure out all the other stuff on its own when I send it in the right direction.
 - **is FFT useful here?** is this going to be like converting audio spectrograms?
-#
-#
 #
