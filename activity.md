@@ -20,7 +20,6 @@
 1. Download to Android (done)
 1. Pair the device. **LABEL** this device in the sketch code
 
-(Watch video, see what obvious first steps are.)
 
 #### Description
 
