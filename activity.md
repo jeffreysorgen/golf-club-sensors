@@ -98,6 +98,7 @@ What is the Accelerometer doing at this point?
 - When the Accelerometer is in the Ready state, another sensor (gyro, or maybe acc) identifies the Stillness state and prepares to record movement.
 What are the specific physical instruments needed to determine whether the motion has stopped? 
 - I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
+- It might just be the other 2 axes from the accelerometer. In this case, don't include the axis to which gravity is applied. Only use the other 2, and when they're below a threshold, they're still. (Having said that, I believe the gyro will be even more obvious)
 
 
 #
