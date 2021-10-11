@@ -33,11 +33,9 @@ Before we can get it to chirp in response to a good or bad swing, the smartphone
 (screenshot of my phone screen with device listed)
 <p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
 
-Now that we can see that it's been paired, we can talk about our [battery solution](#battery-info). Originally I used a USB cable to connect from my computer, but now I have a lightweight phone recharger with the same USB connection as the one on my computer.
+### Battery
+Now that we can see that it's been paired, we can talk about our [battery solution](#battery-info). Originally I had to stay tethered to my computer. But now I have a lightweight phone recharger with the same USB-C connection.
 <p align="center"><img src="http://some_place.com/battery-connection.png" /></p>
-
-
-
 
 
 
@@ -45,9 +43,10 @@ Now that we can see that it's been paired, we can talk about our [battery soluti
 #
 ## Enable Accelerometer together
 - Enable BOTH Accelerometer and BLE into _new_ custom sketch
+  - This could have been done in the prior step!
 - **Test** Accelerometer, that it works as before
   - **WATCH** that the Android displays "Ready" to "Resting" and back again
-- Utilize BATTERY SOLUTION described [_here_](#battery-info)
+- Utilize BATTERY SOLUTION described [*here*](#battery-info) and [the image *here*](#battery)
 
 #### Finish connecting BLE 100% as planned before moving on to the SDK part
 
