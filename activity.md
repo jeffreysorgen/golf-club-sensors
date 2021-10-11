@@ -54,7 +54,7 @@ Now that we can see that it's been paired, we can talk about our [battery soluti
   - Get screenshot and post here.
 - Utilize BATTERY SOLUTION described [*here*](#battery-info) or see [the setup *here*](#battery)
 
-#### Finish connecting BLE 100% as planned before moving on to the SDK part
+# Finish connecting BLE 100% as planned before moving on to the SDK part
 
 
 ## Enable Smartphone to BEEP
