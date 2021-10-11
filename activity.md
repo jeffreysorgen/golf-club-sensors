@@ -32,12 +32,24 @@ and copied the `.ino` code from its [_accompanying GitHub repository_](https://g
 Then I right-clicked on _Raw_, and saved the file, 
 and then created a folder with the same name to put it into, because that's what Arduino requires.
 
-Next, I'm going to upload the sketch to the device.
+I'm now going to upload the sketch to the device...
+**And it worked exactly as it does in that video.**
 
+#### To do this:
+1. Download _nRF Connect_ from **Google Play** (also available for iOS) (done)
+2. Find the `environment_sensor_ble.ino` file from the _Robocraze_ repository and copy it locally. (done)
+3. Upload the _environment_sensor_ble_ sketch to the device (done)
+4. Open the serial monitor, watch for "Device not connected..." (verify these next steps)
+5. Open the phone app, and enable Bluetooth
+6. Scan for and connect to the device (its name was declared in the sketch)
+7. 
 
-
+- (_verify this list_)
 
 #
+##### Next, 
+- go through the process of importing the settings for BLE to the "acc" sketch
+- go through the process of setting up the battery
 #
 1. Find the sketch in the Examples
 2. Edit the sketch, include the label, _"ble-sense"_
