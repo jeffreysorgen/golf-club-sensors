@@ -1,6 +1,5 @@
-[<-- back to Implementation](implementation.md)
-
-[<-- back to README.md](README.md)
+[_[ <-- back to README ]_](README.md)
+[_[ <-- back to Implementation ]_](implementation.md)
 
 # To Do:
 ## ENABLE both BLE and Accelerometer
