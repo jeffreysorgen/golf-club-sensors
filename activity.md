@@ -29,10 +29,14 @@ Before we can get it to chirp in response to a good or bad swing, the smartphone
 ### Find the BLE sketch
 I found -[_**this video**_](https://youtu.be/2q_tA8v5l1Y)- from _Robocraze_ to be helpful, 
 and copied the `.ino` code from its [_accompanying GitHub repository_](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
-Then I temporarily forked to my GitHub, copied the file locally, and then deleted that copy of the fork. 
-(_Might not be how GitHub flow is supposed to be used: i.e. how do I normally grab a copy of that file? But it worked._)
+Then I right-clicked on _Raw_, and saved the file, 
+and then created a folder with the same name to put it into, because that's what Arduino requires.
 
 Next, I'm going to upload the sketch to the device.
+
+
+
+
 #
 #
 1. Find the sketch in the Examples
