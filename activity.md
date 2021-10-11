@@ -3,10 +3,10 @@
 
 [_[ jump to Battery Info --> ]_](#battery-info)
 
-# To Do:
-1. Enable BLE [(_here_)](#enable-ble)
-2. Enable BLE and Accelerometer together [(_here_)](#enable-accelerometer-together)
-3. Enable Smartphone to BEEP [(_here_)](#enable-smartphone-to-beep)
+### To Do:
+[(_Enable BLE_)](#enable-ble)
+[(_Enable BLE and Accelerometer together_)](#enable-accelerometer-together)
+[(_Enable Smartphone to BEEP_)](#enable-smartphone-to-beep)
 
 ## Enable BLE
 1. For BLE, watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
@@ -35,12 +35,14 @@
 #
 ## Battery Info:
 ### Prototyping solution
-- Probably can purchase a lightweight **PHONE CHARGER** to serve this purpose during development. (done) I will use a lightweight phone charger that has the USB C output. _I can use the battery backup utility which has USB-C output, just like the one on my computer._ Would just need a shoulder strap or pocket or something for it. For now, **I can connect with BLE and be _physically detached_ from my computer!**
-- **DESIGN battery solution** NEED connect to USBmicro female from the Arduino to power source.
-- I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
+- NEED connect to USBmicro female from the Arduino to a power source.
+- PURCHASED a lightweight **PHONE CHARGER** to serve this purpose during development. 
+  - So now I can connect with BLE and be _physically detached_ from my computer!
+  - Would just need a strap or pocket or something for it. 
 - Later can build an obviously better solution.  
-- **Qi coil** is a wireless charging device.
-- When 100% finished prototyping with my Arduino Nano 33 BLE Sense, I will be looking into using a different board, and a battery solution will be a huge part of the research.
+- When 100% finished prototyping with my Arduino Nano 33 BLE Sense, I will be looking into using a different board, and a battery solution will definitely be a part of the research.
+  - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
+  - **Qi coil** is a wireless charging device.
 
 
 ## Reference Info:
