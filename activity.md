@@ -2,27 +2,7 @@
 
 [<-- back to README.md](README.md)
 
-### Battery Info:
-- **DESIGN battery solution** NEED connect to USBmicro female to power. _I can use the battery backup utility which has USB-C output, just like the one on my computer!_ Just need a shoulder strap or pocket or something for it. And then later can build an obviously better solution. But for now, **I can connect with BLE and be _physically detached_ from my computer!** Probably can purchase a lightweight **PHONE CHARGER** to serve this purpose during development.
-
-### Reference Info:
-- For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
-- Create an _interval_ for some sensor readings, using `millis()` not `delay()`. But `delay()` is good during Resting state, because all sensors are meant to be off.
-### Add this info somewhere:
-- Take new illustration photo(3). Graphic of mag sensor readings should be swapped out for accelerometer readings. **Also** need one for Serial Monitor showing Ready/Resting states. (this is written elsewhere, and image is created but not posted)
-- The all-inclusive file will be saved as _golf-sensors.ino_ when more sensors are involved.
-
-#
 # To Do:
-
-## Edit SKETCH and upload: to display "Ready" and/or "Resting" in the Serial Monitor (done)
-
-- LEARN how to use boolean logic within the sketch. _This lesson will transfer to other processes._
-  - Set up thresholds? (done)
-  - Simple as Y>X or Y>Z ? (yes it is. done.)
-- Print "Ready" for when the device senses its Start orientation (done, delete)
-- Print "Resting" for when the device senses its Rest orientation (done, delete)
-
 ## ENABLE both BLE and Accelerometer
 
 - Enable BOTH Accelerometer and BLE into _new_ custom sketch
@@ -38,6 +18,16 @@
 1. **WATCH** what the Serial Monitor displays ("Ready" to "Rest" and back again)
 
 #
+### Battery Info:
+- **DESIGN battery solution** NEED connect to USBmicro female to power. _I can use the battery backup utility which has USB-C output, just like the one on my computer!_ Just need a shoulder strap or pocket or something for it. And then later can build an obviously better solution. But for now, **I can connect with BLE and be _physically detached_ from my computer!** Probably can purchase a lightweight **PHONE CHARGER** to serve this purpose during development.
+### Reference Info:
+- For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
+- Create an _interval_ for some sensor readings, using `millis()` not `delay()`. But `delay()` is good during Resting state, because all sensors are meant to be off.
+### Add this info somewhere:
+- The all-inclusive file will be saved as _golf-sensors.ino_ when more sensors are involved.
+#
+
+
 # Then:
 ## Enable smartphone functions via nRF (Requires SDK)
 ### Make the smartphone beep in Ready state
