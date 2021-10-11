@@ -44,6 +44,7 @@ _skip to
 20. DOCUMENTED progress towards **battery** solution [_here_](activity.md#battery-info) (ongoing)
 21. Added code block and image from Monitor to this documentation. 
 22. COMPLETED Part One documentation, and it's time to move on to **adding BLE** to the system!
+23. Successfully copied the process of a YouTuber to add BLE services on the device.
 
 
 # Implementation:
