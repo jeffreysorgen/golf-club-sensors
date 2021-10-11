@@ -4,9 +4,9 @@
 [_[ jump to Battery Info --> ]_](#battery-info)
 
 ### To Do:
-[(_Enable BLE_)](#part-two-enabling-ble)
-[(_Enable BLE and Accelerometer together_)](#enable-accelerometer-together)
-[(_Enable Smartphone to BEEP_)](#enable-smartphone-to-beep)
+[[ *Enable BLE* ]](#part-two-enabling-ble)
+[[ *Enable BLE and Accelerometer together* ]](#enable-accelerometer-together)
+[[ *Enable Smartphone to BEEP* ]](#enable-smartphone-to-beep)
 
 
 ## Part Two: Enabling BLE
