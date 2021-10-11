@@ -4,11 +4,11 @@
 [_[ jump to Battery Info --> ]_](#battery-info)
 
 ### To Do:
-[(_Enable BLE_)](#enable-ble)
+[(_Enable BLE_)](#part-two-enabling-ble)
 [(_Enable BLE and Accelerometer together_)](#enable-accelerometer-together)
 [(_Enable Smartphone to BEEP_)](#enable-smartphone-to-beep)
 
-## Enable BLE
+## Part Two: Enabling BLE
 1. For BLE, watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
 1. Use nRF Connect App via BLE
 1. Download to Android (done)
