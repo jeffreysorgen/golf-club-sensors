@@ -59,6 +59,7 @@ What are the specific physical instruments needed to determine whether the motio
 1. Get Gyro going.
 1. Figure out the Gyro data on Monitor.
 1. Figure out how to collect gyro data.
+1. Figure out how to **add** the KWS field ('yes'|null) to that data point.
 
 
 ## Collect gyro data
