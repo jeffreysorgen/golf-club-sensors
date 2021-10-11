@@ -3,10 +3,15 @@
 
 [_[ jump to Battery Info --> ]_](#battery-info)
 
-### To Do:
-[[ *Part Two: Enable BLE* ]](#part-two-enabling-ble)
-[[ *Enable BLE and Accelerometer together* ]](#enable-accelerometer-together)
-[[ *Part Three: Enable Smartphone to BEEP* ]](#enable-smartphone-to-beep)
+## To Do:
+- Watch video and find example sketch.
+- Save a copy of the example sketch as _ble-sense_
+- Test it
+- Copy the code into _golf-swing-acc_
+
+[*[ Part Two: Enable BLE ]*](#part-two-enabling-ble)
+[*[ Enable BLE and Accelerometer together ]*](#enable-accelerometer-together)
+[*[ Part Three: Enable Smartphone to BEEP ]*](#enable-smartphone-to-beep)
 
 
 ## Part Two: Enabling BLE
@@ -43,16 +48,22 @@ Now that we can see that it's been paired, we can talk about our [battery soluti
 #
 ## Enable Accelerometer together
 - Enable BOTH Accelerometer and BLE into _new_ custom sketch
-  - This could have been done in the prior step!
-- **Test** Accelerometer, that it works as before
-  - **WATCH** that the Android displays "Ready" to "Resting" and back again
-- Utilize BATTERY SOLUTION described [*here*](#battery-info) and [the image *here*](#battery)
+  - _This could have been done in the prior step!_
+- TEST the Accelerometer, that it works as before
+  - WATCH that the Android displays "Ready" to "Resting" and back again
+  - Get screenshot and post here.
+- Utilize BATTERY SOLUTION described [*here*](#battery-info) or see [the setup *here*](#battery)
 
 #### Finish connecting BLE 100% as planned before moving on to the SDK part
 
 
 ## Enable Smartphone to BEEP
-**Description** Proof of feasibility. Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way.
+- When creating this sketch, we must create a new Development Sketch, "_dev-sdk-ble-BLE-pitches_".
+- For the sketch here, since it's for immediate development, just create high and low pitches for the transitions into Ready and Resting states, respectively, and we'll save the code for future reference.
+- Probably later create a third sketch that combines code from _golf-swing-acc_, the new inclusive sketch, and this _dev_ sketch.
+
+#### Description
+Proof of feasibility. Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way.
 - Requires App Development: Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
 - Enable smartphone functions via nRF (Requires SDK)
 - What can be configured in my phone that receives commands from the nRF Connect application?
@@ -60,7 +71,7 @@ Now that we can see that it's been paired, we can talk about our [battery soluti
   - Can the nRF App turn on/off the phone's **flashlight**? (_Good Idea!_)
 - Make the smartphone beep in Ready state
 
-#
+
 ## Battery Info:
 ### Prototyping solution
 - NEED connect to USBmicro female from the Arduino to a power source.
