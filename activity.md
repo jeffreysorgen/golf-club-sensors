@@ -33,7 +33,10 @@
 
 #
 ## Battery Info:
-- **DESIGN battery solution** NEED connect to USBmicro female to power. _I can use the battery backup utility which has USB-C output, just like the one on my computer!_ Just need a shoulder strap or pocket or something for it. And then later can build an obviously better solution. But for now, **I can connect with BLE and be _physically detached_ from my computer!** Probably can purchase a lightweight **PHONE CHARGER** to serve this purpose during development.
+### Prototyping solution
+- Probably can purchase a lightweight **PHONE CHARGER** to serve this purpose during development. (done) I will use a lightweight phone charger that has the USB C output
+- _I can use the battery backup utility which has USB-C output, just like the one on my computer_ Would just need a shoulder strap or pocket or something for it. 
+- **DESIGN battery solution** NEED connect to USBmicro female to power. And then later can build an obviously better solution. But for now, **I can connect with BLE and be _physically detached_ from my computer!** 
 - **Qi coil** is a wireless charging device
 - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
 
