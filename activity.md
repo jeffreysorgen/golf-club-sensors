@@ -175,6 +175,7 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 ### What are more parts to the project?
 
 #### Figure out:
+- how to determine amount of memory being used
 - how to begin recording a golf swing
 - how to finish recording a golf swing
 - how to engage the KWS after the golf swing
