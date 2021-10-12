@@ -43,10 +43,8 @@ I'm now going to upload the sketch to the device...
 5. Open the phone app, _nRF Connect_, and enable Bluetooth
 6. Scan for and connect to the device (its name was declared in the sketch)
 7. Touch UnknownService
-8. Touch the "triple down arrow" ![3downarrows](https://user-images.githubusercontent.com/1236972/137014922-05774d04-f729-4bcb-b9b0-b7dd9822d876.png)
-for each of the three services for this example
-<img src="http://some_place.com/nrf-screenshot.png" />
-9. OBSERVE the temperature gradually reach ambient room temperature or hold it by a heater to rise
+9. Touch the "triple down arrow" <img src="images/3downarrows.png" width="5%" /> for each of the three services for this example
+10. OBSERVE the temperature gradually reach ambient room temperature or hold it by a heater to rise
 
 
 #
