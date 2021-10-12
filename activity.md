@@ -4,7 +4,6 @@
 [_[ jump to Battery Info --> ]_](#battery-info)
 
 ## To Do:
-- Watch video and find example sketch. **NOW**
 - Save a copy of the example sketch as _ble-sense_
 - Test it
 - Copy the code into _golf-swing-acc_
