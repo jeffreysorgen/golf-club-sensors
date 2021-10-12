@@ -15,17 +15,13 @@
 
 
 ## Part Two: Enabling BLE
-1. For BLE, watch [**this**](https://youtu.be/2q_tA8v5l1Y) video
-1. Use nRF Connect App via BLE
-1. Download to Android (done)
-1. Pair the device. **LABEL** this device in the sketch code
-
 
 #### Description
 
 Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app that I downloaded from Google Play called _nRF Connect_. I'm going to go through the process of getting that started right here.
 
 ### Find the BLE sketch
+
 I found -[_**this video**_](https://youtu.be/2q_tA8v5l1Y)- from _Robocraze_ to be helpful, 
 and copied the `.ino` code from its [_accompanying GitHub repository_](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
 Then I right-clicked on _Raw_, and saved the file, 
@@ -35,6 +31,7 @@ I'm now going to upload the sketch to the device...
 **And it worked exactly as it does in that video.**
 
 #### To do this:
+
 1. Download _nRF Connect_ from **Google Play** (also available for iOS)
 2. Find the `environment_sensor_ble.ino` file from the _Robocraze_ repository and copy it locally.
 3. Upload the _environment_sensor_ble_ sketch to the device
