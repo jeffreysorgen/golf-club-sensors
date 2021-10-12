@@ -35,15 +35,17 @@ I'm now going to upload the sketch to the device...
 **And it worked exactly as it does in that video.**
 
 #### To do this:
-1. Download _nRF Connect_ from **Google Play** (also available for iOS) (done)
-2. Find the `environment_sensor_ble.ino` file from the _Robocraze_ repository and copy it locally. (done)
-3. Upload the _environment_sensor_ble_ sketch to the device (done)
-4. Open the serial monitor, watch for "Device not connected..." (verify these next steps)
-5. Open the phone app, and enable Bluetooth
-6. Scan for and connect to the device (its name was declared in the sketch)
-7. 
+1. Download _nRF Connect_ from **Google Play** (also available for iOS)
+2. Find the `environment_sensor_ble.ino` file from the _Robocraze_ repository and copy it locally.
+3. Upload the _environment_sensor_ble_ sketch to the device
+4. Open the serial monitor, watch for "Disconnected from central..."
+5. (App) Open the phone app, _nRF Connect_, and enable Bluetooth
+6. (App) Scan for and connect to the device (its name was declared in the sketch)
+7. (App) Touch _UnknownService, UUID: 0x180C_
+8. Watch Monitor again for services to pop up
+9. (App) Touch the "triple down arrow" <img src="images/3downarrows.png" width="20em" /> for each of the three services for this example
+10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 
-- (_verify this list_)
 
 #
 ##### Next, 
