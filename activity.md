@@ -20,7 +20,7 @@
 
 Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app that I downloaded from Google Play called _nRF Connect_. I'm going to go through the process of getting that started right here.
 
-### Find the BLE sketch
+### Try the BLE example sketch
 
 I found -[_**this video**_](https://youtu.be/2q_tA8v5l1Y)- from _Robocraze_ to be helpful, 
 and copied the `.ino` code from its [_accompanying GitHub repository_](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
@@ -43,6 +43,10 @@ I'm now going to upload the sketch to the device...
 9. (App) Touch the "triple down arrow" <img src="images/3downarrows.png" width="20em" /> for each of the three services for this example
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 
+### Combining BLE and IMU commands in the IDE
+- Copy _golf-swing-acc_ as _test-imu-sketch_ (or whatever it is)
+- Add BLE functionality, line by line, into the _test_ sketch
+  - Repeatedly upload sketch to device looking for errors and functionality
 
 #
 ##### Next, 
