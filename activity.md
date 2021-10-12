@@ -39,11 +39,17 @@ I'm now going to upload the sketch to the device...
 2. Find the `environment_sensor_ble.ino` file from the _Robocraze_ repository and copy it locally.
 3. Upload the _environment_sensor_ble_ sketch to the device
 4. Open the serial monitor, watch for "Disconnected from central..."
+
+
+
+
+
+
 ##### In the App
 5. Open the phone app, _nRF Connect_, and enable Bluetooth
 6. Scan for and connect to the device (its name was declared in the sketch)
 7. Touch UnknownService
-9. Touch the "triple down arrow" <img src="images/3downarrows.png" width="5%" align="bottom"/> for each of the three services for this example
+9. Touch the "triple down arrow" <img src="images/3downarrows.png" width="25em" /> for each of the three services for this example
 10. OBSERVE the temperature gradually reach ambient room temperature or hold it by a heater to rise
 
 
