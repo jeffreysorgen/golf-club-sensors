@@ -43,7 +43,7 @@ I'm now going to upload the sketch to the device...
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 
 ### Combining BLE and IMU commands in the IDE
-- Copy _golf-swing-acc_ as _test-imu-sketch_ (or whatever it is)
+- Copy _golf-swing-acc_ as _test-imu-sketch_
 - Add BLE functionality, line by line, into the _test_ sketch
   - Repeatedly upload sketch to device looking for errors and functionality
 
