@@ -48,7 +48,7 @@ I'm now going to upload the sketch to the device...
   - Repeatedly upload sketch to device looking for errors and functionality
   - **RESULT!** But data is not in the form of a float, _but a hex_
     - _So how do I convert this?_
-- To do: Go through all the sketches **in the Examples folder in the IDE**
+- To do: Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE**
   - Also use [**the arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
 
 #
