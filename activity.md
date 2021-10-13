@@ -43,12 +43,15 @@ I'm now going to upload the sketch to the device...
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 
 ### Combining BLE and IMU commands in the IDE
-- Copy _golf-swing-acc_ as _test-imu-sketch_
+- Copy _golf-swing-acc_ as _test-imu-sketch_ (done)
 - Add BLE functionality, line by line, into the _test_ sketch
   - Repeatedly upload sketch to device looking for errors and functionality
+- Result! But data is **not in the form of a float, but a hex**
+  - _So how do I convert this?_
 
 #
 ##### Next, 
+- **figure out how to deliver readable data to phone screen**
 - go through the process of importing the settings for BLE to the "acc" sketch
 - go through the process of setting up the battery
 #
