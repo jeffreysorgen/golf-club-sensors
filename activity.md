@@ -231,16 +231,22 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 * Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
   - Determine whether a **BLOG** is useful
   - Enable blogging somehow, with or without repositories, to publicly document actions taken (or just this page!)
-* Jot down ideas for other projects here
-  * wind turbine ( Is the most popular product TinyML or IoT? )
-  * Continue recording _golf-swing-sensors_ progress in THIS repository
 * Not Needed: GIF of slideshow of certs, book, Arduino board, etc (not yet)
 * Not Needed: **Wiki**
 * "SWINGTASTIC"
 #
+#### Jot down ideas for other projects here**
+* wind turbine ( Is the most popular product TinyML or IoT? )
+* Continue recording _golf-swing-sensors_ progress in THIS repository
+* LED glasses which display "HIGHLND" across them
+  * I'm imagining I create a project just like this one, step by step, fun to imagine Patreon or YouTube connections also.
+  * I like the idea of offering this to fans and artists
+  * Trying to get one of the mounts/PCB boards. Requires Adafruit _feather_ board.
+  * Should be very fun to do, with potential $
+  * **But also** I wondered about incorporating KWS! Like, "highlnd" would display "HIGHLND" across the frame, and could do "party", "love", "hearts" (heart emojis), and with special design, I could do ANY voice commands. Of course limited to device capacity.
 
 
-
+#
 # Thoughts and notes
 
 ## Fourier
