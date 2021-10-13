@@ -2,7 +2,7 @@
 [_[ <-- back to Implementation ]_](implementation.md)
 
 [_[ jump to Battery Info --> ]_](#battery-info)
-[_[ jump to Random Ideas --> ]_](#jot-down-ideas-for-other-projects-here)
+[_[ jump to new project ideas --> ]_](#jot-down-ideas-for-other-projects-here)
 
 ## To Do:
 - Save a copy of the example sketch as _ble-sense_
@@ -47,10 +47,14 @@ I'm now going to upload the sketch to the device...
 - Copy _golf-swing-acc_ as _test-imu-sketch_ (done)
 - Communicate with smartphone by adding BLE functionality, line by line (done)
   - Repeatedly upload sketch to device looking for errors and functionality
-  - **RESULT!** But data is not in the form of a float, _but a hex_
+  - **_RESULT!_** But data is not in the form of a float, _but a hex_
     - _So how do I convert this?_
-- To do: Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE**
-  - Also use [**the arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
+- **To solve:** 
+  - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** Also use the [**arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
+  - Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
+  - What I want is a way for my Android to recognize a state change coming from the **arduino**. 
+    - When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
+    - More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
 
 #
 ##### Next, 
