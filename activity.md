@@ -240,9 +240,8 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 * wind turbine ( Is the most popular product TinyML or IoT? )
 * Continue recording _golf-swing-sensors_ progress in THIS repository
 * LED glasses which display "HIGHLND" across them
-  * Trying to acquire one of the mounts/PCB boards. Requires Adafruit _feather_ board. I imagine I'd document a project just like this _golf-sensors_ one, step by step.
-  * Fun to imagine Patreon or YouTube connections also. I like the idea of offering this to fans and artists. Should be very fun to do, with profit potential.
-  * **INCORPORATING _KWS_** for verbal commands! Like, "highlnd" would display "HIGHLND" across the frame, and could do "party", "love", "hearts" (heart emojis), and with special design specs I could do ANY voice commands. Of course limited to device capacity.
+  * **Acquire** one of the mounts/PCB boards, and maybe later design PCB myself. Requires Adafruit _feather_ board. I imagine I'd document a project just like this _golf-sensors_ one, step by step. Fun to imagine Patreon or YouTube connections also. I like the idea of offering this to fans and artists. Should be very fun to do, with profit potential.
+  * **INCORPORATING _KWS_** for verbal commands! Like, "highlnd" would display "HIGHLND" across the frame, and could do "party", "love", "hearts" (heart emojis), and with special design specs I could do ANY voice commands. Of course limited to device capacity. Maybe not for the _feather_ but another that includes a microphone and capacity for TinyML.
 
 
 #
