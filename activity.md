@@ -123,6 +123,7 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
 - When 100% finished prototyping with my Arduino Nano 33 BLE Sense, I will be looking into using a different board, and a battery solution will definitely be a part of the research.
   - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
   - **Qi coil** is a wireless charging device.
+  - CR1220 is common cell-type battery
 
 
 ## Reference Info:
