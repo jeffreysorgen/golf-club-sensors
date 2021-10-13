@@ -44,14 +44,16 @@ I'm now going to upload the sketch to the device...
 
 ### Combining BLE and IMU commands in the IDE
 - Copy _golf-swing-acc_ as _test-imu-sketch_ (done)
-- Add BLE functionality, line by line, into the _test_ sketch
+- Communicate with smartphone by adding BLE functionality, line by line (done)
   - Repeatedly upload sketch to device looking for errors and functionality
-- Result! But data is **not in the form of a float, but a hex**
-  - _So how do I convert this?_
+  - **RESULT!** But data is not in the form of a float, _but a hex_
+    - _So how do I convert this?_
+- To do: Go through all the sketches **in the Examples folder in the IDE**
+  - Also use [**the arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
 
 #
 ##### Next, 
-- **figure out how to deliver readable data to phone screen**
+- **figure out how to deliver readable data to phone screen** using arduino examples to figure it out
 - go through the process of importing the settings for BLE to the "acc" sketch
 - go through the process of setting up the battery
 #
