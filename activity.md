@@ -2,7 +2,7 @@
 [_[ <-- back to Implementation ]_](implementation.md)
 
 [_[ jump to Battery Info --> ]_](#battery-info)
-[_[ jump to Random Ideas --> ]_]((#jot-down-ideas-for-other-projects-here)
+[_[ jump to Random Ideas --> ]_](#jot-down-ideas-for-other-projects-here)
 
 ## To Do:
 - Save a copy of the example sketch as _ble-sense_
