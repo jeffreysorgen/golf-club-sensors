@@ -235,7 +235,7 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 * Not Needed: **Wiki**
 * "SWINGTASTIC"
 #
-#### Jot down ideas for other projects here**
+### Jot down ideas for other projects here
 * wind turbine ( Is the most popular product TinyML or IoT? )
 * Continue recording _golf-swing-sensors_ progress in THIS repository
 * LED glasses which display "HIGHLND" across them
