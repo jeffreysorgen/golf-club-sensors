@@ -49,12 +49,11 @@ I'm now going to upload the sketch to the device...
   - Repeatedly upload sketch to device looking for errors and functionality
   - **_RESULT!_** But data is not in the form of a float, _but a hex_
     - _So how do I convert this?_
-- **To solve:** 
-  - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** Also use the [**arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
-  - Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
-  - What I want is a way for my Android to recognize a state change coming from the **arduino**. 
-    - When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
-    - More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
+- **Make this look better**
+  - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** 
+  - Also use the [**arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
+  - More below, in the "Next" section
+
 
 #
 ##### Next, 
@@ -91,6 +90,12 @@ Now that we can see that it's been paired, we can talk about our [battery soluti
 - Utilize BATTERY SOLUTION described [*here*](#battery-info) or see [the setup *here*](#battery)
 
 # Finish connecting BLE 100% as planned before moving on to the SDK part
+
+So for Part Three:
+- Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
+- What I want is a way for my Android to recognize a state change coming from the **arduino**. 
+  - When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
+  - More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
 
 
 ## Enable Smartphone to BEEP
