@@ -55,6 +55,165 @@ I'm now going to upload the sketch to the device...
   - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** 
   - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
   - More below, in the "Next" section
+#
+### Modifying the file:
+Top of sketch. First, add the two libraries.
+```
+#include <ArduinoBLE.h>           // Bluetooth Library
+#include <Arduino_LSM9DS1.h>      // IMU
+```
+Next, create the SERVICE name "180C"
+```
+// BLE Service Name
+BLEService customService("180C");
+```
+Next, add a specific CHARACTERISTIC. If it were a string, there would also be a number for its data length.
+```
+// BLE Characteristics
+// Syntax: BLE<DATATYPE>Characteristic <NAME>(<UUID>, <PROPERTIES>, <DATA LENGTH>)
+BLEFloatCharacteristic ble_magnetic("2A58", BLERead | BLENotify);
+```
+Then begin the two services.
+```
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+  Serial.println("Started");
+  
+  // add BLE
+  if (!BLE.begin()) {
+    Serial.println("Failed to initialize BLE!");
+    while (1);
+  }
+  
+  // add IMU
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU!");
+    while (1);
+  }
+```
+Create the name of the service to find in nRF Connect
+```
+  // Setting BLE Name
+  BLE.setLocalName("Arduino Environment Sensor");
+```
+Tell the device to advertise the service (send info via BLE to the receiving end). Here, _"ble_magnetic"_ refers to the IMU readings, the accelerometer in our case. (_might change this from "magnetic" to "acc"_)
+- This would be where more characteristics are added. Anything that's going to be sent to the smartphone via BLE would be added like this, under `customService.addCharacteristic(example_char)` and then accessed within later code and displayed using `example_char.writeValue()`.
+```
+  // Setting BLE Service Advertisment
+  BLE.setAdvertisedService(customService);
+
+  // Adding characteristics to BLE Service Advertisment
+  customService.addCharacteristic(ble_magnetic);
+
+  // Adding the service to the BLE stack
+  BLE.addService(customService);
+```
+Invoke the BLE to advertise. And also go ahead and print that it's active. It's printed once at the top of Monitor, but scrolls quickly up. (edit this)
+```
+  // Start advertising
+  BLE.advertise();
+  Serial.println("Bluetooth device is now active, waiting for connections...");
+```
+That's the end of `void setup()`. I've left the original commands to print as-is from the original. 
+```
+  // IMU original stuff:
+  Serial.print("Accelerometer sample rate = ");
+  Serial.print(IMU.accelerationSampleRate());
+  Serial.println(" Hz");
+  Serial.println();
+  Serial.println("Acceleration in G's");
+  Serial.println("X\tY\tZ");
+}
+```
+Now the `void loop()`. 
+```
+void loop() {
+  float x, y, z; // IMU params
+  // Variable to check if central device is connected
+  BLEDevice central = BLE.central();
+
+  if (central) {
+    // Serial.print("Connected to central: ");
+    // Serial.println(central.address());
+```
+Do these things _while_ BLE is connected. This `while` statement is why nothing shows up in Monitor until BLE connects the two devices. The `readValues()' is not used in this case, but in the _RoboCraze_ example, it combines readings and labels into a string which can be read easily in nRF Connect with `writeValue(m)`.
+```
+    while (central.connected()) {
+      delay(200); // take this out if necessary
+
+      // Read values from sensors
+      //readValues();
+
+      // Writing sensor values to the characteristic
+      //ble_magnetic.writeValue(m);
+      //delay(1000); // so we can read it
+```
+Next, using `readAcceleration()` and `writeValue()` sends information to the BLE App. **I need to make this more readable.** I don't know why it writes as a HEX or ID. But the HEX changes as I move the device around, and slows to one second when in the _Resting_ state, meaning that it's properly functioning. **But the reading doesn't make sense.**
+```
+      // IMU checking on Y and printing all to Monitor
+      if (IMU.accelerationAvailable()) {
+        IMU.readAcceleration(x, y, z);
+
+        ble_magnetic.writeValue(y);
+        //delay(1000); // so we can read it
+```
+Then the same stuff from before. Including the one second pause that I mentioned.
+```
+        if ( y > -.85 ) {         // -1G is the threshold
+          Serial.print("Ready!");
+          Serial.print('\t');
+          Serial.print("X = ");
+          Serial.print(x);
+          Serial.print('\t');
+          Serial.print("Y = ");
+          Serial.print(y);
+          Serial.print('\t');
+          Serial.print("Z = ");
+          Serial.println(z);
+          }
+        else { 
+          Serial.print("One second delay...");
+          Serial.print('\t');
+          Serial.print("Y = ");
+          Serial.println(y);
+          delay(1000); // one second delay
+          }
+        }
+      }
+    }
+```
+Next, this wraps up the `void loop()` and shows up in Monitor before the devices connect.
+```
+    Serial.print("Disconnected from central: ");
+    Serial.println(central.address());
+
+  }
+```
+And down here is where the `readValues()` is. Used in the _RoboCraze_ example sketch.
+```
+//void readValues()
+//{
+//  m = y; // random try in case I understand this
+  
+    /*
+    // Reading raw sensor values from three sensors
+    float x, y, z;
+    if (IMU.magneticFieldAvailable()) {
+      IMU.readMagneticField(x, y, z);
+
+    // Saving sensor values into a user presentable way with units
+    m = "X:" + String(x) + ", Y:" + String(y);
+    }
+    */
+//}
+```
+
+
+
+
+
+
 
 
 #
