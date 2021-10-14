@@ -62,12 +62,14 @@ Top of sketch. First, add the two libraries.
 #include <ArduinoBLE.h>           // Bluetooth Library
 #include <Arduino_LSM9DS1.h>      // IMU
 ```
-Next, create the SERVICE name "180C"
+Next, create the SERVICE name "180C".
+- _Don't know why it's "180C" just that it came from the example and shows up in nRF Connect. Possibly default ID for BLE Service? I don't know._
 ```
 // BLE Service Name
 BLEService customService("180C");
 ```
 Next, add a specific CHARACTERISTIC. If it were a string, there would also be a number for its data length.
+- "2A58" seems quite arbitrary and in other examples is actually the 128-bit UUID. Came from the example. _Each characteristic either DOES or DOES NOT need a unique UUID, so I'll have to look this up and why._
 ```
 // BLE Characteristics
 // Syntax: BLE<DATATYPE>Characteristic <NAME>(<UUID>, <PROPERTIES>, <DATA LENGTH>)
