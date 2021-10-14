@@ -50,17 +50,15 @@ I'm now going to upload the sketch to the device...
   - **_RESULT!_** But data is not in the form of a float, _but a hex_
     - _So how do I convert this?_
 - **Make this look better**
+  - **figure out** how to deliver readable data to phone screen using arduino examples to figure it out
+  - Go through the process of importing the settings for BLE to the "acc" sketch
   - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** 
-  - Also use the [**arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
+  - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
   - More below, in the "Next" section
 
 
 #
-##### Next, 
-- **figure out how to deliver readable data to phone screen** using arduino examples to figure it out
-- go through the process of importing the settings for BLE to the "acc" sketch
-- go through the process of setting up the battery
-#
+#### Next, 
 1. Find the sketch in the Examples
 2. Edit the sketch, include the label, _"ble-sense"_
 3. Upload to the Arduino
