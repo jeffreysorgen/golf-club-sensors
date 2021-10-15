@@ -113,7 +113,7 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 1. powered on
 2. in the bag, so Resting state
 3. pulled out of the bag, senses Ready state
-4. at this point, **waits to settle** so it can begin recording motion [(in the next section)](activity.md)
+4. at this point, **waits to settle** so it can begin recording motion [(in the next (gyro) section)](activity.md#collect-gyro-data)
 
 #### As shown in the serial monitor:
 - The Resting state:
