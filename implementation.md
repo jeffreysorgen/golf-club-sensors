@@ -1,5 +1,5 @@
 
-# Documenting my activity:
+# Implementation:
 
 **Learning about this:**
 - IMU sensors, **Working with BLE!** C++
@@ -49,9 +49,7 @@ _skip to
 23. Successfully copied the process of a YouTuber to add BLE services on the device.
 
 
-# Implementation:
-
-### Flow for Golf Swing sensors:
+## Flow for Golf Swing sensors:
 
 - **BLE** is enabled when the device is powered, waits for pairing forever.
 - Pairs with phone app.
