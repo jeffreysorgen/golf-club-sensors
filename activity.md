@@ -2,6 +2,7 @@
 [_[ <-- back to Implementation ]_](implementation.md)
 
 [_[ jump to Battery Info --> ]_](#battery-info)
+[_[ jump to new project ideas --> ]_](#jot-down-ideas-for-other-projects-here)
 
 ## To Do:
 - Save a copy of the example sketch as _ble-sense_
@@ -43,15 +44,184 @@ I'm now going to upload the sketch to the device...
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 
 ### Combining BLE and IMU commands in the IDE
-- Copy _golf-swing-acc_ as _test-imu-sketch_ (or whatever it is)
-- Add BLE functionality, line by line, into the _test_ sketch
+- Copy _golf-swing-acc_ as _test-imu-sketch_ (done)
+- Communicate with smartphone by adding BLE functionality, line by line (done)
   - Repeatedly upload sketch to device looking for errors and functionality
+  - **_RESULT!_** But data is not in the form of a float, _but a hex_
+    - _So how do I convert this?_
+- **Make this look better**
+  - **figure out** how to deliver readable data to phone screen using arduino examples to figure it out
+  - Go through the process of importing the settings for BLE to the "acc" sketch
+  - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** 
+  - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
+  - Also go through the later lessons in _**EdX Deployment**_ class
+  - Find out whether this needs to become **_peripheral_ rather than _central_**
+  - More below, in the "Next" section
+#
+### Modifying the file:
+Top of sketch. First, add the two libraries.
+```
+#include <ArduinoBLE.h>           // Bluetooth Library
+#include <Arduino_LSM9DS1.h>      // IMU
+```
+Next, create the SERVICE name "180C".
+- _Don't know why it's "180C" just that it came from the example and shows up in nRF Connect. Possibly default ID for BLE Service? I don't know._
+```
+// BLE Service Name
+BLEService customService("180C");
+```
+Next, add a specific CHARACTERISTIC. If it were a string, there would also be a number for its data length.
+- "2A58" seems quite arbitrary and in other examples is actually the 128-bit UUID. Came from the example. _Each characteristic either DOES or DOES NOT need a unique UUID, so I'll have to **look this up** and why._
+```
+// BLE Characteristics
+// Syntax: BLE<DATATYPE>Characteristic <NAME>(<UUID>, <PROPERTIES>, <DATA LENGTH>)
+BLEFloatCharacteristic ble_magnetic("2A58", BLERead | BLENotify);
+```
+In `void setup()`, first check whether the services have started.
+```
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+  Serial.println("Started");
+  
+  // add BLE
+  if (!BLE.begin()) {
+    Serial.println("Failed to initialize BLE!");
+    while (1);
+  }
+  
+  // add IMU
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU!");
+    while (1);
+  }
+```
+Create the name of the service to find in nRF Connect
+```
+  // Setting BLE Name
+  BLE.setLocalName("Arduino Environment Sensor");
+```
+Tell the device to advertise the service (send info via BLE to the receiving end). Here, _"ble_magnetic"_ refers to the IMU readings, the accelerometer in our case. (_might change this from "magnetic" to "acc"_)
+- This would be where more characteristics are added. Anything that's going to be sent to the smartphone via BLE would be added like this, under `customService.addCharacteristic(example_char)` and then accessed within later code and displayed using `example_char.writeValue()`.
+```
+  // Setting BLE Service Advertisment
+  BLE.setAdvertisedService(customService);
+
+  // Adding characteristics to BLE Service Advertisment
+  customService.addCharacteristic(ble_magnetic);
+
+  // Adding the service to the BLE stack
+  BLE.addService(customService);
+```
+Invoke the BLE to advertise. And also go ahead and print that it's active. It's printed once at the top of Monitor, but scrolls quickly up. (edit this)
+```
+  // Start advertising
+  BLE.advertise();
+  Serial.println("Bluetooth device is now active, waiting for connections...");
+```
+That's the end of `void setup()`. I've left the original commands to print as-is from the original. 
+```
+  // IMU original stuff:
+  Serial.print("Accelerometer sample rate = ");
+  Serial.print(IMU.accelerationSampleRate());
+  Serial.println(" Hz");
+  Serial.println();
+  Serial.println("Acceleration in G's");
+  Serial.println("X\tY\tZ");
+}
+```
+Now the `void loop()`. 
+```
+void loop() {
+  float x, y, z; // IMU params
+  // Variable to check if central device is connected
+  BLEDevice central = BLE.central();
+
+  if (central) {
+    // Serial.print("Connected to central: ");
+    // Serial.println(central.address());
+```
+Do these things _while_ BLE is connected. This `while` statement is why nothing shows up in Monitor until BLE connects the two devices. The `readValues()` is not used in this case, but in the _RoboCraze_ example, it combines readings and labels into a string which can be read easily in nRF Connect with `writeValue(m)`.
+```
+    while (central.connected()) {
+      delay(200); // take this out if necessary
+
+      // Read values from sensors
+      //readValues();
+
+      // Writing sensor values to the characteristic
+      //ble_magnetic.writeValue(m);
+      //delay(1000); // so we can read it
+```
+Next, using `readAcceleration()` and `writeValue()` sends information to the BLE App. **I need to make this more readable.** I don't know why it writes as a HEX or ID. But the HEX changes as I move the device around, and slows to one second when in the _Resting_ state, meaning that it's properly functioning. **But the reading doesn't make sense.**
+```
+      // IMU checking on Y and printing all to Monitor
+      if (IMU.accelerationAvailable()) {
+        IMU.readAcceleration(x, y, z);
+
+        ble_magnetic.writeValue(y);
+        //delay(1000); // so we can read it
+```
+Then the same stuff from before. Including the one second pause that I mentioned.
+```
+        if ( y > -.85 ) {         // -1G is the threshold
+          Serial.print("Ready!");
+          Serial.print('\t');
+          Serial.print("X = ");
+          Serial.print(x);
+          Serial.print('\t');
+          Serial.print("Y = ");
+          Serial.print(y);
+          Serial.print('\t');
+          Serial.print("Z = ");
+          Serial.println(z);
+          }
+        else { 
+          Serial.print("One second delay...");
+          Serial.print('\t');
+          Serial.print("Y = ");
+          Serial.println(y);
+          delay(1000); // one second delay
+          }
+        }
+      }
+    }
+```
+Next, this wraps up the `void loop()` and shows up in Monitor before the devices connect.
+```
+    Serial.print("Disconnected from central: ");
+    Serial.println(central.address());
+
+  }
+```
+And down here is where the `readValues()` is. Used in the _RoboCraze_ example sketch.
+```
+//void readValues()
+//{
+//  m = y; // random try in case I understand this
+  
+    /*
+    // Reading raw sensor values from three sensors
+    float x, y, z;
+    if (IMU.magneticFieldAvailable()) {
+      IMU.readMagneticField(x, y, z);
+
+    // Saving sensor values into a user presentable way with units
+    m = "X:" + String(x) + ", Y:" + String(y);
+    }
+    */
+//}
+```
+
+
+
+
+
+
+
 
 #
-##### Next, 
-- go through the process of importing the settings for BLE to the "acc" sketch
-- go through the process of setting up the battery
-#
+#### Next, 
 1. Find the sketch in the Examples
 2. Edit the sketch, include the label, _"ble-sense"_
 3. Upload to the Arduino
@@ -82,6 +252,12 @@ Now that we can see that it's been paired, we can talk about our [battery soluti
 
 # Finish connecting BLE 100% as planned before moving on to the SDK part
 
+So for Part Three:
+- Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
+- What I want is a way for my Android to recognize a state change coming from the **arduino**. 
+  - When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
+  - More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
+
 
 ## Enable Smartphone to BEEP
 - When creating this sketch, we must create a new Development Sketch, "_dev-sdk-ble-BLE-pitches_".
@@ -108,12 +284,14 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
 - When 100% finished prototyping with my Arduino Nano 33 BLE Sense, I will be looking into using a different board, and a battery solution will definitely be a part of the research.
   - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
   - **Qi coil** is a wireless charging device.
+  - CR1220 is common cell-type battery
 
 
 ## Reference Info:
 - The all-inclusive Arduino file will be saved as _golf-sensors.ino_ when more sensors are involved.
 - For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
 - Create an _interval_ for some sensor readings, using `millis()` not `delay()`. But `delay()` is good during Resting state, because all sensors are meant to be off.
+- Found [**this**](https://youtu.be/v5hBjouFHQY) video about how the BLE Sense triggered other devices. (dog bark example)
 
 
 #
@@ -225,16 +403,19 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 * Determine whether my **GitHub Page** should be redirected to here from **tech**.jeffreysorgen.com 
   - Determine whether a **BLOG** is useful
   - Enable blogging somehow, with or without repositories, to publicly document actions taken (or just this page!)
-* Jot down ideas for other projects here
-  * wind turbine ( Is the most popular product TinyML or IoT? )
-  * Continue recording _golf-swing-sensors_ progress in THIS repository
 * Not Needed: GIF of slideshow of certs, book, Arduino board, etc (not yet)
 * Not Needed: **Wiki**
 * "SWINGTASTIC"
 #
+### Jot down ideas for other projects here
+- wind turbine ( Is the most popular product TinyML or IoT? )
+- Continue recording _golf-swing-sensors_ progress in THIS repository
+- **LED glasses** which display "HIGHLND" across them
+  - **Acquire** one of the mounts/PCB boards, and maybe later design PCB myself. Requires Adafruit _feather_ board. I imagine I'd document a project just like this _golf-sensors_ one, step by step. Fun to imagine Patreon or YouTube connections also. I like the idea of offering this to fans and artists. Should be very fun to do, with profit potential.
+  - **INCORPORATING _KWS_** for verbal commands! Like, "highlnd" would display "HIGHLND" across the frame, and could do "party", "love", "hearts" (heart emojis), and with special design specs I could do ANY voice commands. Of course limited to device capacity. Maybe not for the _feather_ but another that includes a microphone and capacity for TinyML.
 
 
-
+#
 # Thoughts and notes
 
 ## Fourier
