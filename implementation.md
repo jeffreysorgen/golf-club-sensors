@@ -168,7 +168,7 @@ The goal was to basically create on/off states, accomplished here by using a thr
 ### Possible exception to this configuration
 Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason.
 
-# [NEXT STEPS -->](activity.md)
+# [Step Two: Enabling BLE -->](activity.md/#step-two-enabling-ble)
 ### Implementing BLE
 [*[ <-- back to README ]*](README.md)
 [*[ Step One: Enabling the Accelerometer ]*](#step-one-the-accelerometer)
