@@ -30,7 +30,7 @@ _skip to
 9. Defined Golf Swing Data Flow, [_below_](#flow-for-golf-swing-sensors)
 10. Created _new-readme.md_ (now [README](README.md)), added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list. (Now deleted the old readme-old.md.)
 11. Renamed (this) repository: _hello-world_ is now _golf-swing-sensors_, and updated [README.md](readme.md)
-12. [Implementation Part One:](#part-one-the-accelerometer) **Set up Accelerometer**
+12. [Implementation Part One:](#step-one-the-accelerometer) **Set up Accelerometer**
 
 ##### _2021 Oct_
 
@@ -65,7 +65,7 @@ _skip to
   - _Beep/buzz if good swing_
   - _Silent (or low tone) if no match_
 
-## Part One: The Accelerometer
+## Step One: The Accelerometer
 
 #### Description: 
 **The goal is to "turn on" readings when sensor is oriented with clubhead down at the ground.**
