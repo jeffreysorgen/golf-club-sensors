@@ -44,7 +44,7 @@ I'm now going to upload the sketch to the device...
 8. Watch Monitor again for services to pop up
 9. (App) Touch the "triple down arrow" <img src="images/3downarrows.png" width="20em" /> for each of the three services for this example
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
-
+#
 ### Combining BLE and IMU commands in the IDE
 - Copy _golf-swing-acc_ as _test-imu-sketch_ (done)
 - Communicate with smartphone by adding BLE functionality, line by line (done)
@@ -58,9 +58,9 @@ I'm now going to upload the sketch to the device...
   - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
   - Also go through the later lessons in _**EdX Deployment**_ class
   - Find out whether this needs to become **_peripheral_ rather than _central_**
-  - More below, in the "Next" section
-#
-### Modifying the file:
+  - More below, in the ["Next"](#next) section
+
+## Modifying the file:
 Top of sketch. First, add the two libraries.
 ```
 #include <ArduinoBLE.h>           // Bluetooth Library
