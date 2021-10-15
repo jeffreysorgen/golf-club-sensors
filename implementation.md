@@ -2,18 +2,15 @@
 # Documenting my activity:
 
 **Learning about this:**
-- IMU sensors, **How to edit Arduino sketches!** C++
+- IMU sensors, **Working with BLE!** C++
 - GitHub Desktop, possibly GitBASH, KiCad, LTspice, OSHPARK
 - Arduino Components and code requirements
-#
+
 [*[ <-- back to Overview ]*](README.md)
 [*[ (next) Step One: Start with the Accelerometer ]*](#step-one-the-accelerometer)
 [*[ Step Two: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
 [_[ --> open for Discussion! ]_](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
-#
-[_[ jump to --> Implementation ]_](#implementation) 
-[_[ skip to --> Next steps ]_](activity.md)
-[_[ open for --> Discussion! ]_](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
+
 
 ## Completed:
 
