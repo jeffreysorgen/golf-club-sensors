@@ -54,6 +54,8 @@ I'm now going to upload the sketch to the device...
   - Go through the process of importing the settings for BLE to the "acc" sketch
   - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** 
   - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
+  - Also go through the later lessons in _**EdX Deployment**_ class
+  - Find out whether this needs to become **_peripheral_ rather than _central_**
   - More below, in the "Next" section
 #
 ### Modifying the file:
@@ -69,13 +71,13 @@ Next, create the SERVICE name "180C".
 BLEService customService("180C");
 ```
 Next, add a specific CHARACTERISTIC. If it were a string, there would also be a number for its data length.
-- "2A58" seems quite arbitrary and in other examples is actually the 128-bit UUID. Came from the example. _Each characteristic either DOES or DOES NOT need a unique UUID, so I'll have to look this up and why._
+- "2A58" seems quite arbitrary and in other examples is actually the 128-bit UUID. Came from the example. _Each characteristic either DOES or DOES NOT need a unique UUID, so I'll have to **look this up** and why._
 ```
 // BLE Characteristics
 // Syntax: BLE<DATATYPE>Characteristic <NAME>(<UUID>, <PROPERTIES>, <DATA LENGTH>)
 BLEFloatCharacteristic ble_magnetic("2A58", BLERead | BLENotify);
 ```
-Then begin the two services.
+In `void setup()`, first check whether the services have started.
 ```
 void setup() {
   Serial.begin(9600);
@@ -139,7 +141,7 @@ void loop() {
     // Serial.print("Connected to central: ");
     // Serial.println(central.address());
 ```
-Do these things _while_ BLE is connected. This `while` statement is why nothing shows up in Monitor until BLE connects the two devices. The `readValues()' is not used in this case, but in the _RoboCraze_ example, it combines readings and labels into a string which can be read easily in nRF Connect with `writeValue(m)`.
+Do these things _while_ BLE is connected. This `while` statement is why nothing shows up in Monitor until BLE connects the two devices. The `readValues()` is not used in this case, but in the _RoboCraze_ example, it combines readings and labels into a string which can be read easily in nRF Connect with `writeValue(m)`.
 ```
     while (central.connected()) {
       delay(200); // take this out if necessary
