@@ -1,5 +1,7 @@
-[_[ <-- back to README ]_](README.md)
-[_[ <-- back to Implementation ]_](implementation.md)
+[*[ <-- back to Overview ]*](README.md)
+[*[ (previous) Step One: The Accelerometer ]*](implementation.md/#step-one-the-accelerometer)
+[*[ Step Two: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
+[_[ --> open for Discussion! ]_](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
 
 [_[ jump to Battery Info --> ]_](#battery-info)
 [_[ jump to new project ideas --> ]_](#jot-down-ideas-for-other-projects-here)
