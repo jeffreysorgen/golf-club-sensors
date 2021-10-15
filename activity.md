@@ -9,7 +9,7 @@
 - Test it
 - Copy the code into _golf-swing-acc_
 
-[*[ Part Two: Enable BLE ]*](#step-two-enabling-ble)
+[*[ Step Two: Enable BLE ]*](#step-two-enabling-ble)
 [*[ Enable BLE and Accelerometer together ]*](#enable-accelerometer-together)
 [*[ Part Three: Enable Smartphone to BEEP ]*](#enable-smartphone-to-beep)
 
