@@ -127,7 +127,7 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 ## Updating the Arduino Nano 33 BLE
 - **Find** _SimpleAccelerometer_ from the Example files in the **Arduino_LSM9DS1 folder**
 - IMPORTANT: **Save it as** _golf-swing-acc_
-- **Add the _if-else_ statements within the _void() loop_ as shown** 
+- **Add the _if-else_ statements within the _void() loop_ as shown.** (the rest is unchanged) 
   - The _if/else_ statement creates the _-0.85_ threshold between the Ready and Resting states.
 
 #### Code for the new _LOOP_ is here:
@@ -171,4 +171,4 @@ Swinging the club around won't put it into that Resting state unless it register
 # [Step Two: Enabling BLE -->](activity.md/#step-two-enabling-ble)
 [*[ <-- back to README ]*](README.md)
 [*[ Step One: Enabling the Accelerometer ]*](#step-one-the-accelerometer)
-[*[ next - Step Two: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
+[*[ (next) Step Two: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
