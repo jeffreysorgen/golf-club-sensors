@@ -171,4 +171,4 @@ Swinging the club around won't put it into that Resting state unless it register
 # [Step Two: Enabling BLE -->](activity.md/#step-two-enabling-ble)
 [*[ <-- back to README ]*](README.md)
 [*[ Step One: Enabling the Accelerometer ]*](#step-one-the-accelerometer)
-[*[ (next) Step Two: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
+[*[ next - Step Two: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
