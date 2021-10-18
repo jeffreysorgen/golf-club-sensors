@@ -59,13 +59,13 @@ While the flashlight functionality won't be used in the end, that solution is cr
   - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
   - **Qi coil** is a wireless charging device.
   - **CR1220** is a small, common coin-type battery
+  - **LIR2032H** is a common 3.7 rechargable, but 20mm, so like a nickel size.
 
 ### Current development solution
 - Connect the Arduino Sense (USBmicro female) to a power source.
-- Use a lightweight **phone recharger** to serve this purpose during development. 
-I can now connect with BLE and be _physically detached_ from my computer!
-Would just need a strap or pocket or something for it. 
-I'm using non-adhesive bandages wrapped around my wrist.
+- Use a lightweight **phone recharger** to serve this purpose during development. I can now connect with BLE and be _physically detached_ from my computer! Would just need a strap or pocket or something for it. I'm using non-adhesive bandages wrapped around my wrist.
+  - Normal rechargers auto-shutdown with low power drain, so this doesn't work.
+
 
 ### Description of current power solution
 
