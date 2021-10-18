@@ -74,11 +74,17 @@ I don't use the same wire because the recharger doesn't have the same USB-C conn
 The recharger can be tucked into a shirt sleeve or something like that. 
 For me, I've attached it to my wrist with a non-adhesive bandage. 
 
-##### IMAGE: battery charger tucked into non-adhesive wrap or a shirt sleeve and plugged in
-<p align="center"><img src="https://github.com/jeffreysorgen/golf-club-sensors/blob/320af4ae015480feec660b4041b665aa06a7305b/images/Sm-batterypack.png" width="20%"></p>
+- (1) Battery charger tucked into non-adhesive wrap or a shirt sleeve and plugged in 
+- (2) Trying the example again, the readings on my smartphone work exactly the same way. _Freedom!_
+  - **NO** Actually, the battery drain from the Nano to the phone recharger is too low so the recharger stops powering
+  - **NEED NEW BATTERY OPTION**
 
-Trying the example again, the readings on my smartphone work exactly the same way. _Freedom!_
+<p align="center"> 
+  (1) <img src="images/Sm-batterypack.png" width="20%"> 
+  (2) <img src="images/still-not-working.png" width="20%">
+</p>
 
+# Phone recharger has auto-shutdown if drain is too low.
 
 
 #
