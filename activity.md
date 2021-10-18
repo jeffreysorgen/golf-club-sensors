@@ -84,7 +84,7 @@ For me, I've attached it to my wrist with a non-adhesive bandage.
 
 
 
-
+#
 ### Our objective: 
 
 What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
