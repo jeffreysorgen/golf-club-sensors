@@ -75,7 +75,7 @@ The recharger can be tucked into a shirt sleeve or something like that.
 For me, I've attached it to my wrist with a non-adhesive bandage. 
 
 - (IMAGE: battery charger tucked into non-adhesive wrap like a shirt sleeve and plugged in) 
-<p align="center"><img src="http://some_place.com/battery-connection.png" /></p>
+<p align="center"><img src="images/sm-batterypack.png" /></p>
 
 
 
