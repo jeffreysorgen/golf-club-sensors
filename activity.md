@@ -77,10 +77,10 @@ For me, I've attached it to my wrist with a non-adhesive bandage.
 - (IMAGE: battery charger tucked into non-adhesive wrap like a shirt sleeve and plugged in) 
 <p align="center"><img src="images/sm-batterypack.png" /></p>
 
-<img src="images/sm-batterypack.png" width="20%">
+<img src="https://github.com/jeffreysorgen/golf-club-sensors/blob/320af4ae015480feec660b4041b665aa06a7305b/images/Sm-batterypack.png" width="20%">
 
 
-
+https://github.com/jeffreysorgen/golf-club-sensors/blob/320af4ae015480feec660b4041b665aa06a7305b/images/Sm-batterypack.png
 
 
 
