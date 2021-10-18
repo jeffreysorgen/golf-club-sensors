@@ -3,7 +3,7 @@
 [*[ Step Two: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
 [_[ --> open for Discussion! ]_](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
 
-[_[ jump to Battery Info --> ]_](#battery-info)
+[_[ jump to Battery Info --> ]_](#power-solutions)
 [_[ jump to new project ideas --> ]_](#jot-down-ideas-for-other-projects-here)
 
 ## To Do:
@@ -48,13 +48,12 @@ and then created a folder with the same name to put it into, because that's what
 - The _BLE+IMU_ section below is still in progress. I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting" and then once that's done, get my phone to turn its flashlight on as a result.
 
 
-
-## Battery Info:
-- rename to "Power Solutions"
+## Power Solutions:
+##### (Battery Info)
 
 ### Future prototyping solution
 - Later can build an obviously better solution.  
-- When 100% finished prototyping with my Arduino Nano 33 BLE Sense, I will be looking into using a different board, and a battery solution will definitely be a part of the research.
+- When 100% finished developing with my Arduino Nano 33 BLE Sense, I will be looking into using a different board, and a battery solution will definitely be a part of the research.
   - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
   - **Qi coil** is a wireless charging device.
   - **CR1220** is a small, common coin-type battery
@@ -65,7 +64,7 @@ and then created a folder with the same name to put it into, because that's what
   - So now I can connect with BLE and be _physically detached_ from my computer!
   - Would just need a strap or pocket or something for it. I'm using non-adhesive bandages wrapped around my wrist. (see image)
 
-#### Description of power solution
+#### Description of current power solution
 
 Now that we can see that it's been paired, it's time to disconnect from the computer.
 Originally I had to stay tethered to my computer. 
@@ -73,7 +72,8 @@ But now I have a lightweight phone recharger with a USB connection.
 I don't use the same wire because the recharger doesn't have the same USB-C connection as my computer. 
 The recharger can be tucked into a shirt sleeve or something like that. 
 I've attached it to my wrist with a non-adhesive bandage. 
-(IMAGE: battery charger tucked into non-adhesive wrap like a shirt sleeve and plugged in) 
+
+- (IMAGE: battery charger tucked into non-adhesive wrap like a shirt sleeve and plugged in) 
 <p align="center"><img src="http://some_place.com/battery-connection.png" /></p>
 
 
