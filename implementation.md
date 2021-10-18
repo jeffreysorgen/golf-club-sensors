@@ -1,14 +1,16 @@
 
-# Documenting my activity:
+# Implementation:
 
 **Learning about this:**
-- IMU sensors, **How to edit Arduino sketches!** C++
+- IMU sensors, **Working with BLE!** C++, data collection
 - GitHub Desktop, possibly GitBASH, KiCad, LTspice, OSHPARK
 - Arduino Components and code requirements
 
-[_[ jump to --> Implementation ]_](#implementation) 
-[_[ skip to --> Next steps ]_](activity.md)
-[_[ open for --> Discussion! ]_](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
+[*[ <-- back to Overview ]*](README.md)
+[*[ (next) Step One: Start with the Accelerometer ]*](#step-one-the-accelerometer)
+[*[ Step Two: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
+[_[ --> open for Discussion! ]_](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
+
 
 ## Completed:
 
@@ -43,13 +45,11 @@ _skip to
 19. **GitHub Markdown** Learned styling for tables, images and code block
 20. DOCUMENTED progress towards **battery** solution [_here_](activity.md#battery-info) (ongoing)
 21. Added code block and image from Monitor to this documentation. 
-22. COMPLETED Part One documentation, and it's time to move on to **adding BLE** to the system!
-23. Successfully copied the process of a YouTuber to add BLE services on the device.
+22. COMPLETED Part One documentation, and it's time to move on to [**adding BLE**](activity.md/#step-two-enabling-ble) to the system!
+23. Successfully [copied the process](activity.md/#try-the-ble-example-sketch) of a YouTuber to add BLE services on the device.
 
 
-# Implementation:
-
-### Flow for Golf Swing sensors:
+## Flow for Golf Swing sensors:
 
 - **BLE** is enabled when the device is powered, waits for pairing forever.
 - Pairs with phone app.
@@ -113,7 +113,7 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 1. powered on
 2. in the bag, so Resting state
 3. pulled out of the bag, senses Ready state
-4. at this point, **waits to settle** so it can begin recording motion [(in the next section)](activity.md)
+4. at this point, **waits to settle** so it can begin recording motion [(in the next (gyro) section)](activity.md#collect-gyro-data)
 
 #### As shown in the serial monitor:
 - The Resting state:
@@ -127,7 +127,7 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 ## Updating the Arduino Nano 33 BLE
 - **Find** _SimpleAccelerometer_ from the Example files in the **Arduino_LSM9DS1 folder**
 - IMPORTANT: **Save it as** _golf-swing-acc_
-- **Add the _if-else_ statements within the _void() loop_ as shown** 
+- **Add the _if-else_ statements within the _void() loop_ as shown.** (the rest is unchanged) 
   - The _if/else_ statement creates the _-0.85_ threshold between the Ready and Resting states.
 
 #### Code for the new _LOOP_ is here:
@@ -169,7 +169,6 @@ The goal was to basically create on/off states, accomplished here by using a thr
 Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason.
 
 # [Step Two: Enabling BLE -->](activity.md/#step-two-enabling-ble)
-### Implementing BLE
 [*[ <-- back to README ]*](README.md)
 [*[ Step One: Enabling the Accelerometer ]*](#step-one-the-accelerometer)
 [*[ next - Step Two: Enabling BLE ]*](activity.md/#step-two-enabling-ble)

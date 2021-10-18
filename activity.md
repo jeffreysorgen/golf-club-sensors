@@ -1,7 +1,9 @@
-[_[ <-- back to README ]_](README.md)
-[_[ <-- back to Implementation ]_](implementation.md)
+[*[ <-- back to Overview ]*](README.md)
+[*[ (previous) Step One: The Accelerometer ]*](implementation.md/#step-one-the-accelerometer)
+[*[ Step Two: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
+[_[ --> open for Discussion! ]_](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
 
-[_[ jump to Battery Info --> ]_](#battery-info)
+[_[ jump to Battery Info --> ]_](#power-solutions)
 [_[ jump to new project ideas --> ]_](#jot-down-ideas-for-other-projects-here)
 
 ## To Do:
@@ -9,7 +11,7 @@
 - Test it
 - Copy the code into _golf-swing-acc_
 
-[*[ Part Two: Enable BLE ]*](#step-two-enabling-ble)
+[*[ Step Two: Enable BLE ]*](#step-two-enabling-ble)
 [*[ Enable BLE and Accelerometer together ]*](#enable-accelerometer-together)
 [*[ Part Three: Enable Smartphone to BEEP ]*](#enable-smartphone-to-beep)
 
@@ -24,11 +26,10 @@ Before we can get it to chirp in response to a good or bad swing, the smartphone
 
 I found -[_**this video**_](https://youtu.be/2q_tA8v5l1Y)- from _Robocraze_ to be helpful, 
 and copied the `.ino` code from its [_accompanying GitHub repository_](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
-Then I right-clicked on _Raw_, and saved the file, 
+- I right-clicked on _Raw_, and saved the file, 
 and then created a folder with the same name to put it into, because that's what Arduino requires.
-
-I'm now going to upload the sketch to the device...
-**And it worked exactly as it does in that video.**
+- Upload the sketch to the device... _**And it works exactly as it does in that video.**_
+- This configuration reads information from the sensors and then simply displays that information in the phone app.
 
 #### To do this:
 
@@ -43,6 +44,61 @@ I'm now going to upload the sketch to the device...
 9. (App) Touch the "triple down arrow" <img src="images/3downarrows.png" width="20em" /> for each of the three services for this example
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 
+#### [*Next: combine BLE and IMU readings -->*](#our-objective)
+- The _BLE+IMU_ section below is still in progress. I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting" and then once that's done, get my phone to turn its flashlight on/off as a result.
+While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings.
+
+
+## Power Solutions:
+##### (Battery Info)
+
+### Future prototyping solution
+- Later can build an obviously better solution.  
+- When 100% finished developing with my Arduino Nano 33 BLE Sense, I will be looking into using a different board for prototyping, and a battery solution will definitely be a part of the research.
+  - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
+  - **Qi coil** is a wireless charging device.
+  - **CR1220** is a small, common coin-type battery
+
+### Current development solution
+- Connect the Arduino Sense (USBmicro female) to a power source.
+- Use a lightweight **phone recharger** to serve this purpose during development. 
+I can now connect with BLE and be _physically detached_ from my computer!
+Would just need a strap or pocket or something for it. 
+I'm using non-adhesive bandages wrapped around my wrist.
+
+### Description of current power solution
+
+Now that the Arduino has been paired via BLE to nRF Connect on the smartphone, it's time to disconnect the wire tether from the computer.
+For this, I am using a lightweight phone recharger with a USB connection. 
+I don't use the same wire because the recharger doesn't have the same USB-C connection as my computer. 
+The recharger can be tucked into a shirt sleeve or something like that. 
+For me, I've attached it to my wrist with a non-adhesive bandage. 
+
+- (IMAGE: battery charger tucked into non-adhesive wrap like a shirt sleeve and plugged in) 
+<p align="center"><img src="http://some_place.com/battery-connection.png" /></p>
+
+
+
+
+
+
+
+
+#
+### Our objective: 
+
+What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
+
+Sensor devices similar to the BLE Sense have been used to trigger audio to play from another device.
+The dog barking example from YouTube (here) is one. 
+So I need to use the matching code from that example and apply it for my purpose,
+which is to get nRF Connect to trigger actions in my phone.
+That microphone sensor created KWS model that triggered an app to play some prerecorded audio.
+And I want my accelerometer to trigger my phone flashlight on/off, because it senses _Ready/Resting_ states.
+
+It's important to enable this functionality so that I can... (do what?)
+
+#
 ### Combining BLE and IMU commands in the IDE
 - Copy _golf-swing-acc_ as _test-imu-sketch_ (done)
 - Communicate with smartphone by adding BLE functionality, line by line (done)
@@ -56,9 +112,9 @@ I'm now going to upload the sketch to the device...
   - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
   - Also go through the later lessons in _**EdX Deployment**_ class
   - Find out whether this needs to become **_peripheral_ rather than _central_**
-  - More below, in the "Next" section
-#
-### Modifying the file:
+  - More below, in the ["Next"](#next) section
+
+## Modifying the file:
 Top of sketch. First, add the two libraries.
 ```
 #include <ArduinoBLE.h>           // Bluetooth Library
@@ -234,9 +290,6 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 (screenshot of my phone screen with device listed)
 <p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
 
-### Battery
-Now that we can see that it's been paired, we can talk about our [battery solution](#battery-info). Originally I had to stay tethered to my computer. But now I have a lightweight phone recharger with the same USB-C connection.
-<p align="center"><img src="http://some_place.com/battery-connection.png" /></p>
 
 
 
@@ -274,7 +327,7 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
 - Make the smartphone beep in Ready state
 
 
-## Battery Info:
+## Battery Info: (old section)
 ### Prototyping solution
 - NEED connect to USBmicro female from the Arduino to a power source.
 - PURCHASED a lightweight **PHONE CHARGER** to serve this purpose during development. 
