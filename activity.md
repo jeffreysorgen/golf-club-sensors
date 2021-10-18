@@ -77,6 +77,8 @@ For me, I've attached it to my wrist with a non-adhesive bandage.
 - (IMAGE: battery charger tucked into non-adhesive wrap like a shirt sleeve and plugged in) 
 <p align="center"><img src="images/sm-batterypack.png" /></p>
 
+<img src="images/sm-batterypack.png" width="20%">
+
 
 
 
