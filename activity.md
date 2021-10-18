@@ -45,7 +45,8 @@ and then created a folder with the same name to put it into, because that's what
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 
 #### [*Next: combine BLE and IMU readings -->*](#our-objective)
-- The _BLE+IMU_ section below is still in progress. I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting" and then once that's done, get my phone to turn its flashlight on as a result.
+- The _BLE+IMU_ section below is still in progress. I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting" and then once that's done, get my phone to turn its flashlight on/off as a result.
+While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings.
 
 
 ## Power Solutions:
@@ -53,25 +54,25 @@ and then created a folder with the same name to put it into, because that's what
 
 ### Future prototyping solution
 - Later can build an obviously better solution.  
-- When 100% finished developing with my Arduino Nano 33 BLE Sense, I will be looking into using a different board, and a battery solution will definitely be a part of the research.
+- When 100% finished developing with my Arduino Nano 33 BLE Sense, I will be looking into using a different board for prototyping, and a battery solution will definitely be a part of the research.
   - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
   - **Qi coil** is a wireless charging device.
   - **CR1220** is a small, common coin-type battery
 
 ### Current development solution
-- Connect the USBmicro female from the Arduino Sense to a power source. (done)
-- Use a lightweight **PHONE CHARGER** to serve this purpose during development. (done)
-  - So now I can connect with BLE and be _physically detached_ from my computer!
-  - Would just need a strap or pocket or something for it. I'm using non-adhesive bandages wrapped around my wrist. (see image)
+- Connect the Arduino Sense (USBmicro female) to a power source.
+- Use a lightweight **phone recharger** to serve this purpose during development. 
+I can now connect with BLE and be _physically detached_ from my computer!
+Would just need a strap or pocket or something for it. 
+I'm using non-adhesive bandages wrapped around my wrist.
 
-#### Description of current power solution
+### Description of current power solution
 
-Now that we can see that it's been paired, it's time to disconnect from the computer.
-Originally I had to stay tethered to my computer. 
-But now I have a lightweight phone recharger with a USB connection. 
+Now that the Arduino has been paired via BLE to nRF Connect on the smartphone, it's time to disconnect the wire tether from the computer.
+For this, I am using a lightweight phone recharger with a USB connection. 
 I don't use the same wire because the recharger doesn't have the same USB-C connection as my computer. 
 The recharger can be tucked into a shirt sleeve or something like that. 
-I've attached it to my wrist with a non-adhesive bandage. 
+For me, I've attached it to my wrist with a non-adhesive bandage. 
 
 - (IMAGE: battery charger tucked into non-adhesive wrap like a shirt sleeve and plugged in) 
 <p align="center"><img src="http://some_place.com/battery-connection.png" /></p>
