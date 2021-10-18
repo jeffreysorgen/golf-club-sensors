@@ -51,6 +51,7 @@ While the flashlight functionality won't be used in the end, that solution is cr
 
 ## Power Solutions:
 ##### (Battery Info)
+##### [more stuff](#more-stuff) (temp)
 
 ### Future prototyping solution
 - Later can build an obviously better solution.  
@@ -85,7 +86,15 @@ For me, I've attached it to my wrist with a non-adhesive bandage.
 </p>
 
 # Phone recharger has auto-shutdown if drain is too low.
-
+Setting up a stacked solution: 
+- Big battery charger charging my battery pack makes it truly independent of the computer
+- But I tested this solution using the _magic want_ exercise from the TinyML course
+  - The Chrome programming on that website allowed the Nano to connect to my computer via Bluetooth
+  - In this case, I was disconnected, using the double-battery configuration
+- Evidently, the _RoboCraze_ solution continued to use the cable plugged into the computer, and seems to be reliant on that particular configuration
+  - nRF Connect on Phone --> Arduino which is still powered by computer USB cable
+  - I don't know whether there was truly a disconnection there?
+- So, what other smartphone BLE options are out there? Is nRF Connect the most common? It's Nordic Semi so it seems logical to keep using it.
 
 #
 ### Our objective: 
