@@ -45,6 +45,19 @@ and then created a folder with the same name to put it into, because that's what
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 
 
+
+### Battery
+Now that we can see that it's been paired, we can talk about our [battery solution](#battery-info). Originally I had to stay tethered to my computer. But now I have a lightweight phone recharger with the same USB-C connection. The recharger can be tucked into a shirt sleeve or something like that. I've attached it to my wrist with a non-adhesive bandage. (IMAGE: battery charger tucked into non-adhesive wrap like a shirt sleeve and plugged in) 
+<p align="center"><img src="http://some_place.com/battery-connection.png" /></p>
+
+
+
+
+
+
+
+
+
 ### Our objective: 
 
 What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
@@ -250,9 +263,6 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 (screenshot of my phone screen with device listed)
 <p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
 
-### Battery
-Now that we can see that it's been paired, we can talk about our [battery solution](#battery-info). Originally I had to stay tethered to my computer. But now I have a lightweight phone recharger with the same USB-C connection.
-<p align="center"><img src="http://some_place.com/battery-connection.png" /></p>
 
 
 
