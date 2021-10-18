@@ -44,10 +44,36 @@ and then created a folder with the same name to put it into, because that's what
 9. (App) Touch the "triple down arrow" <img src="images/3downarrows.png" width="20em" /> for each of the three services for this example
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 
+#### [*Next: combine BLE and IMU readings -->*](#our-objective)
+- The _BLE+IMU_ section below is still in progress. I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting" and then once that's done, get my phone to turn its flashlight on as a result.
 
 
-### Battery
-Now that we can see that it's been paired, we can talk about our [battery solution](#battery-info). Originally I had to stay tethered to my computer. But now I have a lightweight phone recharger with the same USB-C connection. The recharger can be tucked into a shirt sleeve or something like that. I've attached it to my wrist with a non-adhesive bandage. (IMAGE: battery charger tucked into non-adhesive wrap like a shirt sleeve and plugged in) 
+
+## Battery Info:
+- rename to "Power Solutions"
+
+### Future prototyping solution
+- Later can build an obviously better solution.  
+- When 100% finished prototyping with my Arduino Nano 33 BLE Sense, I will be looking into using a different board, and a battery solution will definitely be a part of the research.
+  - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
+  - **Qi coil** is a wireless charging device.
+  - **CR1220** is a small, common coin-type battery
+
+### Current development solution
+- Connect the USBmicro female from the Arduino Sense to a power source. (done)
+- Use a lightweight **PHONE CHARGER** to serve this purpose during development. (done)
+  - So now I can connect with BLE and be _physically detached_ from my computer!
+  - Would just need a strap or pocket or something for it. I'm using non-adhesive bandages wrapped around my wrist. (see image)
+
+#### Description of power solution
+
+Now that we can see that it's been paired, it's time to disconnect from the computer.
+Originally I had to stay tethered to my computer. 
+But now I have a lightweight phone recharger with a USB connection. 
+I don't use the same wire because the recharger doesn't have the same USB-C connection as my computer. 
+The recharger can be tucked into a shirt sleeve or something like that. 
+I've attached it to my wrist with a non-adhesive bandage. 
+(IMAGE: battery charger tucked into non-adhesive wrap like a shirt sleeve and plugged in) 
 <p align="center"><img src="http://some_place.com/battery-connection.png" /></p>
 
 
@@ -300,7 +326,7 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
 - Make the smartphone beep in Ready state
 
 
-## Battery Info:
+## Battery Info: (old section)
 ### Prototyping solution
 - NEED connect to USBmicro female from the Arduino to a power source.
 - PURCHASED a lightweight **PHONE CHARGER** to serve this purpose during development. 
