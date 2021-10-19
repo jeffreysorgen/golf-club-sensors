@@ -16,14 +16,14 @@ Before we can get it to chirp in response to a good or bad swing, the smartphone
 
 I found -[_**this video**_](https://youtu.be/2q_tA8v5l1Y)- from _Robocraze_ to be helpful, 
 and copied the code from its [**accompanying GitHub repository**](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
-_(Right-click on _Raw_, save the `.ino` file, and drop into same-name folder, as required by Arduino.)_
 This example reads information from the sensors and then simply displays it in the phone app. Upload the sketch to the device... _**And it works exactly as it does in that video.**_ But there is a [*caveat*](#caveat) I discovered for this example.
 
 
 #### To do this:
 
 1. Download _nRF Connect_ from **Google Play** (also available for iOS)
-2. Find the `environment_sensor_ble.ino` file from the _Robocraze_ repository and copy it locally.
+2. Find the `environment_sensor_ble.ino` file from the _Robocraze_ repository and copy it locally. 
+_(Right-click on _Raw_, save the file, and drop into same-name folder, as required by Arduino.)_
 3. Upload the _environment_sensor_ble_ sketch to the device
 4. Open the serial monitor, watch for "Disconnected from central..."
 5. (App) Open the phone app, _nRF Connect_, and enable Bluetooth
@@ -36,7 +36,7 @@ This example reads information from the sensors and then simply displays it in t
 ##### Caveat:
 - If USB cable remains plugged into the computer I **can** discover _"Arduino Environment Sensor"_ in nRF Connect
 - Using **battery-only** solution, was **not** able to discover _"Arduino Environment Sensor"_ in nRF Connect 
-- For the _magic-wand_ example, using battery-only solution, the computer can discover the BLE service as expected
+- For the _magic-wand_ example, using battery-only solution, the computer **can** discover the BLE service as expected
 - I could troubleshoot the _RoboCraze_ code, but I am going to find a different example instead
 - _nRF Connect_ isn't the only phone app that might suit my purpose, but it _**is** Nordic Semi_
 
