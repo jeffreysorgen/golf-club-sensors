@@ -36,7 +36,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 ##### Caveat:
 - If USB cable remains plugged into the computer I **can** discover _"Arduino Environment Sensor"_ in nRF Connect
 - Using **battery-only** solution, was **not** able to discover _"Arduino Environment Sensor"_ in nRF Connect 
-- For the **[_magic-wand_](#more-stuff)** example, using battery-only solution, the computer **can** discover the BLE service as expected
+- For the **[_magic-wand_](#more-stuff)** example, using battery-only solution, the computer **can** discover the BLE service as expected (Chrome browser)
 - I could troubleshoot the _RoboCraze_ code, but I am going to find a different example instead
 - _nRF Connect_ isn't the only phone app that might suit my purpose, but it _**is** Nordic Semi_
 
@@ -56,13 +56,26 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
   - **LIR2032H** is a common 3.7 rechargable, but 20mm, so like a nickel size.
 
 
-### Current development solution
-- Connect the Arduino Sense (USBmicro female) to a power source.
-- Use a lightweight **phone recharger** to serve this purpose during development. I can now connect with BLE and be _physically detached_ from my computer! Would just need a strap or pocket or something for it. I'm using non-adhesive bandages wrapped around my wrist. 
 
-**However:**
-- Normal rechargers auto-shutdown with low power drain, so this doesn't work.
-- The example (YouTuber) BLE sketch did not work without being connected to a computer. 
+
+
+
+
+### Current development solution
+- **Connect with only BLE and be _physically detached_ from the computer.**
+- Connect the Arduino Sense (USBmicro female) to a power source.
+- Use a lightweight **phone recharger** to serve this purpose during development.  
+- Normal rechargers auto-shutoff with low power drain, so this won't work by itself.
+  - **Charging my phone at the same time will prevent this auto-shuttoff** 
+
+##### Current battery solution:
+<p align="center"><img src="http://some_place.com/pic-of-battery-solution.png" /></p>
+
+
+
+
+#
+#### Two solutions from the TinyML course:
 - The Arduino device was able to connect via BLE to my computer using the _magic wand_ [example](#more-stuff), from the TinyML course.
   - In this case, the device connected quickly enough prior to the auto-shutoff of the battery pack
   - The Chrome browser functionality was reliable enough to connect
@@ -79,9 +92,8 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 
 Now that the Arduino has been paired via BLE to nRF Connect on the smartphone, it's time to disconnect the wire tether from the computer.
 For this, I am using a lightweight phone recharger with a USB connection. 
-I don't use the same wire because the recharger doesn't have the same USB-C connection as my computer. 
-The recharger can be tucked into a shirt sleeve or something like that. 
-For me, I've attached it to my wrist with a non-adhesive bandage. 
+Not the same wire as the computer because the recharger doesn't have the same USB-C connection. 
+
 
 - (1) Battery charger tucked into non-adhesive wrap or a shirt sleeve and plugged in 
 - (2) Trying the example again, the readings on my smartphone work exactly the same way. _Freedom!_
