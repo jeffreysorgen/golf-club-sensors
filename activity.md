@@ -56,16 +56,26 @@ While the flashlight functionality won't be used in the end, that solution is cr
 ### Future prototyping solution
 - Later can build an obviously better solution.  
 - When 100% finished developing with my Arduino Nano 33 BLE Sense, I will be looking into using a different board for prototyping, and a battery solution will definitely be a part of the research.
+  - The board needs to include:
+    - Specific sensors: (1) IMU (2) microphone
+    - Solvable battery option
+- Battery options:
   - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
   - **Qi coil** is a wireless charging device.
   - **CR1220** is a small, common coin-type battery
   - **LIR2032H** is a common 3.7 rechargable, but 20mm, so like a nickel size.
 
+
 ### Current development solution
 - Connect the Arduino Sense (USBmicro female) to a power source.
 - Use a lightweight **phone recharger** to serve this purpose during development. I can now connect with BLE and be _physically detached_ from my computer! Would just need a strap or pocket or something for it. I'm using non-adhesive bandages wrapped around my wrist.
   - Normal rechargers auto-shutdown with low power drain, so this doesn't work.
-  - [**This**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md) might be a good place to read about this.
+  - The example (YouTuber) BLE sketch did not work without being connected to a computer. However, the Nano was able to connect via BLE to my computer using a different BLE example, the _magic wand_, from the TinyML course.
+    - In this case, the device connected quickly enough prior to the auto-shutoff of the battery pack
+    - This is a case where the computer (Chrome browser) functionality was reliable enough to connect
+    - **Must try other BLE examples** 
+- Use a 9V battery with the Learning Kit Shield
+  - [**This**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md) is a good place to read about this.
 
 
 ### Description of current power solution
