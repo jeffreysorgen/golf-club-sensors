@@ -1,3 +1,5 @@
+- delete photo
+
 [*[ <-back to Overview ]*](README.md)
 [*[ (previous) Step One: The Accelerometer ]*](implementation.md/#step-one-the-accelerometer)
 **[[ Step Two: Enable BLE ]](#step-two-enabling-ble)**
@@ -9,7 +11,6 @@
 ## Step Two: Enabling BLE
 
 #### Description
-
 Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app that I downloaded from Google Play called _nRF Connect_. I'm going to go through the process of getting that started right here.
 
 ### Try the BLE example sketch
@@ -31,13 +32,17 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 8. Watch Monitor again for services to pop up
 9. (App) Touch the "triple down arrow" <img src="images/3downarrows.png" width="20em" /> for each of the three services for this example
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
-
 ##### Caveat:
 - If USB cable remains plugged into the computer I **can** discover _"Arduino Environment Sensor"_ in nRF Connect
-- Using **battery-only** solution, was **not** able to discover _"Arduino Environment Sensor"_ in nRF Connect 
+- Using a **battery-only** solution, was **not** able to discover _"Arduino Environment Sensor"_ in nRF Connect 
 - For the **[_magic-wand_](#digging-deeper-into-the-magic-wand)** example, using battery-only solution, the computer **can** discover the BLE service as expected
 - I could troubleshoot the _RoboCraze_ code, but I am going to find a different example instead
+  - Evidently, the _RoboCraze_ solution kept the cable plugged into the computer, and seems to be reliant on that particular configuration (edit this)
+  - nRF Connect on Phone --> Arduino which is still powered by computer USB cable (edit this)
+  - I don't know whether there was truly a disconnection there? (edit this)
 - _nRF Connect_ isn't the only phone app that might suit my purpose, but it _**is** Nordic Semi_
+
+
 
 ## Power Solutions
 ##### (Battery Info)
@@ -54,7 +59,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 
 ### Current development solution
 - **Connect with only BLE and be _physically detached_ from the computer.**
-- Connect the Arduino Sense (USBmicro port) to a power source.
+- Attach the Arduino Sense (USBmicro port) to a power source.
 - Use a lightweight **phone recharger** to serve this purpose during development.  
 - Normal rechargers auto-shutoff with low power drain, so this won't work by itself.
   - **Charging my phone at the same time will prevent this auto-shutoff** 
@@ -64,60 +69,24 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 
 ### Alternate development solution
 - This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
-- There's a power solution in the TinyML Course, attaching a 9V battery to the Learning Kit Shield. 
+- There's a power solution in the TinyML Course, attaching a 9V battery to the **Learning Kit Shield**. 
   - This [**Appendix**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
   - It's certainly not going to be for swinging around, but it is proof that there's a pinout solution.
   - It's a good example for a stationary device.
 
 
 
+#
+## Finding a simple BLE solution
+
+Now that we have a [development](#current-development-solution) power solution to untether ourselves from our computer, we can try out other BLE examples, and find a BLE sketch works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_.
+
+#
+
+
 
 #
 #
-
-
-
-
-
-
-
-**Meanwhile:**
-- Move beyond the battery issues.
-- **Try out other BLE examples** to find out if a different BLE sketch works better than the YouTuber one.
-
-
-### Description of current power solution
-
-Now that the Arduino has been paired via BLE to nRF Connect on the smartphone, it's time to disconnect the wire tether from the computer.
-For this, I am using a lightweight phone recharger with a USB connection. 
-Not the same wire as the computer because the recharger doesn't have the same USB-C connection. 
-
-
-- (1) Battery charger tucked into non-adhesive wrap or a shirt sleeve and plugged in 
-- (2) Trying the example again, the readings on my smartphone work exactly the same way. _Freedom!_
-  - **NO** Actually, the battery drain from the Nano to the phone recharger is too low so the recharger stops powering
-  - **NEED NEW BATTERY OPTION**
-
-<p align="center"> 
-  (1) <img src="images/Sm-batterypack.png" width="20%"> 
-  (2) <img src="images/still-not-working.png" width="20%">
-</p>
-
-
-
-
-
-
-# Phone recharger has auto-shutdown if drain is too low.
-Setting up a stacked solution: 
-- Big battery charger charging my battery pack makes it truly independent of the computer
-
-
-
-
-- Evidently, the _RoboCraze_ solution continued to use the cable plugged into the computer, and seems to be reliant on that particular configuration
-  - nRF Connect on Phone --> Arduino which is still powered by computer USB cable
-  - I don't know whether there was truly a disconnection there?
 
 
 ##### So...
