@@ -41,7 +41,6 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 - _nRF Connect_ isn't the only phone app that might suit my purpose, but it _**is** Nordic Semi_
 
 
-
 ## Power Solutions
 ##### (Battery Info)
 
@@ -65,7 +64,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 ##### Current battery solution:
 <p align="center"><img src="http://some_place.com/pic-of-battery-solution.png" /></p>
 
-### Alternate development solution
+### Alternative development solution
 - This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
 - There's a power solution in the TinyML Course, attaching a 9V battery to the **Learning Kit Shield**. 
   - This [**Appendix**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
@@ -73,29 +72,19 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
   - It's a good example for a stationary device.
 
 
-
 #
-## Finding a simple BLE solution
+#
 
+## Finding a simple BLE solution
 Now that we have a [development](#current-development-solution) power solution to untether ourselves from our computer, we can try out other BLE examples, and find a BLE sketch works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_.
 
-#
+- First check to see if _test-imu-sketch_ working with the battery solution.
 
-
-
-#
-#
-
-
-##### So...
-What other smartphone BLE options are out there? Is nRF Connect the most common? It's Nordic Semi so it seems logical to keep using it.
+- What other smartphone BLE options are out there? Is nRF Connect the most common? It's Nordic Semi so it seems logical to keep using it.
 
 
 #
-
-
-#
-#### Next: combine BLE and IMU readings
+### Combine BLE and IMU readings
 - The _BLE+IMU_ section below is still in progress. I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting" and then once that's done, get my phone to turn its flashlight on/off as a result.
 While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings.
 
