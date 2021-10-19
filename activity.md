@@ -1,21 +1,10 @@
-[*[ <-- back to Overview ]*](README.md)
+[*[ <-back to Overview ]*](README.md)
 [*[ (previous) Step One: The Accelerometer ]*](implementation.md/#step-one-the-accelerometer)
-[*[ Step Two: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
-[_[ --> open for Discussion! ]_](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
-
-[_[ jump to Battery Info --> ]_](#power-solutions)
-[_[ jump to new project ideas --> ]_](#jot-down-ideas-for-other-projects-here)
-
-## To Do:
-- Check [_What if_](#what-if) for solution.
-- Save a copy of the example sketch as _ble-sense_
-- Test it
-- Copy the code into _golf-swing-acc_
-
-[*[ Step Two: Enable BLE ]*](#step-two-enabling-ble)
-[*[ Enable BLE and Accelerometer together ]*](#enable-accelerometer-together)
-[*[ Part Three: Enable Smartphone to BEEP ]*](#enable-smartphone-to-beep)
-
+**[[ Step Two: Enable BLE ]](#step-two-enabling-ble)**
+[*[ Battery solution ]*](#power-solutions)
+[*[ Step Three: BLE+IMU together ]*](#enable-accelerometer-together)
+[*[ Step Four: Enable Smartphone to BEEP ]*](#enable-smartphone-to-beep)
+[_[ jump to new project ideas-> ]_](#jot-down-ideas-for-other-projects-here)
 
 ## Step Two: Enabling BLE
 
@@ -26,11 +15,10 @@ Before we can get it to chirp in response to a good or bad swing, the smartphone
 ### Try the BLE example sketch
 
 I found -[_**this video**_](https://youtu.be/2q_tA8v5l1Y)- from _Robocraze_ to be helpful, 
-and copied the `.ino` code from its [_accompanying GitHub repository_](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
-- I right-clicked on _Raw_, and saved the file, 
-and then created a folder with the same name to put it into, because that's what Arduino requires.
-- Upload the sketch to the device... _**And it works exactly as it does in that video.**_ But there is a [*caveat*](#caveat) I discovered for this example.
-- This configuration reads information from the sensors and then simply displays that information in the phone app.
+and copied the code from its [**accompanying GitHub repository**](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
+_(Right-click on _Raw_, save the `.ino` file, and drop into same-name folder, as required by Arduino.)_
+This example reads information from the sensors and then simply displays it in the phone app. Upload the sketch to the device... _**And it works exactly as it does in that video.**_ But there is a [*caveat*](#caveat) I discovered for this example.
+
 
 #### To do this:
 
