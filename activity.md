@@ -71,7 +71,7 @@ While the flashlight functionality won't be used in the end, that solution is cr
 **However:**
 - Normal rechargers auto-shutdown with low power drain, so this doesn't work.
 - The example (YouTuber) BLE sketch did not work without being connected to a computer. 
-- The Arduino device was able to connect via BLE to my computer using the _magic wand_ example from the TinyML course.
+- The Arduino device was able to connect via BLE to my computer using the _magic wand_ [example](#more-stuff), from the TinyML course.
   - In this case, the device connected quickly enough prior to the auto-shutoff of the battery pack
   - The Chrome browser functionality was reliable enough to connect
 - There's a power solution in the TinyML Course attaching a 9V battery to the Learning Kit Shield. This [**Appendix**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
@@ -111,6 +111,11 @@ Setting up a stacked solution:
   - nRF Connect on Phone --> Arduino which is still powered by computer USB cable
   - I don't know whether there was truly a disconnection there?
 - So, what other smartphone BLE options are out there? Is nRF Connect the most common? It's Nordic Semi so it seems logical to keep using it.
+
+##### What if:
+- What if I am charging both phone and Arduino at the same time?
+- The small recharger has two ports.
+- It will not shut off while it's charging the phone.
 
 #
 ### Our objective: 
