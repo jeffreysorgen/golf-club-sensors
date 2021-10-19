@@ -7,6 +7,7 @@
 [_[ jump to new project ideas --> ]_](#jot-down-ideas-for-other-projects-here)
 
 ## To Do:
+- Check [_What if_](#what-if) for solution.
 - Save a copy of the example sketch as _ble-sense_
 - Test it
 - Copy the code into _golf-swing-acc_
