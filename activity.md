@@ -35,7 +35,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 ##### Caveat:
 - If USB cable remains plugged into the computer I **can** discover _"Arduino Environment Sensor"_ in nRF Connect
 - Using **battery-only** solution, was **not** able to discover _"Arduino Environment Sensor"_ in nRF Connect 
-- For the **[_magic-wand_](#digging-deeper-into-the-magic-wand)** example, using battery-only solution, the computer **can** discover the BLE service as expected (Chrome browser)
+- For the **[_magic-wand_](#digging-deeper-into-the-magic-wand)** example, using battery-only solution, the computer **can** discover the BLE service as expected
 - I could troubleshoot the _RoboCraze_ code, but I am going to find a different example instead
 - _nRF Connect_ isn't the only phone app that might suit my purpose, but it _**is** Nordic Semi_
 
