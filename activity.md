@@ -114,6 +114,7 @@ Setting up a stacked solution:
 - So, what other smartphone BLE options are out there? Is nRF Connect the most common? It's Nordic Semi so it seems logical to keep using it.
 
 ##### What if:
+**This IS a solution to avoid recharger shutting down.**
 - What if I am charging both phone and Arduino at the same time?
 - The small recharger has two ports.
 - It will not shut off while it's charging the phone.
