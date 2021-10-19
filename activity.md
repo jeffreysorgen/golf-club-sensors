@@ -18,7 +18,6 @@ I found -[_**this video**_](https://youtu.be/2q_tA8v5l1Y)- from _Robocraze_ to b
 and copied the code from its [**accompanying GitHub repository**](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
 This example reads information from the sensors and then simply displays it in the phone app. Upload the sketch to the device... _**And it works exactly as it does in that video.**_ But there is a [*caveat*](#caveat) I discovered for this example.
 
-
 #### To do this:
 
 1. Download _nRF Connect_ from **Google Play** (also available for iOS)
@@ -40,8 +39,6 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 - I could troubleshoot the _RoboCraze_ code, but I am going to find a different example instead
 - _nRF Connect_ isn't the only phone app that might suit my purpose, but it _**is** Nordic Semi_
 
-
-
 ## Power Solutions
 ##### (Battery Info)
 
@@ -55,12 +52,6 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
   - **CR1220** is a small, common coin-type battery
   - **LIR2032H** is a common 3.7 rechargable, but 20mm, so like a nickel size.
 
-
-
-
-
-
-
 ### Current development solution
 - **Connect with only BLE and be _physically detached_ from the computer.**
 - Connect the Arduino Sense (USBmicro port) to a power source.
@@ -71,7 +62,6 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 ##### Current battery solution:
 <p align="center"><img src="http://some_place.com/pic-of-battery-solution.png" /></p>
 
-
 ### Alternate development solution
 - This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
 - There's a power solution in the TinyML Course, attaching a 9V battery to the Learning Kit Shield. 
@@ -81,14 +71,14 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 
 
 
+
 #
-#### Two solutions from the TinyML course:
+#
+#### From the TinyML course:
 - The Arduino device was able to connect via BLE to my computer using the _magic wand_ [example](#more-stuff), from the TinyML course.
   - In this case, the device connected quickly enough prior to the auto-shutoff of the battery pack
   - The Chrome browser functionality was reliable enough to connect
-- There's a power solution in the TinyML Course attaching a 9V battery to the Learning Kit Shield. This [**Appendix**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
-  - It's certainly not going to be for swinging around, but it is proof that there's a pinout solution.
-  - It's a good example for a stationary device. Therefore, I'm inclined to search for a specific development board containing IMU, microphone, and a good battery option. 
+
 
 **Meanwhile:**
 - Move beyond the battery issues.
@@ -112,22 +102,26 @@ Not the same wire as the computer because the recharger doesn't have the same US
   (2) <img src="images/still-not-working.png" width="20%">
 </p>
 
+
+
+
+
+
 # Phone recharger has auto-shutdown if drain is too low.
 Setting up a stacked solution: 
 - Big battery charger charging my battery pack makes it truly independent of the computer
-- But I tested this solution using the _magic want_ exercise from the TinyML course
-  - The Chrome programming on that website allowed the Nano to connect to my computer via Bluetooth
-  - In this case, I was disconnected, using the double-battery configuration
+
+
+
+
 - Evidently, the _RoboCraze_ solution continued to use the cable plugged into the computer, and seems to be reliant on that particular configuration
   - nRF Connect on Phone --> Arduino which is still powered by computer USB cable
   - I don't know whether there was truly a disconnection there?
-- So, what other smartphone BLE options are out there? Is nRF Connect the most common? It's Nordic Semi so it seems logical to keep using it.
 
-##### What if:
-**This IS a solution to avoid recharger shutting down.**
-- What if I am charging both phone and Arduino at the same time?
-- The small recharger has two ports.
-- It will not shut off while it's charging the phone.
+
+##### So...
+What other smartphone BLE options are out there? Is nRF Connect the most common? It's Nordic Semi so it seems logical to keep using it.
+
 
 #
 
@@ -384,17 +378,6 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
 - Make the smartphone beep in Ready state
 
 
-## Battery Info: (old section)
-### Prototyping solution
-- NEED connect to USBmicro female from the Arduino to a power source.
-- PURCHASED a lightweight **PHONE CHARGER** to serve this purpose during development. 
-  - So now I can connect with BLE and be _physically detached_ from my computer!
-  - Would just need a strap or pocket or something for it. 
-- Later can build an obviously better solution.  
-- When 100% finished prototyping with my Arduino Nano 33 BLE Sense, I will be looking into using a different board, and a battery solution will definitely be a part of the research.
-  - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
-  - **Qi coil** is a wireless charging device.
-  - CR1220 is common cell-type battery
 
 
 ## Reference Info:
@@ -402,6 +385,25 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
 - For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
 - Create an _interval_ for some sensor readings, using `millis()` not `delay()`. But `delay()` is good during Resting state, because all sensors are meant to be off.
 - Found [**this**](https://youtu.be/v5hBjouFHQY) video about how the BLE Sense triggered other devices. (dog bark example)
+- _**Magic Wand**_ [example](#digging-deeper-into-the-magic-wand)
+
+
+### Digging deeper into the _magic wand_:
+##### (more stuff)
+- **LEARN** 
+[from the course](https://learning.edx.org/course/course-v1:HarvardX+TinyML3+1T2021/block-v1:HarvardX+TinyML3+1T2021+type@sequential+block@e355a78c0dcd49b6acbeeaf8f7492859/block-v1:HarvardX+TinyML3+1T2021+type@vertical+block@6e2f8e18dd814e63ad68f60e380b6633)
+about the _magic-wand_ sketch to see how the DATA is recorded there and what gets transmitted to the Serial Monitor, and then how that data displays on the Monitor from that data. What converts that data to the 'readable' visualization of the motion?
+[**This** is the link to the course data collection browser app (use Chrome)](https://tinyml.seas.harvard.edu/magic_wand/).
+- **TEST the motion of the gyro/acc.** Can this motion show up on the Plotter or Monitor? What does this motion look like for gyro/acc individually? Is it helpful to sample the data more slowly for better visualization?
+- HOW does this data get recorded into a data point? We recorded a data set for the Exercise. So _how was that collected?_
+- **_Can this activity happen LOCALLY?_** Because the exercise actually resided on _tinymlx.io_ or something. And that's where all the data got generated.
+- **How much reliance upon external websites is necessary? Why not ALL local?**
+
+
+
+
+
+
 
 
 #
@@ -432,17 +434,6 @@ What are the specific physical instruments needed to determine whether the motio
   - Will fewer data points save memory? Is it necessary? (No, for now)
 - Collect some data, and **then stop** when the Gyro is still again to SAVE THE DATA.
 
-
-# more stuff
-
-- **LEARN** 
-[from the course](https://learning.edx.org/course/course-v1:HarvardX+TinyML3+1T2021/block-v1:HarvardX+TinyML3+1T2021+type@sequential+block@e355a78c0dcd49b6acbeeaf8f7492859/block-v1:HarvardX+TinyML3+1T2021+type@vertical+block@6e2f8e18dd814e63ad68f60e380b6633)
-about the _magic-wand_ sketch to see how the DATA is recorded there and what gets transmitted to the Serial Monitor, and then how that data displays on the Monitor from that data. What converts that data to the 'readable' visualization of the motion?
-[**This** is the link to the course data collection browser app (use Chrome)](https://tinyml.seas.harvard.edu/magic_wand/).
-- **TEST the motion of the gyro/acc.** Can this motion show up on the Plotter or Monitor? What does this motion look like for gyro/acc individually? Is it helpful to sample the data more slowly for better visualization?
-- HOW does this data get recorded into a data point? We recorded a data set for the Exercise. So _how was that collected?_
-- **_Can this activity happen LOCALLY?_** Because the exercise actually resided on _tinymlx.io_ or something. And that's where all the data got generated.
-- **How much reliance upon external websites is necessary? Why not ALL local?**
 
 
 ## Then:
