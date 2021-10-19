@@ -1,5 +1,3 @@
-- delete photo
-
 [*[ <-back to Overview ]*](README.md)
 [*[ (previous) Step One: The Accelerometer ]*](implementation.md/#step-one-the-accelerometer)
 **[[ Step Two: Enable BLE ]](#step-two-enabling-ble)**
