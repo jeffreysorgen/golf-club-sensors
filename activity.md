@@ -56,9 +56,7 @@ While the flashlight functionality won't be used in the end, that solution is cr
 ### Future prototyping solution
 - Later can build an obviously better solution.  
 - When 100% finished developing with my Arduino Nano 33 BLE Sense, I will be looking into using a different board for prototyping, and a battery solution will definitely be a part of the research.
-  - The board needs to include:
-    - Specific sensors: (1) IMU (2) microphone
-    - Solvable battery option
+  - The board needs to include (1) an IMU, (2) a microphone, and (3) a solvable battery option
 - Battery options:
   - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
   - **Qi coil** is a wireless charging device.
@@ -68,14 +66,21 @@ While the flashlight functionality won't be used in the end, that solution is cr
 
 ### Current development solution
 - Connect the Arduino Sense (USBmicro female) to a power source.
-- Use a lightweight **phone recharger** to serve this purpose during development. I can now connect with BLE and be _physically detached_ from my computer! Would just need a strap or pocket or something for it. I'm using non-adhesive bandages wrapped around my wrist.
-  - Normal rechargers auto-shutdown with low power drain, so this doesn't work.
-  - The example (YouTuber) BLE sketch did not work without being connected to a computer. However, the Nano was able to connect via BLE to my computer using a different BLE example, the _magic wand_, from the TinyML course.
-    - In this case, the device connected quickly enough prior to the auto-shutoff of the battery pack
-    - This is a case where the computer (Chrome browser) functionality was reliable enough to connect
-    - **Must try other BLE examples** 
-- Use a 9V battery with the Learning Kit Shield
-  - [**This**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md) is a good place to read about this.
+- Use a lightweight **phone recharger** to serve this purpose during development. I can now connect with BLE and be _physically detached_ from my computer! Would just need a strap or pocket or something for it. I'm using non-adhesive bandages wrapped around my wrist. 
+
+**However:**
+- Normal rechargers auto-shutdown with low power drain, so this doesn't work.
+- The example (YouTuber) BLE sketch did not work without being connected to a computer. 
+- The Arduino device was able to connect via BLE to my computer using the _magic wand_ example from the TinyML course.
+  - In this case, the device connected quickly enough prior to the auto-shutoff of the battery pack
+  - The Chrome browser functionality was reliable enough to connect
+- There's a power solution in the TinyML Course attaching a 9V battery to the Learning Kit Shield. This [**Appendix**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
+  - It's certainly not going to be for swinging around, but it is proof that there's a pinout solution.
+  - It's a good example for a stationary device. Therefore, I'm inclined to search for a specific development board containing IMU, microphone, and a good battery option. 
+
+**Meanwhile:**
+- Move beyond the battery issues.
+- **Try out other BLE examples** to find out if a different BLE sketch works better than the YouTuber one.
 
 
 ### Description of current power solution
