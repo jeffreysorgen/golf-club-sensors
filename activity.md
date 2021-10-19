@@ -48,7 +48,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 ### Future prototyping solution
 - Later can build an obviously better solution.  
 - When 100% finished developing with my Arduino Nano 33 BLE Sense, I will be looking into using a different board for prototyping, and a battery solution will definitely be a part of the research.
-  - The board needs to include (1) an IMU, (2) a microphone, and (3) a solvable battery option
+  - **The board needs to include (1) an IMU, (2) a microphone, and (3) a solvable battery option**
 - Battery options:
   - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
   - **Qi coil** is a wireless charging device.
@@ -63,14 +63,21 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 
 ### Current development solution
 - **Connect with only BLE and be _physically detached_ from the computer.**
-- Connect the Arduino Sense (USBmicro female) to a power source.
+- Connect the Arduino Sense (USBmicro port) to a power source.
 - Use a lightweight **phone recharger** to serve this purpose during development.  
 - Normal rechargers auto-shutoff with low power drain, so this won't work by itself.
-  - **Charging my phone at the same time will prevent this auto-shuttoff** 
+  - **Charging my phone at the same time will prevent this auto-shutoff** 
 
 ##### Current battery solution:
 <p align="center"><img src="http://some_place.com/pic-of-battery-solution.png" /></p>
 
+
+### Alternate development solution
+- This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
+- There's a power solution in the TinyML Course, attaching a 9V battery to the Learning Kit Shield. 
+  - This [**Appendix**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
+  - It's certainly not going to be for swinging around, but it is proof that there's a pinout solution.
+  - It's a good example for a stationary device.
 
 
 
