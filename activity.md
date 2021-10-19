@@ -65,6 +65,7 @@ While the flashlight functionality won't be used in the end, that solution is cr
 - Connect the Arduino Sense (USBmicro female) to a power source.
 - Use a lightweight **phone recharger** to serve this purpose during development. I can now connect with BLE and be _physically detached_ from my computer! Would just need a strap or pocket or something for it. I'm using non-adhesive bandages wrapped around my wrist.
   - Normal rechargers auto-shutdown with low power drain, so this doesn't work.
+  - [**This**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md) might be a good place to read about this.
 
 
 ### Description of current power solution
