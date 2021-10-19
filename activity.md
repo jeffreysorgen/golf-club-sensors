@@ -29,7 +29,7 @@ I found -[_**this video**_](https://youtu.be/2q_tA8v5l1Y)- from _Robocraze_ to b
 and copied the `.ino` code from its [_accompanying GitHub repository_](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
 - I right-clicked on _Raw_, and saved the file, 
 and then created a folder with the same name to put it into, because that's what Arduino requires.
-- Upload the sketch to the device... _**And it works exactly as it does in that video.**_
+- Upload the sketch to the device... _**And it works exactly as it does in that video.**_ But there is a [*caveat*](#caveat) I discovered for this example.
 - This configuration reads information from the sensors and then simply displays that information in the phone app.
 
 #### To do this:
@@ -45,9 +45,13 @@ and then created a folder with the same name to put it into, because that's what
 9. (App) Touch the "triple down arrow" <img src="images/3downarrows.png" width="20em" /> for each of the three services for this example
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 
-#### [*Next: combine BLE and IMU readings -->*](#our-objective)
-- The _BLE+IMU_ section below is still in progress. I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting" and then once that's done, get my phone to turn its flashlight on/off as a result.
-While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings.
+##### Caveat:
+- If USB cable remains plugged into the computer I **can** discover _"Arduino Environment Sensor"_ in nRF Connect
+- Using **battery-only** solution, was **not** able to discover _"Arduino Environment Sensor"_ in nRF Connect 
+- For the _magic-wand_ example, using battery-only solution, the computer can discover the BLE service as expected
+- I could troubleshoot the _RoboCraze_ code, but I am going to find a different example instead
+- _nRF Connect_ isn't the only phone app that might suit my purpose, but it _**is** Nordic Semi_
+
 
 
 ## Power Solutions:
@@ -120,6 +124,13 @@ Setting up a stacked solution:
 - It will not shut off while it's charging the phone.
 
 #
+
+
+#
+#### Next: combine BLE and IMU readings
+- The _BLE+IMU_ section below is still in progress. I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting" and then once that's done, get my phone to turn its flashlight on/off as a result.
+While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings.
+
 ### Our objective: 
 
 What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
@@ -134,6 +145,11 @@ And I want my accelerometer to trigger my phone flashlight on/off, because it se
 It's important to enable this functionality so that I can... (do what?)
 
 #
+
+
+
+
+
 ### Combining BLE and IMU commands in the IDE
 - Copy _golf-swing-acc_ as _test-imu-sketch_ (done)
 - Communicate with smartphone by adding BLE functionality, line by line (done)
