@@ -344,6 +344,7 @@ now = update.state();     // returns "Ready" or "Resting"
 if ( now !== earlier ) {  // if state has now changed
   if (now == resting) {   // and is now Resting
     beep(low);            // then beep low for new Resting state
+    }
   else {
     beep(high);           // otherwise beep high for new Ready state
     }
@@ -352,7 +353,6 @@ if ( now !== earlier ) {  // if state has now changed
   pass;                   // now == earlier, so no state change
 }
 ```
-
 
 
 
