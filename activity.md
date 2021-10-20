@@ -130,6 +130,7 @@ While the flashlight functionality won't be used in the end, that solution is cr
 (screenshot of my phone screen with device listed)
 <p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
 
+
 #
 #
 #
@@ -292,16 +293,15 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 #
 #
 
-
-
-
-
-
+#
+# Finish connecting BLE 100% as planned before moving on to the SDK part
 #
 
+#
+## Enable Smartphone to BEEP
 
-
-# Finish connecting BLE 100% as planned before moving on to the SDK part
+**So for Part Four:**
+- Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
 
 ### Dog bark KWS example:
 Sensor devices similar to the BLE Sense have been used to trigger audio to play from another device.
@@ -310,16 +310,14 @@ So I need to use the matching code from that example and apply it for my purpose
 which is to get nRF Connect to trigger actions in my phone.
 That microphone sensor created KWS model that triggered an app to play some prerecorded audio.
 And I want my accelerometer to trigger my phone flashlight on/off, because it senses _Ready/Resting_ states.
-#
-#
+- Found [**this**](https://youtu.be/v5hBjouFHQY) video about how the BLE Sense triggered other devices.
 
 
-
-So for Part Three:
-- Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
+### Identifying a state change and taking action
 - What I want is a way for my Android to recognize a state change coming from the **arduino**. 
   - When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
   - More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
+
 ##### State change: (pseudo code)
 ```
 resting = state("Resting");
@@ -338,12 +336,9 @@ if ( now !== earlier ) {      // if state has now changed
     pass;                     // now == earlier, so no state change
 ```
 
-
-
-
-
-## Enable Smartphone to BEEP
-- When creating this sketch, we must create a new Development Sketch, "_dev-sdk-ble-BLE-pitches_".
+#
+### Step Four: Enable Smartphone to BEEP
+- When creating this sketch, we must create a new Development Sketch, "_dev-sdk-ble-pitches_".
 - For the sketch here, since it's for immediate development, just create high and low pitches for the transitions into Ready and Resting states, respectively, and we'll save the code for future reference.
 - Probably later create a third sketch that combines code from _golf-swing-acc_, the new inclusive sketch, and this _dev_ sketch.
 
@@ -357,7 +352,9 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
 - Make the smartphone beep in Ready state
 
 
-
+#### Insert video
+<p align="center"><img src="http://some_place.com/image.png" /></p>
+##### Video of moving device back and forth, and hearing the beep sound from the phone
 
 ## Reference Info:
 - The all-inclusive Arduino file will be saved as _golf-sensors.ino_ when more sensors are involved.
