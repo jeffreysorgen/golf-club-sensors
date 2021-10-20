@@ -314,9 +314,9 @@ And I want my accelerometer to trigger my phone flashlight on/off, because it se
 
 
 ### Identifying a state change and taking action
-- What I want is a way for my Android to recognize a state change coming from the **arduino**. 
-  - When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
-  - More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
+What I want is a way for my Android to recognize a state change coming from the **arduino**. 
+- When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
+- More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
 
 ##### State change: (pseudo code)
 ```
