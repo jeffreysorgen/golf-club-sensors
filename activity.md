@@ -14,7 +14,7 @@
 Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app that I downloaded from Google Play called _nRF Connect_. I'm going to go through the process of getting that started right here.
 
 ### Try the BLE example sketch
-
+###### [_(skip to end)_](#skip-robo)
 I found -[_**this video**_](https://youtu.be/2q_tA8v5l1Y)- from _Robocraze_ to be helpful, 
 and copied the code from its [**accompanying GitHub repository**](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
 This example reads information from the sensors and then simply displays it in the phone app. Upload the sketch to the device... _**And it works exactly as it does in that video.**_ But there is a [*caveat*](#caveat) I discovered for this example.
@@ -41,7 +41,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
   - nRF Connect on Phone --> Arduino which is still powered by computer USB cable (edit this)
   - I don't know whether there was truly a disconnection there? (edit this)
 - _nRF Connect_ isn't the only phone app that might suit my purpose, but it _**is** Nordic Semi_
-
+##### (skip-robo)
 
 ## Power Solutions
 ##### (Battery Info)
@@ -87,18 +87,28 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 ## Finding a simple BLE solution
 We now have a [development](#current-development-solution) power solution to untether ourselves from our computer.
 
-We should try out other BLE examples, and find a BLE sketch that works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_. 
+- *We should try out other BLE examples, and find a BLE sketch that works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_. 
 This example doesn't work battery-only, and importing line-by-line from that example into my IMU sketch produces the same problem. 
-While it would be good to learn how to transform from hex value into a readable one, I'm inclined to do that later, if it's still a problem, after I've explored some other examples.
+While it would be good to learn how to transform from hex value into a readable one, I'm inclined to do that later, if it's still a problem, after I've explored some other examples.*
 
 
-Is the problem with nRF Connect?
-- What other smartphone BLE options are out there? Is nRF Connect the most common? It's Nordic Semi so it seems logical to keep using it.
+- Is the problem with nRF Connect?
+  - What other smartphone BLE options are out there? Is nRF Connect the most common? It's Nordic Semi so it seems logical to keep using it.
 
+#### Try again:
+- Go back to _golf-swing-acc_ and copy it as _new-test-imu-ble-combo_
+- **Go through example sketches to find simplest one to integrate BLE and my IMU code so far**
+- Communicate with smartphone by adding BLE functionality, line by line
+- Repeatedly upload sketch to device looking for errors and functionality (DO THIS with a different example)
+
+#### Examples:
+- Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** 
+- Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
+- Also go through the later lessons in _**EdX Deployment**_ class
 
 
 ### Combining BLE and IMU commands in the IDE
-
+(old section)
 - Copy _golf-swing-acc_ as _test-imu-sketch_ (done)
 - Communicate with smartphone by adding BLE functionality, line by line (done)
   - (I used the _RoboCraze_ example so this still won't work battery-only)
@@ -115,6 +125,9 @@ Is the problem with nRF Connect?
   - Find out whether this needs to become **_peripheral_ rather than _central_** (skip)
   - More below, in the ["Next"](#next) section (skip/edit)
 
+
+
+#
 #### See: [Modifying the file](#modifying-the-file)
 
 
