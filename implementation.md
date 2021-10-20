@@ -43,10 +43,11 @@ _skip to
 17. LEARNED Cursory principles of electronics from __LinkedIn Learning__.
 18. **Arduino sketch** created for Accelerometer - _golf-swing-acc_ ([here](#updating-the-arduino-nano-33-ble)) and kept it **simple**. 
 19. **GitHub Markdown** Learned styling for tables, images and code block
-20. DOCUMENTED progress towards **battery** solution [_here_](activity.md#battery-info) (ongoing)
-21. Added code block and image from Monitor to this documentation. 
-22. COMPLETED Part One documentation, and it's time to move on to [**adding BLE**](activity.md/#step-two-enabling-ble) to the system!
-23. Successfully [copied the process](activity.md/#try-the-ble-example-sketch) of a YouTuber to add BLE services on the device.
+20. Added code block and image from Monitor to this documentation. 
+21. COMPLETED Part One documentation, and it's time to move on to [**adding BLE**](activity.md/#step-two-enabling-ble) to the system!
+22. Successfully [copied the process](activity.md/#try-the-ble-example-sketch) of a YouTuber to add BLE services on the device.
+23. DOCUMENTED several potential development and prototyping [**power solutions**](activity.md#power-solutions)
+24. Generated [pseudo code](activity.md#state-change-pseudo-code) for state changes
 
 
 ## Flow for Golf Swing sensors:
