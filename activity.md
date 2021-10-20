@@ -76,24 +76,22 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
   - It's certainly not designed for swinging around, but it is proof that there's a pinout solution.
   - It's a good example for a stationary device.
 
+#
+
+
+
+
+
 
 #
 #
-#
-
 ## Finding a simple BLE solution
 Now that we have a [development](#current-development-solution) power solution to untether ourselves from our computer, we can try out other BLE examples, and find a BLE sketch that works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_.
-
 - First check to see if _test-imu-sketch_ working with the battery solution.
-
 - What other smartphone BLE options are out there? Is nRF Connect the most common? It's Nordic Semi so it seems logical to keep using it.
 
-
-
-
-
-
 ### Combining BLE and IMU commands in the IDE
+
 - Copy _golf-swing-acc_ as _test-imu-sketch_ (done)
 - Communicate with smartphone by adding BLE functionality, line by line (done)
   - Repeatedly upload sketch to device looking for errors and functionality
@@ -111,16 +109,11 @@ Now that we have a [development](#current-development-solution) power solution t
 
 #### See: [Modifying the file](#modifying-the-file)
 
-
 ### BLE+IMU notes
-Combine BLE and IMU readings
-- This _BLE+IMU_ section is still being developed. I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting" and then once that's done, get my phone to turn its flashlight on/off as a result.
-While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings.
-
-
-### Our objective: 
-
+I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting". 
+Once that's done, get my phone to turn its flashlight on/off as a result. 
 What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
+While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
 
 ### Dog bark KWS example:
 Sensor devices similar to the BLE Sense have been used to trigger audio to play from another device.
@@ -131,18 +124,28 @@ That microphone sensor created KWS model that triggered an app to play some prer
 And I want my accelerometer to trigger my phone flashlight on/off, because it senses _Ready/Resting_ states.
 
 #
+#
 
+### Next
+1. Scan for devices in nRF Connect
 
+#### nRF Connect looks like this
+(screenshot of my phone screen with device listed)
+<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
 
-
-
-
-
-
+#
+## Enable Accelerometer together
+- Enable BOTH Accelerometer and BLE into _new_ custom sketch
+  - _This could have been done in the prior step!_
+- TEST the Accelerometer, that it works as before
+  - WATCH that the Android displays "Ready" to "Resting" and back again
+  - Get screenshot and post here.
 
 
 #
 #
+#
+
 ## Modifying the file:
 Top of sketch. First, add the two libraries.
 ```
@@ -303,32 +306,10 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 
 
 
-#
-#### Next, 
-1. Find the sketch in the Examples
-2. Edit the sketch, include the label, _"ble-sense"_
-3. Upload to the Arduino
-4. (If the code is simple enough, then just incorporate it into _golf-swing-acc_)
-5. THEN: Download the app from Google Play (done)
-6. Enable Bluetooth on my phone
-7. Scan for devices in nRF Connect
-
-### nRF Connect looks like this
-(screenshot of my phone screen with device listed)
-<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
-
-
 
 
 
 #
-## Enable Accelerometer together
-- Enable BOTH Accelerometer and BLE into _new_ custom sketch
-  - _This could have been done in the prior step!_
-- TEST the Accelerometer, that it works as before
-  - WATCH that the Android displays "Ready" to "Resting" and back again
-  - Get screenshot and post here.
-
 
 
 
