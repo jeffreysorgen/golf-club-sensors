@@ -65,7 +65,6 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 - Rechargers will shut off after a short time with just a low power drain, so this won't work by itself.
   - **Charging an _old phone_ at the same time will prevent this auto-shutoff** 
 
-#### Current battery solution:
 ##### Charging up a dead old phone prevents auto-shutoff
 <p align="center"><img src="http://some_place.com/pic-of-battery-solution.png" /></p>
 
