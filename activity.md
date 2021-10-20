@@ -42,7 +42,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
   - nRF Connect on Phone --> Arduino which is still powered by computer USB cable (edit this)
   - I don't know whether there was truly a disconnection there? (edit this)
 - _nRF Connect_ isn't the only phone app that might suit my purpose, but it _**is** Nordic Semi_
-##### TL;DR
+##### (TL;DR)
 *We should try out other BLE examples, and find a BLE sketch that works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_. This example doesn't work battery-only, and importing line-by-line from that example into my IMU sketch produces the same problem. While it would be good to learn how to transform from hex value into a readable one, I'm inclined to do that later, if it's still a problem, after I've explored some other examples.*
 
 
