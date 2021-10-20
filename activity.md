@@ -115,25 +115,10 @@ Once that's done, get my phone to turn its flashlight on/off as a result.
 What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
 While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
 
-### Dog bark KWS example:
-Sensor devices similar to the BLE Sense have been used to trigger audio to play from another device.
-The dog barking example from YouTube (here) is one. 
-So I need to use the matching code from that example and apply it for my purpose,
-which is to get nRF Connect to trigger actions in my phone.
-That microphone sensor created KWS model that triggered an app to play some prerecorded audio.
-And I want my accelerometer to trigger my phone flashlight on/off, because it senses _Ready/Resting_ states.
 
 #
 #
 
-### Next
-1. Scan for devices in nRF Connect
-
-#### nRF Connect looks like this
-(screenshot of my phone screen with device listed)
-<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
-
-#
 ## Enable Accelerometer together
 - Enable BOTH Accelerometer and BLE into _new_ custom sketch
   - _This could have been done in the prior step!_
@@ -141,6 +126,9 @@ And I want my accelerometer to trigger my phone flashlight on/off, because it se
   - WATCH that the Android displays "Ready" to "Resting" and back again
   - Get screenshot and post here.
 
+#### nRF Connect looks like this
+(screenshot of my phone screen with device listed)
+<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
 
 #
 #
@@ -315,6 +303,15 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 
 # Finish connecting BLE 100% as planned before moving on to the SDK part
 
+### Dog bark KWS example:
+Sensor devices similar to the BLE Sense have been used to trigger audio to play from another device.
+The dog barking example from YouTube (here) is one. 
+So I need to use the matching code from that example and apply it for my purpose,
+which is to get nRF Connect to trigger actions in my phone.
+That microphone sensor created KWS model that triggered an app to play some prerecorded audio.
+And I want my accelerometer to trigger my phone flashlight on/off, because it senses _Ready/Resting_ states.
+#
+#
 
 
 
