@@ -107,7 +107,9 @@ While it would be good to learn how to transform from hex value into a readable 
 - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
 - Also go through the later lessons in _**EdX Deployment**_ class
 
-
+Here's a YouTube video:
+- [Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE](https://youtu.be/osneajf7Xkg)
+- Shows some detail about Server/Client and characteristics
 
 
 #
