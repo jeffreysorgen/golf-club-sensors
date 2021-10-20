@@ -291,13 +291,10 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 //}
 ```
 
-
-
-
-
-
 #
 #
+
+
 
 #
 #### Next, 
@@ -324,7 +321,9 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 - TEST the Accelerometer, that it works as before
   - WATCH that the Android displays "Ready" to "Resting" and back again
   - Get screenshot and post here.
-- Utilize BATTERY SOLUTION described [*here*](#battery-info) or see [the setup *here*](#battery)
+
+
+
 
 # Finish connecting BLE 100% as planned before moving on to the SDK part
 
@@ -333,7 +332,23 @@ So for Part Three:
 - What I want is a way for my Android to recognize a state change coming from the **arduino**. 
   - When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
   - More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
+##### State change: (pseudo code)
+```
+resting = state("Resting");
+ready = state("Ready");
+now = update.state();     // returns "Ready" or "Resting"
 
+if ( now !== earlier ) {  // if state has now changed
+  if (now == resting) {   // and is now Resting
+    beep(low);            // then beep low for new Resting state
+  else {
+    beep(high);           // otherwise beep high for new Ready state
+    }
+  earlier=now;            // update earlier state to now state
+  }
+  pass;                   // now == earlier, so no state change
+}
+```
 
 ## Enable Smartphone to BEEP
 - When creating this sketch, we must create a new Development Sketch, "_dev-sdk-ble-BLE-pitches_".
