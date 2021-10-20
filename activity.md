@@ -339,19 +339,18 @@ So for Part Three:
 ```
 resting = state("Resting");
 ready = state("Ready");
-now = update.state();     // returns "Ready" or "Resting"
+now = update.state();         // returns "Ready" or "Resting"
 
-if ( now !== earlier ) {  // if state has now changed
-  if (now == resting) {   // and is now Resting
-    beep(low);            // then beep low for new Resting state
+if ( now !== earlier ) {      // if state has now changed
+    if (now == resting) {     // and is now Resting
+        beep(low);            // then beep low for new Resting state
+        }
+    else {
+        beep(high);           // otherwise beep high for new Ready state
+        }
+    earlier=now;              // update earlier state with now state
     }
-  else {
-    beep(high);           // otherwise beep high for new Ready state
-    }
-  earlier=now;            // update earlier state with now state
-  }
-  pass;                   // now == earlier, so no state change
-}
+    pass;                     // now == earlier, so no state change
 ```
 
 
