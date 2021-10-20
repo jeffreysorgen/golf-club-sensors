@@ -84,25 +84,6 @@ Now that we have a [development](#current-development-solution) power solution t
 
 
 #
-### Combine BLE and IMU readings
-- The _BLE+IMU_ section below is still in progress. I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting" and then once that's done, get my phone to turn its flashlight on/off as a result.
-While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings.
-
-### Our objective: 
-
-What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
-
-Sensor devices similar to the BLE Sense have been used to trigger audio to play from another device.
-The dog barking example from YouTube (here) is one. 
-So I need to use the matching code from that example and apply it for my purpose,
-which is to get nRF Connect to trigger actions in my phone.
-That microphone sensor created KWS model that triggered an app to play some prerecorded audio.
-And I want my accelerometer to trigger my phone flashlight on/off, because it senses _Ready/Resting_ states.
-
-It's important to enable this functionality so that I can... (do what?)
-
-#
-
 
 
 
@@ -121,6 +102,39 @@ It's important to enable this functionality so that I can... (do what?)
   - Also go through the later lessons in _**EdX Deployment**_ class
   - Find out whether this needs to become **_peripheral_ rather than _central_**
   - More below, in the ["Next"](#next) section
+
+#### See: [Modifying the file](#modifying-the-file)
+
+
+### BLE+IMU notes
+Combine BLE and IMU readings
+- This _BLE+IMU_ section is still in progress. I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting" and then once that's done, get my phone to turn its flashlight on/off as a result.
+While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings.
+#
+### Our objective: 
+
+What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
+
+#### Dog bark KWS example:
+Sensor devices similar to the BLE Sense have been used to trigger audio to play from another device.
+The dog barking example from YouTube (here) is one. 
+So I need to use the matching code from that example and apply it for my purpose,
+which is to get nRF Connect to trigger actions in my phone.
+That microphone sensor created KWS model that triggered an app to play some prerecorded audio.
+And I want my accelerometer to trigger my phone flashlight on/off, because it senses _Ready/Resting_ states.
+
+#
+
+
+
+
+
+
+
+
+
+
+
 
 ## Modifying the file:
 Top of sketch. First, add the two libraries.
@@ -282,7 +296,8 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 
 
 
-
+#
+#
 
 #
 #### Next, 
