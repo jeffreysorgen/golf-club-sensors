@@ -86,29 +86,41 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 #
 #
 ## Finding a simple BLE solution
-Now that we have a [development](#current-development-solution) power solution to untether ourselves from our computer, we can try out other BLE examples, and find a BLE sketch that works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_.
-- First check to see if _test-imu-sketch_ working with the battery solution.
-  - This doesn't work. The settings which have been copied from the _RoboCraze_ example are not working without being connected to the computer while it's running.
+We now have a [development](#current-development-solution) power solution to untether ourselves from our computer.
+
+We should try out other BLE examples, and find a BLE sketch that works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_. 
+This example doesn't work battery-only, and importing line-by-line from that example into my IMU sketch produces the same problem. 
+While it would be good to learn how to transform from hex value into a readable one, I'm inclined to do that later, if it's still a problem, after I've explored some other examples.
+
+
+Is the problem with nRF Connect?
 - What other smartphone BLE options are out there? Is nRF Connect the most common? It's Nordic Semi so it seems logical to keep using it.
+
+
 
 ### Combining BLE and IMU commands in the IDE
 
 - Copy _golf-swing-acc_ as _test-imu-sketch_ (done)
 - Communicate with smartphone by adding BLE functionality, line by line (done)
-  - Repeatedly upload sketch to device looking for errors and functionality
-  - **_RESULT!_** But data is not in the form of a float, _but a hex_
-    - _So how do I convert this?_
-    - Check to see if this works with the battery solution.
-- **Make this look better**
-  - **figure out** how to deliver readable data to phone screen using arduino examples to figure it out
-  - Go through the process of importing the settings for BLE to the "acc" sketch
-  - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** 
-  - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
-  - Also go through the later lessons in _**EdX Deployment**_ class
-  - Find out whether this needs to become **_peripheral_ rather than _central_**
-  - More below, in the ["Next"](#next) section
+  - (I used the _RoboCraze_ example so this still won't work battery-only)
+  - Repeatedly upload sketch to device looking for errors and functionality (DO THIS with a different example)
+  - **_RESULT!_** But data is not in the form of a float, _but a hex_ (n/a for now)
+    - _So how do I convert this?_ (n/a for now)
+    - Check to see if this works with the battery solution. (doesn't)
+- **Make this look better** (n/a for now)
+  - **figure out** how to deliver readable data to phone screen using arduino examples to figure it out (n/a for now)
+  - Go through the process of importing the settings for BLE to the "acc" sketch (n/a for now)
+  - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** (yes!) 
+  - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference (yes!)
+  - Also go through the later lessons in _**EdX Deployment**_ class (yes!)
+  - Find out whether this needs to become **_peripheral_ rather than _central_** (skip)
+  - More below, in the ["Next"](#next) section (skip/edit)
 
 #### See: [Modifying the file](#modifying-the-file)
+
+
+
+
 
 ### BLE+IMU notes
 I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting". 
@@ -137,6 +149,10 @@ While the flashlight functionality won't be used in the end, that solution is cr
 #
 
 ## Modifying the file:
+(do this entire process again, using different example BLE sketch)
+
+#
+
 Top of sketch. First, add the two libraries.
 ```
 #include <ArduinoBLE.h>           // Bluetooth Library
