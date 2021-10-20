@@ -354,6 +354,7 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
 
 #### Insert video
 <p align="center"><img src="http://some_place.com/image.png" /></p>
+
 ##### Video of moving device back and forth, and hearing the beep sound from the phone
 
 ## Reference Info:
