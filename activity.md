@@ -44,8 +44,9 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 - _nRF Connect_ isn't the only phone app that might suit my purpose, but it _**is** Nordic Semi_
 ##### _(skipped-robocraze)_
 
-## Power Solutions
+
 ##### (Battery Info)
+## Power Solutions
 
 ### Future prototyping solution
 - Later can build an obviously better solution.  
