@@ -1,5 +1,4 @@
 - add photo of battery/old phone arrangement
-- try _test-imu-sketch_ with battery arrangement (doesn't work! try new example)
 
 [*[ <-back to Overview ]*](README.md)
 [*[ (previous) Step One: The Accelerometer ]*](implementation.md/#step-one-the-accelerometer)
