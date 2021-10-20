@@ -1,3 +1,5 @@
+- dig out old phone, wrap it with recharger and use little cable
+
 [*[ <-back to Overview ]*](README.md)
 [*[ (previous) Step One: The Accelerometer ]*](implementation.md/#step-one-the-accelerometer)
 **[[ Step Two: Enable BLE ]](#step-two-enabling-ble)**
@@ -94,6 +96,7 @@ Now that we have a [development](#current-development-solution) power solution t
   - Repeatedly upload sketch to device looking for errors and functionality
   - **_RESULT!_** But data is not in the form of a float, _but a hex_
     - _So how do I convert this?_
+    - Check to see if this works with the battery solution.
 - **Make this look better**
   - **figure out** how to deliver readable data to phone screen using arduino examples to figure it out
   - Go through the process of importing the settings for BLE to the "acc" sketch
