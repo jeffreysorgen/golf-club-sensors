@@ -1,5 +1,5 @@
 - add photo of battery/old phone arrangement
-- try _test-imu-sketch_ with battery arrangement
+- try _test-imu-sketch_ with battery arrangement (doesn't work! try new example)
 
 [*[ <-back to Overview ]*](README.md)
 [*[ (previous) Step One: The Accelerometer ]*](implementation.md/#step-one-the-accelerometer)
@@ -65,9 +65,9 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
   - **Charging an _old phone_ at the same time will prevent this auto-shutoff** 
 
 #### Current battery solution:
+##### Charging up a dead old phone prevents auto-shutoff
 <p align="center"><img src="http://some_place.com/pic-of-battery-solution.png" /></p>
 
-##### Charging up a dead old phone prevents auto-shutoff
 
 ### Alternative development solution
 - This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
@@ -88,6 +88,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 ## Finding a simple BLE solution
 Now that we have a [development](#current-development-solution) power solution to untether ourselves from our computer, we can try out other BLE examples, and find a BLE sketch that works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_.
 - First check to see if _test-imu-sketch_ working with the battery solution.
+  - This doesn't work. The settings which have been copied from the _RoboCraze_ example are not working without being connected to the computer while it's running.
 - What other smartphone BLE options are out there? Is nRF Connect the most common? It's Nordic Semi so it seems logical to keep using it.
 
 ### Combining BLE and IMU commands in the IDE
