@@ -1,4 +1,5 @@
-- dig out old phone, wrap it with recharger and use little cable
+- add photo of battery/old phone arrangement
+- try _test-imu-sketch_ with battery arrangement
 
 [*[ <-back to Overview ]*](README.md)
 [*[ (previous) Step One: The Accelerometer ]*](implementation.md/#step-one-the-accelerometer)
@@ -59,33 +60,35 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 ### Current development solution
 - **Connect with only BLE and be _physically detached_ from the computer.**
 - Attach the Arduino Sense (USBmicro port) to a power source.
-- Use a lightweight **phone recharger** to serve this purpose during development.  
-- Normal rechargers auto-shutoff with low power drain, so this won't work by itself.
-  - **Charging my phone at the same time will prevent this auto-shutoff** 
+- Use a lightweight **phone recharger** (with 2 USB out) to serve this purpose during development.  
+- Rechargers will shut off after a short time with just a low power drain, so this won't work by itself.
+  - **Charging an _old phone_ at the same time will prevent this auto-shutoff** 
 
-##### Current battery solution:
+#### Current battery solution:
 <p align="center"><img src="http://some_place.com/pic-of-battery-solution.png" /></p>
+
+##### Charging up a dead old phone prevents auto-shutoff
 
 ### Alternative development solution
 - This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
 - There's a power solution in the TinyML Course, attaching a 9V battery to the **Learning Kit Shield**. 
   - This [**Appendix**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
-  - It's certainly not going to be for swinging around, but it is proof that there's a pinout solution.
+  - It's certainly not designed for swinging around, but it is proof that there's a pinout solution.
   - It's a good example for a stationary device.
 
 
 #
 #
+#
 
 ## Finding a simple BLE solution
-Now that we have a [development](#current-development-solution) power solution to untether ourselves from our computer, we can try out other BLE examples, and find a BLE sketch works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_.
+Now that we have a [development](#current-development-solution) power solution to untether ourselves from our computer, we can try out other BLE examples, and find a BLE sketch that works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_.
 
 - First check to see if _test-imu-sketch_ working with the battery solution.
 
 - What other smartphone BLE options are out there? Is nRF Connect the most common? It's Nordic Semi so it seems logical to keep using it.
 
 
-#
 
 
 
@@ -111,14 +114,15 @@ Now that we have a [development](#current-development-solution) power solution t
 
 ### BLE+IMU notes
 Combine BLE and IMU readings
-- This _BLE+IMU_ section is still in progress. I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting" and then once that's done, get my phone to turn its flashlight on/off as a result.
+- This _BLE+IMU_ section is still being developed. I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting" and then once that's done, get my phone to turn its flashlight on/off as a result.
 While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings.
-#
+
+
 ### Our objective: 
 
 What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
 
-#### Dog bark KWS example:
+### Dog bark KWS example:
 Sensor devices similar to the BLE Sense have been used to trigger audio to play from another device.
 The dog barking example from YouTube (here) is one. 
 So I need to use the matching code from that example and apply it for my purpose,
@@ -137,8 +141,8 @@ And I want my accelerometer to trigger my phone flashlight on/off, because it se
 
 
 
-
-
+#
+#
 ## Modifying the file:
 Top of sketch. First, add the two libraries.
 ```
