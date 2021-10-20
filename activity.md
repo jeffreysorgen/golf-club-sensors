@@ -327,6 +327,9 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 
 # Finish connecting BLE 100% as planned before moving on to the SDK part
 
+
+
+
 So for Part Three:
 - Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
 - What I want is a way for my Android to recognize a state change coming from the **arduino**. 
@@ -344,11 +347,16 @@ if ( now !== earlier ) {  // if state has now changed
   else {
     beep(high);           // otherwise beep high for new Ready state
     }
-  earlier=now;            // update earlier state to now state
+  earlier=now;            // update earlier state with now state
   }
   pass;                   // now == earlier, so no state change
 }
 ```
+
+
+
+
+
 
 ## Enable Smartphone to BEEP
 - When creating this sketch, we must create a new Development Sketch, "_dev-sdk-ble-BLE-pitches_".
