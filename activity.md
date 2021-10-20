@@ -1,4 +1,5 @@
 - add photo of battery/old phone arrangement
+- try a new example for BLE!
 
 [*[ <-back to Overview ]*](README.md)
 [*[ (previous) Step One: The Accelerometer ]*](implementation.md/#step-one-the-accelerometer)
@@ -14,7 +15,7 @@
 Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app that I downloaded from Google Play called _nRF Connect_. I'm going to go through the process of getting that started right here.
 
 ### Try the BLE example sketch
-###### [_(skip to end)_](#skip-robo)
+###### [_(skip to end)_](#skipped-robocraze)
 I found -[_**this video**_](https://youtu.be/2q_tA8v5l1Y)- from _Robocraze_ to be helpful, 
 and copied the code from its [**accompanying GitHub repository**](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
 This example reads information from the sensors and then simply displays it in the phone app. Upload the sketch to the device... _**And it works exactly as it does in that video.**_ But there is a [*caveat*](#caveat) I discovered for this example.
@@ -41,7 +42,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
   - nRF Connect on Phone --> Arduino which is still powered by computer USB cable (edit this)
   - I don't know whether there was truly a disconnection there? (edit this)
 - _nRF Connect_ isn't the only phone app that might suit my purpose, but it _**is** Nordic Semi_
-##### (skip-robo)
+##### _(skipped-robocraze)_
 
 ## Power Solutions
 ##### (Battery Info)
@@ -107,6 +108,9 @@ While it would be good to learn how to transform from hex value into a readable 
 - Also go through the later lessons in _**EdX Deployment**_ class
 
 
+
+
+#
 ### Combining BLE and IMU commands in the IDE
 (old section)
 - Copy _golf-swing-acc_ as _test-imu-sketch_ (done)
