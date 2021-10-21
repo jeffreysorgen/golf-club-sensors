@@ -71,7 +71,7 @@ While the flashlight functionality won't be used in the end, that solution is cr
   - A complete [reference](https://www.arduino.cc/reference/en/)
   - And one specifically for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
 
-### nRF Connect
+#### nRF Connect
 
 - nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
 - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
