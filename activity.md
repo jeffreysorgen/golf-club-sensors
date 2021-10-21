@@ -1,14 +1,14 @@
-- add photo of battery/old phone arrangement
 - Swap around "solve for power" and "implementing BLE"
+- add photo of battery/old phone arrangement
 - then move "Solve for Power" to _Implementation.md_
 - research more BLE
 
 [*[ <-back to Overview ]*](README.md)
 [*[ (previous) Step One: The Accelerometer ]*](implementation.md/#step-one-the-accelerometer)
-**[[ Step Two: Enable BLE ]](#step-two-enabling-ble)**
-[*[ Step Two: Solve for Power ]*](#power-solutions)
-[*[ Step Three: BLE+IMU together ]*](#enable-accelerometer-together)
-[*[ Step Four: Enable Smartphone to BEEP ]*](#enable-smartphone-to-beep)
+[**[ Step Two: Solve for Power ]**](#step-two-solve-for-power)
+[*[ Step Three: Enable BLE ]*](#step-two-enabling-ble)**
+[*[ Step Four: BLE+IMU together ]*](#enable-accelerometer-together)
+[*[ Step Five: Enable Smartphone to BEEP ]*](#enable-smartphone-to-beep)
 [_[ jump to new project ideas-> ]_](#jot-down-ideas-for-other-projects-here)
 
 ## Step Two: Enabling BLE
@@ -54,9 +54,14 @@ I need to find the thread that would organize technically the process of how to 
 There are plenty of code examples, but nothing straightforward has surfaced for me just yet.
 The examples I really need are the ones that articulate the steps and code to assemble all the necessary pieces.
 
+
+
+
+
+#
 ##### (Battery Info)
 ## Power Solutions
-**_Solve for Power_**
+##### _Solve for Power_
 ### Future prototyping solution
 - Later can build an obviously better solution.  
 - When 100% finished developing with my Arduino Nano 33 BLE Sense, I will be looking into using a different board for prototyping, and a battery solution will definitely be a part of the research.
@@ -84,9 +89,14 @@ The examples I really need are the ones that articulate the steps and code to as
   - It's certainly not designed for swinging around, but it is proof that there's a pinout solution.
   - It's a good example for a stationary device.
 
-##### (Step Three: Enable BLE)
+
+
+
 
 #
+##### (Step Three: Enable BLE)
+
+
 ## Finding a simple BLE solution
 #### We now have a [development](#current-development-solution) power solution to untether ourselves from our computer.
 #### I am now collecting a [reference](#reference) section for BLE information.
