@@ -5,7 +5,7 @@
 [*[ The Accelerometer ]*](implementation.md/#the-accelerometer)
 [*[ Solve for Power ]*](implementation.md/#solve-for-power)
 [*[ **Step Three: Enable BLE** ]*](#step-three)
-[*[ Step Four: BLE+IMU together ]*](#enable-accelerometer-together)
+[*[ Step Four: BLE+IMU together ]*](#step-four)
 [*[ Step Five: Enable Smartphone to BEEP ]*](#enable-smartphone-to-beep)
 [_[ jump to new project ideas-> ]_](#jot-down-ideas-for-other-projects-here)
 
@@ -82,40 +82,22 @@ While the flashlight functionality won't be used in the end, that solution is cr
 - Repeatedly upload sketch to device looking for errors and functionality
   - Find sketch which works well on its own (**what would this look like?**)
 
-
 #### Examples:
 - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** 
 - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
 - Also go through the later lessons in _**EdX Deployment**_ class
 - Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
 
-#### See: [Modifying the file](#modifying-the-file)
-
-
-
-
-#
-
-## Enable Accelerometer together
-- Enable BOTH Accelerometer and BLE into _new_ custom sketch
-  - _This could have been done in the prior step!_
-- TEST the Accelerometer, that it works as before
-  - WATCH that the Android displays "Ready" to "Resting" and back again
-  - Get screenshot and post here.
-
 #### nRF Connect looks like this
 (screenshot of my phone screen with device listed)
 <p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
 
-
 #
+##### (step four)
+likely combined with step three
 #
-
-
 ## Modifying the file:
 (do this entire process again, using different example BLE sketch)
-
-#
 
 Top of sketch. First, add the two libraries.
 ```
