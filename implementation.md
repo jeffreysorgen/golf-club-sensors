@@ -1,17 +1,12 @@
 
 [*[ back to overview ]*](README.md)
-[*[ learning ]*](#learning-about-this)
 [*[ completed ]*](#completed)
+[*[ learning ]*](#learning-about-this)
 [_[ **Step One: The Accelerometer** ]_](#the-accelerometer)
 [*[ Step Two: Solve for Power ]*](#solve-for-power)
 [*[ Step Three: Enabling BLE ]*](activity.md/#enabling-ble)
 
 # Implementation:
-
-##### Learning about this:
-- IMU sensors, **Working with BLE!** C++, data collection
-- GitHub Desktop, possibly GitBASH, KiCad, LTspice, OSHPARK
-- Arduino Components and code requirements
 
 ## Completed:
 
@@ -51,6 +46,11 @@ _skip to
 24. DOCUMENTED several potential development and prototyping [**power solutions**](#solve-for-power)
 25. Generated [pseudo code](activity.md#state-change-pseudo-code) for state changes
 
+
+##### Learning about this:
+- IMU sensors, **Working with BLE!** C++, data collection
+- GitHub Desktop, possibly GitBASH, KiCad, LTspice, OSHPARK
+- Arduino Components and code requirements
 
 ## Flow for Golf Swing sensors:
 
