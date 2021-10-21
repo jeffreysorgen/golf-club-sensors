@@ -2,7 +2,7 @@
 [*[ back to overview ]*](README.md)
 [*[ learning ]*](#learning-about-this)
 [*[ completed ]*](#completed)
-[[ **Step One: The Accelerometer** ]](#the-accelerometer)
+[_[ **Step One: The Accelerometer** ]_](#the-accelerometer)
 [*[ Step Two: Solve for Power ]*](#solve-for-power)
 [*[ Step Three: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
 [*[ --> open for Discussion! ]*](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
