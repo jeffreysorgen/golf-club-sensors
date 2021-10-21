@@ -186,5 +186,3 @@ Swinging the club around won't put it into that Resting state unless it register
 [*[ <-- back to README ]*](README.md)
 [*[ Step One: Enabling the Accelerometer ]*](#step-one-the-accelerometer)
 [*[ Step Two: Solve for Power ]*](#solve-for-power)
-
-[*[ next - Step Three: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
