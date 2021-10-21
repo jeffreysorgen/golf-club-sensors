@@ -83,11 +83,8 @@ The examples I really need are the ones that articulate the steps and code to as
 - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
 - Also go through the later lessons in _**EdX Deployment**_ class
 - Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
-- [**Here**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a NEW good place to READ about BLE (recopied below)
-
 
 #### See: [Modifying the file](#modifying-the-file)
-
 
 ### BLE+IMU notes
 I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting". 
