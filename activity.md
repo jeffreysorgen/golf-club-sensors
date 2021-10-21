@@ -1,5 +1,5 @@
+- research more BLE
 - add photo of battery/old phone arrangement
-- try _test-imu-sketch_ with battery arrangement
 
 [*[ <-back to Overview ]*](README.md)
 [*[ (previous) Step One: The Accelerometer ]*](implementation.md/#step-one-the-accelerometer)
@@ -15,7 +15,7 @@
 Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app that I downloaded from Google Play called _nRF Connect_. I'm going to go through the process of getting that started right here.
 
 ### Try the BLE example sketch
-
+###### [_(TL;DR)_](#tldr-1)
 I found -[_**this video**_](https://youtu.be/2q_tA8v5l1Y)- from _Robocraze_ to be helpful, 
 and copied the code from its [**accompanying GitHub repository**](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
 This example reads information from the sensors and then simply displays it in the phone app. Upload the sketch to the device... _**And it works exactly as it does in that video.**_ But there is a [*caveat*](#caveat) I discovered for this example.
@@ -42,10 +42,12 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
   - nRF Connect on Phone --> Arduino which is still powered by computer USB cable (edit this)
   - I don't know whether there was truly a disconnection there? (edit this)
 - _nRF Connect_ isn't the only phone app that might suit my purpose, but it _**is** Nordic Semi_
+##### *(TL;DR)*
+*We should try out other BLE examples, and find a BLE sketch that works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_. This example doesn't work battery-only, and importing line-by-line from that example into my IMU sketch produces the same problem. While it would be good to learn how to transform from hex value into a readable one, I'm inclined to do that later, if it's still a problem, after I've explored some other examples.*
 
 
-## Power Solutions
 ##### (Battery Info)
+## Power Solutions
 
 ### Future prototyping solution
 - Later can build an obviously better solution.  
@@ -64,10 +66,8 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 - Rechargers will shut off after a short time with just a low power drain, so this won't work by itself.
   - **Charging an _old phone_ at the same time will prevent this auto-shutoff** 
 
-#### Current battery solution:
-<p align="center"><img src="http://some_place.com/pic-of-battery-solution.png" /></p>
-
 ##### Charging up a dead old phone prevents auto-shutoff
+<p align="center"><img src="http://some_place.com/pic-of-battery-solution.png" /></p>
 
 ### Alternative development solution
 - This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
@@ -76,38 +76,89 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
   - It's certainly not designed for swinging around, but it is proof that there's a pinout solution.
   - It's a good example for a stationary device.
 
-#
 
 
-
-
-
-
-#
 #
 ## Finding a simple BLE solution
-Now that we have a [development](#current-development-solution) power solution to untether ourselves from our computer, we can try out other BLE examples, and find a BLE sketch that works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_.
-- First check to see if _test-imu-sketch_ working with the battery solution.
-- What other smartphone BLE options are out there? Is nRF Connect the most common? It's Nordic Semi so it seems logical to keep using it.
+#### We now have a [development](#current-development-solution) power solution to untether ourselves from our computer.
+#### I am now collecting a [reference](#reference) section for BLE information.
+I really need to pair up Arduino microcontroller programming with BLE functionality.
+I understand client/server and the terminology variations and service/characteristics concepts.
+But I haven't found good documentation describing how the MVP is configured for BLE. 
+I need to find the thread that would organize technically the process of how to get the BLE deployed. 
+There are plenty of code examples, but nothing straightforward has surfaced for me just yet.
+The examples I really need are the ones that articulate the steps and code to assemble all the necessary pieces.
 
+
+
+#
+
+### nRF Connect
+- nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
+- In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
+
+### Try again:
+- Go back to _golf-swing-acc_ and copy it as _new-test-imu-ble-combo_ (done)
+- **Go through example sketches to find simplest one to integrate BLE and my IMU code so far**
+- Communicate with smartphone by adding BLE functionality, line by line
+- Repeatedly upload sketch to device looking for errors and functionality (DO THIS with a different example)
+
+
+#### Examples:
+- Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** 
+- Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
+- Also go through the later lessons in _**EdX Deployment**_ class
+- Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
+- [**Here**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a NEW good place to READ about BLE (recopied below)
+
+
+
+
+
+
+
+#
+## Reference:
+- XXXXXXXX-0000-1000-8000-00805F9B34FB (This is important for BLE)
+- Here is the [Online UUID Generator](https://www.uuidgenerator.net/)
+- Helpful from Argenox:
+  - [**Argenox website**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a good place to READ about BLE
+  - Here's the [Bluetooth Low Energy Library](https://www.argenox.com/library/bluetooth-low-energy/)
+  - Here is a link for [BLE and batteries](https://www.argenox.com/library/bluetooth-low-energy/powering-ble-batt/)
+- **Arduino** resources:
+  - A complete [reference](https://www.arduino.cc/reference/en/)
+  - And one specifically for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
+
+
+
+
+#
+#
+#
 ### Combining BLE and IMU commands in the IDE
-
+(old section)
 - Copy _golf-swing-acc_ as _test-imu-sketch_ (done)
 - Communicate with smartphone by adding BLE functionality, line by line (done)
-  - Repeatedly upload sketch to device looking for errors and functionality
-  - **_RESULT!_** But data is not in the form of a float, _but a hex_
-    - _So how do I convert this?_
-    - Check to see if this works with the battery solution.
-- **Make this look better**
-  - **figure out** how to deliver readable data to phone screen using arduino examples to figure it out
-  - Go through the process of importing the settings for BLE to the "acc" sketch
-  - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** 
-  - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
-  - Also go through the later lessons in _**EdX Deployment**_ class
-  - Find out whether this needs to become **_peripheral_ rather than _central_**
-  - More below, in the ["Next"](#next) section
+  - (I used the _RoboCraze_ example so this still won't work battery-only)
+  - Repeatedly upload sketch to device looking for errors and functionality (DO THIS with a different example)
+  - **_RESULT!_** But data is not in the form of a float, _but a hex_ (n/a for now)
+    - _So how do I convert this?_ (n/a for now)
+    - Check to see if this works with the battery solution. (doesn't)
+- **Make this look better** (n/a for now)
+  - **figure out** how to deliver readable data to phone screen using arduino examples to figure it out (n/a for now)
+  - Go through the process of importing the settings for BLE to the "acc" sketch (n/a for now)
+  - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** (yes!) 
+  - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference (yes!)
+  - Also go through the later lessons in _**EdX Deployment**_ class (yes!)
+  - Find out whether this needs to become **_peripheral_ rather than _central_** (skip)
+  - More below, in the ["Next"](#next) section (skip/edit)
 
+
+#
+#
 #### See: [Modifying the file](#modifying-the-file)
+
+
 
 ### BLE+IMU notes
 I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting". 
@@ -136,6 +187,10 @@ While the flashlight functionality won't be used in the end, that solution is cr
 #
 
 ## Modifying the file:
+(do this entire process again, using different example BLE sketch)
+
+#
+
 Top of sketch. First, add the two libraries.
 ```
 #include <ArduinoBLE.h>           // Bluetooth Library
