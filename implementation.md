@@ -2,6 +2,7 @@
 [*[ back to overview ]*](README.md)
 [*[ learning ]*](#learning-about-this)
 [*[ completed ]*](#completed)
+[*[ "The Flow" ]*](#flow-for-golf-swing-sensors)
 [_[ **Step One: The Accelerometer** ]_](#the-accelerometer)
 [*[ Step Two: Solve for Power ]*](#solve-for-power)
 [*[ Step Three: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
