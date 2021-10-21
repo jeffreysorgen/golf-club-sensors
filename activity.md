@@ -104,8 +104,14 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** 
 - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
 - Also go through the later lessons in _**EdX Deployment**_ class
-- Here's a YouTube video: [Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE](https://youtu.be/osneajf7Xkg)
-  - Shows some detail about Server/Client and characteristics
+- Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
+- [**Here**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a NEW good place to READ about BLE
+
+
+
+
+
+
 
 
 #
