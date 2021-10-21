@@ -52,6 +52,11 @@ I need to find the thread that would organize technically the process of how to 
 There are plenty of code examples, but nothing straightforward has surfaced for me just yet.
 The examples I really need are the ones that articulate the steps and code to assemble all the necessary pieces.
 
+##### BLE+IMU notes
+I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting". 
+Once that's done, get my phone to turn its flashlight on/off as a result. 
+What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
+While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
 
 ## Finding a simple BLE solution
 
@@ -86,11 +91,6 @@ The examples I really need are the ones that articulate the steps and code to as
 
 #### See: [Modifying the file](#modifying-the-file)
 
-### BLE+IMU notes
-I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting". 
-Once that's done, get my phone to turn its flashlight on/off as a result. 
-What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
-While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
 
 
 
