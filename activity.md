@@ -38,7 +38,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 - For the **[_magic-wand_](#digging-deeper-into-the-magic-wand)** example, using battery-only solution, the computer **can** discover the BLE service as expected
 - Evidently, the _RoboCraze_ solution kept the cable plugged into the computer, and seems to be _reliant_ on that particular configuration. I could troubleshoot the _RoboCraze_ code, but I am going to find a different example instead.
 
-#### Keep trying:
+### Keep trying:
 
 *We should try out other BLE examples, and find a BLE sketch that works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_. 
 This example doesn't work battery-only, and importing line-by-line from that example into my IMU sketch produces the same problem, plus one more. 
