@@ -35,7 +35,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 ##### Caveat:
 - If USB cable remains plugged into the computer I **can** discover _"Arduino Environment Sensor"_ in nRF Connect
-- Using a **battery-only** solution, was **not** able to discover _"Arduino Environment Sensor"_ in nRF Connect 
+- Using a [**battery-only**](#current-development-solution) solution, was **not** able to discover _"Arduino Environment Sensor"_ in nRF Connect 
 - For the **[_magic-wand_](#digging-deeper-into-the-magic-wand)** example, using battery-only solution, the computer **can** discover the BLE service as expected
 - Evidently, the _RoboCraze_ solution kept the cable plugged into the computer, and seems to be _reliant_ on that particular configuration. I could troubleshoot the _RoboCraze_ code, but I am going to find a different example instead.
 ##### *(TL;DR)*
@@ -44,6 +44,12 @@ This example doesn't work battery-only, and importing line-by-line from that exa
 My integraged, IMU/BLE configuration ended up functioning similarly, but the result was a **hex value** rather than readable data.
 While it would be good to **learn** how to transform from hex value into a readable one, I'm inclined to do that later, if it's still a problem, after I've explored some other examples.*
 
+I really need to pair up Arduino microcontroller programming with BLE functionality.
+I understand client/server and the terminology variations and service/characteristics concepts.
+But I haven't found good documentation describing how the MVP is configured for BLE. 
+I need to find the thread that would organize technically the process of how to get the BLE deployed. 
+There are plenty of code examples, but nothing straightforward has surfaced for me just yet.
+The examples I really need are the ones that articulate the steps and code to assemble all the necessary pieces.
 
 ##### (Battery Info)
 ## Power Solutions
@@ -81,12 +87,7 @@ While it would be good to **learn** how to transform from hex value into a reada
 ## Finding a simple BLE solution
 #### We now have a [development](#current-development-solution) power solution to untether ourselves from our computer.
 #### I am now collecting a [reference](#reference) section for BLE information.
-I really need to pair up Arduino microcontroller programming with BLE functionality.
-I understand client/server and the terminology variations and service/characteristics concepts.
-But I haven't found good documentation describing how the MVP is configured for BLE. 
-I need to find the thread that would organize technically the process of how to get the BLE deployed. 
-There are plenty of code examples, but nothing straightforward has surfaced for me just yet.
-The examples I really need are the ones that articulate the steps and code to assemble all the necessary pieces.
+
 
 
 
