@@ -113,7 +113,17 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 
 
 
+#
+## Reference:
+XXXXXXXX-0000-1000-8000-00805F9B34FB
+- This is important for BLE
+Here is the [Online UUID Generator](https://www.uuidgenerator.net/)
 
+
+
+
+
+#
 #
 ### Combining BLE and IMU commands in the IDE
 (old section)
@@ -134,7 +144,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
   - More below, in the ["Next"](#next) section (skip/edit)
 
 
-
+#
 #
 #### See: [Modifying the file](#modifying-the-file)
 
