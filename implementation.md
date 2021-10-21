@@ -4,7 +4,7 @@
 [*[ completed ]*](#completed)
 [_[ **Step One: The Accelerometer** ]_](#the-accelerometer)
 [*[ Step Two: Solve for Power ]*](#solve-for-power)
-[*[ Step Three: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
+[*[ Step Three: Enabling BLE ]*](activity.md/#enabling-ble)
 
 # Implementation:
 
