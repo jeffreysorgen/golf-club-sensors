@@ -208,7 +208,7 @@ Swinging the club around won't put it into that Resting state unless it register
   - It's a good example for a stationary device.
 
 #
-# [Step Three: Enabling BLE -->](activity.md/#step-two-enabling-ble)
+# [Step Three: Enabling BLE -->](activity.md/#step-three)
 [*[ <-- back to README ]*](README.md)
 [*[ Step One ]*](#step-one)
 [*[ Step Two ]*](#step-two)
