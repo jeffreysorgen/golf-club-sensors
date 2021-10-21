@@ -342,7 +342,6 @@ And I want my accelerometer to trigger my phone flashlight on/off, because it se
 - The all-inclusive Arduino file will be saved as _golf-sensors.ino_ when more sensors are involved.
 - For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
 - Create an _interval_ for some sensor readings, using `millis()` not `delay()`. But `delay()` is good during Resting state, because all sensors are meant to be off.
-- Found [**this**](https://youtu.be/v5hBjouFHQY) video about how the BLE Sense triggered other devices. (dog bark example)
 - _**Magic Wand**_ [example](#digging-deeper-into-the-magic-wand)
 
 #
