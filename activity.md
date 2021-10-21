@@ -109,6 +109,9 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 ## Reference:
 - XXXXXXXX-0000-1000-8000-00805F9B34FB (This is important for BLE)
 - Here is the [Online UUID Generator](https://www.uuidgenerator.net/)
+- Helpful from Argenox, the [Bluetooth Low Energy Library](https://www.argenox.com/library/bluetooth-low-energy/)
+  - Including a link for [BLE and batteries](https://www.argenox.com/library/bluetooth-low-energy/powering-ble-batt/)
+- [Arduino Reference](https://www.arduino.cc/reference/en/), and particularly for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
 
 
 
