@@ -9,10 +9,10 @@
 [*[ Step Five: Enable Smartphone to BEEP ]*](#enable-smartphone-to-beep)
 [_[ jump to new project ideas-> ]_](#jot-down-ideas-for-other-projects-here)
 
-##### (Step Two: Enabling BLE)
 #
 ##### Step Three:
 ## Enabling BLE
+
 #### Description
 Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app that I downloaded from Google Play called _nRF Connect_. I'm going to go through the process of getting that started right here.
 
@@ -20,9 +20,7 @@ Before we can get it to chirp in response to a good or bad swing, the smartphone
 I found -[_**this video**_](https://youtu.be/2q_tA8v5l1Y)- from _Robocraze_ to be helpful, 
 and copied the code from its [**accompanying GitHub repository**](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
 This example reads information from the sensors and then simply displays it in the phone app. Upload the sketch to the device... _**And it works exactly as it does in that video.**_ But there is a [*caveat*](#caveat) I discovered for this example.
-
 #### To do this:
-
 1. Download _nRF Connect_ from **Google Play** (also available for iOS)
 2. Find the `environment_sensor_ble.ino` file from the _Robocraze_ repository and copy it locally. 
 _(Right-click on _Raw_, save the file, and drop into same-name folder, as required by Arduino.)_
@@ -41,6 +39,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 - Evidently, the _RoboCraze_ solution kept the cable plugged into the computer, and seems to be _reliant_ on that particular configuration. I could troubleshoot the _RoboCraze_ code, but I am going to find a different example instead.
 
 #### Keep trying:
+
 *We should try out other BLE examples, and find a BLE sketch that works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_. 
 This example doesn't work battery-only, and importing line-by-line from that example into my IMU sketch produces the same problem, plus one more. 
 My integrated IMU/BLE configuration ended up functioning similarly, but the result in _nRF Connect_ displayed a **hex value** rather than readable data.
@@ -54,39 +53,6 @@ There are plenty of code examples, but nothing straightforward has surfaced for 
 The examples I really need are the ones that articulate the steps and code to assemble all the necessary pieces.
 
 
-
-
-
-#
-##### (Battery Info)
-## Power Solutions
-##### _Solve for Power_
-### Future prototyping solution
-- Later can build an obviously better solution.  
-- When 100% finished developing with my Arduino Nano 33 BLE Sense, I will be looking into using a different board for prototyping, and a battery solution will definitely be a part of the research.
-  - **The board needs to include (1) an IMU, (2) a microphone, and (3) a solvable battery option**
-- Battery options:
-  - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
-  - **Qi coil** is a wireless charging device.
-  - **CR1220** is a small, common coin-type battery
-  - **LIR2032H** is a common 3.7 rechargable, but 20mm, so like a nickel size.
-
-### Current development solution
-- **Connect with only BLE and be _physically detached_ from the computer.**
-- Attach the Arduino Sense (USBmicro port) to a power source.
-- Use a lightweight **phone recharger** (with 2 USB out) to serve this purpose during development.  
-- Rechargers will shut off after a short time with just a low power drain, so this won't work by itself.
-  - **Charging an _old phone_ at the same time will prevent this auto-shutoff** 
-
-##### Charging up a dead old phone prevents auto-shutoff
-<p align="center"><img src="http://some_place.com/pic-of-battery-solution.png" /></p>
-
-### Alternative development solution
-- This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
-- There's a power solution in the TinyML Course, attaching a 9V battery to the **Learning Kit Shield**. 
-  - This [**Appendix**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
-  - It's certainly not designed for swinging around, but it is proof that there's a pinout solution.
-  - It's a good example for a stationary device.
 
 
 
