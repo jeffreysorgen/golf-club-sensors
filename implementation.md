@@ -102,7 +102,7 @@ These readings will determine the Ready or Resting state orientation
 - For ease of use, put the Arduino into a breadboard and then attach it to a stick in a perpendicular fashion as shown here. 
 - _Imagine your golf club is either being used, or is put back in the golf bag._
 
-#### Images: (1)Attach the device to a stick (2)Ready orientation (3)Device orientation (4)Resting orientation
+##### Images: (1)Attach the device to a stick (2)Ready orientation (3)Device orientation (4)Resting orientation
 (1)<img src="images/Sm-attaching to a stick.png" width="20%">
 (2)<img src="images/Sm-start orientation.png" width="20%">
 (3)<img src="images/Sm-device orientation.png" width="20%">
