@@ -70,7 +70,7 @@ While the flashlight functionality won't be used in the end, that solution is cr
 - **Arduino** resources:
   - A complete [reference](https://www.arduino.cc/reference/en/)
   - And one specifically for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
-  - Here's some GATT information [(_LINK_)](https://www.oreilly.com/library/view/getting-started-with/9781491900550/ch04.html) from O'Reilly.
+  - Here's some GATT information [(_LINK_)](https://www.oreilly.com/library/view/getting-started-with/9781491900550/ch04.html) from O'Reilly. (2014)
 
 #### nRF Connect
 
