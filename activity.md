@@ -1,27 +1,25 @@
-- research more BLE
 - add photo of battery/old phone arrangement
+- research more BLE
 
-[*[ <-back to Overview ]*](README.md)
-[*[ (previous) Step One: The Accelerometer ]*](implementation.md/#step-one-the-accelerometer)
-**[[ Step Two: Enable BLE ]](#step-two-enabling-ble)**
-[*[ Battery solution ]*](#power-solutions)
-[*[ Step Three: BLE+IMU together ]*](#enable-accelerometer-together)
-[*[ Step Four: Enable Smartphone to BEEP ]*](#enable-smartphone-to-beep)
+[*[ Overview ]*](README.md/#golf-swing-sensors)
+[*[ The Accelerometer ]*](implementation.md/#the-accelerometer)
+[*[ Solve for Power ]*](implementation.md/#solve-for-power)
+[*[ **Step Three: Enable BLE+IMU** ]*](#step-three)
+[*[ Step Four: Enable Smartphone to BEEP ]*](#step-four)
 [_[ jump to new project ideas-> ]_](#jot-down-ideas-for-other-projects-here)
 
-## Step Two: Enabling BLE
+#
+##### Step Three:
+## Enabling BLE
 
 #### Description
 Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app that I downloaded from Google Play called _nRF Connect_. I'm going to go through the process of getting that started right here.
 
 ### Try the BLE example sketch
-###### [_(TL;DR)_](#tldr-1)
 I found -[_**this video**_](https://youtu.be/2q_tA8v5l1Y)- from _Robocraze_ to be helpful, 
 and copied the code from its [**accompanying GitHub repository**](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
 This example reads information from the sensors and then simply displays it in the phone app. Upload the sketch to the device... _**And it works exactly as it does in that video.**_ But there is a [*caveat*](#caveat) I discovered for this example.
-
 #### To do this:
-
 1. Download _nRF Connect_ from **Google Play** (also available for iOS)
 2. Find the `environment_sensor_ble.ino` file from the _Robocraze_ repository and copy it locally. 
 _(Right-click on _Raw_, save the file, and drop into same-name folder, as required by Arduino.)_
@@ -35,53 +33,17 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 ##### Caveat:
 - If USB cable remains plugged into the computer I **can** discover _"Arduino Environment Sensor"_ in nRF Connect
-- Using a **battery-only** solution, was **not** able to discover _"Arduino Environment Sensor"_ in nRF Connect 
+- Using a [**battery-only**](#current-development-solution) solution, was **not** able to discover _"Arduino Environment Sensor"_ in nRF Connect 
 - For the **[_magic-wand_](#digging-deeper-into-the-magic-wand)** example, using battery-only solution, the computer **can** discover the BLE service as expected
-- I could troubleshoot the _RoboCraze_ code, but I am going to find a different example instead
-  - Evidently, the _RoboCraze_ solution kept the cable plugged into the computer, and seems to be reliant on that particular configuration (edit this)
-  - nRF Connect on Phone --> Arduino which is still powered by computer USB cable (edit this)
-  - I don't know whether there was truly a disconnection there? (edit this)
-- _nRF Connect_ isn't the only phone app that might suit my purpose, but it _**is** Nordic Semi_
-##### *(TL;DR)*
-*We should try out other BLE examples, and find a BLE sketch that works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_. This example doesn't work battery-only, and importing line-by-line from that example into my IMU sketch produces the same problem. While it would be good to learn how to transform from hex value into a readable one, I'm inclined to do that later, if it's still a problem, after I've explored some other examples.*
+- Evidently, the _RoboCraze_ solution kept the cable plugged into the computer, and seems to be _reliant_ on that particular configuration. I could troubleshoot the _RoboCraze_ code, but I am going to find a different example instead.
 
+### Keep trying:
 
-##### (Battery Info)
-## Power Solutions
+*We should try out other BLE examples, and find a BLE sketch that works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_. 
+This example doesn't work battery-only, and importing line-by-line from that example into my IMU sketch produces the same problem, plus one more. 
+My integrated IMU/BLE configuration ended up functioning similarly, but the result in _nRF Connect_ displayed a **hex value** rather than readable data.
+While it would be good to **learn** how to transform from hex value into a readable one, I'm inclined to do that later if it's still a problem, after I've explored some other examples.*
 
-### Future prototyping solution
-- Later can build an obviously better solution.  
-- When 100% finished developing with my Arduino Nano 33 BLE Sense, I will be looking into using a different board for prototyping, and a battery solution will definitely be a part of the research.
-  - **The board needs to include (1) an IMU, (2) a microphone, and (3) a solvable battery option**
-- Battery options:
-  - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
-  - **Qi coil** is a wireless charging device.
-  - **CR1220** is a small, common coin-type battery
-  - **LIR2032H** is a common 3.7 rechargable, but 20mm, so like a nickel size.
-
-### Current development solution
-- **Connect with only BLE and be _physically detached_ from the computer.**
-- Attach the Arduino Sense (USBmicro port) to a power source.
-- Use a lightweight **phone recharger** (with 2 USB out) to serve this purpose during development.  
-- Rechargers will shut off after a short time with just a low power drain, so this won't work by itself.
-  - **Charging an _old phone_ at the same time will prevent this auto-shutoff** 
-
-##### Charging up a dead old phone prevents auto-shutoff
-<p align="center"><img src="http://some_place.com/pic-of-battery-solution.png" /></p>
-
-### Alternative development solution
-- This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
-- There's a power solution in the TinyML Course, attaching a 9V battery to the **Learning Kit Shield**. 
-  - This [**Appendix**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
-  - It's certainly not designed for swinging around, but it is proof that there's a pinout solution.
-  - It's a good example for a stationary device.
-
-
-
-#
-## Finding a simple BLE solution
-#### We now have a [development](#current-development-solution) power solution to untether ourselves from our computer.
-#### I am now collecting a [reference](#reference) section for BLE information.
 I really need to pair up Arduino microcontroller programming with BLE functionality.
 I understand client/server and the terminology variations and service/characteristics concepts.
 But I haven't found good documentation describing how the MVP is configured for BLE. 
@@ -89,36 +51,16 @@ I need to find the thread that would organize technically the process of how to 
 There are plenty of code examples, but nothing straightforward has surfaced for me just yet.
 The examples I really need are the ones that articulate the steps and code to assemble all the necessary pieces.
 
+##### BLE+IMU notes
+I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting". 
+Once that's done, get my phone to turn its flashlight on/off as a result. 
+What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
+While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
 
 
-#
+## Finding a simple BLE solution
 
-### nRF Connect
-- nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
-- In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
-
-### Try again:
-- Go back to _golf-swing-acc_ and copy it as _new-test-imu-ble-combo_ (done)
-- **Go through example sketches to find simplest one to integrate BLE and my IMU code so far**
-- Communicate with smartphone by adding BLE functionality, line by line
-- Repeatedly upload sketch to device looking for errors and functionality (DO THIS with a different example)
-
-
-#### Examples:
-- Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** 
-- Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
-- Also go through the later lessons in _**EdX Deployment**_ class
-- Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
-- [**Here**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a NEW good place to READ about BLE (recopied below)
-
-
-
-
-
-
-
-#
-## Reference:
+### Reference:
 - XXXXXXXX-0000-1000-8000-00805F9B34FB (This is important for BLE)
 - Here is the [Online UUID Generator](https://www.uuidgenerator.net/)
 - Helpful from Argenox:
@@ -129,67 +71,36 @@ The examples I really need are the ones that articulate the steps and code to as
   - A complete [reference](https://www.arduino.cc/reference/en/)
   - And one specifically for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
 
+### nRF Connect
 
+- nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
+- In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
 
+### Try again:
 
-#
-#
-#
-### Combining BLE and IMU commands in the IDE
-(old section)
-- Copy _golf-swing-acc_ as _test-imu-sketch_ (done)
-- Communicate with smartphone by adding BLE functionality, line by line (done)
-  - (I used the _RoboCraze_ example so this still won't work battery-only)
-  - Repeatedly upload sketch to device looking for errors and functionality (DO THIS with a different example)
-  - **_RESULT!_** But data is not in the form of a float, _but a hex_ (n/a for now)
-    - _So how do I convert this?_ (n/a for now)
-    - Check to see if this works with the battery solution. (doesn't)
-- **Make this look better** (n/a for now)
-  - **figure out** how to deliver readable data to phone screen using arduino examples to figure it out (n/a for now)
-  - Go through the process of importing the settings for BLE to the "acc" sketch (n/a for now)
-  - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** (yes!) 
-  - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference (yes!)
-  - Also go through the later lessons in _**EdX Deployment**_ class (yes!)
-  - Find out whether this needs to become **_peripheral_ rather than _central_** (skip)
-  - More below, in the ["Next"](#next) section (skip/edit)
+- Go back to _golf-swing-acc_ and copy it as _new-test-imu-ble-combo_ (done)
+- **Go through example sketches to find simplest one to integrate BLE and my IMU code so far**
+- Communicate with smartphone by adding BLE functionality, line by line
+- Repeatedly upload sketch to device looking for errors and functionality
+  - Find sketch which works well on its own (**what would this look like?**)
 
+#### Examples:
 
-#
-#
-#### See: [Modifying the file](#modifying-the-file)
-
-
-
-### BLE+IMU notes
-I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting". 
-Once that's done, get my phone to turn its flashlight on/off as a result. 
-What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
-While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
-
-
-#
-#
-
-## Enable Accelerometer together
-- Enable BOTH Accelerometer and BLE into _new_ custom sketch
-  - _This could have been done in the prior step!_
-- TEST the Accelerometer, that it works as before
-  - WATCH that the Android displays "Ready" to "Resting" and back again
-  - Get screenshot and post here.
+- Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** 
+- Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
+- Also go through the later lessons in _**EdX Deployment**_ class
+- Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
 
 #### nRF Connect looks like this
+
 (screenshot of my phone screen with device listed)
 <p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
 
 
 #
-#
-#
-
 ## Modifying the file:
-(do this entire process again, using different example BLE sketch)
 
-#
+(do this entire process again, using different example BLE sketch)
 
 Top of sketch. First, add the two libraries.
 ```
@@ -347,33 +258,46 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 
 #
 #
-
+#
 #
 # Finish connecting BLE 100% as planned before moving on to the SDK part
 #
 
+
+
+
+
 #
+##### Step Four:
 ## Enable Smartphone to BEEP
 
-**So for Part Four:**
 - Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
 
-### Dog bark KWS example:
-Sensor devices similar to the BLE Sense have been used to trigger audio to play from another device.
-The dog barking example from YouTube (here) is one. 
-So I need to use the matching code from that example and apply it for my purpose,
-which is to get nRF Connect to trigger actions in my phone.
-That microphone sensor created KWS model that triggered an app to play some prerecorded audio.
-And I want my accelerometer to trigger my phone flashlight on/off, because it senses _Ready/Resting_ states.
-- Found [**this**](https://youtu.be/v5hBjouFHQY) video about how the BLE Sense triggered other devices.
+#### Description
+Proof of feasibility. Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way.
+- Requires App Development: Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
+- Enable smartphone functions via nRF (Requires SDK)
+- What can be configured in my phone that receives commands from the nRF Connect application?
+  - Can the phone app trigger **BEEP** or a vibration/buzz? (But should be just once, at change of its state)
+  - Can the nRF App turn on/off the phone's **flashlight**? (_Good Idea!_)
+- Make the smartphone beep in Ready state
+
+
+#### Insert video
+<p align="center"><img src="http://some_place.com/image.png" /></p>
+
+##### Video of moving device back and forth, and hearing the beep sound from the phone
 
 
 ### Identifying a state change and taking action
+
 What I want is a way for my Android to recognize a state change coming from the **arduino**. 
 - When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
 - More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
+- There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely
 
 ##### State change: (pseudo code)
+
 ```
 resting = state("Resting");
 ready = state("Ready");
@@ -391,35 +315,37 @@ if ( now !== earlier ) {      // if state has now changed
     pass;                     // now == earlier, so no state change
 ```
 
+
+### Dog bark KWS example:
+Sensor devices similar to the BLE Sense have been used to trigger audio to play from another device.
+The dog barking example from YouTube (here) is one. 
+So I need to use the matching code from that example and apply it for my purpose,
+which is to get nRF Connect to trigger actions in my phone.
+That microphone sensor created KWS model that triggered an app to play some prerecorded audio.
+And I want my accelerometer to trigger my phone flashlight on/off, because it senses _Ready/Resting_ states.
+- Found [**this**](https://youtu.be/v5hBjouFHQY) dog bark video about how the BLE Sense triggered other devices.
+- Question is whether it's using BLE or some other connection. But it's a good example of KWS.
+  - Wouldn't need BLE if listening device connects with wire to audio player!
+
+
+
 #
-### Step Four: Enable Smartphone to BEEP
+#
+#
+#
+##### (Step Four: Enable Smartphone to BEEP)
 - When creating this sketch, we must create a new Development Sketch, "_dev-sdk-ble-pitches_".
 - For the sketch here, since it's for immediate development, just create high and low pitches for the transitions into Ready and Resting states, respectively, and we'll save the code for future reference.
 - Probably later create a third sketch that combines code from _golf-swing-acc_, the new inclusive sketch, and this _dev_ sketch.
-
-#### Description
-Proof of feasibility. Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way.
-- Requires App Development: Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
-- Enable smartphone functions via nRF (Requires SDK)
-- What can be configured in my phone that receives commands from the nRF Connect application?
-  - Can the phone app trigger **BEEP** or a vibration/buzz? (But should be just once, at change of its state)
-  - Can the nRF App turn on/off the phone's **flashlight**? (_Good Idea!_)
-- Make the smartphone beep in Ready state
-
-
-#### Insert video
-<p align="center"><img src="http://some_place.com/image.png" /></p>
-
-##### Video of moving device back and forth, and hearing the beep sound from the phone
 
 ## Reference Info:
 - The all-inclusive Arduino file will be saved as _golf-sensors.ino_ when more sensors are involved.
 - For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
 - Create an _interval_ for some sensor readings, using `millis()` not `delay()`. But `delay()` is good during Resting state, because all sensors are meant to be off.
-- Found [**this**](https://youtu.be/v5hBjouFHQY) video about how the BLE Sense triggered other devices. (dog bark example)
 - _**Magic Wand**_ [example](#digging-deeper-into-the-magic-wand)
 
-
+#
+#
 ### Digging deeper into the _magic wand_:
 ##### (more stuff)
 - **LEARN** 
@@ -437,7 +363,8 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 
 
-
+#
+#
 #
 # And then:
 ## AFTER enabling smartphone to beep when sensing Ready orientation
@@ -448,17 +375,20 @@ What are the specific physical instruments needed to determine whether the motio
 - I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
 - It might just be the other 2 axes from the accelerometer. In this case, don't include the axis to which gravity is applied. Only use the other 2, and when they're below a threshold, they're still. (Having said that, I believe the gyro will be even more obvious)
 
-
 #
-# more todo:
-1. Get Gyro going.
+##### Step Five:
+## Get Gyro going
+
 1. Figure out the Gyro data on Monitor.
 1. Figure out how to collect gyro data.
 1. Figure out how to **add** the KWS field ('yes'|null) to that data point.
 1. Figure out how to combine data points into a **usable DATA SET** (with or without the KWS resolved)
 
 
+#
+##### Step Six:
 ## Collect gyro data
+
 - Once in Ready state, figure out how to **enable the Gyro** to collect a sweep of data once motion begins.
 - Watch Gyro data in Monitor. Collect X,Y,Z coordinates of Gyro, as well as TIME STAMPS (so, 4 dimensions)
   - As soon as Gyro reads that it's sitting still, that's when the collection can begin. 
@@ -467,8 +397,7 @@ What are the specific physical instruments needed to determine whether the motio
 - Collect some data, and **then stop** when the Gyro is still again to SAVE THE DATA.
 
 
-
-## Then:
+## More steps
 
 - The gyro/acc record movement (_HOW MUCH MOVEMENT?_)
   - This data will require normalization, eliminating noise (LEARN)
@@ -476,12 +405,18 @@ What are the specific physical instruments needed to determine whether the motio
 - Then transmit the data points to smartphone
 - Then enables the Accelerometer again, waiting to be in Ready state again
 
-#### Repository Question
-- Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. 
 
 
 #
-## More steps
+#
+
+#### Repository Question
+- Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. 
+
+#
+#
+
+
 ### What are more parts to the project?
 
 #### Figure out:
@@ -539,6 +474,8 @@ What are the specific physical instruments needed to determine whether the motio
 * Not Needed: GIF of slideshow of certs, book, Arduino board, etc (not yet)
 * Not Needed: **Wiki**
 * "SWINGTASTIC"
+
+
 #
 ### Jot down ideas for other projects here
 - wind turbine ( Is the most popular product TinyML or IoT? )
