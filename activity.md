@@ -1,5 +1,5 @@
+- research more BLE
 - add photo of battery/old phone arrangement
-- try a new example for BLE!
 
 [*[ <-back to Overview ]*](README.md)
 [*[ (previous) Step One: The Accelerometer ]*](implementation.md/#step-one-the-accelerometer)
@@ -76,9 +76,18 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
   - It's certainly not designed for swinging around, but it is proof that there's a pinout solution.
   - It's a good example for a stationary device.
 
+
+
 #
 ## Finding a simple BLE solution
 #### We now have a [development](#current-development-solution) power solution to untether ourselves from our computer.
+
+I really need to pair up Arduino programming to BLE functionality.
+I can find lots of examples, but nothing straightforward has surfaced for me just yet.
+The examples I really need are ones that detail the steps assembling all the necessary pieces.
+
+
+
 #
 
 ### nRF Connect
@@ -109,9 +118,13 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 ## Reference:
 - XXXXXXXX-0000-1000-8000-00805F9B34FB (This is important for BLE)
 - Here is the [Online UUID Generator](https://www.uuidgenerator.net/)
-- Helpful from Argenox, the [Bluetooth Low Energy Library](https://www.argenox.com/library/bluetooth-low-energy/)
-  - Including a link for [BLE and batteries](https://www.argenox.com/library/bluetooth-low-energy/powering-ble-batt/)
-- [Arduino Reference](https://www.arduino.cc/reference/en/), and particularly for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
+- Helpful from Argenox:
+  - [**Argenox wibsite**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a good place to READ about BLE
+  - Here's the [Bluetooth Low Energy Library](https://www.argenox.com/library/bluetooth-low-energy/)
+  - Here is a link for [BLE and batteries](https://www.argenox.com/library/bluetooth-low-energy/powering-ble-batt/)
+- Arduino resources:
+  - A complete [reference](https://www.arduino.cc/reference/en/)
+  - And one specifically for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
 
 
 
