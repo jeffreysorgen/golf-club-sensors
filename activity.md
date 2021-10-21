@@ -3,15 +3,16 @@
 - then move "Solve for Power" to _Implementation.md_
 - research more BLE
 
-[*[ <-back to Overview ]*](README.md)
-[*[ (previous) Step One: The Accelerometer ]*](implementation.md/#step-one)
-[**[ Step Two: Solve for Power ]**](implementation.md/#step-two)
-[*[ Step Three: Enable BLE ]*](#step-two-enabling-ble)**
+[*[ Overview ]*](README.md)
+[*[ The Accelerometer ]*](implementation.md/#the-accelerometer)
+[*[ Solve for Power ]*](implementation.md/#solve-for-power)
+[*[ **Step Three: Enable BLE** ]*](#step-three)
 [*[ Step Four: BLE+IMU together ]*](#enable-accelerometer-together)
 [*[ Step Five: Enable Smartphone to BEEP ]*](#enable-smartphone-to-beep)
 [_[ jump to new project ideas-> ]_](#jot-down-ideas-for-other-projects-here)
 
-##### Step Two: Enabling BLE
+##### (Step Two: Enabling BLE)
+#
 ##### Step Three:
 ## Enabling BLE
 #### Description
