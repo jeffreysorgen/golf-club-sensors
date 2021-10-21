@@ -37,13 +37,12 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 - If USB cable remains plugged into the computer I **can** discover _"Arduino Environment Sensor"_ in nRF Connect
 - Using a **battery-only** solution, was **not** able to discover _"Arduino Environment Sensor"_ in nRF Connect 
 - For the **[_magic-wand_](#digging-deeper-into-the-magic-wand)** example, using battery-only solution, the computer **can** discover the BLE service as expected
-- I could troubleshoot the _RoboCraze_ code, but I am going to find a different example instead
-  - Evidently, the _RoboCraze_ solution kept the cable plugged into the computer, and seems to be reliant on that particular configuration (edit this)
-  - nRF Connect on Phone --> Arduino which is still powered by computer USB cable (edit this)
-  - I don't know whether there was truly a disconnection there? (edit this)
-- _nRF Connect_ isn't the only phone app that might suit my purpose, but it _**is** Nordic Semi_
+- Evidently, the _RoboCraze_ solution kept the cable plugged into the computer, and seems to be _reliant_ on that particular configuration. I could troubleshoot the _RoboCraze_ code, but I am going to find a different example instead.
 ##### *(TL;DR)*
-*We should try out other BLE examples, and find a BLE sketch that works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_. This example doesn't work battery-only, and importing line-by-line from that example into my IMU sketch produces the same problem. While it would be good to learn how to transform from hex value into a readable one, I'm inclined to do that later, if it's still a problem, after I've explored some other examples.*
+*We should try out other BLE examples, and find a BLE sketch that works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_. 
+This example doesn't work battery-only, and importing line-by-line from that example into my IMU sketch produces the same problem, plus one more. 
+My integraged, IMU/BLE configuration ended up functioning similarly, but the result was a **hex value** rather than readable data.
+While it would be good to **learn** how to transform from hex value into a readable one, I'm inclined to do that later, if it's still a problem, after I've explored some other examples.*
 
 
 ##### (Battery Info)
@@ -101,7 +100,8 @@ The examples I really need are the ones that articulate the steps and code to as
 - Go back to _golf-swing-acc_ and copy it as _new-test-imu-ble-combo_ (done)
 - **Go through example sketches to find simplest one to integrate BLE and my IMU code so far**
 - Communicate with smartphone by adding BLE functionality, line by line
-- Repeatedly upload sketch to device looking for errors and functionality (DO THIS with a different example)
+- Repeatedly upload sketch to device looking for errors and functionality
+  - Find sketch which works well on its own (**what would this look like?**)
 
 
 #### Examples:
@@ -137,21 +137,6 @@ The examples I really need are the ones that articulate the steps and code to as
 #
 ### Combining BLE and IMU commands in the IDE
 (old section)
-- Copy _golf-swing-acc_ as _test-imu-sketch_ (done)
-- Communicate with smartphone by adding BLE functionality, line by line (done)
-  - (I used the _RoboCraze_ example so this still won't work battery-only)
-  - Repeatedly upload sketch to device looking for errors and functionality (DO THIS with a different example)
-  - **_RESULT!_** But data is not in the form of a float, _but a hex_ (n/a for now)
-    - _So how do I convert this?_ (n/a for now)
-    - Check to see if this works with the battery solution. (doesn't)
-- **Make this look better** (n/a for now)
-  - **figure out** how to deliver readable data to phone screen using arduino examples to figure it out (n/a for now)
-  - Go through the process of importing the settings for BLE to the "acc" sketch (n/a for now)
-  - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** (yes!) 
-  - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference (yes!)
-  - Also go through the later lessons in _**EdX Deployment**_ class (yes!)
-  - Find out whether this needs to become **_peripheral_ rather than _central_** (skip)
-  - More below, in the ["Next"](#next) section (skip/edit)
 
 
 #
