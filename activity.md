@@ -69,7 +69,6 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 ##### Charging up a dead old phone prevents auto-shutoff
 <p align="center"><img src="http://some_place.com/pic-of-battery-solution.png" /></p>
 
-
 ### Alternative development solution
 - This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
 - There's a power solution in the TinyML Course, attaching a 9V battery to the **Learning Kit Shield**. 
@@ -78,16 +77,9 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
   - It's a good example for a stationary device.
 
 #
-
-
-
-
-
-
-#
-#
 ## Finding a simple BLE solution
 #### We now have a [development](#current-development-solution) power solution to untether ourselves from our computer.
+#
 
 ### nRF Connect
 - nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
@@ -115,14 +107,13 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 
 #
 ## Reference:
-- XXXXXXXX-0000-1000-8000-00805F9B34FB
-  - This is important for BLE
+- XXXXXXXX-0000-1000-8000-00805F9B34FB (This is important for BLE)
 - Here is the [Online UUID Generator](https://www.uuidgenerator.net/)
 
 
 
 
-
+#
 #
 #
 ### Combining BLE and IMU commands in the IDE
@@ -147,8 +138,6 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 #
 #
 #### See: [Modifying the file](#modifying-the-file)
-
-
 
 
 
