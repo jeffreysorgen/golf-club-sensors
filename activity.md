@@ -271,14 +271,7 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 ##### Step Four:
 ## Enable Smartphone to BEEP
 
-
-
-
-
-**So for Part Four:**
 - Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
-
-
 
 #### Description
 Proof of feasibility. Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way.
