@@ -1,4 +1,5 @@
 - add photo of battery/old phone arrangement
+- Swap around "solve for power" and "implementing BLE"
 - then move "Solve for Power" to _Implementation.md_
 - research more BLE
 
