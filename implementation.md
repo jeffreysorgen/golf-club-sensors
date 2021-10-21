@@ -70,7 +70,6 @@ _skip to
   - _Beep/buzz if good swing_
   - _Silent (or low tone) if no match_
 
-##### (Step One: The Accelerometer)
 #
 ##### Step One:
 ## The Accelerometer
