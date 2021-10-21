@@ -1,6 +1,4 @@
-- Swap around "solve for power" and "implementing BLE"
 - add photo of battery/old phone arrangement
-- then move "Solve for Power" to _Implementation.md_
 - research more BLE
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
