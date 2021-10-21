@@ -3,7 +3,7 @@
 - then move "Solve for Power" to _Implementation.md_
 - research more BLE
 
-[*[ Overview ]*](README.md)
+[*[ Overview ]*](README.md/#golf-swing-sensors)
 [*[ The Accelerometer ]*](implementation.md/#the-accelerometer)
 [*[ Solve for Power ]*](implementation.md/#solve-for-power)
 [*[ **Step Three: Enable BLE** ]*](#step-three)
