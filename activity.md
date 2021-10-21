@@ -53,23 +53,18 @@ There are plenty of code examples, but nothing straightforward has surfaced for 
 The examples I really need are the ones that articulate the steps and code to assemble all the necessary pieces.
 
 
-
-
-
-
-
-#
-##### (Step Three: Enable BLE)
-
-
 ## Finding a simple BLE solution
-#### We now have a [development](#current-development-solution) power solution to untether ourselves from our computer.
-#### I am now collecting a [reference](#reference) section for BLE information.
 
-
-
-
-#
+### Reference:
+- XXXXXXXX-0000-1000-8000-00805F9B34FB (This is important for BLE)
+- Here is the [Online UUID Generator](https://www.uuidgenerator.net/)
+- Helpful from Argenox:
+  - [**Argenox website**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a good place to READ about BLE
+  - Here's the [Bluetooth Low Energy Library](https://www.argenox.com/library/bluetooth-low-energy/)
+  - Here is a link for [BLE and batteries](https://www.argenox.com/library/bluetooth-low-energy/powering-ble-batt/)
+- **Arduino** resources:
+  - A complete [reference](https://www.arduino.cc/reference/en/)
+  - And one specifically for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
 
 ### nRF Connect
 - nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
@@ -91,37 +86,7 @@ The examples I really need are the ones that articulate the steps and code to as
 - [**Here**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a NEW good place to READ about BLE (recopied below)
 
 
-
-
-
-
-
-#
-## Reference:
-- XXXXXXXX-0000-1000-8000-00805F9B34FB (This is important for BLE)
-- Here is the [Online UUID Generator](https://www.uuidgenerator.net/)
-- Helpful from Argenox:
-  - [**Argenox website**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a good place to READ about BLE
-  - Here's the [Bluetooth Low Energy Library](https://www.argenox.com/library/bluetooth-low-energy/)
-  - Here is a link for [BLE and batteries](https://www.argenox.com/library/bluetooth-low-energy/powering-ble-batt/)
-- **Arduino** resources:
-  - A complete [reference](https://www.arduino.cc/reference/en/)
-  - And one specifically for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
-
-
-
-
-#
-#
-#
-### Combining BLE and IMU commands in the IDE
-(old section)
-
-
-#
-#
 #### See: [Modifying the file](#modifying-the-file)
-
 
 
 ### BLE+IMU notes
@@ -131,7 +96,7 @@ What we want to do for this project is to read information from the sensor and t
 While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
 
 
-#
+
 #
 
 ## Enable Accelerometer together
@@ -148,7 +113,7 @@ While the flashlight functionality won't be used in the end, that solution is cr
 
 #
 #
-#
+
 
 ## Modifying the file:
 (do this entire process again, using different example BLE sketch)
@@ -311,7 +276,7 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 
 #
 #
-
+#
 #
 # Finish connecting BLE 100% as planned before moving on to the SDK part
 #
@@ -329,14 +294,15 @@ So I need to use the matching code from that example and apply it for my purpose
 which is to get nRF Connect to trigger actions in my phone.
 That microphone sensor created KWS model that triggered an app to play some prerecorded audio.
 And I want my accelerometer to trigger my phone flashlight on/off, because it senses _Ready/Resting_ states.
-- Found [**this**](https://youtu.be/v5hBjouFHQY) video about how the BLE Sense triggered other devices.
-
+- Found [**this**](https://youtu.be/v5hBjouFHQY) dog bark video about how the BLE Sense triggered other devices.
+- Question is whether it's using BLE or some other connection. But it's a good example of KWS.
+  - Wouldn't need BLE if listening device connects with wire to audio player!
 
 ### Identifying a state change and taking action
 What I want is a way for my Android to recognize a state change coming from the **arduino**. 
 - When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
 - More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
-
+- There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely
 ##### State change: (pseudo code)
 ```
 resting = state("Resting");
