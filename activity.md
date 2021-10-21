@@ -4,16 +4,16 @@
 - research more BLE
 
 [*[ <-back to Overview ]*](README.md)
-[*[ (previous) Step One: The Accelerometer ]*](implementation.md/#step-one-the-accelerometer)
-[**[ Step Two: Solve for Power ]**](#step-two-solve-for-power)
+[*[ (previous) Step One: The Accelerometer ]*](implementation.md/#step-one)
+[**[ Step Two: Solve for Power ]**](implementation.md/#step-two)
 [*[ Step Three: Enable BLE ]*](#step-two-enabling-ble)**
 [*[ Step Four: BLE+IMU together ]*](#enable-accelerometer-together)
 [*[ Step Five: Enable Smartphone to BEEP ]*](#enable-smartphone-to-beep)
 [_[ jump to new project ideas-> ]_](#jot-down-ideas-for-other-projects-here)
 
-## Step Two: Enabling BLE
-##### (Step Two: Solve for Power)
-
+##### Step Two: Enabling BLE
+##### Step Three:
+## Enabling BLE
 #### Description
 Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app that I downloaded from Google Play called _nRF Connect_. I'm going to go through the process of getting that started right here.
 
