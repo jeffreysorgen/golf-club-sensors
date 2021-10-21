@@ -2,8 +2,8 @@
 [*[ back to overview ]*](README.md)
 [*[ learning ]*](#learning-about-this)
 [*[ completed ]*](#completed)
-[[ **Step One: Start with the Accelerometer** ]](#step-one-the-accelerometer)
-[*[ Step Two: Solve for Power ]*](activity.md/#solve-for-power)
+[[ **Step One: Start with the Accelerometer** ]](#the-accelerometer)
+[*[ Step Two: Solve for Power ]*](#solve-for-power)
 [*[ Step Three: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
 [*[ --> open for Discussion! ]*](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
 
@@ -71,7 +71,10 @@ _skip to
   - _Beep/buzz if good swing_
   - _Silent (or low tone) if no match_
 
-## Step One: The Accelerometer
+##### (Step One: The Accelerometer)
+#
+##### Step One:
+## The Accelerometer
 
 #### Description: 
 **The goal is to "turn on" readings when sensor is oriented with clubhead down at the ground.**
@@ -175,14 +178,37 @@ The goal was to basically create on/off states, accomplished here by using a thr
 Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason.
 
 #
-## Step Two: Solve for Power
+##### Step Two:
+## Solve for Power
+### Future prototyping solution
+- Later can build an obviously better solution.  
+- When 100% finished developing with my Arduino Nano 33 BLE Sense, I will be looking into using a different board for prototyping, and a battery solution will definitely be a part of the research.
+  - **The board needs to include (1) an IMU, (2) a microphone, and (3) a solvable battery option**
+- Battery options:
+  - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
+  - **Qi coil** is a wireless charging device.
+  - **CR1220** is a small, common coin-type battery
+  - **LIR2032H** is a common 3.7 rechargable, but 20mm, so like a nickel size.
 
+### Current development solution
+- **Connect with only BLE and be _physically detached_ from the computer.**
+- Attach the Arduino Sense (USBmicro port) to a power source.
+- Use a lightweight **phone recharger** (with 2 USB out) to serve this purpose during development.  
+- Rechargers will shut off after a short time with just a low power drain, so this won't work by itself.
+  - **Charging an _old phone_ at the same time will prevent this auto-shutoff** 
 
+##### Charging up a dead old phone prevents auto-shutoff
+<p align="center"><img src="http://some_place.com/pic-of-battery-solution.png" /></p>
 
+### Alternative development solution
+- This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
+- There's a power solution in the TinyML Course, attaching a 9V battery to the **Learning Kit Shield**. 
+  - This [**Appendix**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
+  - It's certainly not designed for swinging around, but it is proof that there's a pinout solution.
+  - It's a good example for a stationary device.
 
-
-
+#
 # [Step Three: Enabling BLE -->](activity.md/#step-two-enabling-ble)
 [*[ <-- back to README ]*](README.md)
-[*[ Step One: Enabling the Accelerometer ]*](#step-one-the-accelerometer)
-[*[ Step Two: Solve for Power ]*](#solve-for-power)
+[*[ Step One ]*](#step-one)
+[*[ Step Two ]*](#step-two)
