@@ -280,6 +280,21 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 
 
 
+#### Description
+Proof of feasibility. Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way.
+- Requires App Development: Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
+- Enable smartphone functions via nRF (Requires SDK)
+- What can be configured in my phone that receives commands from the nRF Connect application?
+  - Can the phone app trigger **BEEP** or a vibration/buzz? (But should be just once, at change of its state)
+  - Can the nRF App turn on/off the phone's **flashlight**? (_Good Idea!_)
+- Make the smartphone beep in Ready state
+
+
+#### Insert video
+<p align="center"><img src="http://some_place.com/image.png" /></p>
+
+##### Video of moving device back and forth, and hearing the beep sound from the phone
+
 
 ### Identifying a state change and taking action
 
@@ -329,21 +344,6 @@ And I want my accelerometer to trigger my phone flashlight on/off, because it se
 - When creating this sketch, we must create a new Development Sketch, "_dev-sdk-ble-pitches_".
 - For the sketch here, since it's for immediate development, just create high and low pitches for the transitions into Ready and Resting states, respectively, and we'll save the code for future reference.
 - Probably later create a third sketch that combines code from _golf-swing-acc_, the new inclusive sketch, and this _dev_ sketch.
-
-#### Description
-Proof of feasibility. Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way.
-- Requires App Development: Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
-- Enable smartphone functions via nRF (Requires SDK)
-- What can be configured in my phone that receives commands from the nRF Connect application?
-  - Can the phone app trigger **BEEP** or a vibration/buzz? (But should be just once, at change of its state)
-  - Can the nRF App turn on/off the phone's **flashlight**? (_Good Idea!_)
-- Make the smartphone beep in Ready state
-
-
-#### Insert video
-<p align="center"><img src="http://some_place.com/image.png" /></p>
-
-##### Video of moving device back and forth, and hearing the beep sound from the phone
 
 ## Reference Info:
 - The all-inclusive Arduino file will be saved as _golf-sensors.ino_ when more sensors are involved.
