@@ -1,15 +1,17 @@
-- research more BLE
 - add photo of battery/old phone arrangement
+- then move "Solve for Power" to _Implementation.md_
+- research more BLE
 
 [*[ <-back to Overview ]*](README.md)
 [*[ (previous) Step One: The Accelerometer ]*](implementation.md/#step-one-the-accelerometer)
 **[[ Step Two: Enable BLE ]](#step-two-enabling-ble)**
-[*[ Battery solution ]*](#power-solutions)
+[*[ Step Two: Solve for Power ]*](#power-solutions)
 [*[ Step Three: BLE+IMU together ]*](#enable-accelerometer-together)
 [*[ Step Four: Enable Smartphone to BEEP ]*](#enable-smartphone-to-beep)
 [_[ jump to new project ideas-> ]_](#jot-down-ideas-for-other-projects-here)
 
 ## Step Two: Enabling BLE
+##### (Step Two: Solve for Power)
 
 #### Description
 Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app that I downloaded from Google Play called _nRF Connect_. I'm going to go through the process of getting that started right here.
@@ -53,7 +55,7 @@ The examples I really need are the ones that articulate the steps and code to as
 
 ##### (Battery Info)
 ## Power Solutions
-
+**_Solve for Power_**
 ### Future prototyping solution
 - Later can build an obviously better solution.  
 - When 100% finished developing with my Arduino Nano 33 BLE Sense, I will be looking into using a different board for prototyping, and a battery solution will definitely be a part of the research.
@@ -81,7 +83,7 @@ The examples I really need are the ones that articulate the steps and code to as
   - It's certainly not designed for swinging around, but it is proof that there's a pinout solution.
   - It's a good example for a stationary device.
 
-
+##### (Step Three: Enable BLE)
 
 #
 ## Finding a simple BLE solution
