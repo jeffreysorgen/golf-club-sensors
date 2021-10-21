@@ -340,6 +340,7 @@ And I want my accelerometer to trigger my phone flashlight on/off, because it se
 
 ## Reference Info:
 - The all-inclusive Arduino file will be saved as _golf-sensors.ino_ when more sensors are involved.
+  - Multiple "h" file can probably be included, to split off logically (see: [_magic wand_](#digging-deeper-into-the-magic-wand) example) from the _.ino_ file.
 - For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
 - Create an _interval_ for some sensor readings, using `millis()` not `delay()`. But `delay()` is good during Resting state, because all sensors are meant to be off.
 - _**Magic Wand**_ [example](#digging-deeper-into-the-magic-wand)
