@@ -115,9 +115,9 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 
 #
 ## Reference:
-XXXXXXXX-0000-1000-8000-00805F9B34FB
-- This is important for BLE
-Here is the [Online UUID Generator](https://www.uuidgenerator.net/)
+- XXXXXXXX-0000-1000-8000-00805F9B34FB
+  - This is important for BLE
+- Here is the [Online UUID Generator](https://www.uuidgenerator.net/)
 
 
 
