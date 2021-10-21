@@ -35,7 +35,7 @@ _skip to
 9. Defined Golf Swing Data Flow, [_below_](#flow-for-golf-swing-sensors)
 10. Created _new-readme.md_ (now [README](README.md)), added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list. (Now deleted the old readme-old.md.)
 11. Renamed (this) repository: _hello-world_ is now _golf-swing-sensors_, and updated [README.md](readme.md)
-12. [Implementation Part One:](#step-one-the-accelerometer) **Set up Accelerometer**
+12. [Implementation Part One:](#the-accelerometer) **Set up Accelerometer**
 
 ##### _2021 Oct_
 
@@ -48,9 +48,9 @@ _skip to
 19. **Arduino sketch** created for Accelerometer - _golf-swing-acc_ ([here](#updating-the-arduino-nano-33-ble)) and kept it **simple**. 
 20. **GitHub Markdown** Learned styling for tables, images and code block
 21. Added code block and image from Monitor to this documentation. 
-22. COMPLETED Part One documentation, and it's time to move on to [**adding BLE**](activity.md/#step-two-enabling-ble) to the system!
+22. COMPLETED Part One documentation, and it's time to move on to [**adding BLE**](activity.md/#enabling-ble) to the system!
 23. Successfully [copied the process](activity.md/#try-the-ble-example-sketch) of a YouTuber to add BLE services on the device.
-24. DOCUMENTED several potential development and prototyping [**power solutions**](activity.md#power-solutions)
+24. DOCUMENTED several potential development and prototyping [**power solutions**](#solve-for-power)
 25. Generated [pseudo code](activity.md#state-change-pseudo-code) for state changes
 
 
