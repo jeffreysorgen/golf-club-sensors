@@ -33,7 +33,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 ##### Caveat:
 - If USB cable remains plugged into the computer I **can** discover _"Arduino Environment Sensor"_ in nRF Connect
-- Using a [**battery-only**](#current-development-solution) solution, was **not** able to discover _"Arduino Environment Sensor"_ in nRF Connect 
+- Using a [**battery-only**](implementation.md/#current-development-solution) solution, was **not** able to discover _"Arduino Environment Sensor"_ in nRF Connect 
 - For the **[_magic-wand_](#digging-deeper-into-the-magic-wand)** example, using battery-only solution, the computer **can** discover the BLE service as expected
 - Evidently, the _RoboCraze_ solution kept the cable plugged into the computer, and seems to be _reliant_ on that particular configuration. I could troubleshoot the _RoboCraze_ code, but I am going to find a different example instead.
 
