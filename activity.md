@@ -280,18 +280,6 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 
 
 
-### Dog bark KWS example:
-Sensor devices similar to the BLE Sense have been used to trigger audio to play from another device.
-The dog barking example from YouTube (here) is one. 
-So I need to use the matching code from that example and apply it for my purpose,
-which is to get nRF Connect to trigger actions in my phone.
-That microphone sensor created KWS model that triggered an app to play some prerecorded audio.
-And I want my accelerometer to trigger my phone flashlight on/off, because it senses _Ready/Resting_ states.
-- Found [**this**](https://youtu.be/v5hBjouFHQY) dog bark video about how the BLE Sense triggered other devices.
-- Question is whether it's using BLE or some other connection. But it's a good example of KWS.
-  - Wouldn't need BLE if listening device connects with wire to audio player!
-
-
 
 ### Identifying a state change and taking action
 
@@ -318,6 +306,18 @@ if ( now !== earlier ) {      // if state has now changed
     }
     pass;                     // now == earlier, so no state change
 ```
+
+
+### Dog bark KWS example:
+Sensor devices similar to the BLE Sense have been used to trigger audio to play from another device.
+The dog barking example from YouTube (here) is one. 
+So I need to use the matching code from that example and apply it for my purpose,
+which is to get nRF Connect to trigger actions in my phone.
+That microphone sensor created KWS model that triggered an app to play some prerecorded audio.
+And I want my accelerometer to trigger my phone flashlight on/off, because it senses _Ready/Resting_ states.
+- Found [**this**](https://youtu.be/v5hBjouFHQY) dog bark video about how the BLE Sense triggered other devices.
+- Question is whether it's using BLE or some other connection. But it's a good example of KWS.
+  - Wouldn't need BLE if listening device connects with wire to audio player!
 
 
 
