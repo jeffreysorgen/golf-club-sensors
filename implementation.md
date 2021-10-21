@@ -1,15 +1,19 @@
 
+[*[ back to overview ]*](README.md)
+[*[ learning ]*](#learning-about-this)
+[*[ completed ]*](#completed)
+[[ **Step One: Start with the Accelerometer** ]](#step-one-the-accelerometer)
+[*[ Step Two: Solve for Power ]*](activity.md/#solve-for-power)
+[*[ Step Three: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
+[*[ --> open for Discussion! ]*](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
+
 # Implementation:
 
-**Learning about this:**
+##### Learning about this:
 - IMU sensors, **Working with BLE!** C++, data collection
 - GitHub Desktop, possibly GitBASH, KiCad, LTspice, OSHPARK
 - Arduino Components and code requirements
 
-[*[ <-- back to Overview ]*](README.md)
-[*[ (next) Step One: Start with the Accelerometer ]*](#step-one-the-accelerometer)
-[*[ Step Two: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
-[_[ --> open for Discussion! ]_](https://github.com/jeffreysorgen/golf-club-sensors/discussions)
 
 
 ## Completed:
@@ -170,7 +174,17 @@ The goal was to basically create on/off states, accomplished here by using a thr
 ### Possible exception to this configuration
 Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason.
 
-# [Step Two: Enabling BLE -->](activity.md/#step-two-enabling-ble)
+#
+## Step Two: Solve for Power
+
+
+
+
+
+
+# [Step Three: Enabling BLE -->](activity.md/#step-two-enabling-ble)
 [*[ <-- back to README ]*](README.md)
 [*[ Step One: Enabling the Accelerometer ]*](#step-one-the-accelerometer)
-[*[ next - Step Two: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
+[*[ Step Two: Solve for Power ]*](#solve-for-power)
+
+[*[ next - Step Three: Enabling BLE ]*](activity.md/#step-two-enabling-ble)
