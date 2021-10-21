@@ -81,10 +81,13 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 #
 ## Finding a simple BLE solution
 #### We now have a [development](#current-development-solution) power solution to untether ourselves from our computer.
-
-I really need to pair up Arduino programming to BLE functionality.
-I can find lots of examples, but nothing straightforward has surfaced for me just yet.
-The examples I really need are ones that detail the steps assembling all the necessary pieces.
+#### I am now collecting a [reference](#reference) section for BLE information.
+I really need to pair up Arduino microcontroller programming with BLE functionality.
+I understand client/server and the terminology variations and service/characteristics concepts.
+But I haven't found good documentation describing how the MVP is configured for BLE. 
+I need to find the thread that would organize technically the process of how to get the BLE deployed. 
+There are plenty of code examples, but nothing straightforward has surfaced for me just yet.
+The examples I really need are the ones that articulate the steps and code to assemble all the necessary pieces.
 
 
 
@@ -106,7 +109,7 @@ The examples I really need are ones that detail the steps assembling all the nec
 - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
 - Also go through the later lessons in _**EdX Deployment**_ class
 - Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
-- [**Here**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a NEW good place to READ about BLE
+- [**Here**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a NEW good place to READ about BLE (recopied below)
 
 
 
@@ -119,10 +122,10 @@ The examples I really need are ones that detail the steps assembling all the nec
 - XXXXXXXX-0000-1000-8000-00805F9B34FB (This is important for BLE)
 - Here is the [Online UUID Generator](https://www.uuidgenerator.net/)
 - Helpful from Argenox:
-  - [**Argenox wibsite**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a good place to READ about BLE
+  - [**Argenox website**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a good place to READ about BLE
   - Here's the [Bluetooth Low Energy Library](https://www.argenox.com/library/bluetooth-low-energy/)
   - Here is a link for [BLE and batteries](https://www.argenox.com/library/bluetooth-low-energy/powering-ble-batt/)
-- Arduino resources:
+- **Arduino** resources:
   - A complete [reference](https://www.arduino.cc/reference/en/)
   - And one specifically for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
 
