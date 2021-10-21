@@ -13,8 +13,6 @@
 - GitHub Desktop, possibly GitBASH, KiCad, LTspice, OSHPARK
 - Arduino Components and code requirements
 
-
-
 ## Completed:
 
 _skip to
@@ -48,7 +46,7 @@ _skip to
 19. **Arduino sketch** created for Accelerometer - _golf-swing-acc_ ([here](#updating-the-arduino-nano-33-ble)) and kept it **simple**. 
 20. **GitHub Markdown** Learned styling for tables, images and code block
 21. Added code block and image from Monitor to this documentation. 
-22. COMPLETED Part One documentation, and it's time to move on to [**adding BLE**](activity.md/#enabling-ble) to the system!
+22. COMPLETED Accelerometer documentation, and it's time to move on to [**adding BLE**](activity.md/#enabling-ble) to the system!
 23. Successfully [copied the process](activity.md/#try-the-ble-example-sketch) of a YouTuber to add BLE services on the device.
 24. DOCUMENTED several potential development and prototyping [**power solutions**](#solve-for-power)
 25. Generated [pseudo code](activity.md#state-change-pseudo-code) for state changes
