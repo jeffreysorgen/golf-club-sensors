@@ -98,7 +98,7 @@ The connected smartphone device will **beep** only when it identifies a _state c
 This _beep_ at this point is just for development purposes, but is intended for future use elsewhere.
 
 ### Setting up the device:
-**These readings will determine the Ready or Resting state orientation**
+These readings will determine the Ready or Resting state orientation
 - For ease of use, put the Arduino into a breadboard and then attach it to a stick in a perpendicular fashion as shown here. 
 - _Imagine your golf club is either being used, or is put back in the golf bag._
 
