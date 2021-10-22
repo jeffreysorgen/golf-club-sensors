@@ -509,7 +509,7 @@ What are the specific physical instruments needed to determine whether the motio
 The above might describe some complete science fiction. I  may be thinking about this in the wrong way. After a very superficial review of Fourier Transform, I think that "3D" aspects are asking too much. I really don't think this is what I am looking for.
 
 ### Or it's possible that...
-- all I really need is something that we learned about when we were analyzing spectrograms from AUDIO samples, and transforming them using FFT (Fast Fourier Transform) so maybe this can be applied to my problem, where there is a singular path (2D), but with one additional corresponding parameter.
+- all I really need is something that we learned about when we were analyzing spectrograms from AUDIO samples, and transforming them using **FFT (Fast Fourier Transform)** so maybe this can be applied to my problem, where there is a singular path (2D), but with one additional corresponding parameter.
 - It's actually much like combining multiple sensors, isn't it?!! After all, an IMU with 9DOF actually has 9 readings, so of course being a mere human being, I couldn't see that we would just utilze what ML already knows how to do.
 
 ### So what am I looking for, anyway? (I'm exhausted.)
@@ -536,6 +536,10 @@ And then I want to have that specific data incorporated into the available datas
 Speaking about using ML to respond with an inference: I imagine a physically separate MCU which receives this data from MCU#1 as a data point. MCU1 generates the data, MCU2 makes an inference about it and sends that combination to MCU3 which collects that data. I am imagining MCU3 is the piece which stores the data, and then sends it via BLE to a receiving device which has more storage like IoT device, which can in turn send to the cloud.
 
 Conceptually, this is still **the subway analogy.** But makes it easier to think about. Maybe this analogy is not a bad one while I create this. The golf swing is the subway route, club head is the subway car, device is attached to the surface of the subway car, and one swing is analogous to the route between stops with all its curves and speeds.
+
+Using this analogy, it really seems like it's been done before: _self-driving cars,_ and that whole system. What are they using? Do they rely on GPS too much? Yes, in comparison, I think they do. But they do speed, distance, turns, bumps, motion, etc. And they collect data, and they make inferences along the way.
+
+However, I am removing all the horsepower. I am greatly simplifying what's been done with giant compute power. If I can reduce this information into data points with a _shape_ under 10 (xyz axes, time stamp, plus other related params) then I'm going to be able to utilize MCU rather than the larger devices. And if I'm able to use this in the form of **Fourier Series** then it might be able to be **reduced further in the ML model.** Yes, I'm back to that again! I know there's complicated math. And anything beyond 2D is hard to describe. I don't yet understand the correlation with the FFT (fast fourier transform used for converting audio spectragrams) but I feel strongly that this is _important._
 #
 #
 Immeditate needs: I am hoping to capture the attention of someone. I don't know who or why or how, but I am trying to listen creatively where I can for opportunities.
