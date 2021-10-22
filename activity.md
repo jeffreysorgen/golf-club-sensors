@@ -127,24 +127,30 @@ What I've determined so far is that there are four sections:
 3. `void loop()` and
 4. *"other functions"*
 
-##### 1. **Prior to `void setup()` and can be within _namespace_:**
+##### 1. **Prior to `void setup()`**
+- These can be within _namespace_
 - `#include <ArduinoBLE.h>` To use BLE library.
 - `BLEService service("180C");` Need this in sketch, probably in the next line. But this is going to vary, depending on how much more I learn about UUID and the need for them to be unique. For the moment, just "180C" is fine. It means "unregistered generic UUID"
 - 
-- _then what? is that it?_
 
 ##### 2. `void setup()`
-- ```
-  // begin initialization
-  if (!BLE.begin()) {
-    Serial.println("starting BLE failed!");
+- Initializes the BLE device.
 
-    while (1);
-  }```
+      ```
+        // begin initialization
+        if (!BLE.begin()) {
+          Serial.println("starting BLE failed!");
+
+          while (1);
+        }
+      ```
+- 
 
 ##### 3. `void loop()`
+-
 
 ##### 4. **other functions**
+-
 
 
 
