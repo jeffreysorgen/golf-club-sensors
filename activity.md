@@ -18,7 +18,7 @@ Before we can get it to chirp in response to a good or bad swing, the smartphone
 ### Try the BLE example sketch
 I found -[_**this video**_](https://youtu.be/2q_tA8v5l1Y)- from _Robocraze_ to be helpful, 
 and copied the code from its [**accompanying GitHub repository**](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
-This example reads information from the sensors and then simply displays it in the phone app. Upload the sketch to the device... _**And it works exactly as it does in that video.**_ But there is a [*caveat*](#caveat) I discovered for this example.
+This example reads information from the sensors and then simply displays it in the phone app. Upload the sketch to the device... _**And it works exactly as it does in that video.**_ But there is a [*__caveat__*](#caveat) I discovered for this example.
 #### To do this:
 1. Download _nRF Connect_ from **Google Play** (also available for iOS)
 2. Find the `environment_sensor_ble.ino` file from the _Robocraze_ repository and copy it locally. 
