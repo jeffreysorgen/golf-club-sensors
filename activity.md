@@ -104,6 +104,25 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
 <p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
 
 
+
+##### Next: [Modifying the file (first draft)](#modifying-the-file)
+
+
+
+#### New notes for modding the file:
+
+(from https://www.arduino.cc/en/Reference/ArduinoBLE)
+
+Think of this as _Sender_ and _Reader_. ArduinoBLESense is the _sender_ and when a reading changes, the nRF Connect is going to be the _reader_ at the right moment. For my purposes, the _sender_ wants to let the _reader_ know that the state has changed from Ready to Resting, and vice versa. This reduces the BLE communication (which is the most energy-hungry part of this project) down to one single instance: _characteristic change_ (state change)
+
+To use BLE library: `#include <ArduinoBLE.h>` (_first thing I found to include for certain, more to come_)
+
+**Updating a characteristic.** When Y-axis, `y < -0.85`, changes from true to false or back, this is the moment to send BLE data, nothing else. Save on BLE energy.
+
+
+
+
+
 #
 ## Modifying the file:
 
