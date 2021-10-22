@@ -516,3 +516,21 @@ The above might describe some complete science fiction. I  may be thinking about
 - I think all I'm actually looking for is a real-time 3d representation connecting all the data points of the golf swing. The ML can figure out all the other stuff on its own when I send it in the right direction.
 - **is FFT useful here?** is this going to be like converting audio spectrograms?
 #
+If there were a way to CREATE a tiny microcontroller board which contains an IMU programmed the way I want to use it with the golf swing, then I can imagine that it might be useful in a wide variety of purposes.
+These purposes would center around collecting data from the IMU as it moves very swiftly through the air, or even in a very small area.
+I suppose it would be a bit like anomaly detection in the realm of machinery vibration.
+But this is movement.
+I'm trying to say that my knowledge from completing this golf club sensors project could extend into other areas.
+I don't know... I'm just rambling. But I intended to record some thoughts here, about having a tiny MCU with BLE module and associated memory chips involved, and could broadcast its data (I'm trying to develop this now) to receiving points along the way. (I'm imagining a subway train for some reason, and dropping off data along its path, becoming refreshed so it can collect more data.)
+This seems like just a data collection thing. It is. But I'd like to include ML inference AT THE SAME TIME. So, I would be able to collect information, apply a label to it based on its ML Categorization inference.
+
+In the golf swing, data is collected one swing at a time. This is what I was trying to describe. (But it went to a subway train instead.) There must be good ideas about how this motion capture can be utilized in this way.
+
+My project is designed to first collect data by labeling each swing myself, and expanding that dataset to having other people make the swing and label the swing good or not.
+I am trying to simplify this process so much that it is possible for a high school golf coach to collect data.
+And then I want to have that specific data incorporated into the available dataset, and then repeated, so that I can eventually collect the worlds first and largest dataset of good golf swings. 
+
+**I know that's ambitious,** but it's a hard project and I want to get it done, for the experience.
+#
+#
+Immeditate needs: I am hoping to capture the attention of someone. I don't know who or why or how, but I am trying to listen creatively where I can for opportunities.
