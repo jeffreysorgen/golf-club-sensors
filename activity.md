@@ -516,6 +516,7 @@ The above might describe some complete science fiction. I  may be thinking about
 - I think all I'm actually looking for is a real-time 3d representation connecting all the data points of the golf swing. The ML can figure out all the other stuff on its own when I send it in the right direction.
 - **is FFT useful here?** is this going to be like converting audio spectrograms?
 #
+##### 21oct22
 If there were a way to CREATE a tiny microcontroller board which contains an IMU programmed the way I want to use it with the golf swing, then I can imagine that it might be useful in a wide variety of purposes.
 These purposes would center around collecting data from the IMU as it moves very swiftly through the air, or even in a very small area.
 I suppose it would be a bit like anomaly detection in the realm of machinery vibration.
@@ -533,6 +534,8 @@ And then I want to have that specific data incorporated into the available datas
 **I know that's ambitious,** but it's a hard project and I want to get it done, for the experience.
 #
 Speaking about using ML to respond with an inference: I imagine a physically separate MCU which receives this data from MCU#1 as a data point. MCU1 generates the data, MCU2 makes an inference about it and sends that combination to MCU3 which collects that data. I am imagining MCU3 is the piece which stores the data, and then sends it via BLE to a receiving device which has more storage like IoT device, which can in turn send to the cloud.
+
+Conceptually, this is still **the subway analogy.** But makes it easier to think about. Maybe this analogy is not a bad one while I create this. The golf swing is the subway route, club head is the subway car, device is attached to the surface of the subway car, and one swing is analogous to the route between stops with all its curves and speeds.
 #
 #
 Immeditate needs: I am hoping to capture the attention of someone. I don't know who or why or how, but I am trying to listen creatively where I can for opportunities.
