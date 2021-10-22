@@ -532,5 +532,7 @@ And then I want to have that specific data incorporated into the available datas
 
 **I know that's ambitious,** but it's a hard project and I want to get it done, for the experience.
 #
+Speaking about using ML to respond with an inference: I imagine a physically separate MCU which receives this data from MCU#1 as a data point. MCU1 generates the data, MCU2 makes an inference about it and sends that combination to MCU3 which collects that data. I am imagining MCU3 is the piece which stores the data, and then sends it via BLE to a receiving device which has more storage like IoT device, which can in turn send to the cloud.
+#
 #
 Immeditate needs: I am hoping to capture the attention of someone. I don't know who or why or how, but I am trying to listen creatively where I can for opportunities.
