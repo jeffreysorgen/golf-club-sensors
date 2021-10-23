@@ -39,10 +39,13 @@ But a [**battery-only**](implementation.md/#current-development-solution) soluti
 #### For battery-only:
 
 **Any time "serial" shows up in the sketch, comment it out.**
-We are now disconnected from the computer, but we were previously looking for the serial port.
+After being untethered from the computer, the device was still using the serial port which is now disconnected.
 So this one change will allow the device to function the same way in nRF Connect that it did before.
-Knowing this, we can continue to include the Serial Monitor but remove it when we need to for testing and production.
-_(There may be a way to use `if(serial) {` in the code so that we do not need to modify it every time we want to test the battery-only mode. Could explore this, but tabling it for the future.)_
+Knowing this, we can continue to include the Serial Monitor now, and remove those lines of code to test on battery-only.
+
+
+
+
 
 ## Finding a simple BLE solution
 
