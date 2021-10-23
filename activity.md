@@ -31,39 +31,36 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 8. Watch Monitor again for services to pop up
 9. (App) Touch the "triple down arrow" <img src="images/3downarrows.png" width="20em" /> for each of the three services for this example
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
+
 ##### Caveat:
 - With the USB cable plugged into the computer I **_can_** discover _"Arduino Environment Sensor"_ in nRF Connect. 
 But a [**battery-only**](implementation.md/#current-development-solution) solution can **_not_**. So...
+
 #### For battery-only:
+
 **Any time "serial" shows up in the sketch, comment it out.**
 We are now disconnected from the computer, but we were previously looking for the serial port.
 So this one change will allow the device to function the same way in nRF Connect that it did before.
 Knowing this, we can continue to include the Serial Monitor but remove it when we need to for testing and production.
 
-#
-### Keep going:
-
-My [integrated IMU/BLE configuration](#modifying-the-file) ended up functioning similarly, but the result in _nRF Connect_ displayed a **hex value** rather than readable data.
-While it would be good to **learn** how to transform from hex value into a readable one, I'm inclined to do that later if it's still a problem, after I've explored some other examples.
-
-#### BLE+IMU notes
-
-I understand client/server and the terminology variations and service/characteristics concepts.
-But I haven't found good documentation describing how the MVP is configured for BLE. 
-I need to find or make the thread that will organize technically the process of how to get the BLE deployed. 
-There are plenty of code examples, but nothing straightforward has surfaced for me just yet.
-The examples I really need are the ones that articulate the steps and code to assemble all the necessary pieces.
-
-##### More broadly:
-
-Which BLE/IMU settings are used to make the nRF Connect readings display "Ready" / "Resting"? 
-Once that questino is answered, I'll get my phone to turn its flashlight on/off as a result. 
-
-What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
-While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
-
+There may be a way to use `if serial() {` in the code so that we do not need to modify it every time we want to test the battery-only mode. 
+- Need explore this
 
 ## Finding a simple BLE solution
+
+My [integrated IMU/BLE configuration](#modifying-the-file) 
+displayed a **hex value** in _nRF Connect_ rather than readable data.
+While it would be good to **learn** how to transform from hex value into a readable one, 
+I'm inclined to do that later if it's still a problem, after I've explored some other examples.
+
+Which BLE/IMU settings are used to make the nRF Connect readings display "Ready" / "Resting"? 
+Once that question is answered, I'll get my phone to turn its flashlight on/off as a result. 
+
+What we want to do for this project is to read information from the sensor and then 
+get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
+While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to 
+get the phone to chirp good/bad golf swings. 
+
 
 ### Reference:
 - XXXXXXXX-0000-1000-8000-00805F9B34FB (This is important for BLE)
@@ -79,13 +76,16 @@ While the flashlight functionality won't be used in the end, that solution is cr
 - Here's a 
 helpful [**beginners tutorial**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/ble-advertising-a-beginners-tutorial) from Nordic Semi. 
 And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/bluetooth-smart-and-the-nordics-softdevices-part-1)
+- **nRF Connect:**
+  - nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
+  - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
+- [okdo.com example](#from-okdo-com)
+
+
 
 #
-#### nRF Connect
-
-- nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
-- In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
-
+#
+#
 ### Try again:
 
 - Go back to _golf-swing-acc_ and copy it as _new-test-imu-ble-combo_ (done)
@@ -171,8 +171,7 @@ BLE.advertise();
 
 
 
-#
-From **okdo.com**:
+#### From _okdo.com_:
 This is the example where I discovered that I can just comment out the "serial" component and it will work battery-only.
 Use this example to construct our own sketch.
 ```
