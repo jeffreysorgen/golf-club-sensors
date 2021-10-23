@@ -44,7 +44,7 @@ So this one change will allow the device to function the same way in nRF Connect
 Knowing this, we can continue to include the Serial Monitor but remove it when we need to for testing and production.
 
 There may be a way to use `if serial() {` in the code so that we do not need to modify it every time we want to test the battery-only mode. 
-- Need explore this
+- **NEED TO EXPLORE THIS**
 
 ## Finding a simple BLE solution
 
