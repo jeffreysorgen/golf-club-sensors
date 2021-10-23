@@ -1,5 +1,5 @@
 - add photo of battery/old phone arrangement
-- research more BLE
+- update with facts: need to comment out the Serial function where it exists, and then it works on battery-only
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
 [*[ The Accelerometer ]*](implementation.md/#the-accelerometer)
