@@ -58,7 +58,8 @@ Now to take the BLE commands and integrate them into my _golf-swing-acc_ sketch:
 - Need to have specific UUIDs for each IMU param
 - I can't find a specific UUID for x,y,z on the Accelerometer
   - So I will need to create them using the UUID generator, I think
-- I thought I would need to use the BLE UUID spec which I thought was "important for ble" [(below)](#reference
+- I thought I would need to use the BLE UUID spec which I thought was "important for ble" [(below)](#reference)
+
 #
 #
 #
