@@ -1,4 +1,4 @@
-- UUID generation and apply it
+- apply UUIDs in the code
 - add photo of battery/old phone arrangement
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
@@ -86,10 +86,8 @@ get the phone to chirp good/bad golf swings.
 - Here are 15 unique [**v4-UUIDs**](#15-unique-v4uuids) from the [Online UUID Generator](https://www.uuidgenerator.net/)
 ```
 355d2b52-982c-4598-b9b4-c19156686e1a
-...
+    ...
 ```
-
-
 
 - Helpful from Argenox:
   - [**Argenox website**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a good place to READ about BLE
@@ -107,6 +105,7 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
   - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
 - Here's the [okdo.com example](#from-okdocom) (below)
 - Here's helpful [IMU and BLE](https://www.hackster.io/gov/imu-to-you-ae53e1) tutorial from hackster.io
+- Wiki about [C data types](https://en.wikipedia.org/wiki/C_data_types#stdint.h)
 
 #
 #
