@@ -43,7 +43,7 @@ We are now disconnected from the computer, but we were previously looking for th
 So this one change will allow the device to function the same way in nRF Connect that it did before.
 Knowing this, we can continue to include the Serial Monitor but remove it when we need to for testing and production.
 
-There may be a way to use `if serial() {` in the code so that we do not need to modify it every time we want to test the battery-only mode. 
+There may be a way to use `if(serial) {` in the code so that we do not need to modify it every time we want to test the battery-only mode. 
 - **NEED TO EXPLORE THIS**
 
 ## Finding a simple BLE solution
@@ -177,6 +177,7 @@ This is the example where I discovered that I can just comment out the "serial" 
 **Use this example to construct our own sketch.**
 
 ##### "hello world" for BLE
+_I really like turning on the amber LED when the connection is made via BLE!_
 
 ```
 /*
