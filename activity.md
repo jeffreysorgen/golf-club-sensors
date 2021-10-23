@@ -36,7 +36,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 But a [**battery-only**](implementation.md/#current-development-solution) solution can **_not_**. So...
 #### For battery-only:
 **Any time "serial" shows up in the sketch, comment it out.**
-We're now disconnected from the computer, but we were previously looking for the serial port.
+We are now disconnected from the computer, but we were previously looking for the serial port.
 So this one change will allow the device to function the same way in nRF Connect that it did before.
 Knowing this, we can continue to include the Serial Monitor but remove it when we need to for testing and production.
 
