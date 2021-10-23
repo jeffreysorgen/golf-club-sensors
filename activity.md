@@ -1,3 +1,4 @@
+- UUID generation and apply it
 - add photo of battery/old phone arrangement
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
@@ -81,8 +82,15 @@ get the phone to chirp good/bad golf swings.
 
 
 ### Reference:
-- XXXXXXXX-0000-1000-8000-00805F9B34FB (This is important for BLE)
-- Here is the [Online UUID Generator](https://www.uuidgenerator.net/)
+- XXXXXXXX-0000-1000-8000-00805F9B34FB Look this up to find standard BLE list
+- Here are 15 unique [**v4-UUIDs**](#15-unique-v4UUIDs) from the [Online UUID Generator](https://www.uuidgenerator.net/)
+```
+355d2b52-982c-4598-b9b4-c19156686e1a
+...
+```
+
+
+
 - Helpful from Argenox:
   - [**Argenox website**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a good place to READ about BLE
   - Here's the [Bluetooth Low Energy Library](https://www.argenox.com/library/bluetooth-low-energy/)
@@ -419,6 +427,33 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
     */
 //}
 ```
+
+#
+##### 15 unique v4UUIDs
+```
+355d2b52-982c-4598-b9b4-c19156686e1a
+9e5982a7-9ef0-48e0-a167-8112ada5f184
+9dc52af2-d585-4fb7-93a7-922b463239fe
+8564aabe-417c-4fe4-8a40-543ea08079f4
+3e8c97c5-6ae5-444f-b56e-20a741e7bf99
+f2024cef-dae8-4db7-bddb-76c696cdc115
+62237f9d-7652-442a-a36a-0a68d96bd617
+f22e0e5c-9636-4a83-9eaa-ba309101c4b6
+88abdb86-22fb-4b2f-8d35-53bb942625b7
+0a374697-2847-4d15-b7b2-b89281022f65
+b60136d1-e8c5-4042-82e8-a0f6fcd4f6d4
+989ae3c5-6e5a-4868-96c7-011511e880b2
+d49b4462-2bfd-4d92-8103-88ed9429e662
+52f6c067-db43-4e53-893b-d7d98406901b
+fa94204d-dc71-4585-aa63-98b8133c5266
+```
+
+
+
+
+
+
+
 
 #
 #
