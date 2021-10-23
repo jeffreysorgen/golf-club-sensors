@@ -94,6 +94,7 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
 - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
 - Also go through the later lessons in _**EdX Deployment**_ class
 - Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
+- Here's [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc)
 
 #### nRF Connect looks like this
 
@@ -132,6 +133,9 @@ What I've determined so far is that there are four sections:
 - `BLEService service("180C");` Need this in sketch, probably in the next line. But this is going to vary, depending on how much more I learn about UUID and the need for them to be unique. For the moment, just "180C" is fine. It means "unregistered generic UUID"
 - 
 
+
+
+
 ##### 2. `void setup()`
 - Initializes the BLE device.
 
@@ -142,6 +146,10 @@ if (!BLE.begin()) {
 
   while (1);
 }
+
+//
+BLE.advertise();
+//
 ```
 
 - 
