@@ -93,6 +93,7 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
   - nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
   - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
 - Here's the [okdo.com example](#from-okdocom) (below)
+- Here's helpful [IMU and BLE](https://www.hackster.io/gov/imu-to-you-ae53e1) tutorial from hackster.io
 
 #
 #
