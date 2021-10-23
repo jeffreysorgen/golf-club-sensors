@@ -46,8 +46,13 @@ _(There may be a way to use `if(serial) {` in the code so that we do not need to
 
 ## Finding a simple BLE solution
 
-Now to take the BLE commands and integrate them into my **(name)** sketch.
+Now to take the BLE commands and integrate them into my _golf-swing-acc_ sketch:
+1. Save _golf-swing-acc_ as _testing-ready-resting-imu-ble_
+1. Add in code for BLE as appropriate
 
+#
+#
+#
 
 
 
