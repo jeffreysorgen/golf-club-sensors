@@ -1,5 +1,4 @@
 - add photo of battery/old phone arrangement
-- save successful sketch as _ready-resting-imu-ble_
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
 [*[ The Accelerometer ]*](implementation.md/#the-accelerometer)
