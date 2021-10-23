@@ -136,14 +136,15 @@ What I've determined so far is that there are four sections:
 ##### 2. `void setup()`
 - Initializes the BLE device.
 
-      ```
-        // begin initialization
-        if (!BLE.begin()) {
-          Serial.println("starting BLE failed!");
+```   
+// begin initialization
+if (!BLE.begin()) {
+  Serial.println("starting BLE failed!");
 
-          while (1);
-        }
-      ```
+  while (1);
+}
+```
+
 - 
 
 ##### 3. `void loop()`
