@@ -1,5 +1,5 @@
 - add photo of battery/old phone arrangement
-- research more BLE
+- update with facts: need to comment out the Serial function where it exists, and then it works on battery-only
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
 [*[ The Accelerometer ]*](implementation.md/#the-accelerometer)
@@ -94,6 +94,7 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
 - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
 - Also go through the later lessons in _**EdX Deployment**_ class
 - Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
+- Here's [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc)
 
 #### nRF Connect looks like this
 
@@ -110,8 +111,7 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
 
 ### New notes for modding the file:
 
-(from https://www.arduino.cc/en/Reference/ArduinoBLE)
-
+- **From https://www.arduino.cc/en/Reference/ArduinoBLE**
 
 **Notify or Indicate.** Think of this as _Sender_ and _Reader_. ArduinoBLESense is the _sender_ and when a reading changes, the nRF Connect is going to be the _reader_ at the right moment. For my purposes, the _sender_ wants to let the _reader_ know that the state has changed from Ready to Resting, and vice versa. This reduces the BLE communication (which is the most energy-hungry part of this project) down to one single instance: _characteristic change_ (state change). The model BLE uses is known as a **publish-and-subscribe model.**
 
@@ -122,23 +122,113 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
 
 What I've determined so far is that there are four sections:
-1. *"Prior to"*
+1. *"prior to"*
 2. `void setup()`
 3. `void loop()` and
 4. *"other functions"*
 
-**Prior to `void setup()` and can be within _namespace_:**
+##### 1. **Prior to `void setup()`**
+- These can be within _namespace_
 - `#include <ArduinoBLE.h>` To use BLE library.
 - `BLEService service("180C");` Need this in sketch, probably in the next line. But this is going to vary, depending on how much more I learn about UUID and the need for them to be unique. For the moment, just "180C" is fine. It means "unregistered generic UUID"
 - 
-- _then what? is that it?_
+
+
+
+
+##### 2. `void setup()`
+- Initializes the BLE device.
+
+```   
+// begin initialization
+if (!BLE.begin()) {
+  Serial.println("starting BLE failed!");
+
+  while (1);
+}
+
+//
+BLE.advertise();
+//
+```
+
+- 
+
+##### 3. `void loop()`
+-
+
+##### 4. **other functions**
+-
 
 
 
 
 
 
+#
+From **okdo.com**:
+```
+/*
+  Arduino Nano 33 BLE Getting Started
+  BLE peripheral with a simple Hello World greeting service that can be viewed
+  on a mobile phone
+  Adapted from Arduino BatteryMonitor example
+*/
 
+#include <ArduinoBLE.h>
+
+static const char* greeting = "Hello World!";
+
+BLEService greetingService("180C");  // User defined service
+
+BLEStringCharacteristic greetingCharacteristic("2A56",  // standard 16-bit characteristic UUID
+    BLERead, 13); // remote clients will only be able to read this
+
+void setup() {
+  Serial.begin(9600);    // initialize serial communication
+  while (!Serial);
+
+  pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin
+
+  if (!BLE.begin()) {   // initialize BLE
+    Serial.println("starting BLE failed!");
+    while (1);
+  }
+
+  BLE.setLocalName("Nano33BLE");  // Set name for connection
+  BLE.setAdvertisedService(greetingService); // Advertise service
+  greetingService.addCharacteristic(greetingCharacteristic); // Add characteristic to service
+  BLE.addService(greetingService); // Add service
+  greetingCharacteristic.setValue(greeting); // Set greeting string
+
+  BLE.advertise();  // Start advertising
+  Serial.print("Peripheral device MAC: ");
+  Serial.println(BLE.address());
+  Serial.println("Waiting for connections...");
+}
+
+void loop() {
+  BLEDevice central = BLE.central();  // Wait for a BLE central to connect
+
+  // if a central is connected to the peripheral:
+  if (central) {
+    Serial.print("Connected to central MAC: ");
+    // print the central's BT address:
+    Serial.println(central.address());
+    // turn on the LED to indicate the connection:
+    digitalWrite(LED_BUILTIN, HIGH);
+
+    while (central.connected()){} // keep looping while connected
+    
+    // when the central disconnects, turn off the LED:
+    digitalWrite(LED_BUILTIN, LOW);
+    Serial.print("Disconnected from central MAC: ");
+    Serial.println(central.address());
+  }
+
+
+
+```
 #
 #
 ## Modifying the file:
