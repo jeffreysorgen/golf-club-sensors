@@ -40,7 +40,7 @@ But a [**battery-only**](implementation.md/#current-development-solution) soluti
 **Any time "serial" shows up in the code, comment it out.**
 After being untethered from the computer, the device was still using the serial port which is now disconnected.
 So this one change will allow the device to function in nRF Connect the same way as it did before.
-Development can continue to include the Serial Monitor, but then would remove those lines of code to test on battery-only.
+Development can continue to include the Serial Monitor, but then remove those lines of code to test on battery-only.
 
 
 
