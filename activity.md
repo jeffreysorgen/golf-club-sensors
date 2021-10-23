@@ -46,6 +46,15 @@ Knowing this, we can continue to include the Serial Monitor but remove it when w
 
 ## Finding a simple BLE solution
 
+Now to take the BLE commands and integrate them into my **(name)** sketch.
+
+
+
+
+
+
+
+
 My [integrated IMU/BLE configuration](#modifying-the-file) displayed a **hex value** in _nRF Connect_ rather than readable data.
 - Need to transform the hex value into a readable one. (Explore more BLE examples first.)
 
@@ -252,9 +261,7 @@ Top of sketch. First, add the two libraries.
 #include <ArduinoBLE.h>           // Bluetooth Library
 #include <Arduino_LSM9DS1.h>      // IMU
 ```
-Next, create the SERVICE name "180C".
-- _Don't know why it's "180C" just that it came from the example and shows up in nRF Connect. Possibly default ID for BLE Service? I don't know._
-- From one source I found, _180C_ is an "unregistered generic UUID" 
+Next, create the SERVICE name "180C". (_180C_ is a user-defined UUID) 
 ```
 // BLE Service Name
 BLEService customService("180C");
