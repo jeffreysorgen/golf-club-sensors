@@ -1,5 +1,5 @@
 - add photo of battery/old phone arrangement
-- update with facts: need to comment out the Serial function where it exists, and then it works on battery-only
+- save successful sketch as _ready-resting-imu-ble_
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
 [*[ The Accelerometer ]*](implementation.md/#the-accelerometer)
@@ -18,7 +18,7 @@ Before we can get it to chirp in response to a good or bad swing, the smartphone
 ### Try the BLE example sketch
 I found -[_**this video**_](https://youtu.be/2q_tA8v5l1Y)- from _Robocraze_ to be helpful, 
 and copied the code from its [**accompanying GitHub repository**](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
-This example reads information from the sensors and then simply displays it in the phone app. Upload the sketch to the device... _**And it works exactly as it does in that video.**_ But there is a [*__caveat__*](#caveat) I discovered for this example.
+This example reads information from the sensors and then simply displays it in the phone app. Upload the sketch to the device... _**And it works exactly as it does in that video.**_ But there is a [*__caveat__*](#caveat) which I discovered for this example.
 #### To do this:
 1. Download _nRF Connect_ from **Google Play** (also available for iOS)
 2. Find the `environment_sensor_ble.ino` file from the _Robocraze_ repository and copy it locally. 
@@ -27,38 +27,54 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 4. Open the serial monitor, watch for "Disconnected from central..."
 5. (App) Open the phone app, _nRF Connect_, and enable Bluetooth
 6. (App) Scan for and connect to the device (its name was declared in the sketch)
-7. (App) Touch _UnknownService, UUID: 0x180C_
+7. (App) Touch _UnknownService, UUID: 0x180C_ (_"180C"_ is unregistered generic UUID)
 8. Watch Monitor again for services to pop up
 9. (App) Touch the "triple down arrow" <img src="images/3downarrows.png" width="20em" /> for each of the three services for this example
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
+
 ##### Caveat:
-- If USB cable remains plugged into the computer I **can** discover _"Arduino Environment Sensor"_ in nRF Connect
-- Using a [**battery-only**](implementation.md/#current-development-solution) solution, was **not** able to discover _"Arduino Environment Sensor"_ in nRF Connect 
-- For the **[_magic-wand_](#digging-deeper-into-the-magic-wand)** example, using battery-only solution, the computer **can** discover the BLE service as expected
-- Evidently, the _RoboCraze_ solution kept the cable plugged into the computer, and seems to be _reliant_ on that particular configuration. I could troubleshoot the _RoboCraze_ code, but I am going to find a different example instead.
+- With the USB cable plugged into the computer I **_can_** discover _"Arduino Environment Sensor"_ in nRF Connect. 
+But a [**battery-only**](implementation.md/#current-development-solution) solution can **_not_**. So...
 
-### Keep trying:
+#### For battery-only:
 
-*We should try out other BLE examples, and find a BLE sketch that works better than [the one](#try-the-ble-example-sketch) from _RoboCraze_. 
-This example doesn't work battery-only, and importing line-by-line from that example into my IMU sketch produces the same problem, plus one more. 
-My integrated IMU/BLE configuration ended up functioning similarly, but the result in _nRF Connect_ displayed a **hex value** rather than readable data.
-While it would be good to **learn** how to transform from hex value into a readable one, I'm inclined to do that later if it's still a problem, after I've explored some other examples.*
+**Any time "serial" shows up in the code, comment it out.**
+After being untethered from the computer, the device was still using the serial port which is now disconnected.
+So this one change will allow the device to function in nRF Connect the same way as it did before.
+Development can continue to include the Serial Monitor, but then would remove those lines of code to test on battery-only.
 
-I really need to pair up Arduino microcontroller programming with BLE functionality.
-I understand client/server and the terminology variations and service/characteristics concepts.
-But I haven't found good documentation describing how the MVP is configured for BLE. 
-I need to find the thread that would organize technically the process of how to get the BLE deployed. 
-There are plenty of code examples, but nothing straightforward has surfaced for me just yet.
-The examples I really need are the ones that articulate the steps and code to assemble all the necessary pieces.
 
-#### BLE+IMU notes
-I am trying to figure out which BLE settings in the IDE to use so that I can make the nRF Connect readings display "Ready" / "Resting". 
-Once that's done, get my phone to turn its flashlight on/off as a result. 
-What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
-While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
+
 
 
 ## Finding a simple BLE solution
+
+Now to take the BLE commands and integrate them into my _golf-swing-acc_ sketch:
+1. Save _golf-swing-acc_ as _testing-ready-resting-imu-ble_ (done)
+1. Add in code for BLE as appropriate
+
+#
+#
+#
+
+
+
+
+
+
+
+My [integrated IMU/BLE configuration](#modifying-the-file) displayed a **hex value** in _nRF Connect_ rather than readable data.
+- Need to transform the hex value into a readable one. (Explore more BLE examples first.)
+
+Make the nRF Connect readings display "Ready" / "Resting"
+- Once that question is answered, I'll get my phone to turn its flashlight on/off as a result. 
+
+##### Description:
+What we want to do for this project is to read information from the sensor and then 
+get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
+While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to 
+get the phone to chirp good/bad golf swings. 
+
 
 ### Reference:
 - XXXXXXXX-0000-1000-8000-00805F9B34FB (This is important for BLE)
@@ -74,19 +90,20 @@ While the flashlight functionality won't be used in the end, that solution is cr
 - Here's a 
 helpful [**beginners tutorial**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/ble-advertising-a-beginners-tutorial) from Nordic Semi. 
 And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/bluetooth-smart-and-the-nordics-softdevices-part-1)
+- **nRF Connect:**
+  - nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
+  - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
+- Here's the [okdo.com example](#from-okdo-com) (below)
 
-#### nRF Connect
 
-- nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
-- In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
 
+#
+#
+#
 ### Try again:
 
-- Go back to _golf-swing-acc_ and copy it as _new-test-imu-ble-combo_ (done)
-- **Go through example sketches to find simplest one to integrate BLE and my IMU code so far**
-- Communicate with smartphone by adding BLE functionality, line by line
-- Repeatedly upload sketch to device looking for errors and functionality
-  - Find sketch which works well on its own (**what would this look like?**)
+- Go back to _golf-swing-acc_ and copy it as _new-test-imu-ble-combo_ (done, but reverted because of "serial" solution)
+  - **Create the sketch like adding pieces to a puzzle**
 
 #### Examples:
 
@@ -111,6 +128,7 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
 
 ### New notes for modding the file:
 
+Arduino's reference for BLE:
 - **From https://www.arduino.cc/en/Reference/ArduinoBLE**
 
 **Notify or Indicate.** Think of this as _Sender_ and _Reader_. ArduinoBLESense is the _sender_ and when a reading changes, the nRF Connect is going to be the _reader_ at the right moment. For my purposes, the _sender_ wants to let the _reader_ know that the state has changed from Ready to Resting, and vice versa. This reduces the BLE communication (which is the most energy-hungry part of this project) down to one single instance: _characteristic change_ (state change). The model BLE uses is known as a **publish-and-subscribe model.**
@@ -120,6 +138,10 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 **Updating a characteristic.** When Y-axis, `y < -0.85`, changes from true to false or back, this is the moment to send BLE data, nothing else. Save on BLE energy.
 
 Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
+
+
+#
+
 
 What I've determined so far is that there are four sections:
 1. *"prior to"*
@@ -165,8 +187,13 @@ BLE.advertise();
 
 
 
-#
-From **okdo.com**:
+#### From _okdo.com_:
+This is the example where I discovered that I can just comment out the "serial" component and it will work battery-only.
+**Use this example to construct our own sketch.**
+
+##### "hello world" for BLE
+_I really like turning on the amber LED when the connection is made via BLE!_
+
 ```
 /*
   Arduino Nano 33 BLE Getting Started
@@ -231,18 +258,18 @@ void loop() {
 ```
 #
 #
+##### (See also: [New notes for modding the file](#new-notes-for-modding-the-file))
 ## Modifying the file:
 
 (do this entire process again, using different example BLE sketch)
+
 
 Top of sketch. First, add the two libraries.
 ```
 #include <ArduinoBLE.h>           // Bluetooth Library
 #include <Arduino_LSM9DS1.h>      // IMU
 ```
-Next, create the SERVICE name "180C".
-- _Don't know why it's "180C" just that it came from the example and shows up in nRF Connect. Possibly default ID for BLE Service? I don't know._
-- From one source I found, _180C_ is an "unregistered generic UUID" 
+Next, create the SERVICE name "180C". (_180C_ is a user-defined UUID) 
 ```
 // BLE Service Name
 BLEService customService("180C");
