@@ -48,14 +48,13 @@ There may be a way to use `if serial() {` in the code so that we do not need to 
 
 ## Finding a simple BLE solution
 
-My [integrated IMU/BLE configuration](#modifying-the-file) 
-displayed a **hex value** in _nRF Connect_ rather than readable data.
-While it would be good to **learn** how to transform from hex value into a readable one, 
-I'm inclined to do that later if it's still a problem, after I've explored some other examples.
+My [integrated IMU/BLE configuration](#modifying-the-file) displayed a **hex value** in _nRF Connect_ rather than readable data.
+- Need to transform the hex value into a readable one. (Explore more BLE examples first.)
 
-Which BLE/IMU settings are used to make the nRF Connect readings display "Ready" / "Resting"? 
-Once that question is answered, I'll get my phone to turn its flashlight on/off as a result. 
+Make the nRF Connect readings display "Ready" / "Resting"
+- Once that question is answered, I'll get my phone to turn its flashlight on/off as a result. 
 
+##### Description:
 What we want to do for this project is to read information from the sensor and then 
 get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
 While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to 
@@ -79,7 +78,7 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
 - **nRF Connect:**
   - nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
   - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
-- [okdo.com example](#from-okdo-com)
+- Here's the [okdo.com example](#from-okdo-com) (below)
 
 
 
@@ -88,11 +87,8 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
 #
 ### Try again:
 
-- Go back to _golf-swing-acc_ and copy it as _new-test-imu-ble-combo_ (done)
-- **Go through example sketches to find simplest one to integrate BLE and my IMU code so far**
-- Communicate with smartphone by adding BLE functionality, line by line
-- Repeatedly upload sketch to device looking for errors and functionality
-  - Find sketch which works well on its own (**what would this look like?**)
+- Go back to _golf-swing-acc_ and copy it as _new-test-imu-ble-combo_ (done, but reverted because of "serial" solution)
+  - **Create the sketch like adding pieces to a puzzle**
 
 #### Examples:
 
@@ -117,6 +113,7 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
 
 ### New notes for modding the file:
 
+Arduino's reference for BLE:
 - **From https://www.arduino.cc/en/Reference/ArduinoBLE**
 
 **Notify or Indicate.** Think of this as _Sender_ and _Reader_. ArduinoBLESense is the _sender_ and when a reading changes, the nRF Connect is going to be the _reader_ at the right moment. For my purposes, the _sender_ wants to let the _reader_ know that the state has changed from Ready to Resting, and vice versa. This reduces the BLE communication (which is the most energy-hungry part of this project) down to one single instance: _characteristic change_ (state change). The model BLE uses is known as a **publish-and-subscribe model.**
@@ -126,6 +123,10 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 **Updating a characteristic.** When Y-axis, `y < -0.85`, changes from true to false or back, this is the moment to send BLE data, nothing else. Save on BLE energy.
 
 Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
+
+
+#
+
 
 What I've determined so far is that there are four sections:
 1. *"prior to"*
@@ -173,7 +174,10 @@ BLE.advertise();
 
 #### From _okdo.com_:
 This is the example where I discovered that I can just comment out the "serial" component and it will work battery-only.
-Use this example to construct our own sketch.
+**Use this example to construct our own sketch.**
+
+##### "hello world" for BLE
+
 ```
 /*
   Arduino Nano 33 BLE Getting Started
