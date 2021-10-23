@@ -83,7 +83,7 @@ get the phone to chirp good/bad golf swings.
 
 ### Reference:
 - XXXXXXXX-0000-1000-8000-00805F9B34FB Look this up to find standard BLE list
-- Here are 15 unique [**v4-UUIDs**](#15-unique-v4UUIDs) from the [Online UUID Generator](https://www.uuidgenerator.net/)
+- Here are 15 unique [**v4-UUIDs**](#15-unique-v4uuids) from the [Online UUID Generator](https://www.uuidgenerator.net/)
 ```
 355d2b52-982c-4598-b9b4-c19156686e1a
 ...
