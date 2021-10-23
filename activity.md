@@ -38,10 +38,10 @@ But a [**battery-only**](implementation.md/#current-development-solution) soluti
 
 #### For battery-only:
 
-**Any time "serial" shows up in the sketch, comment it out.**
+**Any time "serial" shows up in the code, comment it out.**
 After being untethered from the computer, the device was still using the serial port which is now disconnected.
-So this one change will allow the device to function the same way in nRF Connect that it did before.
-Knowing this, we can continue to include the Serial Monitor now, and remove those lines of code to test on battery-only.
+So this one change will allow the device to function in nRF Connect the same way as it did before.
+Development can continue to include the Serial Monitor, but then would remove those lines of code to test on battery-only.
 
 
 
@@ -50,7 +50,7 @@ Knowing this, we can continue to include the Serial Monitor now, and remove thos
 ## Finding a simple BLE solution
 
 Now to take the BLE commands and integrate them into my _golf-swing-acc_ sketch:
-1. Save _golf-swing-acc_ as _testing-ready-resting-imu-ble_
+1. Save _golf-swing-acc_ as _testing-ready-resting-imu-ble_ (done)
 1. Add in code for BLE as appropriate
 
 #
