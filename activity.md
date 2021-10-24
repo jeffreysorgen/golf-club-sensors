@@ -1,3 +1,4 @@
+- modify for facts re: `while (!Serial);`
 - apply UUIDs in the code
 - add photo of battery/old phone arrangement
 
