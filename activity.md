@@ -164,6 +164,15 @@ Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular vel
 #
 
 
+
+
+
+
+
+
+
+
+
 What I've determined so far is that there are four sections:
 1. *"prior to"*
 2. `void setup()`
@@ -172,15 +181,16 @@ What I've determined so far is that there are four sections:
 
 ##### 1. **Prior to `void setup()`**
 - These can be within _namespace_
-- This area is where to first add LIBRARIES
+- This section is where to first add LIBRARIES
   - `#include <ArduinoBLE.h>` To use BLE library.
-- `BLEService service("180C");` Need this in sketch, probably in the next line. But this is going to vary, depending on how much more I learn about UUID and the need for them to be unique. For the moment, just "180C" is fine. It means "unregistered generic UUID"
-- 
-- This area is where to first add LIBRARIES
-- This area is where to initialize VARIABLES
-- This area is where to create the FUNCTION PROTOTYPE
-- This area is where to add SERVICES and their respective CHARACTERISTICS
+- This section is where to initialize VARIABLES
+- This section is where to create the FUNCTION PROTOTYPE ("other functions")
+- This section is where to add SERVICES and their respective CHARACTERISTICS
   - Give the Services and Characteristics their UUIDs
+  - `BLEService service("180C"); // means "user-defined, unregistered generic UUID"`
+-
+-
+
 
 
 
