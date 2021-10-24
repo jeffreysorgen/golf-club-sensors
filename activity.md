@@ -199,25 +199,19 @@ What I've determined so far is that there are four sections:
 
 
 ##### 2. `void setup()`
-- Initializes the BLE device.
-
-```   
-// begin initialization
-if (!BLE.begin()) {
-  Serial.println("starting BLE failed!");
-
-  while (1);
-}
-
-//
-BLE.advertise();
-//
-```
-
 - This section is where to INITIALIZE -
   - THE SENSORS
   - the built-in LED pin
 - This section is where to check for FAILURE
+- ```   
+// begin initialization
+if (!BLE.begin()) {
+  Serial.println("starting BLE failed!");
+  while (1);
+}
+```
+
+
 - This section is where to set the NAME to show up in the SCAN
   - `BLE.setLocalName("Jeff's Nano33BLE");`
 - This section is where to set BLE SERVICE ADVERTISEMENT
@@ -225,6 +219,15 @@ BLE.advertise();
 - This section is where to ADD CHARACTERISTICS to the BLE services
   - `customService.addCharacteristic(ble_magnetic);`
 - 
+
+
+
+
+```
+//
+BLE.advertise();
+//
+```
 
 
 
