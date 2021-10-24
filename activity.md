@@ -203,7 +203,8 @@ What I've determined so far is that there are four sections:
   - THE SENSORS
   - the built-in LED pin
 - This section is where to check for FAILURE
-- ```   
+- 
+```   
 // begin initialization
 if (!BLE.begin()) {
   Serial.println("starting BLE failed!");
