@@ -62,14 +62,20 @@ Now to take the BLE commands and integrate them into my _golf-swing-acc_ sketch:
 - I thought I would need to use the BLE UUID spec which I thought was "important for ble" [(below)](#reference)
 - **Keep studying about UUID**
 - Go simpler. Look where they use them in Hello World, for example, and use theirs instead. It's not like we're getting in trouble or having technical conflicts with them.
+- Try **reversing** the action, and take my IMU sketch and pull it line by line **into** the Hello World sketch. 
+  - For one thing, I can read what was sent from the device, also, I confirmed the non-serial battery solution applied.
+- Also go back to the [hackster](https://www.hackster.io/gov/imu-to-you-ae53e1) site again
+
+
+
+
+
+
+
 
 #
 #
 #
-
-
-
-
 
 
 My [integrated IMU/BLE configuration](#modifying-the-file) displayed a **hex value** in _nRF Connect_ rather than readable data.
