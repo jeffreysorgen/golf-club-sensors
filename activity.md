@@ -191,9 +191,9 @@ What I've determined so far is that there are four sections:
   - Give the Services and Characteristics their UUIDs
   - `BLEService customService("180C"); // means "user-defined, unregistered generic UUID"`
 - This section is where to add respective Service CHARACTERISTICS
-  - (example) `BLEStringCharacteristic ble_accelerometer("2A58", BLERead | BLENotify, 20);`
+  - `BLEStringCharacteristic ble_accelerometer("2A58", BLERead | BLENotify, 20);`
     - _but would rather have raw data than string data_
-
+    - _'2a58' is arbitrary example_
 
 
 
