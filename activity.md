@@ -1,5 +1,6 @@
 - modify for facts re: `while (!Serial);`
 - apply UUIDs in the code
+- include Hello World sketch in this documentation (move it to under robo)
 - add photo of battery/old phone arrangement
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
@@ -55,6 +56,8 @@ Now to take the BLE commands and integrate them into my _golf-swing-acc_ sketch:
 1. Add in code for BLE as appropriate
 
 #
+- Try **reversing** the action, and take my IMU sketch and pull it line by line **into** the _Hello World_ sketch. 
+  - For one thing, I can read what was sent from the device, also, I confirmed the non-serial battery solution applied.
 - At this point, figure out the **UUID** information.
 - Need to have specific UUIDs for each IMU param
 - I can't find a specific UUID for x,y,z on the Accelerometer
@@ -63,8 +66,6 @@ Now to take the BLE commands and integrate them into my _golf-swing-acc_ sketch:
 - I thought I would need to use the BLE UUID spec which I thought was "important for ble" [(below)](#reference)
 - **Keep studying about UUID**
 - Go simpler. Look where they use them in Hello World, for example, and use theirs instead. It's not like we're getting in trouble or having technical conflicts with them.
-- Try **reversing** the action, and take my IMU sketch and pull it line by line **into** the Hello World sketch. 
-  - For one thing, I can read what was sent from the device, also, I confirmed the non-serial battery solution applied.
 - Also go back to the [hackster](https://www.hackster.io/gov/imu-to-you-ae53e1) site again
 
 
@@ -170,7 +171,8 @@ Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular vel
 
 
 
-
+# Structure of Arduino files
+##### (relocate this)
 
 
 What I've determined so far is that there are four sections:
@@ -185,11 +187,12 @@ What I've determined so far is that there are four sections:
   - `#include <ArduinoBLE.h>` To use BLE library.
 - This section is where to initialize VARIABLES
 - This section is where to create the FUNCTION PROTOTYPE ("other functions")
-- This section is where to add SERVICES and their respective CHARACTERISTICS
+- This section is where to add SERVICES
   - Give the Services and Characteristics their UUIDs
-  - `BLEService service("180C"); // means "user-defined, unregistered generic UUID"`
--
--
+  - `BLEService customService("180C"); // means "user-defined, unregistered generic UUID"`
+- This section is where to add respective Service CHARACTERISTICS
+  - (example) `BLEStringCharacteristic ble_accelerometer("2A58", BLERead | BLENotify, 20);`
+    - _but would rather have raw data than string data_
 
 
 
@@ -211,7 +214,25 @@ BLE.advertise();
 //
 ```
 
+- This section is where to INITIALIZE -
+  - THE SENSORS
+  - the built-in LED pin
+- This section is where to check for FAILURE
+- This section is where to set the NAME to show up in the SCAN
+  - `BLE.setLocalName("Jeff's Nano33BLE");`
+- This section is where to set BLE SERVICE ADVERTISEMENT
+  - `BLE.setAdvertisedService(customService);`
+- This section is where to ADD CHARACTERISTICS to the BLE services
+  - `customService.addCharacteristic(ble_magnetic);`
 - 
+
+
+
+
+
+
+
+
 
 ##### 3. `void loop()`
 -
