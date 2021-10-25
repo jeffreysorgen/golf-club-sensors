@@ -1,5 +1,4 @@
 - apply UUIDs in the code
-- include Hello World sketch in this documentation (move it to under robo)
 - add photo of battery/old phone arrangement
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
