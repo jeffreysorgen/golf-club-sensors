@@ -173,15 +173,13 @@ Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular vel
 
 # Structure of Arduino files
 ##### (relocate this)
-
-What I've determined so far is that there are four sections:
+At the most basic level, there are four sections:
 1. *"prior to"*
 2. `void setup()`
 3. `void loop()` and
 4. *"other functions"*
 
 #### 1. **Prior to `void setup()`**
-
 - These can be within _namespace_
 - First add LIBRARIES
   - `#include <Arduino_LSM9DS1.h>  // IMU library`
@@ -194,6 +192,7 @@ What I've determined so far is that there are four sections:
 - Add SERVICES
   - Give the Services and Characteristics their UUIDs
   - `BLEService customService("180C"); // means "user-defined, unregistered generic UUID"`
+  - `BLEService greetingService(greetingUUID);`
 - Add respective Service CHARACTERISTICS
   - `BLEStringCharacteristic ble_accelerometer ("2A58", BLERead | BLENotify, 20);`
     - _but would rather have raw data than string data_
@@ -201,7 +200,6 @@ What I've determined so far is that there are four sections:
 - Create the FUNCTION PROTOTYPE ("other functions")
 
 #### 2. `void setup()`
-
 - INITIALIZE THE SENSORS
   - `IMU.begin(); // initialize the sensors`
 - Initialize SERIAL COMMUNICATION
@@ -215,7 +213,7 @@ if (!BLE.begin()) {
   while (1);
 }
 ```
-- This section is where to set the NAME to show up in the SCAN
+- Set the NAME to show up in the SCAN
   - `BLE.setLocalName("Jeff's Nano33BLE");`
 - Set BLE SERVICE ADVERTISEMENT
   - `BLE.setAdvertisedService(customService);`
@@ -238,11 +236,9 @@ if (!BLE.begin()) {
 
 
 #### 3. `void loop()`
-
 -
 
 #### 4. **other functions**
-
 -
 
 
