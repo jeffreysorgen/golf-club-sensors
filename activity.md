@@ -174,7 +174,6 @@ Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular vel
 # Structure of Arduino files
 ##### (relocate this)
 
-
 What I've determined so far is that there are four sections:
 1. *"prior to"*
 2. `void setup()`
@@ -182,10 +181,16 @@ What I've determined so far is that there are four sections:
 4. *"other functions"*
 
 ##### 1. **Prior to `void setup()`**
+
 - These can be within _namespace_
 - First add LIBRARIES
-  - `#include <ArduinoBLE.h>` To use BLE library.
+  - `#include <Arduino_LSM9DS1.h>  // IMU library`
+  - `#include <ArduinoBLE.h>  // BLE library`
+- Set CONSTANTS
+  - `static const char* greeting = "Hello World!";`
+  - `static const char* greetingUUID = "355d2b52-982c-4598-b9b4-c19156686e1a";`
 - Initialize VARIABLES
+  - `String p, t, m; // Initalizing global variables for...`
 - Add SERVICES
   - Give the Services and Characteristics their UUIDs
   - `BLEService customService("180C"); // means "user-defined, unregistered generic UUID"`
@@ -195,17 +200,14 @@ What I've determined so far is that there are four sections:
     - _'2a58' is arbitrary example_
 - Create the FUNCTION PROTOTYPE ("other functions")
 
-
-
-
 ##### 2. `void setup()`
+
 - INITIALIZE THE SENSORS
   - `IMU.begin(); // initialize the sensors`
 - Initialize SERIAL COMMUNICATION
   - `Serial.begin(9600);`
 - And initialize OTHER things
   - `pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin` 
-
 - This section is where to check for FAILURE
 ``` 
 if (!BLE.begin()) {
@@ -213,8 +215,6 @@ if (!BLE.begin()) {
   while (1);
 }
 ```
-
-
 - This section is where to set the NAME to show up in the SCAN
   - `BLE.setLocalName("Jeff's Nano33BLE");`
 - Set BLE SERVICE ADVERTISEMENT
@@ -237,12 +237,12 @@ if (!BLE.begin()) {
 
 
 
-
-
 ##### 3. `void loop()`
+
 -
 
 ##### 4. **other functions**
+
 -
 
 
