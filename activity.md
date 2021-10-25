@@ -138,7 +138,7 @@ if (central) {
 #
 
 ### The Hello World BLE code
-**Found on okdo.com(link)**
+
 
 ##### All the code is here:
 ```
@@ -201,7 +201,7 @@ void loop() {
   }
 }
 ```
-
+**Found on okdo.com(link)**
 #
 
 #
