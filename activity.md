@@ -1,4 +1,5 @@
 - modify for facts re: `while (!Serial);`
+  - TEST this with robo code
 - apply UUIDs in the code
 - include Hello World sketch in this documentation (move it to under robo)
 - add photo of battery/old phone arrangement
@@ -208,10 +209,10 @@ At the most basic level, there are four sections:
   - `pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin` 
 - Check for FAILURE
 ``` 
-if (!BLE.begin()) {
-  Serial.println("starting BLE failed!");
-  while (1);
-}
+        if (!BLE.begin()) {
+          Serial.println("starting BLE failed!");
+          while (1);
+        }
 ```
 - Set the NAME to show up in the SCAN
   - `BLE.setLocalName("Jeff's Nano33BLE");`
@@ -226,17 +227,21 @@ if (!BLE.begin()) {
 - ADVERTISE
   - `BLE.advertise();  // Start advertising`
   
-
-
-
-
-
-
-
-
-
 #### 3. `void loop()`
--
+- `BLEDevice central = BLE.central();`
+- LOOP stuff here
+```
+if (central) {
+    Serial.print("Connected to central MAC: ");
+    // print the central's BT address:
+    Serial.println(central.address());
+    // turn on the LED to indicate the connection:
+    digitalWrite(LED_BUILTIN, HIGH);
+    while (central.connected()){} // keep looping while connected
+
+```
+
+
 
 #### 4. **other functions**
 -
