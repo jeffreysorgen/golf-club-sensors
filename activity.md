@@ -43,12 +43,103 @@ But a [**battery-only**](implementation.md/#current-development-solution) soluti
 After being untethered from the computer, the device was trying to find the serial port from which it's now disconnected.
 So this one change will allow the device to function in nRF Connect the same way as it did before.
 
-### The Hello World BLE Sketch
+#
 
-Now that we've got the BLE connecting, it's time to simplify and specialize our code. There is an even simpler BLE sketch from [okdo.com](okdo.com/link) that turns on the amber LED when the Arduino connects.
+#
 
+#
+
+##### [this](#the-hello-world-ble-sketch)
 (_Could move this to the end, use a link, and just describe it here._
 _Then just implement the "mix" of the code in this section_)
+
+#
+
+### The Hello World BLE Sketch
+
+Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, it's time to simplify and specialize our code. There is an even [simpler BLE sketch](#the-hello-world-ble-code) from [okdo.com](okdo.com/link) that turns the amber LED on when the Arduino connects.
+
+**First, we need to understand the structure of a very basic `.ino` file:**
+
+### Structure of Arduino files
+
+At the most basic level, there are four sections:
+1. *"prior to"*
+2. `void setup()`
+3. `void loop()` and
+4. *"other functions"*
+
+#### 1. **Prior to `void setup()`**
+- These can be within _namespace_
+- First add LIBRARIES
+  - `#include <Arduino_LSM9DS1.h>  // IMU library`
+  - `#include <ArduinoBLE.h>  // BLE library`
+- Set CONSTANTS
+  - `static const char* greeting = "Hello World!";`
+  - `static const char* greetingUUID = "355d2b52-982c-4598-b9b4-c19156686e1a";`
+- Initialize VARIABLES
+  - `String p, t, m; // Initalizing global variables for...`
+- Add SERVICES
+  - Give the Services and Characteristics their UUIDs ([here](#uuid-info) for more info)
+  - `BLEService customService("180C"); // means "user-defined, unregistered generic UUID"`
+  - `BLEService greetingService(greetingUUID);`
+- Add respective Service CHARACTERISTICS
+  - `BLEStringCharacteristic ble_accelerometer ("2A58", BLERead | BLENotify, 20);`
+    - _but would rather have raw data than string data_
+    - _'2a58' is arbitrary example_
+- Create the FUNCTION PROTOTYPE ("other functions")
+
+#### 2. `void setup()`
+- INITIALIZE THE SENSORS
+  - `IMU.begin(); // initialize the sensors`
+- Initialize SERIAL COMMUNICATION
+  - `Serial.begin(9600);`
+- And initialize OTHER things
+  - `pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin` 
+- Check for FAILURE
+``` 
+        if (!BLE.begin()) {
+          Serial.println("starting BLE failed!");
+          while (1);
+        }
+```
+- Set the NAME to show up in the SCAN
+  - `BLE.setLocalName("Jeff's Nano33BLE");`
+- Set BLE SERVICE ADVERTISEMENT
+  - `BLE.setAdvertisedService(customService);`
+- ADD CHARACTERISTICS to the BLE services
+  - `customService.addCharacteristic(ble_accelerometer);`
+- ADD SERVICE to the BLE stack
+  - `BLE.addService(customService);  // Adding the service to the BLE stack`
+- Set VALUES for strings
+  - `greetingCharacteristic.setValue(greeting);  // Set greeting string; Set values`
+- ADVERTISE
+  - `BLE.advertise();  // Start advertising`
+  
+#### 3. `void loop()`
+- `BLEDevice central = BLE.central();`
+- LOOP stuff here
+```
+if (central) {
+    Serial.print("Connected to central MAC: ");
+    // print the central's BT address:
+    Serial.println(central.address());
+    // turn on the LED to indicate the connection:
+    digitalWrite(LED_BUILTIN, HIGH);
+    while (central.connected()){} // keep looping while connected
+```
+
+#
+
+#
+
+#
+
+#
+
+### The Hello World BLE code
+**Found on okdo.com(link)**
+
 ##### All the code is here:
 ```
 /*
@@ -110,20 +201,28 @@ void loop() {
   }
 }
 ```
+
 #
+
 #
+
 #
+
 #
 
 ## Finding a simple BLE solution
 
 Now to take the BLE commands and integrate them into my _golf-swing-acc_ sketch:
-1. Save _golf-swing-acc_ as _testing-ready-resting-imu-ble_ (done)
+1. Save _golf-swing-acc_ as _testing-ready-resting-imu-ble_ (done) (rewrite this to fact)
 1. Add in code for BLE as appropriate
 
 #
+
 - Try **reversing** the action, and take my IMU sketch and pull it line by line **into** the _Hello World_ sketch. 
   - For one thing, I can read what was sent from the device, also, I confirmed the non-serial battery solution applied.
+
+#
+
 - At this point, figure out the **UUID** information.
 - Need to have specific UUIDs for each IMU param
 - I can't find a specific UUID for x,y,z on the Accelerometer
@@ -134,17 +233,11 @@ Now to take the BLE commands and integrate them into my _golf-swing-acc_ sketch:
 - Go simpler. Look where they use them in Hello World, for example, and use theirs instead. It's not like we're getting in trouble or having technical conflicts with them.
 - Also go back to the [hackster](https://www.hackster.io/gov/imu-to-you-ae53e1) site again
 
-
-
-
-
-
-
-
-#
-#
 #
 
+#
+
+#
 
 - My [integrated IMU/BLE configuration](#modifying-the-file) displayed a **hex value** in _nRF Connect_ rather than readable data.
   - Need to transform the hex value into a readable one. (Explore more BLE examples first.)
@@ -185,8 +278,11 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
 - Wiki about [C data types](https://en.wikipedia.org/wiki/C_data_types#stdint.h)
 
 #
+
 #
+
 #
+
 ### Try again:
 
 - Go back to _golf-swing-acc_ and copy it as _new-test-imu-ble-combo_ (done, but reverted because of "serial" solution)
@@ -229,12 +325,11 @@ Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular vel
 
 #
 
+#
 
+#
 
-
-
-
-
+#
 
 # Structure of Arduino files
 ##### (relocate this)
@@ -309,13 +404,14 @@ if (central) {
 #### 4. **other functions**
 -
 
-
-#
 #
 
+#
 
 #
+
 #
+
 #### From _okdo.com_:
 **Use this example to construct our own sketch.**
 
@@ -385,9 +481,13 @@ void loop() {
 
 ```
 #
+
 #
+
 #
+
 #
+
 ##### (See also: [New notes for modding the file](#new-notes-for-modding-the-file))
 ## Modifying the file:
 
@@ -547,8 +647,8 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 //}
 ```
 
-#
-##### 15 unique v4UUIDs
+### UUID Info:
+##### (15 unique v4UUIDs)
 ```
 355d2b52-982c-4598-b9b4-c19156686e1a
 9e5982a7-9ef0-48e0-a167-8112ada5f184
