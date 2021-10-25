@@ -240,8 +240,14 @@ get the phone app to act upon the capabilities of the phone, such as turning on 
 While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to 
 get the phone to chirp good/bad golf swings. 
 
+#
+
+#
+
+#
 
 ### Reference:
+- Here's the okdo.com example, including _BLE Hello World_](#the-hello-world-sketch): [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc)
 - XXXXXXXX-0000-1000-8000-00805F9B34FB Look this up to find standard BLE list
 - Here are 15 unique [**v4-UUIDs**](#15-unique-v4uuids) from the [Online UUID Generator](https://www.uuidgenerator.net/)
 ```
@@ -265,8 +271,6 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
   - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
 - Here's helpful [IMU and BLE](https://www.hackster.io/gov/imu-to-you-ae53e1) tutorial from hackster.io
 - Wiki about [C data types](https://en.wikipedia.org/wiki/C_data_types#stdint.h)
-- Here's the okdo.com example: 
-  - Here's [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc)
 
 #
 
