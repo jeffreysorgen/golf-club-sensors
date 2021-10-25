@@ -44,7 +44,8 @@ After being untethered from the computer, the device was trying to find the seri
 So this one change will allow the device to function in nRF Connect the same way as it did before.
 
 ### The Hello World BLE Sketch
-##### [Hello World](#hello-world-for-ble)
+##### [Hello World](#hello-world-for-ble) from okdo.com
+##### (move it here)
 #
 #
 #
