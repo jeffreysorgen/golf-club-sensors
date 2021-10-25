@@ -45,16 +45,6 @@ So this one change will allow the device to function in nRF Connect the same way
 
 #
 
-#
-
-#
-
-##### [this](#the-hello-world-ble-sketch)
-(_Could move this to the end, use a link, and just describe it here._
-_Then just implement the "mix" of the code in this section_)
-
-#
-
 ### The Hello World BLE Sketch
 
 Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, it's time to simplify and specialize our code. There is an even [simpler BLE sketch](#the-hello-world-ble-code) from [okdo.com](#reference) that turns the amber LED on when the Arduino connects.
