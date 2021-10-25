@@ -206,7 +206,7 @@ At the most basic level, there are four sections:
   - `Serial.begin(9600);`
 - And initialize OTHER things
   - `pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin` 
-- This section is where to check for FAILURE
+- Check for FAILURE
 ``` 
 if (!BLE.begin()) {
   Serial.println("starting BLE failed!");
