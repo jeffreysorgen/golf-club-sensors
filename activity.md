@@ -51,6 +51,12 @@ Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, i
 
 **First, we need to understand the structure of a very basic `.ino` file.** We will be combining code from the two example sketches for this, and modifying them as appropriate.
 
+#
+
+#
+
+#
+
 ### Structure of Arduino files
 
 At the most basic level, there are four sections:
@@ -247,7 +253,8 @@ get the phone to chirp good/bad golf swings.
 #
 
 ### Reference:
-- Here's the okdo.com example, including _BLE Hello World_](#the-ble-hello-world-sketch): [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc)
+
+- Here's the okdo.com example, including [_BLE Hello World_](#the-ble-hello-world-sketch): [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc)
 - XXXXXXXX-0000-1000-8000-00805F9B34FB Look this up to find standard BLE list
 - Here are 15 unique [**v4-UUIDs**](#15-unique-v4uuids) from the [Online UUID Generator](https://www.uuidgenerator.net/)
 ```
