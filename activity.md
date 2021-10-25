@@ -183,25 +183,29 @@ What I've determined so far is that there are four sections:
 
 ##### 1. **Prior to `void setup()`**
 - These can be within _namespace_
-- This section is where to first add LIBRARIES
+- First add LIBRARIES
   - `#include <ArduinoBLE.h>` To use BLE library.
-- This section is where to initialize VARIABLES
-- This section is where to create the FUNCTION PROTOTYPE ("other functions")
-- This section is where to add SERVICES
+- Initialize VARIABLES
+- Add SERVICES
   - Give the Services and Characteristics their UUIDs
   - `BLEService customService("180C"); // means "user-defined, unregistered generic UUID"`
-- This section is where to add respective Service CHARACTERISTICS
+- Add respective Service CHARACTERISTICS
   - `BLEStringCharacteristic ble_accelerometer ("2A58", BLERead | BLENotify, 20);`
     - _but would rather have raw data than string data_
     - _'2a58' is arbitrary example_
+- Create the FUNCTION PROTOTYPE ("other functions")
 
 
 
 
 ##### 2. `void setup()`
-- This section is where to INITIALIZE -
-  - THE SENSORS
-  - the built-in LED pin
+- INITIALIZE THE SENSORS
+  - `IMU.begin(); // initialize the sensors`
+- Initialize SERIAL COMMUNICATION
+  - `Serial.begin(9600);`
+- And initialize OTHER things
+  - `pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin` 
+
 - This section is where to check for FAILURE
 ``` 
 if (!BLE.begin()) {
@@ -213,20 +217,19 @@ if (!BLE.begin()) {
 
 - This section is where to set the NAME to show up in the SCAN
   - `BLE.setLocalName("Jeff's Nano33BLE");`
-- This section is where to set BLE SERVICE ADVERTISEMENT
+- Set BLE SERVICE ADVERTISEMENT
   - `BLE.setAdvertisedService(customService);`
-- This section is where to ADD CHARACTERISTICS to the BLE services
+- ADD CHARACTERISTICS to the BLE services
   - `customService.addCharacteristic(ble_accelerometer);`
-- 
+- ADD SERVICE to the BLE stack
+  - `BLE.addService(customService);  // Adding the service to the BLE stack`
+- Set VALUES for strings
+  - `greetingCharacteristic.setValue(greeting);  // Set greeting string; Set values`
+- ADVERTISE
+  - `BLE.advertise();  // Start advertising`
+  
 
 
-
-
-```
-//
-BLE.advertise();
-//
-```
 
 
 
