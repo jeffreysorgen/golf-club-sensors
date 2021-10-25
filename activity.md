@@ -1,5 +1,5 @@
+- apply UUIDs in the code
 - add photo of battery/old phone arrangement
-- save successful sketch as _ready-resting-imu-ble_
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
 [*[ The Accelerometer ]*](implementation.md/#the-accelerometer)
@@ -33,167 +33,36 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 
 ##### Caveat:
-- With the USB cable plugged into the computer I **_can_** discover _"Arduino Environment Sensor"_ in nRF Connect. 
+With the USB cable plugged into the computer I **_can_** discover _"Arduino Environment Sensor"_ in nRF Connect. 
 But a [**battery-only**](implementation.md/#current-development-solution) solution can **_not_**. So...
 
 #### For battery-only:
+- **Comment out `//while (!Serial);`** 
 
-**Any time "serial" shows up in the code, comment it out.**
-After being untethered from the computer, the device was still using the serial port which is now disconnected.
+After being untethered from the computer, the device was trying to find the serial port from which it's now disconnected.
 So this one change will allow the device to function in nRF Connect the same way as it did before.
-Development can continue to include the Serial Monitor, but then would remove those lines of code to test on battery-only.
 
 
 
-
-
-## Finding a simple BLE solution
-
-Now to take the BLE commands and integrate them into my _golf-swing-acc_ sketch:
-1. Save _golf-swing-acc_ as _testing-ready-resting-imu-ble_ (done)
-1. Add in code for BLE as appropriate
-
-#
-#
-#
-
-
-
-
-
-
-
-My [integrated IMU/BLE configuration](#modifying-the-file) displayed a **hex value** in _nRF Connect_ rather than readable data.
-- Need to transform the hex value into a readable one. (Explore more BLE examples first.)
-
-Make the nRF Connect readings display "Ready" / "Resting"
-- Once that question is answered, I'll get my phone to turn its flashlight on/off as a result. 
-
-##### Description:
-What we want to do for this project is to read information from the sensor and then 
-get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
-While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to 
-get the phone to chirp good/bad golf swings. 
-
-
-### Reference:
-- XXXXXXXX-0000-1000-8000-00805F9B34FB (This is important for BLE)
-- Here is the [Online UUID Generator](https://www.uuidgenerator.net/)
-- Helpful from Argenox:
-  - [**Argenox website**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a good place to READ about BLE
-  - Here's the [Bluetooth Low Energy Library](https://www.argenox.com/library/bluetooth-low-energy/)
-  - Here is a link for [BLE and batteries](https://www.argenox.com/library/bluetooth-low-energy/powering-ble-batt/)
-- **Arduino** resources:
-  - A complete [reference](https://www.arduino.cc/reference/en/)
-  - And one specifically for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
-- Here's some GATT information [(_LINK_)](https://www.oreilly.com/library/view/getting-started-with/9781491900550/ch04.html) from O'Reilly (2014), and its repository, [(_here._)](https://github.com/microbuilder/IntroToBLE)
-- Here's a 
-helpful [**beginners tutorial**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/ble-advertising-a-beginners-tutorial) from Nordic Semi. 
-And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/bluetooth-smart-and-the-nordics-softdevices-part-1)
-- **nRF Connect:**
-  - nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
-  - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
-- Here's the [okdo.com example](#from-okdo-com) (below)
 
 
 
 #
-#
-#
-### Try again:
+### The Hello World BLE Sketch
 
-- Go back to _golf-swing-acc_ and copy it as _new-test-imu-ble-combo_ (done, but reverted because of "serial" solution)
-  - **Create the sketch like adding pieces to a puzzle**
+Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, it's time to simplify and specialize our code. There is a simple _BLE Hello World_ sketch from [okdo.com](#reference) that turns on the amber LED on the Arduino board when it connects. 
 
-#### Examples:
+Starting with this simple code as a base, we'll combine it with the _RoboCraze_ sketch and our own _golf-swing-acc_ sketch
+so that we can see the accelerometer data inside the _nRF Connect_ app.
 
-- Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** 
-- Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
-- Also go through the later lessons in _**EdX Deployment**_ class
-- Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
-- Here's [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc)
-
-#### nRF Connect looks like this
-
-(screenshot of my phone screen with device listed)
-<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
-
-
-##### Next: [Modifying the file (first draft)](#modifying-the-file)
+[_[ Next: **Structure of Arduino Files** ]_](#structure-of-arduino-files)
 
 
 
 
 
 
-### New notes for modding the file:
-
-Arduino's reference for BLE:
-- **From https://www.arduino.cc/en/Reference/ArduinoBLE**
-
-**Notify or Indicate.** Think of this as _Sender_ and _Reader_. ArduinoBLESense is the _sender_ and when a reading changes, the nRF Connect is going to be the _reader_ at the right moment. For my purposes, the _sender_ wants to let the _reader_ know that the state has changed from Ready to Resting, and vice versa. This reduces the BLE communication (which is the most energy-hungry part of this project) down to one single instance: _characteristic change_ (state change). The model BLE uses is known as a **publish-and-subscribe model.**
-
-Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client_
-
-**Updating a characteristic.** When Y-axis, `y < -0.85`, changes from true to false or back, this is the moment to send BLE data, nothing else. Save on BLE energy.
-
-Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
-
-
-#
-
-
-What I've determined so far is that there are four sections:
-1. *"prior to"*
-2. `void setup()`
-3. `void loop()` and
-4. *"other functions"*
-
-##### 1. **Prior to `void setup()`**
-- These can be within _namespace_
-- `#include <ArduinoBLE.h>` To use BLE library.
-- `BLEService service("180C");` Need this in sketch, probably in the next line. But this is going to vary, depending on how much more I learn about UUID and the need for them to be unique. For the moment, just "180C" is fine. It means "unregistered generic UUID"
-- 
-
-
-
-
-##### 2. `void setup()`
-- Initializes the BLE device.
-
-```   
-// begin initialization
-if (!BLE.begin()) {
-  Serial.println("starting BLE failed!");
-
-  while (1);
-}
-
-//
-BLE.advertise();
-//
-```
-
-- 
-
-##### 3. `void loop()`
--
-
-##### 4. **other functions**
--
-
-
-
-
-
-
-#### From _okdo.com_:
-This is the example where I discovered that I can just comment out the "serial" component and it will work battery-only.
-**Use this example to construct our own sketch.**
-
-##### "hello world" for BLE
-_I really like turning on the amber LED when the connection is made via BLE!_
-
+##### BLE Hello World code is here:
 ```
 /*
   Arduino Nano 33 BLE Getting Started
@@ -252,17 +121,255 @@ void loop() {
     Serial.print("Disconnected from central MAC: ");
     Serial.println(central.address());
   }
-
-
-
+}
 ```
+
+
+
+
+
+
 #
+### Structure of Arduino files
+
+We will be combining code from the two example sketches with **the accelerometer sketch**
+(_golf-swing-acc?_)
+so we need to understand the structure of a very basic `.ino` file. 
+
+At the most basic level, there are four sections:
+1. *"prior to"*
+2. `void setup()`
+3. `void loop()` and
+4. *"other functions"*
+
+#### 1. **Prior to `void setup()`**
+- These can be within _namespace_
+- First add LIBRARIES
+  - `#include <Arduino_LSM9DS1.h>  // IMU library`
+  - `#include <ArduinoBLE.h>  // BLE library`
+- Set CONSTANTS
+  - `static const char* greeting = "Hello World!";`
+  - `static const char* greetingUUID = "355d2b52-982c-4598-b9b4-c19156686e1a";`
+- Initialize VARIABLES
+  - `String p, t, m; // Initalizing global variables for...` (omit)
+- Add SERVICES
+  - Give the Services and Characteristics their UUIDs ([here](#uuid-info) for more info)
+  - `BLEService customService("180C"); // means "user-defined, unregistered generic UUID"`
+  - `BLEService greetingService(greetingUUID);`
+- Add respective Service CHARACTERISTICS
+  - `BLEStringCharacteristic ble_accelerometer ("2A58", BLERead | BLENotify, 20);`
+    - _but would rather have raw data than string data_
+    - _'2a58' is arbitrary example_
+- Create the FUNCTION PROTOTYPE ("other functions")
+
+#### 2. `void setup()`
+- INITIALIZE THE SENSORS
+  - `IMU.begin(); // initialize the sensors`
+- Initialize SERIAL COMMUNICATION
+  - `Serial.begin(9600);`
+- And initialize OTHER things
+  - `pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin` 
+- Check for FAILURE
+``` 
+        if (!BLE.begin()) {
+          Serial.println("starting BLE failed!");
+          while (1);
+        }
+```
+- Set the NAME to show up in the SCAN
+  - `BLE.setLocalName("Jeff's Nano33BLE");`
+- Set BLE SERVICE ADVERTISEMENT
+  - `BLE.setAdvertisedService(customService);`
+- ADD CHARACTERISTICS to the BLE services
+  - `customService.addCharacteristic(ble_accelerometer);`
+- ADD SERVICE to the BLE stack
+  - `BLE.addService(customService);  // Adding the service to the BLE stack`
+- Set VALUES for strings
+  - `greetingCharacteristic.setValue(greeting);  // Set greeting string; Set values`
+- ADVERTISE
+  - `BLE.advertise();  // Start advertising`
+  
+#### 3. `void loop()`
+- `BLEDevice central = BLE.central();`
+- LOOP stuff here
+```
+if (central) {
+    Serial.print("Connected to central MAC: ");
+    // print the central's BT address:
+    Serial.println(central.address());
+    // turn on the LED to indicate the connection:
+    digitalWrite(LED_BUILTIN, HIGH);
+    while (central.connected()){} // keep looping while connected
+```
+
+#### 4. **other functions**
+-
+
 #
+
+#
+
+#
+
+#
+
+(doing this)
+- Take the BLE commands and integrate them into my _golf-swing-acc_ sketch:
+- Try **reversing** the action, and take my IMU sketch and pull it line by line **into** the _Hello World_ sketch. 
+  - For one thing, I can read what was sent from the device, also, I confirmed the non-serial battery solution applied.
+- Save _golf-swing-acc_ as _testing-ready-resting-imu-ble_ (done) (rewrite this to fact)
+- Add in code for BLE as appropriate
+
+#
+
+#
+
+#
+
+# UUID notes
+
+- At this point, figure out the **UUID** information.
+- Need to have specific UUIDs for each IMU param
+- I can't find a specific UUID for x,y,z on the Accelerometer
+  - what does the **raw** IMU data look like?
+  - check the hackster.io post in the [Reference](#reference)
+- I thought I would need to use the BLE UUID spec which I thought was "important for ble" [(below)](#reference)
+- **Keep studying about UUID**
+- Go simpler. Look where they use them in Hello World, for example, and use theirs instead. It's not like we're getting in trouble or having technical conflicts with them.
+- Also go back to the [hackster](https://www.hackster.io/gov/imu-to-you-ae53e1) site again
+
+### UUID Info:
+##### (15 unique v4UUIDs)
+```
+355d2b52-982c-4598-b9b4-c19156686e1a
+9e5982a7-9ef0-48e0-a167-8112ada5f184
+9dc52af2-d585-4fb7-93a7-922b463239fe
+8564aabe-417c-4fe4-8a40-543ea08079f4
+3e8c97c5-6ae5-444f-b56e-20a741e7bf99
+f2024cef-dae8-4db7-bddb-76c696cdc115
+62237f9d-7652-442a-a36a-0a68d96bd617
+f22e0e5c-9636-4a83-9eaa-ba309101c4b6
+88abdb86-22fb-4b2f-8d35-53bb942625b7
+0a374697-2847-4d15-b7b2-b89281022f65
+b60136d1-e8c5-4042-82e8-a0f6fcd4f6d4
+989ae3c5-6e5a-4868-96c7-011511e880b2
+d49b4462-2bfd-4d92-8103-88ed9429e662
+52f6c067-db43-4e53-893b-d7d98406901b
+fa94204d-dc71-4585-aa63-98b8133c5266
+```
+
+#
+
+#
+
+#
+
+#
+
+- My [integrated IMU/BLE configuration](#modifying-the-file) displayed a **hex value** in _nRF Connect_ rather than readable data.
+  - Need to transform the hex value into a readable one. (Explore more BLE examples first.)
+- Make the nRF Connect readings display "Ready" / "Resting"
+  - Once that question is answered, I'll get my phone to turn its flashlight on/off as a result. 
+
+##### Description:
+What we want to do for this project is to read information from the sensor and then 
+get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
+While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to 
+get the phone to chirp good/bad golf swings. 
+
+#
+
+#
+
+#
+
+### Reference:
+
+- Here's the okdo.com example, including [_BLE Hello World_](#the-ble-hello-world-sketch): [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc)
+- XXXXXXXX-0000-1000-8000-00805F9B34FB Look this up to find standard BLE list
+- Here are 15 unique [**v4-UUIDs**](#15-unique-v4uuids) from the [Online UUID Generator](https://www.uuidgenerator.net/)
+```
+355d2b52-982c-4598-b9b4-c19156686e1a
+    ...
+```
+
+- Helpful from Argenox:
+  - [**Argenox website**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a good place to READ about BLE
+  - Here's the [Bluetooth Low Energy Library](https://www.argenox.com/library/bluetooth-low-energy/)
+  - Here is a link for [BLE and batteries](https://www.argenox.com/library/bluetooth-low-energy/powering-ble-batt/)
+- **Arduino** resources:
+  - A complete [reference](https://www.arduino.cc/reference/en/)
+  - And one specifically for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
+- Here's some GATT information [(_LINK_)](https://www.oreilly.com/library/view/getting-started-with/9781491900550/ch04.html) from O'Reilly (2014), and its repository, [(_here._)](https://github.com/microbuilder/IntroToBLE)
+- Here's a 
+helpful [**beginners tutorial**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/ble-advertising-a-beginners-tutorial) from Nordic Semi. 
+And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/bluetooth-smart-and-the-nordics-softdevices-part-1)
+- **nRF Connect:**
+  - nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
+  - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
+- Here's helpful [IMU and BLE](https://www.hackster.io/gov/imu-to-you-ae53e1) tutorial from hackster.io
+- Wiki about [C data types](https://en.wikipedia.org/wiki/C_data_types#stdint.h)
+
+#
+
+#
+
+#
+
+### Try again:
+
+- Go back to _golf-swing-acc_ and copy it as _new-test-imu-ble-combo_ (done, but reverted because of "serial" solution)
+  - **Create the sketch like adding pieces to a puzzle**
+
+#### Examples:
+
+- Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** 
+- Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
+- Also go through the later lessons in _**EdX Deployment**_ class
+- Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
+
+#### nRF Connect looks like this
+
+(screenshot of my phone screen with device listed)
+<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
+
+
+##### Next: [Modifying the file (first draft)](#modifying-the-file)
+
+#
+
+#
+
+#
+
+### New notes for modding the file:
+
+Arduino's reference for BLE:
+- **From https://www.arduino.cc/en/Reference/ArduinoBLE**
+
+**Notify or Indicate.** Think of this as _Sender_ and _Reader_. ArduinoBLESense is the _sender_ and when a reading changes, the nRF Connect is going to be the _reader_ at the right moment. For my purposes, the _sender_ wants to let the _reader_ know that the state has changed from Ready to Resting, and vice versa. This reduces the BLE communication (which is the most energy-hungry part of this project) down to one single instance: _characteristic change_ (state change). The model BLE uses is known as a **publish-and-subscribe model.**
+
+Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client_
+
+**Updating a characteristic.** When Y-axis, `y < -0.85`, changes from true to false or back, this is the moment to send BLE data, nothing else. Save on BLE energy.
+
+Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
+
+#
+
+#
+
+#
+
+#
+
 ##### (See also: [New notes for modding the file](#new-notes-for-modding-the-file))
+
 ## Modifying the file:
 
 (do this entire process again, using different example BLE sketch)
 
+( use this section to describe the _golf-sensors-acc_ )
 
 Top of sketch. First, add the two libraries.
 ```
@@ -345,7 +452,21 @@ void loop() {
     // Serial.print("Connected to central: ");
     // Serial.println(central.address());
 ```
-Do these things _while_ BLE is connected. This `while` statement is why nothing shows up in Monitor until BLE connects the two devices. The `readValues()` is not used in this case, but in the _RoboCraze_ example, it combines readings and labels into a string which can be read easily in nRF Connect with `writeValue(m)`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Do these things _while_ BLE is connected. _(Read [the caveat](#caveat).)_ This `while` statement is why nothing shows up in Monitor until BLE connects the two devices. (_not really_) The `readValues()` is not used in this case, but in the _RoboCraze_ example, it combines readings and labels into a string which can be read easily in nRF Connect with `writeValue(m)`. _(readValues() is a function, read [here](#structure-of-arduino-files))_
 ```
     while (central.connected()) {
       delay(200); // take this out if necessary
@@ -357,7 +478,9 @@ Do these things _while_ BLE is connected. This `while` statement is why nothing 
       //ble_magnetic.writeValue(m);
       //delay(1000); // so we can read it
 ```
-Next, using `readAcceleration()` and `writeValue()` sends information to the BLE App. **I need to make this more readable.** I don't know why it writes as a HEX or ID. But the HEX changes as I move the device around, and slows to one second when in the _Resting_ state, meaning that it's properly functioning. **But the reading doesn't make sense.**
+Next, using `readAcceleration()` and `writeValue()` sends information to the BLE App. 
+
+**I need to make this more readable.** I don't know why it writes as a HEX or ID. But the HEX changes as I move the device around, and slows to one second when in the _Resting_ state, meaning that it's properly functioning. **But the reading doesn't make sense.**
 ```
       // IMU checking on Y and printing all to Monitor
       if (IMU.accelerationAvailable()) {
@@ -417,6 +540,43 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 //}
 ```
 
+### UUID Info:
+##### (15 unique v4UUIDs)
+```
+355d2b52-982c-4598-b9b4-c19156686e1a
+9e5982a7-9ef0-48e0-a167-8112ada5f184
+9dc52af2-d585-4fb7-93a7-922b463239fe
+8564aabe-417c-4fe4-8a40-543ea08079f4
+3e8c97c5-6ae5-444f-b56e-20a741e7bf99
+f2024cef-dae8-4db7-bddb-76c696cdc115
+62237f9d-7652-442a-a36a-0a68d96bd617
+f22e0e5c-9636-4a83-9eaa-ba309101c4b6
+88abdb86-22fb-4b2f-8d35-53bb942625b7
+0a374697-2847-4d15-b7b2-b89281022f65
+b60136d1-e8c5-4042-82e8-a0f6fcd4f6d4
+989ae3c5-6e5a-4868-96c7-011511e880b2
+d49b4462-2bfd-4d92-8103-88ed9429e662
+52f6c067-db43-4e53-893b-d7d98406901b
+fa94204d-dc71-4585-aa63-98b8133c5266
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
+#
+#
 #
 #
 #
