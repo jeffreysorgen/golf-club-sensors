@@ -57,7 +57,7 @@ _Then just implement the "mix" of the code in this section_)
 
 ### The Hello World BLE Sketch
 
-Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, it's time to simplify and specialize our code. There is an even [simpler BLE sketch](#the-hello-world-ble-code) from [okdo.com](okdo.com/link) that turns the amber LED on when the Arduino connects.
+Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, it's time to simplify and specialize our code. There is an even [simpler BLE sketch](#the-hello-world-ble-code) from [okdo.com](#reference) that turns the amber LED on when the Arduino connects.
 
 **First, we need to understand the structure of a very basic `.ino` file:**
 
