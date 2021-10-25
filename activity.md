@@ -52,10 +52,6 @@ Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, i
 
 #
 
-#
-
-#
-
 ### Structure of Arduino files
 
 At the most basic level, there are four sections:
