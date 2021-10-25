@@ -121,9 +121,8 @@ void loop() {
   }
 }
 ```
-**Found on [_okdo.com_](#reference)**
-#
 
+#
 ### Structure of Arduino files
 
 First, we need to understand the structure of a very basic `.ino` file. 
