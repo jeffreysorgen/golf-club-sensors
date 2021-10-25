@@ -45,6 +45,8 @@ So this one change will allow the device to function in nRF Connect the same way
 
 
 
+
+
 #
 ### The Hello World BLE Sketch
 
@@ -149,7 +151,7 @@ At the most basic level, there are four sections:
   - `static const char* greeting = "Hello World!";`
   - `static const char* greetingUUID = "355d2b52-982c-4598-b9b4-c19156686e1a";`
 - Initialize VARIABLES
-  - `String p, t, m; // Initalizing global variables for...`
+  - `String p, t, m; // Initalizing global variables for...` (omit)
 - Add SERVICES
   - Give the Services and Characteristics their UUIDs ([here](#uuid-info) for more info)
   - `BLEService customService("180C"); // means "user-defined, unregistered generic UUID"`
@@ -205,6 +207,12 @@ if (central) {
 
 #
 
+#
+
+#
+
+#
+
 (doing this)
 - Take the BLE commands and integrate them into my _golf-swing-acc_ sketch:
 - Try **reversing** the action, and take my IMU sketch and pull it line by line **into** the _Hello World_ sketch. 
@@ -229,6 +237,28 @@ if (central) {
 - **Keep studying about UUID**
 - Go simpler. Look where they use them in Hello World, for example, and use theirs instead. It's not like we're getting in trouble or having technical conflicts with them.
 - Also go back to the [hackster](https://www.hackster.io/gov/imu-to-you-ae53e1) site again
+
+### UUID Info:
+##### (15 unique v4UUIDs)
+```
+355d2b52-982c-4598-b9b4-c19156686e1a
+9e5982a7-9ef0-48e0-a167-8112ada5f184
+9dc52af2-d585-4fb7-93a7-922b463239fe
+8564aabe-417c-4fe4-8a40-543ea08079f4
+3e8c97c5-6ae5-444f-b56e-20a741e7bf99
+f2024cef-dae8-4db7-bddb-76c696cdc115
+62237f9d-7652-442a-a36a-0a68d96bd617
+f22e0e5c-9636-4a83-9eaa-ba309101c4b6
+88abdb86-22fb-4b2f-8d35-53bb942625b7
+0a374697-2847-4d15-b7b2-b89281022f65
+b60136d1-e8c5-4042-82e8-a0f6fcd4f6d4
+989ae3c5-6e5a-4868-96c7-011511e880b2
+d49b4462-2bfd-4d92-8103-88ed9429e662
+52f6c067-db43-4e53-893b-d7d98406901b
+fa94204d-dc71-4585-aa63-98b8133c5266
+```
+
+#
 
 #
 
