@@ -122,12 +122,17 @@ void loop() {
 }
 ```
 
+
+
+
+
+
 #
 ### Structure of Arduino files
 
-First, we need to understand the structure of a very basic `.ino` file. 
-We will be combining code from the two example sketches with **the accelerometer sketch** for this.
+We will be combining code from the two example sketches with **the accelerometer sketch**
 (_golf-swing-acc?_)
+so we need to understand the structure of a very basic `.ino` file. 
 
 At the most basic level, there are four sections:
 1. *"prior to"*
