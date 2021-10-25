@@ -50,7 +50,8 @@ So this one change will allow the device to function in nRF Connect the same way
 
 Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, it's time to simplify and specialize our code. There is a simple _BLE Hello World_ sketch from [okdo.com](#reference) that turns on the amber LED on the Arduino board when it connects. 
 
-Starting with this simple code as a base, we'll combine it with the _RoboCraze_ sketch and our own _golf-swing-acc_ sketch to result in seeing the accelerometer data from the _nRF Connect_ app.
+Starting with this simple code as a base, we'll combine it with the _RoboCraze_ sketch and our own _golf-swing-acc_ sketch
+so we can see the accelerometer data inside the _nRF Connect_ app.
 
 [_[ Next: **Structure of Arduino Files** ]_](#structure-of-arduino-files)
 
