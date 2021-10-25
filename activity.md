@@ -235,7 +235,6 @@ if (central) {
     // turn on the LED to indicate the connection:
     digitalWrite(LED_BUILTIN, HIGH);
     while (central.connected()){} // keep looping while connected
-
 ```
 
 
