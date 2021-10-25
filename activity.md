@@ -42,10 +42,10 @@ But a [**battery-only**](implementation.md/#current-development-solution) soluti
 After being untethered from the computer, the device was trying to find the serial port from which it's now disconnected.
 So this one change will allow the device to function in nRF Connect the same way as it did before.
 
-#
+
+
 
 #
-
 ### The Hello World BLE Sketch
 
 Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, it's time to simplify and specialize our code. There is a simple _BLE Hello World_ sketch from [okdo.com](#reference) that turns on the amber LED on the Arduino board when it connects. 
