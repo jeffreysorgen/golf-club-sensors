@@ -47,6 +47,8 @@ So this one change will allow the device to function in nRF Connect the same way
 
 Now that we've got the BLE connecting, it's time to simplify and specialize our code. There is an even simpler BLE sketch from [okdo.com](okdo.com/link) that turns on the amber LED when the Arduino connects.
 
+(_Could move this to the end, use a link, and just describe it here._
+_Then just implement the "mix" of the code in this section_)
 ##### All the code is here:
 ```
 /*
