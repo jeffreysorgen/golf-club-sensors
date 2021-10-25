@@ -180,7 +180,7 @@ What I've determined so far is that there are four sections:
 3. `void loop()` and
 4. *"other functions"*
 
-##### 1. **Prior to `void setup()`**
+#### 1. **Prior to `void setup()`**
 
 - These can be within _namespace_
 - First add LIBRARIES
@@ -200,7 +200,7 @@ What I've determined so far is that there are four sections:
     - _'2a58' is arbitrary example_
 - Create the FUNCTION PROTOTYPE ("other functions")
 
-##### 2. `void setup()`
+#### 2. `void setup()`
 
 - INITIALIZE THE SENSORS
   - `IMU.begin(); // initialize the sensors`
@@ -237,11 +237,11 @@ if (!BLE.begin()) {
 
 
 
-##### 3. `void loop()`
+#### 3. `void loop()`
 
 -
 
-##### 4. **other functions**
+#### 4. **other functions**
 
 -
 
@@ -249,7 +249,8 @@ if (!BLE.begin()) {
 
 
 
-
+#
+#
 #### From _okdo.com_:
 This is the example where I discovered that I can just comment out the "serial" component and it will work battery-only.
 **Use this example to construct our own sketch.**
