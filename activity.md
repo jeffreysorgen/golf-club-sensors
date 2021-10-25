@@ -43,9 +43,11 @@ But a [**battery-only**](implementation.md/#current-development-solution) soluti
 After being untethered from the computer, the device was trying to find the serial port from which it's now disconnected.
 So this one change will allow the device to function in nRF Connect the same way as it did before.
 
-
-
-
+### The Hello World BLE Sketch
+##### [Hello World](#hello-world-for-ble)
+#
+#
+#
 
 ## Finding a simple BLE solution
 
@@ -78,11 +80,10 @@ Now to take the BLE commands and integrate them into my _golf-swing-acc_ sketch:
 #
 
 
-My [integrated IMU/BLE configuration](#modifying-the-file) displayed a **hex value** in _nRF Connect_ rather than readable data.
-- Need to transform the hex value into a readable one. (Explore more BLE examples first.)
-
-Make the nRF Connect readings display "Ready" / "Resting"
-- Once that question is answered, I'll get my phone to turn its flashlight on/off as a result. 
+- My [integrated IMU/BLE configuration](#modifying-the-file) displayed a **hex value** in _nRF Connect_ rather than readable data.
+  - Need to transform the hex value into a readable one. (Explore more BLE examples first.)
+- Make the nRF Connect readings display "Ready" / "Resting"
+  - Once that question is answered, I'll get my phone to turn its flashlight on/off as a result. 
 
 ##### Description:
 What we want to do for this project is to read information from the sensor and then 
@@ -249,7 +250,6 @@ if (central) {
 #
 #
 #### From _okdo.com_:
-This is the example where I discovered that I can just comment out the "serial" component and it will work battery-only.
 **Use this example to construct our own sketch.**
 
 ##### "hello world" for BLE
