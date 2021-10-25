@@ -1,5 +1,3 @@
-- modify for facts re: `while (!Serial);`
-  - TEST this with robo code
 - apply UUIDs in the code
 - include Hello World sketch in this documentation (move it to under robo)
 - add photo of battery/old phone arrangement
@@ -36,15 +34,14 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 
 ##### Caveat:
-- With the USB cable plugged into the computer I **_can_** discover _"Arduino Environment Sensor"_ in nRF Connect. 
+With the USB cable plugged into the computer I **_can_** discover _"Arduino Environment Sensor"_ in nRF Connect. 
 But a [**battery-only**](implementation.md/#current-development-solution) solution can **_not_**. So...
 
 #### For battery-only:
+- **Comment out `//while (!Serial);`** 
 
-**Any time "serial" shows up in the code, comment it out.**
-After being untethered from the computer, the device was still using the serial port which is now disconnected.
+After being untethered from the computer, the device was trying to find the serial port from which it's now disconnected.
 So this one change will allow the device to function in nRF Connect the same way as it did before.
-Development can continue to include the Serial Monitor, but then remove those lines of code to test on battery-only.
 
 
 
