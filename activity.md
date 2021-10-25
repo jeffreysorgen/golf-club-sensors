@@ -263,9 +263,10 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
 - **nRF Connect:**
   - nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
   - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
-- Here's the [okdo.com example](#from-okdocom) (below)
 - Here's helpful [IMU and BLE](https://www.hackster.io/gov/imu-to-you-ae53e1) tutorial from hackster.io
 - Wiki about [C data types](https://en.wikipedia.org/wiki/C_data_types#stdint.h)
+- Here's the okdo.com example: 
+  - Here's [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc)
 
 #
 
@@ -284,7 +285,6 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
 - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
 - Also go through the later lessons in _**EdX Deployment**_ class
 - Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
-- Here's [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc)
 
 #### nRF Connect looks like this
 
@@ -320,7 +320,7 @@ Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular vel
 #
 
 #
-
+(structure is repeated above)
 # Structure of Arduino files
 ##### (relocate this)
 At the most basic level, there are four sections:
@@ -466,10 +466,8 @@ void loop() {
     Serial.print("Disconnected from central MAC: ");
     Serial.println(central.address());
   }
-
-
-
 ```
+
 #
 
 #
