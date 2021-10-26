@@ -33,14 +33,21 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 
 ##### Caveat:
+
 With the USB cable plugged into the computer I **_can_** discover _"Arduino Environment Sensor"_ in nRF Connect. 
 But a [**battery-only**](implementation.md/#current-development-solution) solution can **_not_**. So...
 
 #### For battery-only:
+
 - **Comment out `//while (!Serial);`** 
 
 After being untethered from the computer, the device was trying to find the serial port from which it's now disconnected.
 So this one change will allow the device to function in nRF Connect the same way as it did before.
+
+
+
+
+
 
 
 
@@ -55,12 +62,27 @@ Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, i
 Starting with this simple code as a base, we'll combine it with the _RoboCraze_ sketch and our own _golf-swing-acc_ sketch
 so that we can see the accelerometer data inside the _nRF Connect_ app.
 
+Starting with this simple code as a base, we'll combine it our own _golf-swing-acc_ sketch
+so that we can see the accelerometer data inside the _nRF Connect_ app.
+We'll refer to the _RoboCraze_ sketch for reference if needed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 [_[ Next: **Structure of Arduino Files** ]_](#structure-of-arduino-files)
-
-
-
-
-
 
 ##### BLE Hello World code is here:
 ```
@@ -127,9 +149,44 @@ void loop() {
 
 
 
+#
+
+
+##### Combine code from hello world and golf-swing-acc
+1. Open golf-swing-acc
+2. Open Hello World
+3. Save Hello World as _golf-swing-hello-world_
+4. Add the BLE stuff to golf-swing-acc
+5. Delete extraneous code from new sketch
+
+##### other notes:
+
+
+(doing this)
+- Take the BLE commands and integrate them into my _golf-swing-acc_ sketch:
+- Try **reversing** the action, and take my IMU sketch and pull it line by line **into** the _Hello World_ sketch. 
+  - For one thing, I can read what was sent from the device, also, I confirmed the non-serial battery solution applied.
+- Save _golf-swing-acc_ as _testing-ready-resting-imu-ble_ (done) (rewrite this to fact)
+- Add in code for BLE as appropriate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #
+##### modify the following section according to new sketch:
+
 ### Structure of Arduino files
 
 We will be combining code from the two example sketches with **the accelerometer sketch**
@@ -212,13 +269,6 @@ if (central) {
 #
 
 #
-
-(doing this)
-- Take the BLE commands and integrate them into my _golf-swing-acc_ sketch:
-- Try **reversing** the action, and take my IMU sketch and pull it line by line **into** the _Hello World_ sketch. 
-  - For one thing, I can read what was sent from the device, also, I confirmed the non-serial battery solution applied.
-- Save _golf-swing-acc_ as _testing-ready-resting-imu-ble_ (done) (rewrite this to fact)
-- Add in code for BLE as appropriate
 
 #
 
