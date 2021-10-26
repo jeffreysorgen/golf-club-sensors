@@ -673,8 +673,8 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 #
 # Finish connecting BLE 100% as planned before moving on to the SDK part
 #
-
-
+##### [Digging into app dev](#digging-into-app-dev)
+(later move this section down here if appropriate)
 
 
 
