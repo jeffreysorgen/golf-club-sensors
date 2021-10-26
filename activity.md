@@ -1,4 +1,5 @@
-- figure out why strings work but floats don't
+- update facts about _golf-swing-hello-world_ (copy code here)
+  - figure out why strings work but floats don't (or move this note down)
 - add photo of battery/old phone arrangement
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
