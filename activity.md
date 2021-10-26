@@ -67,6 +67,30 @@ We'll refer to the _RoboCraze_ sketch for reference if needed.
 
 [_[ Next: **Structure of Arduino Files** ]_](#structure-of-arduino-files)
 
+As it turns out, we didn't see the accelerometer data inside the app, but we were able to pass text into the app, such as "Ready" and "Resting".
+I don't know whether it will be necessary to transfer this kind of raw data to the app.
+"Ready" and "Resting" could be read in the app as hex and as ASCII text. (one byte per letter)
+
+In the code, we need to send data of a type that can be meaningful to nRF Connect. 
+I will need to understand how to program my phone with it now that I'm getting data.
+I need to learn how nRF Connect interfaces with my Android.
+
+**And this brings us to developing with nRF Connect!**
+
+# For nRF Connect Development:
+- I need nRF Connect for Desktop:
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
+- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop:
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
+- There are videos for installation:
+[YouTube](https://youtu.be/2cv_jjqk5hg)
+
+
+
+
+
+
+#
 ##### BLE Hello World code is here:
 ```
 /*
