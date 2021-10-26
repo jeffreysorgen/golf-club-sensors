@@ -59,28 +59,9 @@ So this one change will allow the device to function in nRF Connect the same way
 
 Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, it's time to simplify and specialize our code. There is a simple _BLE Hello World_ sketch from [okdo.com](#reference) that turns on the amber LED on the Arduino board when it connects. 
 
-Starting with this simple code as a base, we'll combine it with the _RoboCraze_ sketch and our own _golf-swing-acc_ sketch
-so that we can see the accelerometer data inside the _nRF Connect_ app.
-
 Starting with this simple code as a base, we'll combine it our own _golf-swing-acc_ sketch
 so that we can see the accelerometer data inside the _nRF Connect_ app.
 We'll refer to the _RoboCraze_ sketch for reference if needed.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 [_[ Next: **Structure of Arduino Files** ]_](#structure-of-arduino-files)
 
@@ -150,7 +131,12 @@ void loop() {
 
 
 #
+#
+#
+#
 
+
+# Notes about combining the files:
 
 ##### Combine code from hello world and golf-swing-acc
 1. Open golf-swing-acc
@@ -159,8 +145,7 @@ void loop() {
 4. Add the BLE stuff to golf-swing-acc
 5. Delete extraneous code from new sketch
 
-##### other notes:
-
+#
 
 (doing this)
 - Take the BLE commands and integrate them into my _golf-swing-acc_ sketch:
@@ -169,9 +154,12 @@ void loop() {
 - Save _golf-swing-acc_ as _testing-ready-resting-imu-ble_ (done) (rewrite this to fact)
 - Add in code for BLE as appropriate
 
+#
 
-
-
+- My [integrated IMU/BLE configuration](#modifying-the-file) displayed a **hex value** in _nRF Connect_ rather than readable data.
+  - Need to transform the hex value into a readable one. (Explore more BLE examples first.)
+- Make the nRF Connect readings display "Ready" / "Resting"
+  - Once that question is answered, I'll get my phone to turn its flashlight on/off as a result. 
 
 
 
@@ -186,8 +174,7 @@ void loop() {
 
 #
 ##### modify the following section according to new sketch:
-
-### Structure of Arduino files
+# Structure of Arduino files
 
 We will be combining code from the two example sketches with **the accelerometer sketch**
 (_golf-swing-acc?_)
@@ -263,20 +250,18 @@ if (central) {
 -
 
 #
-
+#
+#
 #
 
-#
 
-#
 
-#
 
-#
 
-#
 
-# UUID notes
+# UUID Info:
+
+#### Notes about UUID
 
 - At this point, figure out the **UUID** information.
 - Need to have specific UUIDs for each IMU param
@@ -288,8 +273,7 @@ if (central) {
 - Go simpler. Look where they use them in Hello World, for example, and use theirs instead. It's not like we're getting in trouble or having technical conflicts with them.
 - Also go back to the [hackster](https://www.hackster.io/gov/imu-to-you-ae53e1) site again
 
-### UUID Info:
-##### (15 unique v4UUIDs)
+#### (15 unique v4UUIDs)
 ```
 355d2b52-982c-4598-b9b4-c19156686e1a
 9e5982a7-9ef0-48e0-a167-8112ada5f184
@@ -316,10 +300,11 @@ fa94204d-dc71-4585-aa63-98b8133c5266
 
 #
 
-- My [integrated IMU/BLE configuration](#modifying-the-file) displayed a **hex value** in _nRF Connect_ rather than readable data.
-  - Need to transform the hex value into a readable one. (Explore more BLE examples first.)
-- Make the nRF Connect readings display "Ready" / "Resting"
-  - Once that question is answered, I'll get my phone to turn its flashlight on/off as a result. 
+
+
+
+
+
 
 ##### Description:
 What we want to do for this project is to read information from the sensor and then 
@@ -328,12 +313,11 @@ While the flashlight functionality won't be used in the end, that solution is cr
 get the phone to chirp good/bad golf swings. 
 
 #
-
+#
+#
 #
 
-#
-
-### Reference:
+# Reference:
 
 - Here's the okdo.com example, including [_BLE Hello World_](#the-ble-hello-world-sketch): [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc)
 - XXXXXXXX-0000-1000-8000-00805F9B34FB Look this up to find standard BLE list
@@ -360,13 +344,13 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
 - Here's helpful [IMU and BLE](https://www.hackster.io/gov/imu-to-you-ae53e1) tutorial from hackster.io
 - Wiki about [C data types](https://en.wikipedia.org/wiki/C_data_types#stdint.h)
 
-#
 
 #
-
+#
+#
 #
 
-### Try again:
+# Try again:
 
 - Go back to _golf-swing-acc_ and copy it as _new-test-imu-ble-combo_ (done, but reverted because of "serial" solution)
   - **Create the sketch like adding pieces to a puzzle**
@@ -387,12 +371,11 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
 ##### Next: [Modifying the file (first draft)](#modifying-the-file)
 
 #
-
+#
+#
 #
 
-#
-
-### New notes for modding the file:
+# New notes for modding the file:
 
 Arduino's reference for BLE:
 - **From https://www.arduino.cc/en/Reference/ArduinoBLE**
@@ -406,31 +389,34 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
 
 #
-
 #
-
 #
-
 #
 
 ##### (See also: [New notes for modding the file](#new-notes-for-modding-the-file))
 
-## Modifying the file:
+# Modifying the file:
 
 (do this entire process again, using different example BLE sketch)
 
 ( use this section to describe the _golf-sensors-acc_ )
 
-Top of sketch. First, add the two libraries.
+
+
+Top of sketch. First, add the two libraries. (copy to Structure)
 ```
 #include <ArduinoBLE.h>           // Bluetooth Library
 #include <Arduino_LSM9DS1.h>      // IMU
 ```
-Next, create the SERVICE name "180C". (_180C_ is a user-defined UUID) 
+
+
+Next, create the SERVICE name "180C". 
 ```
 // BLE Service Name
 BLEService customService("180C");
 ```
+
+##### characteristic notes:
 Next, add a specific CHARACTERISTIC. If it were a string, there would also be a number for its data length.
 - "2A58" seems quite arbitrary and in other examples is actually the 128-bit UUID. Came from the example. _Each characteristic either DOES or DOES NOT need a unique UUID, so I'll have to **look this up** and why._
 ```
@@ -438,7 +424,9 @@ Next, add a specific CHARACTERISTIC. If it were a string, there would also be a 
 // Syntax: BLE<DATATYPE>Characteristic <NAME>(<UUID>, <PROPERTIES>, <DATA LENGTH>)
 BLEFloatCharacteristic ble_magnetic("2A58", BLERead | BLENotify);
 ```
-In `void setup()`, first check whether the services have started.
+
+
+In `void setup()`, first check whether the services have started. (also [caveat](#caveat))
 ```
 void setup() {
   Serial.begin(9600);
@@ -457,13 +445,20 @@ void setup() {
     while (1);
   }
 ```
-Create the name of the service to find in nRF Connect
+
+
+Create the name of the service to find in nRF Connect (done)
 ```
   // Setting BLE Name
   BLE.setLocalName("Arduino Environment Sensor");
 ```
-Tell the device to advertise the service (send info via BLE to the receiving end). Here, _"ble_magnetic"_ refers to the IMU readings, the accelerometer in our case. (_might change this from "magnetic" to "acc"_)
-- This would be where more characteristics are added. Anything that's going to be sent to the smartphone via BLE would be added like this, under `customService.addCharacteristic(example_char)` and then accessed within later code and displayed using `example_char.writeValue()`.
+
+##### char advert notes:
+Tell the device to advertise the service (send info via BLE to the receiving end). 
+Here, _"ble_magnetic"_ refers to the IMU readings, the accelerometer in our case. 
+(_might change this from "magnetic" to "acc"_)
+- This would be where more characteristics are added. 
+Anything that's going to be sent to the smartphone via BLE would be added like this, under `customService.addCharacteristic(example_char)` and then accessed within later code and displayed using `example_char.writeValue()`.
 ```
   // Setting BLE Service Advertisment
   BLE.setAdvertisedService(customService);
@@ -474,13 +469,17 @@ Tell the device to advertise the service (send info via BLE to the receiving end
   // Adding the service to the BLE stack
   BLE.addService(customService);
 ```
-Invoke the BLE to advertise. And also go ahead and print that it's active. It's printed once at the top of Monitor, but scrolls quickly up. (edit this)
+
+
+Invoke the BLE to advertise. And also go ahead and print that it's active. (done)
 ```
   // Start advertising
   BLE.advertise();
   Serial.println("Bluetooth device is now active, waiting for connections...");
 ```
-That's the end of `void setup()`. I've left the original commands to print as-is from the original. 
+
+
+That's the end of `void setup()`. I've left the original commands to print as-is from the original. (don't need)
 ```
   // IMU original stuff:
   Serial.print("Accelerometer sample rate = ");
@@ -491,6 +490,10 @@ That's the end of `void setup()`. I've left the original commands to print as-is
   Serial.println("X\tY\tZ");
 }
 ```
+
+##### void loop notes:
+- initialize variables in the void loop()
+
 Now the `void loop()`. 
 ```
 void loop() {
@@ -504,19 +507,13 @@ void loop() {
 ```
 
 
+Do these things _while_ BLE is connected. _(Read [the caveat](#caveat).)_ 
+This `while` statement is why nothing shows up in Monitor until BLE connects the two devices. (_**not really**_) 
+The `readValues()` is not used in this case, but in the _RoboCraze_ example, it combines readings and labels into a string
+which can be read easily in nRF Connect with `writeValue(m)`. 
+_( `readValues()` is a function; read [here](#structure-of-arduino-files) )_
 
 
-
-
-
-
-
-
-
-
-
-
-Do these things _while_ BLE is connected. _(Read [the caveat](#caveat).)_ This `while` statement is why nothing shows up in Monitor until BLE connects the two devices. (_not really_) The `readValues()` is not used in this case, but in the _RoboCraze_ example, it combines readings and labels into a string which can be read easily in nRF Connect with `writeValue(m)`. _(readValues() is a function, read [here](#structure-of-arduino-files))_
 ```
     while (central.connected()) {
       delay(200); // take this out if necessary
@@ -528,8 +525,11 @@ Do these things _while_ BLE is connected. _(Read [the caveat](#caveat).)_ This `
       //ble_magnetic.writeValue(m);
       //delay(1000); // so we can read it
 ```
+
+
 Next, using `readAcceleration()` and `writeValue()` sends information to the BLE App. 
 
+##### important:
 **I need to make this more readable.** I don't know why it writes as a HEX or ID. But the HEX changes as I move the device around, and slows to one second when in the _Resting_ state, meaning that it's properly functioning. **But the reading doesn't make sense.**
 ```
       // IMU checking on Y and printing all to Monitor
@@ -539,6 +539,12 @@ Next, using `readAcceleration()` and `writeValue()` sends information to the BLE
         ble_magnetic.writeValue(y);
         //delay(1000); // so we can read it
 ```
+
+
+_This is where the y is read and Ready/Resting is established._
+_These values for y need to get sent to BLE._
+_So how are they converted/kept and sent?_
+
 Then the same stuff from before. Including the one second pause that I mentioned.
 ```
         if ( y > -.85 ) {         // -1G is the threshold
@@ -564,6 +570,8 @@ Then the same stuff from before. Including the one second pause that I mentioned
       }
     }
 ```
+
+
 Next, this wraps up the `void loop()` and shows up in Monitor before the devices connect.
 ```
     Serial.print("Disconnected from central: ");
@@ -571,6 +579,9 @@ Next, this wraps up the `void loop()` and shows up in Monitor before the devices
 
   }
 ```
+
+_This is where x,y,z readings are combined and turned into text strings, rather than leaving it as RAW._
+
 And down here is where the `readValues()` is. Used in the _RoboCraze_ example sketch.
 ```
 //void readValues()
@@ -590,27 +601,7 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 //}
 ```
 
-### UUID Info:
-##### (15 unique v4UUIDs)
-```
-355d2b52-982c-4598-b9b4-c19156686e1a
-9e5982a7-9ef0-48e0-a167-8112ada5f184
-9dc52af2-d585-4fb7-93a7-922b463239fe
-8564aabe-417c-4fe4-8a40-543ea08079f4
-3e8c97c5-6ae5-444f-b56e-20a741e7bf99
-f2024cef-dae8-4db7-bddb-76c696cdc115
-62237f9d-7652-442a-a36a-0a68d96bd617
-f22e0e5c-9636-4a83-9eaa-ba309101c4b6
-88abdb86-22fb-4b2f-8d35-53bb942625b7
-0a374697-2847-4d15-b7b2-b89281022f65
-b60136d1-e8c5-4042-82e8-a0f6fcd4f6d4
-989ae3c5-6e5a-4868-96c7-011511e880b2
-d49b4462-2bfd-4d92-8103-88ed9429e662
-52f6c067-db43-4e53-893b-d7d98406901b
-fa94204d-dc71-4585-aa63-98b8133c5266
-```
-
-
+# end
 
 
 
