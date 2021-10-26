@@ -128,7 +128,7 @@ void loop() {
   }
 }
 ```
-
+_(Maybe just move this code to an appendix. I think I only used on/off, connected/disconnected on the LED. Because that's the big takeaway from this exercise. But there was also a lesson with the `while` command. It just hung there until disconnected, and the LED turned off because of it. No further useful functionality.)_
 
 
 
@@ -141,27 +141,29 @@ void loop() {
 # Notes about combining the files:
 
 ##### Combine code from hello world and golf-swing-acc
-1. Open golf-swing-acc
-2. Open Hello World
-3. Save Hello World as _golf-swing-hello-world_
-4. Add the BLE stuff to golf-swing-acc
-5. Delete extraneous code from new sketch
+1. Open golf-swing-acc (done)
+2. Open Hello World (done)
+3. Save Hello World as _golf-swing-hello-world_ (done)
+4. Add the BLE stuff to _golf-swing-hello-world_ (done)
+5. Delete extraneous code from new sketch (done, saved, version step is final)
 
 #
 
 (doing this)
-- Take the BLE commands and integrate them into my _golf-swing-acc_ sketch:
-- Try **reversing** the action, and take my IMU sketch and pull it line by line **into** the _Hello World_ sketch. 
-  - For one thing, I can read what was sent from the device, also, I confirmed the non-serial battery solution applied.
-- Save _golf-swing-acc_ as _testing-ready-resting-imu-ble_ (done) (rewrite this to fact)
-- Add in code for BLE as appropriate
+- Take the BLE commands and integrate them into my _golf-swing-acc_ sketch: (done)
+- Try **reversing** the action, and take my IMU sketch and pull it line by line **into** the _Hello World_ sketch. (did this, delete)
+  - For one thing, I can read what was sent from the device, also, I confirmed the non-serial battery solution applied. (test battery-only on 'golf swing hello world')
+- Save _golf-swing-acc_ as _testing-ready-resting-imu-ble_ (done) (rewrite this to fact) (n/a - we're at a point where the only file I want is the 'golf swing hello world' one, so determine what I used and what is extraneous, and drop extra in delete folder)
+- Add in code for BLE as appropriate (done)
 
 #
 
 - My [integrated IMU/BLE configuration](#modifying-the-file) displayed a **hex value** in _nRF Connect_ rather than readable data.
-  - Need to transform the hex value into a readable one. (Explore more BLE examples first.)
-- Make the nRF Connect readings display "Ready" / "Resting"
-  - Once that question is answered, I'll get my phone to turn its flashlight on/off as a result. 
+  - Need to transform the hex value into a readable one. (Explore more BLE examples first.) (might be next phase, maybe could ignore)
+  - I am able to get strings go go through, just not floats. Don't know if this is relevant.
+- Make the nRF Connect readings display "Ready" / "Resting" **(DONE!)**
+  - **I have created a file that shows Ready/Resting on the serial monitor and on the nRF Connect app, but also, I have gotten the LED on the device to light up as well!**
+  - Once that question is answered, I'll get my phone to turn its flashlight on/off as a result. (yep)
 
 
 
@@ -179,8 +181,9 @@ void loop() {
 # Structure of Arduino files
 
 We will be combining code from the two example sketches with **the accelerometer sketch**
-(_golf-swing-acc?_)
 so we need to understand the structure of a very basic `.ino` file. 
+
+##### (I'm copying the code here)
 
 At the most basic level, there are four sections:
 1. *"prior to"*
@@ -307,12 +310,16 @@ fa94204d-dc71-4585-aa63-98b8133c5266
 
 
 
-
+(good notes here)
 ##### Description:
 What we want to do for this project is to read information from the sensor and then 
 get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
 While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to 
 get the phone to chirp good/bad golf swings. 
+- There is a difference between constantly notifying about the state and simply notifying about a state change.
+- Notifying only about a state change will be helpful to eliminate unnecessary BLE communication.
+- Checking a state change can happen less frequently than the device baud rate, so we don't get bounces of the states due to natural movement. 
+  - Best example was when the LED lit briefly, flashing the previous state of the LED during the transition to a new state. It looked like a bounce.
 
 #
 #
@@ -354,12 +361,12 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
 
 # Try again:
 
-- Go back to _golf-swing-acc_ and copy it as _new-test-imu-ble-combo_ (done, but reverted because of "serial" solution)
-  - **Create the sketch like adding pieces to a puzzle**
+- Go back to _golf-swing-acc_ and copy it as _new-test-imu-ble-combo_ (done)
+  - **Create the sketch like adding pieces to a puzzle** (did this, done)
 
 #### Examples:
-
-- Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE** 
+BLE is basically done, so move important stuff to the [Reference](#reference) section.
+- Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE**
 - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
 - Also go through the later lessons in _**EdX Deployment**_ class
 - Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
@@ -370,6 +377,9 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
 (screenshot of my phone screen with device listed)
 <p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
 
+(video of device LED on and off when it tips on y-axis)
+<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
+
 
 ##### Next: [Modifying the file (first draft)](#modifying-the-file)
 
@@ -377,7 +387,7 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
 #
 #
 #
-
+##### (good notes that should be incorporated into [Reference](#reference) section)
 # New notes for modding the file:
 
 Arduino's reference for BLE:
@@ -387,7 +397,7 @@ Arduino's reference for BLE:
 
 Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client_
 
-**Updating a characteristic.** When Y-axis, `y < -0.85`, changes from true to false or back, this is the moment to send BLE data, nothing else. Save on BLE energy.
+**Updating a characteristic.** When Y-axis, `y < -0.85`, changes from true to false or back, this is the moment to send BLE data, nothing else. Save on BLE energy. _Need to adopt energy-saving code later._
 
 Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
 
@@ -399,10 +409,10 @@ Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular vel
 ##### (See also: [New notes for modding the file](#new-notes-for-modding-the-file))
 
 # Modifying the file:
+##### most of this will be in the 'file structure' section
+(do this entire process again, using different example BLE sketch) **(DONE!)**
 
-(do this entire process again, using different example BLE sketch)
-
-( use this section to describe the _golf-sensors-acc_ )
+( use this section to describe the _golf-sensors-acc_ ) (I think this section is unnecessary because it's going to end up in the "Structure of Arduino files" section)
 
 
 
@@ -421,7 +431,7 @@ BLEService customService("180C");
 
 ##### characteristic notes:
 Next, add a specific CHARACTERISTIC. If it were a string, there would also be a number for its data length.
-- "2A58" seems quite arbitrary and in other examples is actually the 128-bit UUID. Came from the example. _Each characteristic either DOES or DOES NOT need a unique UUID, so I'll have to **look this up** and why._
+- "2A58" seems quite arbitrary and in other examples is actually the 128-bit UUID. Came from the example. _Each characteristic either DOES or DOES NOT need a unique UUID, so I'll have to **look this up** and why._ (I believe that a service has a unique UUID, and it's characteristics are also unique UUIDs.)
 ```
 // BLE Characteristics
 // Syntax: BLE<DATATYPE>Characteristic <NAME>(<UUID>, <PROPERTIES>, <DATA LENGTH>)
@@ -461,7 +471,7 @@ Tell the device to advertise the service (send info via BLE to the receiving end
 Here, _"ble_magnetic"_ refers to the IMU readings, the accelerometer in our case. 
 (_might change this from "magnetic" to "acc"_)
 - This would be where more characteristics are added. 
-Anything that's going to be sent to the smartphone via BLE would be added like this, under `customService.addCharacteristic(example_char)` and then accessed within later code and displayed using `example_char.writeValue()`.
+Anything that's going to be sent to the smartphone via BLE would be added like this, under `customService.addCharacteristic(example_char)` and then accessed within later code and displayed using `example_char.writeValue()`. (true, good note)
 ```
   // Setting BLE Service Advertisment
   BLE.setAdvertisedService(customService);
@@ -514,7 +524,7 @@ Do these things _while_ BLE is connected. _(Read [the caveat](#caveat).)_
 This `while` statement is why nothing shows up in Monitor until BLE connects the two devices. (_**not really**_) 
 The `readValues()` is not used in this case, but in the _RoboCraze_ example, it combines readings and labels into a string
 which can be read easily in nRF Connect with `writeValue(m)`. 
-_( `readValues()` is a function; read [here](#structure-of-arduino-files) )_
+_( `readValues()` is a function; read [here](#structure-of-arduino-files) )_ `readValues()` is a subroutine to collect the x,y,z of the sensor, and combine it into a readable string.
 
 
 ```
@@ -530,10 +540,14 @@ _( `readValues()` is a function; read [here](#structure-of-arduino-files) )_
 ```
 
 
-Next, using `readAcceleration()` and `writeValue()` sends information to the BLE App. 
+Next, using `readAcceleration()` and `writeValue()` sends information to the BLE App. (yes)
 
-##### important:
+##### important: (good notes)
 **I need to make this more readable.** I don't know why it writes as a HEX or ID. But the HEX changes as I move the device around, and slows to one second when in the _Resting_ state, meaning that it's properly functioning. **But the reading doesn't make sense.**
+- It turns out that it's really easy to make Strings show up in the app. 
+- I don't know whether I need any raw data for the current step.
+  - In the code, yes/no on the threshold, triggers LED on/off, and "Ready"/"Resting" write to the nRF Connect app, as well as to the serial monitor.
+  - So it might not need any raw data via BLE at all. All the action and calculations will be in the local code, nothing to do with BLE. Sending on/off signals for stuff is all it needs to do. If there's more of a purpose then I don't know what it is. We should keep this simple.
 ```
       // IMU checking on Y and printing all to Monitor
       if (IMU.accelerationAvailable()) {
@@ -545,8 +559,8 @@ Next, using `readAcceleration()` and `writeValue()` sends information to the BLE
 
 
 _This is where the y is read and Ready/Resting is established._
-_These values for y need to get sent to BLE._
-_So how are they converted/kept and sent?_
+_These values for y need to get sent to BLE._ **(do they?)**
+_So how are they converted/kept and sent?_ (really necessary?)
 
 Then the same stuff from before. Including the one second pause that I mentioned.
 ```
