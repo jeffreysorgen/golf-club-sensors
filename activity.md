@@ -557,7 +557,7 @@ This `while` statement is why nothing shows up in Monitor until BLE connects the
 The `readValues()` is not used in this case, but in the _RoboCraze_ example, it combines readings and labels into a string
 which can be read easily in nRF Connect with `writeValue(m)`. 
 _( `readValues()` is a function; read [here](#structure-of-arduino-files) )_ `readValues()` is a subroutine to collect the x,y,z of the sensor, and combine it into a readable string.
-
+**And the `readValues()` function executes from inside of the `while (central.connected())` loop.**
 
 ```
     while (central.connected()) {
