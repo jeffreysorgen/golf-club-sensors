@@ -79,7 +79,7 @@ I need to learn how nRF Connect interfaces with my Android.
 
 **And this brings us to developing with nRF Connect!**
 
-# For nRF Connect Development:
+### For nRF Connect Development:
 - I need nRF Connect for Desktop:
 [link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
 - There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop:
