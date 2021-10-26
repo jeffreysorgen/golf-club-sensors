@@ -1,4 +1,4 @@
-- apply UUIDs in the code
+- figure out why strings work but floats don't
 - add photo of battery/old phone arrangement
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
