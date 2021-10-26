@@ -67,6 +67,8 @@ We'll refer to the _RoboCraze_ sketch for reference if needed.
 
 [_[ Next: **Structure of Arduino Files** ]_](#structure-of-arduino-files)
 
+##### Digging into App Dev
+
 As it turns out, we didn't see the accelerometer data inside the app, but we were able to pass text into the app, such as "Ready" and "Resting".
 I don't know whether it will be necessary to transfer this kind of raw data to the app.
 "Ready" and "Resting" could be read in the app as hex and as ASCII text. (one byte per letter)
