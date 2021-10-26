@@ -45,7 +45,7 @@ _skip to
 23. Successfully [copied the process](activity.md/#try-the-ble-example-sketch) of a YouTuber to add BLE services on the device.
 24. DOCUMENTED several potential development and prototyping [**power solutions**](#solve-for-power)
 25. Generated [pseudo code](activity.md#state-change-pseudo-code) for state changes
-26. DEVELOPED the BLE+IMU code, and it's time to get it documented and move to the **SDK!** (links?)
+26. DEVELOPED the BLE+IMU code, and it's time to _get it documented_ and move to the **SDK!** (links?)
 
 
 ##### Learning about this:
