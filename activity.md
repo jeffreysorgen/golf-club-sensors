@@ -15,12 +15,16 @@
 ## Enabling BLE
 
 #### Description
-Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app we can download from Google Play called _nRF Connect_. Let's go through the process of getting that started right here.
+Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app we can download from Google Play called _nRF Connect_. Let's go through the process of getting that started right here. 
 
 ### Try the BLE example sketch
 I found -[_**this video**_](https://youtu.be/2q_tA8v5l1Y)- from _Robocraze_ to be helpful, 
 and copied the code from its [**accompanying GitHub repository**](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
-This example reads information from the sensors and then simply displays it in the phone app. Upload the sketch to the device... _**And it works exactly as it does in that video.**_ But there is a [*__caveat__*](#caveat) which I discovered for this example.
+This example reads information from the sensors and then simply displays it in the phone app. 
+Upload the sketch to the device... _**And it works exactly as it does in that video.**_ 
+_But there is a [**caveat**](#caveat) which I discovered for this example._ 
+We'll refer to this _RoboCraze_ code for reference in the future if we need to.
+
 #### To do this:
 1. Download _nRF Connect_ from **Google Play** (also available for iOS)
 2. Find the `environment_sensor_ble.ino` file from the _Robocraze_ repository and copy it locally. 
@@ -35,7 +39,6 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 
 ##### Caveat:
-
 With the USB cable plugged into the computer I **_can_** discover _"Arduino Environment Sensor"_ in nRF Connect. 
 But a [**battery-only**](implementation.md/#current-development-solution) solution can **_not_**. So...
 
@@ -52,8 +55,7 @@ So this one change will allow the device to function in nRF Connect the same way
 Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, it's time to simplify and specialize our code. There is a simple _BLE Hello World_ sketch from [okdo.com](#reference) that turns on the amber LED on the Arduino board when it connects. 
 
 Starting with this simple code as a base, **we'll combine it with our own _golf-swing-acc_ sketch**
-so that we can see the accelerometer data inside the _nRF Connect_ app.
-We'll refer to the _RoboCraze_ sketch for reference if needed.
+so that we can see the accelerometer data inside the _nRF Connect_ app. (in progress)
 
 ##### _BLE Hello World_ code is here:
 ```
@@ -116,15 +118,31 @@ void loop() {
   }
 }
 ```
-##### note:
-_(Maybe just move this code to an appendix. I think I only used on/off, connected/disconnected on the LED. Because that's the big takeaway from this exercise. But there was also a lesson with the `while` command. It just hung there until disconnected, and the LED turned off because of it. No further useful functionality.)_
+
+##### How we will use this:
+The LED turns on with this code, and I think the code for the LED might be useful for us, but differently. The big takeaway with this code is that the `while` command just hangs the activity until BLE disconnects and then the code will turn it off. _It's LED-centric code._ We'll use it to signal "Ready" or "Resting" in our code. But the rest of the code has shown us, like the prior example, how to build the `.ino` file.
+
+##### All the _golf-swing-acc-ble_ code is here:
+(insert SIMPLIFIED built code for _golf-swing-acc-ble_)
+
+##### Structure of Arduino files:
+(insert 'structure-of-arduino-files' with descriptions and examples)
 
 #
 #
-_(Maybe simplify this. I'm trying to organize into a process of building, and this is more of a reference. Some of the information here should be included in descriptions of the reasons we're adding certain lines of code to our final sketch.)_
 #
-## Structure of Arduino files
+##### (wait to finish new code before expanding on this)
+# Structure of Arduino files
 
+Using our new _golf-swing-acc-ble_ code to describe the structure of Arduino very basic `.ino` files, we'll include some code not used here to expand the explanation.
+
+Simplify this. I'm trying to organize into a process of building, and this is more of a reference. Some of the information here should be included in descriptions of the reasons we're adding certain lines of code to our final sketch.
+
+
+
+
+
+, this serves as an explanation of some of the 
 We will be combining code from the two example sketches with **the accelerometer sketch**
 so we need to understand the structure of a very basic `.ino` file. 
 
@@ -330,6 +348,10 @@ void loop() {
 #
 ##### important
 One of the future modifications needs to be utilizing the BLE code that features **state change only** notifications, so that nRF only receives one-time signal that the state has changed between Ready and Resting, rather than as it is now, which always prints its state to BLE
+
+Also
+
+nRF Connect uses a lot of power on the smartphone. I expect that nRF Connect will be used only for development purposes and I can discover how to create an app that only utilizes what's needed for full functionality and no extra.
 #
 #
 #
