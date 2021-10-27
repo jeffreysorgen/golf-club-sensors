@@ -1,5 +1,4 @@
-- update facts about _golf-swing-hello-world_ 
-  - (copy entire code here)
+- finish documentation
 - add photo of battery/old phone arrangement
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
