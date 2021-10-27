@@ -158,7 +158,7 @@ At the most basic level, there are four sections:
   - `IMU.begin(); // initialize the sensors`
 - Initialize SERIAL COMMUNICATION
   - `Serial.begin(9600);`
-  - `//while (!Serial);    // comment this out` This will hang the code if it's not attached to computer
+  - `//while (!Serial);    // comment this out` This will hang if the computer is detached
 - And initialize OTHER things
   - `pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin` 
 - Check for FAILURE
@@ -324,7 +324,10 @@ void loop() {
 
 
 
-
+#
+#
+#
+#
 
 
 
