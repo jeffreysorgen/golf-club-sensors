@@ -7,7 +7,6 @@
   - Then add descriptions below it in the format used in the 'structure' section with real examples
   - Add examples from other two sketches when nothing exists in new _golf-swing-acc_
 - finish documentation
-- add photo of battery/old phone arrangement
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
 [*[ The Accelerometer ]*](implementation.md/#the-accelerometer)
