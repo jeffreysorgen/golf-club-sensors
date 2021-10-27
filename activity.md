@@ -1,4 +1,5 @@
-- Add Accelerometer, BLE, and LED functionality in simplest form to _golf-swing-acc_
+- Create _golf-swing-acc-ble_ from copy of _golf-swing-acc_
+- Add Accelerometer, BLE, and LED functionality in simplest form to _golf-swing-acc-ble_
 - Add the new code to documentation
 - Add descriptions below the new code, using the 'structure' section with other examples if necessary
 
