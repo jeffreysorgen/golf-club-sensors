@@ -191,10 +191,10 @@ Swinging the club around won't put it into that Resting state unless it register
 - **Connect with only BLE and be _physically detached_ from the computer.**
 - Attach the Arduino Sense (USBmicro port) to a power source.
 - Use a lightweight **phone recharger** (with 2 USB out) to serve this purpose during development.  
-- Rechargers will shut off after a short time with just a low power drain, so this won't work by itself.
-  - **Charging an _old phone_ at the same time will prevent this auto-shutoff** 
+- Rechargers will shut off after a short time with just a low power drain.
+- **Charging an _old phone_ at the same time will prevent this auto-shutoff** 
 
-##### Charging up a dead old phone prevents auto-shutoff
+##### Charging up a dead old phone, simultaneously powering Nano33BLE
 <p align="center"><img src="images/Sm-batterypack.png" width="30%"></p>
 
 
