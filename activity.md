@@ -120,7 +120,7 @@ void loop() {
 ```
 
 ##### How we will use this:
-The LED turns on with this code, and the code for the LED might be useful for us but in a different way. 
+The LED turns on or off with this code, and the code for the LED might be useful for us but in a different way.
 
 The big takeaway with this code is that the `while` command just hangs the activity until BLE disconnects and then the code will turn it off. _It's LED-centric code._ We'll use it to signal "Ready" or "Resting" in our code. But the rest of the code has shown us, like the prior example, how to build the `.ino` file.
 
