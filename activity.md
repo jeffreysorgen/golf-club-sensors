@@ -1,6 +1,5 @@
-- TEST using battery-only!
-- update facts about _golf-swing-hello-world_ (copy code here)
-  - figure out why strings work but floats don't (or move this note down)
+- update facts about _golf-swing-hello-world_ 
+  - (copy entire code here)
 - add photo of battery/old phone arrangement
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
@@ -122,13 +121,26 @@ void loop() {
 _(Maybe just move this code to an appendix. I think I only used on/off, connected/disconnected on the LED. Because that's the big takeaway from this exercise. But there was also a lesson with the `while` command. It just hung there until disconnected, and the LED turned off because of it. No further useful functionality.)_
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 #
 # Structure of Arduino files
 
 We will be combining code from the two example sketches with **the accelerometer sketch**
 so we need to understand the structure of a very basic `.ino` file. 
 
-##### (I'm copying the code here)
+##### (Entire code is posted elsewhere and these are examples)
 
 At the most basic level, there are four sections:
 1. *"prior to"*
@@ -145,28 +157,33 @@ At the most basic level, there are four sections:
   - `static const char* greeting = "Hello World!";`
   - `static const char* greetingUUID = "355d2b52-982c-4598-b9b4-c19156686e1a";`
 - Initialize VARIABLES
-  - `String p, t, m; // Initalizing global variables for...` (omit)
+  - _example:_`String p, t, m; // Initalizing global variables for...` (omit)
 - Add SERVICES
   - Give the Services and Characteristics their UUIDs ([here](#uuid-info) for more info)
   - `BLEService customService("180C"); // means "user-defined, unregistered generic UUID"`
   - `BLEService greetingService(greetingUUID);`
 - Add respective Service CHARACTERISTICS
-  - `BLEStringCharacteristic ble_accelerometer ("2A58", BLERead | BLENotify, 20);`
-    - _but would rather have raw data than string data_
-    - _'2a58' is arbitrary example_
+  - `BLEStringCharacteristic ble_accelerometer("2A58", BLERead | BLENotify, 20);`
+  - `BLEStringCharacteristic greetingCharacteristic("2A56", BLERead, 13);`
 - Create the FUNCTION PROTOTYPE ("other functions")
+  - _example:_`void readValues();`  
 
 #### 2. `void setup()`
 - INITIALIZE THE SENSORS
   - `IMU.begin(); // initialize the sensors`
 - Initialize SERIAL COMMUNICATION
   - `Serial.begin(9600);`
+  - `//while (!Serial);    // comment this out` This will hang the code if it's not attached to computer
 - And initialize OTHER things
   - `pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin` 
 - Check for FAILURE
 ``` 
         if (!BLE.begin()) {
           Serial.println("starting BLE failed!");
+          while (1);
+        }
+        if (!IMU.begin()) {
+          Serial.println("Failed to initialize IMU!");
           while (1);
         }
 ```
@@ -177,32 +194,147 @@ At the most basic level, there are four sections:
 - ADD CHARACTERISTICS to the BLE services
   - `customService.addCharacteristic(ble_accelerometer);`
 - ADD SERVICE to the BLE stack
+  - This variable names were previously declared in "Add Services" section prior to the setup loop
   - `BLE.addService(customService);  // Adding the service to the BLE stack`
+  - `BLE.addService(greetingService); // Add Text service`
 - Set VALUES for strings
+  - This variable ("greeting") was set previously, in the "Constants" section prior to the setup loop
   - `greetingCharacteristic.setValue(greeting);  // Set greeting string; Set values`
 - ADVERTISE
   - `BLE.advertise();  // Start advertising`
   
 #### 3. `void loop()`
-- `BLEDevice central = BLE.central();`
-- LOOP stuff here
+- `BLEDevice central = BLE.central(); // Wait for a BLE central to connect`
+  - Waiting for central to connect might mean that other things can't go on first (so be aware)
+- if statements:
 ```
-if (central) {
-    Serial.print("Connected to central MAC: ");
-    // print the central's BT address:
-    Serial.println(central.address());
-    // turn on the LED to indicate the connection:
-    digitalWrite(LED_BUILTIN, HIGH);
-    while (central.connected()){} // keep looping while connected
+  if (IMU.accelerationAvailable()) {
+    IMU.readAcceleration(x, y, z);
 ```
+- This part checks sensor reading for y-axis, prints "Ready" or "Resting" to monitor and to nRF Connect, and also turns on or off the LED
+  - `if (central)` is likely not needed here, but helped me understand when and if BLE was connecting 
+```
+    if ( y > -.85 ) {
+      Serial.println("Ready!");
+      ble_accelerometer.writeValue("Ready!");
+      if (central) { digitalWrite(LED_BUILTIN, HIGH);
+        }}
 
+    else {
+      Serial.println("Resting!");
+      ble_accelerometer.writeValue("Resting!");
+      if (central) { digitalWrite(LED_BUILTIN, LOW);
+        }}
+  }
+```
 #### 4. **other functions**
--
+- _example:_`void readValues() { // etc`
+
 
 #
 
 
 
+
+
+
+##### _golf-swing-hello-world_ code is here:
+```
+/*
+ * Hello World from okdo.com
+ * Adapted from Arduino BatteryMonitor example
+ * golf-swing-acc
+ * golf-swing-hello-world
+ *
+*/
+
+// LIBRARIES
+#include <ArduinoBLE.h>         // BLE library
+#include <Arduino_LSM9DS1.h>    // IMU library
+
+// CONSTANTS
+static const char* greeting = "Hello World!";
+static const char* greetingUUID = "355d2b52-982c-4598-b9b4-c19156686e1a";
+
+// BLE SERVICE NAME
+BLEService customService("180C");           // for the IMU service
+BLEService greetingService(greetingUUID);   // for the Text service
+
+// BLE CHARACTERISTICS
+BLEStringCharacteristic greetingCharacteristic("2A56",  // standard 16-bit characteristic UUID
+    BLERead, 13); // remote clients will only be able to read this
+BLEStringCharacteristic ble_accelerometer("2A58", BLERead | BLENotify, 20);
+    // "2A58" is arbitrary
+
+// FUNCTION PROTOTYPE
+
+void setup() {
+  // INITIALIZE THE SENSORS (and serial)
+  IMU.begin();          // initialize IMU
+  Serial.begin(9600);    // initialize serial communication
+  //while (!Serial);    // comment this out
+
+  // INITIALIZE THE DEVICE PINS
+  pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin
+
+  // CHECK FOR FAILURE
+  if (!BLE.begin()) {   // initialize BLE
+    Serial.println("starting BLE failed!");
+    while (1);
+  }
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU!");
+    while (1);
+  }
+
+  // SET BLE NAME
+  BLE.setLocalName("Jeff's Nano33BLE");  // Set name for connection
+
+  // ADVERTISE SERVICES
+  BLE.setAdvertisedService(customService);    // 'customService' is for IMU
+  BLE.setAdvertisedService(greetingService); // Advertise service
+
+  // ADD CHARACTERISTICS TO BLE SERVICES
+  customService.addCharacteristic(ble_accelerometer);
+  greetingService.addCharacteristic(greetingCharacteristic); // Add characteristic to service
+
+  // ADD SERVICES TO BLE STACK
+  BLE.addService(customService);    // Add IMU Service
+  BLE.addService(greetingService); // Add Text service
+  
+  // SET VALUES FOR STRINGS
+  greetingCharacteristic.setValue(greeting); // Set greeting string
+
+  // START ADVERTISING
+  BLE.advertise();  // Start advertising
+
+  // extra printing stuff
+  Serial.print("Peripheral device MAC: ");
+  Serial.println(BLE.address());
+  Serial.println("Waiting for connections...");
+}
+
+void loop() {
+  BLEDevice central = BLE.central();  // Wait for a BLE central to connect
+  float x, y, z; // from golf-swing-acc sketch
+
+  if (IMU.accelerationAvailable()) {
+    IMU.readAcceleration(x, y, z);
+    
+    if ( y > -.85 ) {
+      Serial.println("Ready!");
+      ble_accelerometer.writeValue("Ready!");
+      if (central) { digitalWrite(LED_BUILTIN, HIGH);
+        }}
+
+    else {
+      Serial.println("Resting!");
+      ble_accelerometer.writeValue("Resting!");
+      if (central) { digitalWrite(LED_BUILTIN, LOW);
+        }}
+  }
+} //v
+```
 
 
 
