@@ -145,18 +145,15 @@ The rest of the code here has shown us, like the prior example, what a basic `.i
 #
 #
 #
-##### Structure of Arduino files:
+## Structure of Arduino files
 (insert 'structure-of-arduino-files' with descriptions and examples)
-
-#
 ##### (wait to finish new code before expanding on this)
-# Structure of Arduino files
 
 Starting with our new _golf-swing-acc-ble_ code, we'll describe here the very basic structure of an Arduino `.ino` file, and bring in examples from other code to expand it a bit.
 
 
 #
-_(Simplify this. I'm trying to organize into a process of building, and this is more of a reference. Some of the information here should be included in descriptions of the reasons we're adding certain lines of code to our final sketch.)_
+_(Simplify this section. I'm trying to organize into a process of building, and this is more of a reference. Some of the information here should be included in descriptions of the reasons we're adding certain lines of code to our final sketch.)_
 
 ##### Here's the original "arduino structure" section.
 - Try to simplify
