@@ -46,16 +46,6 @@ But a [**battery-only**](implementation.md/#current-development-solution) soluti
 After being untethered from the computer, the device was trying to find the serial port from which it's now disconnected.
 So this one change will allow the device to function in nRF Connect the same way as it did before.
 
-
-
-
-
-
-
-
-
-
-
 #
 ### The Hello World BLE Sketch
 
@@ -65,35 +55,9 @@ Starting with this simple code as a base, we'll combine it with our own _golf-sw
 so that we can see the accelerometer data inside the _nRF Connect_ app.
 We'll refer to the _RoboCraze_ sketch for reference if needed.
 
-[_[ Next: **Structure of Arduino Files** ]_](#structure-of-arduino-files)
-
-##### Digging into App Dev
-
-As it turns out, we didn't see the accelerometer data inside the app, but we were able to pass text into the app, such as "Ready" and "Resting".
-I don't know whether it will be necessary to transfer this kind of raw data to the app.
-"Ready" and "Resting" could be read in the app as hex and as ASCII text. (one byte per letter)
-
-In the code, we need to send data of a type that can be meaningful to nRF Connect. 
-I will need to understand how to program my phone with it now that I'm getting data.
-I need to learn how nRF Connect interfaces with my Android.
-
-**And this brings us to developing with nRF Connect!**
-
-### For nRF Connect Development:
-- I need nRF Connect for Desktop:
-[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
-- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop:
-[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
-- There are videos for installation:
-[YouTube](https://youtu.be/2cv_jjqk5hg)
-
-
-
-
-
-
 #
-##### BLE Hello World code is here:
+
+##### _BLE Hello World_ code is here:
 ```
 /*
   Arduino Nano 33 BLE Getting Started
@@ -154,7 +118,121 @@ void loop() {
   }
 }
 ```
+##### note:
 _(Maybe just move this code to an appendix. I think I only used on/off, connected/disconnected on the LED. Because that's the big takeaway from this exercise. But there was also a lesson with the `while` command. It just hung there until disconnected, and the LED turned off because of it. No further useful functionality.)_
+
+
+#
+# Structure of Arduino files
+
+We will be combining code from the two example sketches with **the accelerometer sketch**
+so we need to understand the structure of a very basic `.ino` file. 
+
+##### (I'm copying the code here)
+
+At the most basic level, there are four sections:
+1. *"prior to"*
+2. `void setup()`
+3. `void loop()` and
+4. *"other functions"*
+
+#### 1. **Prior to `void setup()`**
+- These can be within _namespace_
+- First add LIBRARIES
+  - `#include <Arduino_LSM9DS1.h>  // IMU library`
+  - `#include <ArduinoBLE.h>  // BLE library`
+- Set CONSTANTS
+  - `static const char* greeting = "Hello World!";`
+  - `static const char* greetingUUID = "355d2b52-982c-4598-b9b4-c19156686e1a";`
+- Initialize VARIABLES
+  - `String p, t, m; // Initalizing global variables for...` (omit)
+- Add SERVICES
+  - Give the Services and Characteristics their UUIDs ([here](#uuid-info) for more info)
+  - `BLEService customService("180C"); // means "user-defined, unregistered generic UUID"`
+  - `BLEService greetingService(greetingUUID);`
+- Add respective Service CHARACTERISTICS
+  - `BLEStringCharacteristic ble_accelerometer ("2A58", BLERead | BLENotify, 20);`
+    - _but would rather have raw data than string data_
+    - _'2a58' is arbitrary example_
+- Create the FUNCTION PROTOTYPE ("other functions")
+
+#### 2. `void setup()`
+- INITIALIZE THE SENSORS
+  - `IMU.begin(); // initialize the sensors`
+- Initialize SERIAL COMMUNICATION
+  - `Serial.begin(9600);`
+- And initialize OTHER things
+  - `pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin` 
+- Check for FAILURE
+``` 
+        if (!BLE.begin()) {
+          Serial.println("starting BLE failed!");
+          while (1);
+        }
+```
+- Set the NAME to show up in the SCAN
+  - `BLE.setLocalName("Jeff's Nano33BLE");`
+- Set BLE SERVICE ADVERTISEMENT
+  - `BLE.setAdvertisedService(customService);`
+- ADD CHARACTERISTICS to the BLE services
+  - `customService.addCharacteristic(ble_accelerometer);`
+- ADD SERVICE to the BLE stack
+  - `BLE.addService(customService);  // Adding the service to the BLE stack`
+- Set VALUES for strings
+  - `greetingCharacteristic.setValue(greeting);  // Set greeting string; Set values`
+- ADVERTISE
+  - `BLE.advertise();  // Start advertising`
+  
+#### 3. `void loop()`
+- `BLEDevice central = BLE.central();`
+- LOOP stuff here
+```
+if (central) {
+    Serial.print("Connected to central MAC: ");
+    // print the central's BT address:
+    Serial.println(central.address());
+    // turn on the LED to indicate the connection:
+    digitalWrite(LED_BUILTIN, HIGH);
+    while (central.connected()){} // keep looping while connected
+```
+
+#### 4. **other functions**
+-
+
+#
+
+
+
+
+
+
+
+
+
+
+
+##### Digging into App Dev
+
+As it turns out, we didn't see the accelerometer data inside the app, but we were able to pass text into the app, such as "Ready" and "Resting".
+I don't know whether it will be necessary to transfer this kind of raw data to the app.
+"Ready" and "Resting" could be read in the app as hex and as ASCII text. (one byte per letter)
+
+In the code, we need to send data of a type that can be meaningful to nRF Connect. 
+I will need to understand how to program my phone with it now that I'm getting data.
+I need to learn how nRF Connect interfaces with my Android.
+
+**And this brings us to developing with nRF Connect!**
+
+### For nRF Connect Development:
+- I need nRF Connect for Desktop:
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
+- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop:
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
+- There are videos for installation:
+[YouTube](https://youtu.be/2cv_jjqk5hg)
+
+
+
 
 
 
