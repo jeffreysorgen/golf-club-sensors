@@ -54,8 +54,6 @@ Starting with this simple code as a base, we'll combine it with our own _golf-sw
 so that we can see the accelerometer data inside the _nRF Connect_ app.
 We'll refer to the _RoboCraze_ sketch for reference if needed.
 
-#
-
 ##### _BLE Hello World_ code is here:
 ```
 /*
