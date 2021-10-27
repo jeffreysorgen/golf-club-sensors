@@ -1,4 +1,3 @@
-- test battery-only on _hello-world-golf-swing_
 - combine _hello-world-golf-swing_ code INTO _golf-swing-acc_
   - add BLE functionality and LED functionality in simplest form
   - leave out extra code
