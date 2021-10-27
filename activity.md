@@ -1,3 +1,4 @@
+- combine code INTO _golf-swing-acc_
 - finish documentation
 - add photo of battery/old phone arrangement
 
