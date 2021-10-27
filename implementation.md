@@ -36,16 +36,16 @@ _skip to
 14. Determined that it is _better_ to use `millis()` rather than `delay()` in some cases.
 15. Figured out how to set up Ready/Resting states in Arduino Sketch, and display in Monitor.
 16. LEARNED that it's easy to mess up in GitHub desktop, so _be careful_
-17. LEARNED Cursory principles of electronics from __LinkedIn Learning__.
-18. LEARNED Basics of 3D Printing from __LinkedIn Learning__.
+17. **Electronics** Learned cursory principles of electronics from __LinkedIn Learning__.
+18. **3D Printing** Learned Basics of 3D Printing from __LinkedIn Learning__.
 19. **Arduino sketch** created for Accelerometer - _golf-swing-acc_ ([here](#updating-the-arduino-nano-33-ble)) and kept it **simple**. 
 20. **GitHub Markdown** Learned styling for tables, images and code block
 21. Added code block and image from Monitor to this documentation. 
 22. COMPLETED Accelerometer documentation, and it's time to move on to [**adding BLE**](activity.md/#enabling-ble) to the system!
-23. Successfully [copied the process](activity.md/#try-the-ble-example-sketch) of a YouTuber to add BLE services on the device.
-24. DOCUMENTED several potential development and prototyping [**power solutions**](#solve-for-power)
+23. **Add BLE** Successfully [copied the process](activity.md/#try-the-ble-example-sketch) of a YouTuber to add BLE services on the device.
+24. **Power** Documented several potential development and prototyping [**solutions**](#solve-for-power)
 25. Generated [pseudo code](activity.md#state-change-pseudo-code) for state changes
-26. DEVELOPED the BLE+IMU code, and it's time to _get it documented_ and move to the **SDK!** (links?)
+26. DEVELOPED the BLE+IMU code, and it's time to _get it documented_ and move to the [**SDK!**](#step-four)
 
 
 ##### Learning about this:
