@@ -223,7 +223,7 @@ At the most basic level, there are four sections:
 
 
 
-##### _golf-swing-hello-world_ code is here:
+##### All the _golf-swing-hello-world_ code is here:
 ```
 /*
  * Hello World from okdo.com
@@ -401,84 +401,6 @@ I need to learn how nRF Connect interfaces with my Android.
 
 
 
-
-#
-##### modify the following section according to new sketch:
-# Structure of Arduino files
-
-We will be combining code from the two example sketches with **the accelerometer sketch**
-so we need to understand the structure of a very basic `.ino` file. 
-
-##### (I'm copying the code here)
-
-At the most basic level, there are four sections:
-1. *"prior to"*
-2. `void setup()`
-3. `void loop()` and
-4. *"other functions"*
-
-#### 1. **Prior to `void setup()`**
-- These can be within _namespace_
-- First add LIBRARIES
-  - `#include <Arduino_LSM9DS1.h>  // IMU library`
-  - `#include <ArduinoBLE.h>  // BLE library`
-- Set CONSTANTS
-  - `static const char* greeting = "Hello World!";`
-  - `static const char* greetingUUID = "355d2b52-982c-4598-b9b4-c19156686e1a";`
-- Initialize VARIABLES
-  - `String p, t, m; // Initalizing global variables for...` (omit)
-- Add SERVICES
-  - Give the Services and Characteristics their UUIDs ([here](#uuid-info) for more info)
-  - `BLEService customService("180C"); // means "user-defined, unregistered generic UUID"`
-  - `BLEService greetingService(greetingUUID);`
-- Add respective Service CHARACTERISTICS
-  - `BLEStringCharacteristic ble_accelerometer ("2A58", BLERead | BLENotify, 20);`
-    - _but would rather have raw data than string data_
-    - _'2a58' is arbitrary example_
-- Create the FUNCTION PROTOTYPE ("other functions")
-
-#### 2. `void setup()`
-- INITIALIZE THE SENSORS
-  - `IMU.begin(); // initialize the sensors`
-- Initialize SERIAL COMMUNICATION
-  - `Serial.begin(9600);`
-- And initialize OTHER things
-  - `pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin` 
-- Check for FAILURE
-``` 
-        if (!BLE.begin()) {
-          Serial.println("starting BLE failed!");
-          while (1);
-        }
-```
-- Set the NAME to show up in the SCAN
-  - `BLE.setLocalName("Jeff's Nano33BLE");`
-- Set BLE SERVICE ADVERTISEMENT
-  - `BLE.setAdvertisedService(customService);`
-- ADD CHARACTERISTICS to the BLE services
-  - `customService.addCharacteristic(ble_accelerometer);`
-- ADD SERVICE to the BLE stack
-  - `BLE.addService(customService);  // Adding the service to the BLE stack`
-- Set VALUES for strings
-  - `greetingCharacteristic.setValue(greeting);  // Set greeting string; Set values`
-- ADVERTISE
-  - `BLE.advertise();  // Start advertising`
-  
-#### 3. `void loop()`
-- `BLEDevice central = BLE.central();`
-- LOOP stuff here
-```
-if (central) {
-    Serial.print("Connected to central MAC: ");
-    // print the central's BT address:
-    Serial.println(central.address());
-    // turn on the LED to indicate the connection:
-    digitalWrite(LED_BUILTIN, HIGH);
-    while (central.connected()){} // keep looping while connected
-```
-
-#### 4. **other functions**
--
 
 #
 ##### Link to entire file here: [**_golf-swing-hello-world code_**](#all-the-golf-swing-hello-world-code-is-here)
