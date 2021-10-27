@@ -120,7 +120,7 @@ _(Maybe just move this code to an appendix. I think I only used on/off, connecte
 
 
 #
-### Structure of Arduino files
+## Structure of Arduino files
 
 We will be combining code from the two example sketches with **the accelerometer sketch**
 so we need to understand the structure of a very basic `.ino` file. 
