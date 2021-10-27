@@ -1,6 +1,5 @@
-- TEST using battery-only!
-- update facts about _golf-swing-hello-world_ (copy code here)
-  - figure out why strings work but floats don't (or move this note down)
+- update facts about _golf-swing-hello-world_ 
+  - (copy entire code here)
 - add photo of battery/old phone arrangement
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
@@ -46,28 +45,16 @@ But a [**battery-only**](implementation.md/#current-development-solution) soluti
 After being untethered from the computer, the device was trying to find the serial port from which it's now disconnected.
 So this one change will allow the device to function in nRF Connect the same way as it did before.
 
-
-
-
-
-
-
-
-
-
-
 #
 ### The Hello World BLE Sketch
 
 Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, it's time to simplify and specialize our code. There is a simple _BLE Hello World_ sketch from [okdo.com](#reference) that turns on the amber LED on the Arduino board when it connects. 
 
-Starting with this simple code as a base, we'll combine it our own _golf-swing-acc_ sketch
+Starting with this simple code as a base, we'll combine it with our own _golf-swing-acc_ sketch
 so that we can see the accelerometer data inside the _nRF Connect_ app.
 We'll refer to the _RoboCraze_ sketch for reference if needed.
 
-[_[ Next: **Structure of Arduino Files** ]_](#structure-of-arduino-files)
-
-##### BLE Hello World code is here:
+##### _BLE Hello World_ code is here:
 ```
 /*
   Arduino Nano 33 BLE Getting Started
@@ -128,10 +115,249 @@ void loop() {
   }
 }
 ```
+##### note:
 _(Maybe just move this code to an appendix. I think I only used on/off, connected/disconnected on the LED. Because that's the big takeaway from this exercise. But there was also a lesson with the `while` command. It just hung there until disconnected, and the LED turned off because of it. No further useful functionality.)_
 
 
+#
+### Structure of Arduino files
 
+We will be combining code from the two example sketches with **the accelerometer sketch**
+so we need to understand the structure of a very basic `.ino` file. 
+
+##### (Entire code is posted elsewhere and these are examples)
+
+At the most basic level, there are four sections:
+1. *"prior to"*
+2. `void setup()`
+3. `void loop()` and
+4. *"other functions"*
+
+#### 1. **Prior to `void setup()`**
+- These can be within _namespace_
+- First add LIBRARIES
+  - `#include <Arduino_LSM9DS1.h>  // IMU library`
+  - `#include <ArduinoBLE.h>  // BLE library`
+- Set CONSTANTS
+  - `static const char* greeting = "Hello World!";`
+  - `static const char* greetingUUID = "355d2b52-982c-4598-b9b4-c19156686e1a";`
+- Initialize VARIABLES
+  - _example:_`String p, t, m; // Initalizing global variables for...` (omit)
+- Add SERVICES
+  - Give the Services and Characteristics their UUIDs ([here](#uuid-info) for more info)
+  - `BLEService customService("180C"); // means "user-defined, unregistered generic UUID"`
+  - `BLEService greetingService(greetingUUID);`
+- Add respective Service CHARACTERISTICS
+  - `BLEStringCharacteristic ble_accelerometer("2A58", BLERead | BLENotify, 20);`
+  - `BLEStringCharacteristic greetingCharacteristic("2A56", BLERead, 13);`
+- Create the FUNCTION PROTOTYPE ("other functions")
+  - _example:_`void readValues();`  
+
+#### 2. `void setup()`
+- INITIALIZE THE SENSORS
+  - `IMU.begin(); // initialize the sensors`
+- Initialize SERIAL COMMUNICATION
+  - `Serial.begin(9600);`
+  - `//while (!Serial);    // comment this out` This will hang if the computer is detached
+- And initialize OTHER things
+  - `pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin` 
+- Check for FAILURE
+``` 
+        if (!BLE.begin()) {
+          Serial.println("starting BLE failed!");
+          while (1);
+        }
+        if (!IMU.begin()) {
+          Serial.println("Failed to initialize IMU!");
+          while (1);
+        }
+```
+- Set the NAME to show up in the SCAN
+  - `BLE.setLocalName("Jeff's Nano33BLE");`
+- Set BLE SERVICE ADVERTISEMENT
+  - `BLE.setAdvertisedService(customService);`
+- ADD CHARACTERISTICS to the BLE services
+  - `customService.addCharacteristic(ble_accelerometer);`
+- ADD SERVICE to the BLE stack
+  - The variable names were previously declared in "Add Services" section prior to the setup loop
+  - `BLE.addService(customService);  // Adding the service to the BLE stack`
+  - `BLE.addService(greetingService); // Add Text service`
+- Set VALUES for strings
+  - This variable ("greeting") was set previously, in the "Constants" section prior to the setup loop
+  - `greetingCharacteristic.setValue(greeting);  // Set greeting string; Set values`
+- ADVERTISE
+  - `BLE.advertise();  // Start advertising`
+  
+#### 3. `void loop()`
+- `BLEDevice central = BLE.central(); // Wait for a BLE central to connect`
+  - Waiting for central to connect might mean that other things can't go on first (so be aware)
+- if statements:
+```
+  if (IMU.accelerationAvailable()) {
+    IMU.readAcceleration(x, y, z);
+```
+- This part checks sensor reading for y-axis, prints "Ready" or "Resting" to monitor and to nRF Connect, and also turns on or off the LED
+  - `if (central)` is likely not needed here, but helped me understand when and if BLE was connecting 
+```
+    if ( y > -.85 ) {
+      Serial.println("Ready!");
+      ble_accelerometer.writeValue("Ready!");
+      if (central) { digitalWrite(LED_BUILTIN, HIGH);
+        }}
+
+    else {
+      Serial.println("Resting!");
+      ble_accelerometer.writeValue("Resting!");
+      if (central) { digitalWrite(LED_BUILTIN, LOW);
+        }}
+  }
+```
+#### 4. **other functions**
+- _example:_`void readValues() { // etc`
+
+
+#
+
+
+
+
+
+
+##### _golf-swing-hello-world_ code is here:
+```
+/*
+ * Hello World from okdo.com
+ * Adapted from Arduino BatteryMonitor example
+ * golf-swing-acc
+ * golf-swing-hello-world
+ *
+*/
+
+// LIBRARIES
+#include <ArduinoBLE.h>         // BLE library
+#include <Arduino_LSM9DS1.h>    // IMU library
+
+// CONSTANTS
+static const char* greeting = "Hello World!";
+static const char* greetingUUID = "355d2b52-982c-4598-b9b4-c19156686e1a";
+
+// BLE SERVICE NAME
+BLEService customService("180C");           // for the IMU service
+BLEService greetingService(greetingUUID);   // for the Text service
+
+// BLE CHARACTERISTICS
+BLEStringCharacteristic greetingCharacteristic("2A56",  // standard 16-bit characteristic UUID
+    BLERead, 13); // remote clients will only be able to read this
+BLEStringCharacteristic ble_accelerometer("2A58", BLERead | BLENotify, 20);
+    // "2A58" is arbitrary
+
+// FUNCTION PROTOTYPE
+
+void setup() {
+  // INITIALIZE THE SENSORS (and serial)
+  IMU.begin();          // initialize IMU
+  Serial.begin(9600);    // initialize serial communication
+  //while (!Serial);    // comment this out
+
+  // INITIALIZE THE DEVICE PINS
+  pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin
+
+  // CHECK FOR FAILURE
+  if (!BLE.begin()) {   // initialize BLE
+    Serial.println("starting BLE failed!");
+    while (1);
+  }
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU!");
+    while (1);
+  }
+
+  // SET BLE NAME
+  BLE.setLocalName("Jeff's Nano33BLE");  // Set name for connection
+
+  // ADVERTISE SERVICES
+  BLE.setAdvertisedService(customService);    // 'customService' is for IMU
+  BLE.setAdvertisedService(greetingService); // Advertise service
+
+  // ADD CHARACTERISTICS TO BLE SERVICES
+  customService.addCharacteristic(ble_accelerometer);
+  greetingService.addCharacteristic(greetingCharacteristic); // Add characteristic to service
+
+  // ADD SERVICES TO BLE STACK
+  BLE.addService(customService);    // Add IMU Service
+  BLE.addService(greetingService); // Add Text service
+  
+  // SET VALUES FOR STRINGS
+  greetingCharacteristic.setValue(greeting); // Set greeting string
+
+  // START ADVERTISING
+  BLE.advertise();  // Start advertising
+
+  // extra printing stuff
+  Serial.print("Peripheral device MAC: ");
+  Serial.println(BLE.address());
+  Serial.println("Waiting for connections...");
+}
+
+void loop() {
+  BLEDevice central = BLE.central();  // Wait for a BLE central to connect
+  float x, y, z; // from golf-swing-acc sketch
+
+  if (IMU.accelerationAvailable()) {
+    IMU.readAcceleration(x, y, z);
+    
+    if ( y > -.85 ) {
+      Serial.println("Ready!");
+      ble_accelerometer.writeValue("Ready!");
+      if (central) { digitalWrite(LED_BUILTIN, HIGH);
+        }}
+
+    else {
+      Serial.println("Resting!");
+      ble_accelerometer.writeValue("Resting!");
+      if (central) { digitalWrite(LED_BUILTIN, LOW);
+        }}
+  }
+} //v
+```
+
+
+
+
+#
+#
+#
+#
+
+
+
+##### Digging into App Dev
+
+As it turns out, we didn't see the accelerometer data inside the app, but we were able to pass text into the app, such as "Ready" and "Resting".
+I don't know whether it will be necessary to transfer this kind of raw data to the app.
+"Ready" and "Resting" could be read in the app as hex and as ASCII text. (one byte per letter)
+
+In the code, we need to send data of a type that can be meaningful to nRF Connect. 
+I will need to understand how to program my phone with it now that I'm getting data.
+I need to learn how nRF Connect interfaces with my Android.
+
+**And this brings us to developing with nRF Connect!**
+
+### For nRF Connect Development:
+- I need nRF Connect for Desktop:
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
+- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop:
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
+- There are videos for installation:
+[YouTube](https://youtu.be/2cv_jjqk5hg)
+
+
+
+
+
+
+#
+[_[ Next: **Structure of Arduino Files** ]_](#structure-of-arduino-files)
 #
 #
 #
@@ -144,7 +370,7 @@ _(Maybe just move this code to an appendix. I think I only used on/off, connecte
 1. Open golf-swing-acc (done)
 2. Open Hello World (done)
 3. Save Hello World as _golf-swing-hello-world_ (done)
-4. Add the BLE stuff to _golf-swing-hello-world_ (done)
+4. Add the IMU stuff to _golf-swing-hello-world_ (done)
 5. Delete extraneous code from new sketch (done, saved, version step is final)
 
 #
@@ -255,10 +481,14 @@ if (central) {
 -
 
 #
+##### Link to entire file here: [**_golf-swing-hello-world code_**](#all-the-golf-swing-hello-world-code-is-here)
+#
+##### All the _golf-swing-hello-world_ code is here
+(paste all the code here)
 #
 #
 #
-
+#
 
 
 
@@ -525,7 +755,7 @@ This `while` statement is why nothing shows up in Monitor until BLE connects the
 The `readValues()` is not used in this case, but in the _RoboCraze_ example, it combines readings and labels into a string
 which can be read easily in nRF Connect with `writeValue(m)`. 
 _( `readValues()` is a function; read [here](#structure-of-arduino-files) )_ `readValues()` is a subroutine to collect the x,y,z of the sensor, and combine it into a readable string.
-
+**And the `readValues()` function executes from inside of the `while (central.connected())` loop.**
 
 ```
     while (central.connected()) {
@@ -641,8 +871,8 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 #
 # Finish connecting BLE 100% as planned before moving on to the SDK part
 #
-
-
+##### [Digging into app dev](#digging-into-app-dev)
+(later move this section down here if appropriate)
 
 
 
