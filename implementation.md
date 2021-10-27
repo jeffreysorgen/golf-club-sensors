@@ -41,15 +41,15 @@ _skip to
 19. **Arduino sketch** created for Accelerometer - _golf-swing-acc_ ([here](#updating-the-arduino-nano-33-ble)) and kept it **simple**. 
 20. **GitHub Markdown** Learned styling for tables, images and code block
 21. Added code block and image from Monitor to this documentation. 
-22. COMPLETED Accelerometer documentation, and it's time to move on to [**adding BLE**](activity.md/#enabling-ble) to the system!
+22. **Accelerometer** Completed documentation, and it's time to move on to [**adding BLE**](activity.md/#enabling-ble) to the system!
 23. **Add BLE** Successfully [copied the process](activity.md/#try-the-ble-example-sketch) of a YouTuber to add BLE services on the device.
 24. **Power** Documented several potential development and prototyping [**solutions**](#solve-for-power)
 25. Generated [pseudo code](activity.md#state-change-pseudo-code) for state changes
-26. DEVELOPED the BLE+IMU code, and it's time to _get it documented_ and move to the [**SDK!**](#step-four)
+26. DEVELOPED the BLE+IMU code, and it's time to _get it documented_ and move to the [**SDK!**](activity.md#step-four)
 
 
 ##### Learning about this:
-- IMU sensors, **Working with BLE!** C++, data collection
+- **nRF Connect**, IMU sensors, BLE, C++, data collection
 - GitHub Desktop, possibly GitBASH, KiCad, LTspice, OSHPARK
 - Arduino Components and code requirements
 
@@ -191,11 +191,13 @@ Swinging the club around won't put it into that Resting state unless it register
 - **Connect with only BLE and be _physically detached_ from the computer.**
 - Attach the Arduino Sense (USBmicro port) to a power source.
 - Use a lightweight **phone recharger** (with 2 USB out) to serve this purpose during development.  
-- Rechargers will shut off after a short time with just a low power drain, so this won't work by itself.
-  - **Charging an _old phone_ at the same time will prevent this auto-shutoff** 
+- Rechargers will shut off after a short time with just a low power drain.
+- **Charging an _old phone_ at the same time will prevent this auto-shutoff** 
 
-##### Charging up a dead old phone prevents auto-shutoff
-<p align="center"><img src="http://some_place.com/pic-of-battery-solution.png" /></p>
+##### Charging up a dead old phone, simultaneously powering Nano33BLE
+<img src="images/Sm-batterypack.png" width="35%">
+
+
 
 ### Alternative development solution
 - This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
