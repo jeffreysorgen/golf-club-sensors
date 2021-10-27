@@ -120,37 +120,52 @@ void loop() {
 ```
 
 ##### How we will use this:
-The LED turns on or off with this code, and the code for the LED might be useful for us but in a different way.
 
-The big takeaway with this code is that the `while` command just hangs the activity until BLE disconnects and then the code will turn it off. _It's LED-centric code._ We'll use it to signal "Ready" or "Resting" in our code. But the rest of the code has shown us, like the prior example, how to build the `.ino` file.
+The big takeaway with this code is that the `while (central.connected()){` command just hangs the activity until BLE disconnects and then the code will turn the LED off. 
+**_It's LED-centric code._** 
+The code for the LED could be useful for us but in a different way.
+We'll use it to signal "Ready" or "Resting" in our code. 
+The rest of the code has shown us, like the prior example, what the `.ino` file looks like.
+
+
+
+
+#
+#
+#
+#
+# Importing new functionality into our code
 
 ##### All the _golf-swing-acc-ble_ code is here:
 (insert SIMPLIFIED built code for _golf-swing-acc-ble_)
 
+
+
+
+
+
+
+#
+#
+#
+#
 ##### Structure of Arduino files:
 (insert 'structure-of-arduino-files' with descriptions and examples)
 
 #
-#
-#
 ##### (wait to finish new code before expanding on this)
 # Structure of Arduino files
 
-Using our new _golf-swing-acc-ble_ code to describe the structure of Arduino very basic `.ino` files, we'll include some code not used here to expand the explanation.
-
-Simplify this. I'm trying to organize into a process of building, and this is more of a reference. Some of the information here should be included in descriptions of the reasons we're adding certain lines of code to our final sketch.
+Starting with our new _golf-swing-acc-ble_ code, we'll describe here the very basic structure of an Arduino `.ino` file, and bring in examples from other code to expand it a bit.
 
 
+#
+_(Simplify this. I'm trying to organize into a process of building, and this is more of a reference. Some of the information here should be included in descriptions of the reasons we're adding certain lines of code to our final sketch.)_
 
+##### Here's the original "arduino structure" section.
+- Try to simplify
 
-
-, this serves as an explanation of some of the 
-We will be combining code from the two example sketches with **the accelerometer sketch**
-so we need to understand the structure of a very basic `.ino` file. 
-
-##### (Entire code is posted elsewhere and these are examples)
-
-At the most basic level, there are four sections:
+### At the most basic level, there are four sections:
 1. *"prior to"*
 2. `void setup()`
 3. `void loop()` and
@@ -240,12 +255,17 @@ At the most basic level, there are four sections:
 
 
 #
+#
+#
+#
 
 
 
 
 
 The resulting combo sketch is here. Some of this information will be swiped to combine with _golf-swing-acc_.
+
+To simplify, keep this section temporarily for reference, but combine commands INTO _golf-swing-acc_ with the BLE commands and test, and then publish [above](#all-the-golf-swing-acc-ble-code-is-here)
 ##### All the _golf-swing-hello-world_ code is here:
 ```
 /*
@@ -359,7 +379,7 @@ nRF Connect uses a lot of power on the smartphone. I expect that nRF Connect wil
 #
 #
 
-
+_(edited down to here)_
 
 ##### Digging into App Dev
 
