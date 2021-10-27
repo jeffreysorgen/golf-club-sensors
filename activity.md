@@ -222,7 +222,7 @@ At the most basic level, there are four sections:
 
 
 
-
+The result:
 ##### All the _golf-swing-hello-world_ code is here:
 ```
 /*
