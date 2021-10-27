@@ -1,11 +1,6 @@
-- combine _hello-world-golf-swing_ code INTO _golf-swing-acc_
-  - add BLE functionality and LED functionality in simplest form
-  - leave out extra code
-- documentation:
-  - Add code to documentation
-  - Then add descriptions below it in the format used in the 'structure' section with real examples
-  - Add examples from other two sketches when nothing exists in new _golf-swing-acc_
-- finish documentation
+- Add Accelerometer, BLE, and LED functionality in simplest form _(combine _hello-world-golf-swing_ code INTO _golf-swing-acc_ and leave out extra code)_
+- Add the new code to documentation
+- Add descriptions below the new code, using the 'structure' section with other examples if necessary
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
 [*[ The Accelerometer ]*](implementation.md/#the-accelerometer)
