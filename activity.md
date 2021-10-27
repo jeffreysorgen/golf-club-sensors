@@ -119,21 +119,8 @@ void loop() {
 _(Maybe just move this code to an appendix. I think I only used on/off, connected/disconnected on the LED. Because that's the big takeaway from this exercise. But there was also a lesson with the `while` command. It just hung there until disconnected, and the LED turned off because of it. No further useful functionality.)_
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 #
-# Structure of Arduino files
+### Structure of Arduino files
 
 We will be combining code from the two example sketches with **the accelerometer sketch**
 so we need to understand the structure of a very basic `.ino` file. 
