@@ -1,4 +1,3 @@
-- Create BLEpage, which includes all of "Step Three" and UUID and Reference ("Step Four" is Activity.md)
 - Create _golf-swing-acc-ble_ from copy of _golf-swing-acc_
 - Add Accelerometer, BLE, and LED functionality in simplest form to _golf-swing-acc-ble_
 - Add the new code to documentation
