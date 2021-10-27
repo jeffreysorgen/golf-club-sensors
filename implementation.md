@@ -195,7 +195,7 @@ Swinging the club around won't put it into that Resting state unless it register
   - **Charging an _old phone_ at the same time will prevent this auto-shutoff** 
 
 ##### Charging up a dead old phone prevents auto-shutoff
-<p align="center"><img src="images/Sm-batterypack.png" width="30%"></p>
+<p align="center"><img src="images/Sm-batterypack.png" width="25%"></p>
 
 
 
