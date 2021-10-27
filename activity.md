@@ -130,11 +130,9 @@ The rest of the code has shown us, like the prior example, what the `.ino` file 
 
 
 
+
 #
-#
-#
-#
-# Importing new functionality into our code
+### Importing new functionality into our code
 
 ##### All the _golf-swing-acc-ble_ code is here:
 (insert SIMPLIFIED built code for _golf-swing-acc-ble_)
