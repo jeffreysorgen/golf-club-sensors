@@ -179,7 +179,7 @@ At the most basic level, there are four sections:
 - ADD CHARACTERISTICS to the BLE services
   - `customService.addCharacteristic(ble_accelerometer);`
 - ADD SERVICE to the BLE stack
-  - This variable names were previously declared in "Add Services" section prior to the setup loop
+  - The variable names were previously declared in "Add Services" section prior to the setup loop
   - `BLE.addService(customService);  // Adding the service to the BLE stack`
   - `BLE.addService(greetingService); // Add Text service`
 - Set VALUES for strings
