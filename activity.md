@@ -357,7 +357,7 @@ I need to learn how nRF Connect interfaces with my Android.
 
 
 #
-[_[ Next: **Structure of Arduino Files** ]_](#structure-of-arduino-files)
+[_[ Link to **Structure of Arduino Files** ]_](#structure-of-arduino-files)
 #
 #
 #
@@ -404,11 +404,7 @@ I need to learn how nRF Connect interfaces with my Android.
 
 #
 ##### Link to entire file here: [**_golf-swing-hello-world code_**](#all-the-golf-swing-hello-world-code-is-here)
-#
-##### All the _golf-swing-hello-world_ code is here
-(paste all the code here)
-#
-#
+
 #
 #
 
@@ -561,7 +557,10 @@ Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular vel
 ##### (See also: [New notes for modding the file](#new-notes-for-modding-the-file))
 
 # Modifying the file:
-##### most of this will be in the 'file structure' section
+## why is this here?
+### code has been copied already, so just keep essential or unique stuff
+Maybe this formatting is more readable?
+##### most of this will be in the 'file structure' section (TRUE)
 (do this entire process again, using different example BLE sketch) **(DONE!)**
 
 ( use this section to describe the _golf-sensors-acc_ ) (I think this section is unnecessary because it's going to end up in the "Structure of Arduino files" section)
