@@ -1,5 +1,5 @@
-- Add the new code to documentation
-- Add descriptions below the new code, using the 'structure' section with other examples if necessary
+- Split into another page starting with Step Four
+- **Edit more**
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
