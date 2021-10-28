@@ -133,7 +133,7 @@ The rest of the code here has shown us, like the prior example, what a basic `.i
 
 #
 ### Importing new functionality into our code
-We're now going to take what we've learned from our two examples and incorporate them into our feature code, now called _gold-swing-acc-ble_.
+We're now going to take what we've learned from our two examples and incorporate them into our feature code, now called _golf-swing-acc-ble_.
 
 ##### All the _golf-swing-acc-ble_ code is here:
 ```
