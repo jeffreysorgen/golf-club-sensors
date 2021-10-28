@@ -362,15 +362,14 @@ While the flashlight functionality won't be used in the end, that solution is cr
 ## UUID Info:
 #### Notes about UUID
 
-- At this point, figure out the **UUID** information.
+- _Keep studying about UUID_
 - Need to have specific UUIDs for each IMU param
-- I can't find a specific UUID for x,y,z on the Accelerometer
-  - what does the **raw** IMU data look like?
-  - check the hackster.io post in the [Reference](#reference)
+- I can't find a specific standard UUID for x,y,z on the Accelerometer
+  - what does the **raw** IMU data look like? (move this)
+- check the hackster.io post in the [Reference](#reference)
+  - Here: the [hackster](https://www.hackster.io/gov/imu-to-you-ae53e1) site again
 - I thought I would need to use the BLE UUID spec which I thought was "important for ble" [(below)](#reference)
-- **Keep studying about UUID**
-- Go simpler. Look where they use them in Hello World, for example, and use theirs instead. It's not like we're getting in trouble or having technical conflicts with them.
-- Also go back to the [hackster](https://www.hackster.io/gov/imu-to-you-ae53e1) site again
+- Go simpler. Look how they use them in the examples, and use theirs instead.
 
 #### (15 unique v4UUIDs)
 ```
@@ -417,179 +416,67 @@ I need to learn how nRF Connect interfaces with my Android.
 [YouTube](https://youtu.be/2cv_jjqk5hg)
 
 
-
+#
+#
+#
+#
 
 ##### [Link to Step Four](#step-four)
+
 #
 #
-(already moved UUID section)
-##### Insert UUID information here
-**Then insert the Reference section.**
-**(The rest of the stuff should go on the bottom near the end for later reference.)**
-**Split the documentation after UUID and Reference. The next part is _Step Four: SDK_**
-#
-#
-#
-#
-# DELETE THIS NEXT
-The following is what was used inside of Structure of Arduino File. **Wait to remove this section until after resolving the 'structure' section.**
-#
-_Do we need to keep this section in the documentation?_ **Delete it?** The code is combined with hello world, but the "good" version is the one that took our "acc" one and added "ble" code, and the code is commented up throughout for clarity already. Technically, it's not used, but rather is a rough first draft, as I was going through the process of creating what I meant to use this for.
-##### All the _golf-swing-hello-world_ code is here:
-```
-/*
- * Hello World from okdo.com
- * Adapted from Arduino BatteryMonitor example
- * golf-swing-acc
- * golf-swing-hello-world
- *
-*/
 
-// LIBRARIES
-#include <ArduinoBLE.h>         // BLE library
-#include <Arduino_LSM9DS1.h>    // IMU library
-
-// CONSTANTS
-static const char* greeting = "Hello World!";
-static const char* greetingUUID = "355d2b52-982c-4598-b9b4-c19156686e1a";
-
-// BLE SERVICE NAME
-BLEService customService("180C");           // for the IMU service
-BLEService greetingService(greetingUUID);   // for the Text service
-
-// BLE CHARACTERISTICS
-BLEStringCharacteristic greetingCharacteristic("2A56",  // standard 16-bit characteristic UUID
-    BLERead, 13); // remote clients will only be able to read this
-BLEStringCharacteristic ble_accelerometer("2A58", BLERead | BLENotify, 20);
-    // "2A58" is arbitrary
-
-// FUNCTION PROTOTYPE
-
-void setup() {
-  // INITIALIZE THE SENSORS (and serial)
-  IMU.begin();          // initialize IMU
-  Serial.begin(9600);    // initialize serial communication
-  //while (!Serial);    // comment this out
-
-  // INITIALIZE THE DEVICE PINS
-  pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin
-
-  // CHECK FOR FAILURE
-  if (!BLE.begin()) {   // initialize BLE
-    Serial.println("starting BLE failed!");
-    while (1);
-  }
-  if (!IMU.begin()) {
-    Serial.println("Failed to initialize IMU!");
-    while (1);
-  }
-
-  // SET BLE NAME
-  BLE.setLocalName("Jeff's Nano33BLE");  // Set name for connection
-
-  // ADVERTISE SERVICES
-  BLE.setAdvertisedService(customService);    // 'customService' is for IMU
-  BLE.setAdvertisedService(greetingService); // Advertise service
-
-  // ADD CHARACTERISTICS TO BLE SERVICES
-  customService.addCharacteristic(ble_accelerometer);
-  greetingService.addCharacteristic(greetingCharacteristic); // Add characteristic to service
-
-  // ADD SERVICES TO BLE STACK
-  BLE.addService(customService);    // Add IMU Service
-  BLE.addService(greetingService); // Add Text service
-  
-  // SET VALUES FOR STRINGS
-  greetingCharacteristic.setValue(greeting); // Set greeting string
-
-  // START ADVERTISING
-  BLE.advertise();  // Start advertising
-
-  // extra printing stuff
-  Serial.print("Peripheral device MAC: ");
-  Serial.println(BLE.address());
-  Serial.println("Waiting for connections...");
-}
-
-void loop() {
-  BLEDevice central = BLE.central();  // Wait for a BLE central to connect
-  float x, y, z; // from golf-swing-acc sketch
-
-  if (IMU.accelerationAvailable()) {
-    IMU.readAcceleration(x, y, z);
-    
-    if ( y > -.85 ) {
-      Serial.println("Ready!");
-      ble_accelerometer.writeValue("Ready!");
-      if (central) { digitalWrite(LED_BUILTIN, HIGH);
-        }}
-
-    else {
-      Serial.println("Resting!");
-      ble_accelerometer.writeValue("Resting!");
-      if (central) { digitalWrite(LED_BUILTIN, LOW);
-        }}
-  }
-} //v
-```
-#
-#
 [_[ Link to **Structure of Arduino Files** ]_](#structure-of-arduino-files)
+
 #
-#
-#
-#
-#
+
 (Reference stuff could be on the top of the Step Four page)
+
 #
+
 (organize this Reference section)
+
 #
 
 # Reference:
 
-- Here's the okdo.com example, including [_BLE Hello World_](#the-ble-hello-world-sketch): [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc)
-- XXXXXXXX-0000-1000-8000-00805F9B34FB Look this up to find standard BLE list
-- Here are 15 unique [**v4-UUIDs**](#15-unique-v4uuids) from the [Online UUID Generator](https://www.uuidgenerator.net/)
-```
-355d2b52-982c-4598-b9b4-c19156686e1a
-    ...
-```
-
+- Here's the okdo.com example, including [_BLE Hello World_](#the-ble-hello-world-sketch): [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc) (keep this info in reference section)
+- UUID for BLE: _XXXXXXXX-0000-1000-8000-00805F9B34FB_ Look this up to find standard BLE list
+- [Online UUID Generator](https://www.uuidgenerator.net/)
+  - Here are 15 unique [**v4-UUIDs**](#15-unique-v4uuids) from the generator
 - Helpful from Argenox:
   - [**Argenox website**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a good place to READ about BLE
   - Here's the [Bluetooth Low Energy Library](https://www.argenox.com/library/bluetooth-low-energy/)
   - Here is a link for [BLE and batteries](https://www.argenox.com/library/bluetooth-low-energy/powering-ble-batt/)
 - **Arduino** resources:
+  - Arduino's reference for BLE](#arduinos-reference-for-ble) _(double check this link)_
+  - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE**
+  - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
   - A complete [reference](https://www.arduino.cc/reference/en/)
   - And one specifically for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
 - Here's some GATT information [(_LINK_)](https://www.oreilly.com/library/view/getting-started-with/9781491900550/ch04.html) from O'Reilly (2014), and its repository, [(_here._)](https://github.com/microbuilder/IntroToBLE)
 - Here's a 
-helpful [**beginners tutorial**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/ble-advertising-a-beginners-tutorial) from Nordic Semi. 
-And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/bluetooth-smart-and-the-nordics-softdevices-part-1)
+- **Nordic Semi** resources:
+  - Helpful [**beginners tutorial**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/ble-advertising-a-beginners-tutorial) from Nordic Semi. 
+  - And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/bluetooth-smart-and-the-nordics-softdevices-part-1)
 - **nRF Connect:**
   - nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
   - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
-- Here's helpful [IMU and BLE](https://www.hackster.io/gov/imu-to-you-ae53e1) tutorial from hackster.io
+- **Hackster** tutorial: Here's a helpful [IMU and BLE](https://www.hackster.io/gov/imu-to-you-ae53e1) tutorial from hackster.io
 - Wiki about [C data types](https://en.wikipedia.org/wiki/C_data_types#stdint.h)
+#
+#### Examples for reference:
+- Also go through the later lessons in _**EdX Deployment**_ class
 
 #
-(combine with 'reference')
-#### Examples:
-BLE is basically done, so move important stuff to the [Reference](#reference) section.
-- Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE**
-- Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
-- Also go through the later lessons in _**EdX Deployment**_ class
 - Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
   - and in which he mentions "BLE2902" but I can't find usage for it yet. But it showed up on nRF Connect "0x2902"
 
 #
-(add to 'reference')
 #
-(these are good notes that should be incorporated into [Reference](#reference) section)
 
-### New notes for modding the file:
 
-Arduino's reference for BLE:
+##### Arduino's reference for BLE:
 - **From https://www.arduino.cc/en/Reference/ArduinoBLE**
 
 ##### (state change reference in here)
@@ -599,8 +486,18 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 
 **Updating a characteristic.** When Y-axis, `y < -0.85`, changes from true to false or back, this is the moment to send BLE data, nothing else. Save on BLE energy. _Need to adopt energy-saving code later._
 
+#
+#
+#
+#
+##### Possibly useful ideas go here
+
 Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
 
+
+
+
+#
 #
 # and DELETE THIS NEXT also
 ## maybe combine into little notes section?
