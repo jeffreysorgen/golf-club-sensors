@@ -50,10 +50,16 @@ So this one change will allow the device to function in nRF Connect the same way
 #
 ### The Hello World BLE Sketch
 
-Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, it's time to simplify and specialize our code. There is a simple _BLE Hello World_ sketch from [okdo.com](#reference) that turns on the amber LED on the Arduino board when it connects. 
+Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, it's time to simplify and specialize our code.
 
-Starting with this simple code as a base, **we'll combine it with our own _golf-swing-acc_ sketch**
-so that we can see the accelerometer data inside the _nRF Connect_ app. (in progress)
+There is a simple _BLE Hello World_ sketch from [okdo.com](#reference) that turns on the amber LED on the Arduino board when it connects. And after connecting with nRF Connect, we can read "Hello World" on our smartphone.
+
+What's interesting to me (newbie!) is using `static const char* greeting = "Hello World!";` first, and then later using `greetingCharacteristic.setValue(greeting);` for that string to appear through the characteristic.
+
+#
+
+Starting with this simple code as a base, **we'll combine it with our own _golf-swing-acc_ sketch** 
+so that we can see what gets sent to _nRF Connect_ from the BLESense.
 
 ##### _BLE Hello World_ code is here:
 ```
@@ -117,7 +123,7 @@ void loop() {
 }
 ```
 
-##### How we will use this:
+#### How we will use this:
 
 The big takeaway with this code is that the `while (central.connected()){` command just hangs the activity until BLE disconnects and then the code turns the LED off. 
 **_It's LED-centric code._** 
@@ -125,13 +131,11 @@ The code for the LED will be useful for indicating "Ready" and "Resting" states.
 The rest of the code here has shown us, like the prior example, what a basic `.ino` file looks like.
 
 
-
-
 #
 ### Importing new functionality into our code
-Combining what we know into our old _golf-swing-acc_ sketch:
-##### All the _golf-swing-acc-ble_ code is here:
+We're now going to take what we've learned from our two examples and incorporate them into our feature code, now called _gold-swing-acc-ble_.
 
+##### All the _golf-swing-acc-ble_ code is here:
 ```
 /*
  * Arduino LSM9DS1 
@@ -262,6 +266,97 @@ void loop() {
     }
   } //v
 ```
+# and now...
+1. Data is being sent from the device to nRF Connect
+2. The device sends Ready/Resting depending on a threshold in the code
+3. Accelerometer value is sent in the form of a **_hex_** (don't know if this matters yet)
+4. I used UUIDs in their long form as constants
+5. I don't know if I could use a shorter form of UUID like "180C" or "300a"
+
+##### important future change
+One of the future modifications needs to be utilizing the BLE code that features **state change only** notifications, so that nRF only receives one-time signal that the state has changed between Ready and Resting, rather than as it is now, which always prints its state to BLE
+
+#
+
+
+
+
+
+- My integrated IMU/BLE configuration, above, displayed a **hex value** in _nRF Connect_ rather than readable data.
+  - I am able to get strings go go through, just not floats. Don't know if this is relevant.
+- Make the nRF Connect readings display "Ready" / "Resting" **(DONE!)**
+  - **I have created a file that shows Ready/Resting on the serial monitor and on the nRF Connect app, but also, I have gotten the LED on the device to light up as well!**
+  - Once that question is answered, I'll get my phone to turn its flashlight on/off as a result. (yep)
+
+
+
+
+#
+
+
+
+#### nRF Connect looks like this
+
+(screenshot of my phone screen with device listed)
+<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
+
+(video of device LED on and off when it tips on y-axis)
+<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
+
+#
+#
+#
+#
+
+
+
+
+
+(good notes here)
+##### Description:
+What we want to do for this project is to read information from the sensor and then 
+get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
+While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to 
+get the phone to chirp good/bad golf swings. 
+- There is a difference between constantly notifying about the state and simply notifying about a state change.
+- Notifying only about a state change will be helpful to eliminate unnecessary BLE communication.
+- Checking a state change can happen less frequently than the device baud rate, so we don't get bounces of the states due to natural movement. 
+  - Best example was when the LED lit briefly, flashing the previous state of the LED during the transition to a new state. It looked like a bounce.
+#
+
+
+
+##### Digging into App Dev
+
+We were able to pass text into the app, such as "Ready" and "Resting".
+"Ready" and "Resting" could be read as a string, and could read each letter hex value. 
+Both strings began with the same hex values for "R" and "e".
+
+I need to learn how nRF Connect interfaces with my Android.
+
+**And this brings us to developing with nRF Connect!**
+
+### For nRF Connect Development:
+- I need nRF Connect for Desktop:
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
+- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop:
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
+- There are videos for installation:
+[YouTube](https://youtu.be/2cv_jjqk5hg)
+
+
+
+
+##### [Link to Step Four](#step-four)
+
+#
+#
+
+
+##### Insert UUID information here
+**Then insert the Reference section.**
+**(The rest of the stuff should go on the bottom near the end for later reference.)**
+**Split the documentation after UUID and Reference. The next part is _Step Four: SDK_**
 
 #
 
@@ -271,26 +366,32 @@ void loop() {
 
 #
 
-## Structure of Arduino files
-(insert 'structure-of-arduino-files' with descriptions and examples)
-##### (wait to finish new code before expanding on this)
+#
 
-Starting with our new _golf-swing-acc-ble_ code, we'll describe here the very basic structure of an Arduino `.ino` file, and bring in examples from other code to expand it a bit.
+
+
+
+**Is this helpful when it includes code? Is it more helpful without, and just plain? Probably just remove all the code and see what's left. Could end up as a good section between UUID and Reference**
+
+##### (Move to end of Reference)
+# Structure of Arduino files
+
+Starting with our new _golf-swing-acc-ble_ code, we'll describe here the very basic structure of an Arduino `.ino` file, and bring in examples from other code to expand it a bit. (**No. Probably without lines of code, for clarity.** Some of the information here should be included in descriptions as to the reasons we're adding certain lines of code.
+
+
 
 
 #
-_(Simplify this section. I'm trying to organize into a process of building, and this is more of a reference. Some of the information here should be included in descriptions of the reasons we're adding certain lines of code to our final sketch.)_
-
-##### Here's the original "arduino structure" section.
-- Try to simplify
-
 ### At the most basic level, there are four sections:
+
 1. *"prior to"*
 2. `void setup()`
 3. `void loop()` and
 4. *"other functions"*
 
+#
 #### 1. **Prior to `void setup()`**
+
 - These can be within _namespace_
 - First add LIBRARIES
   - `#include <Arduino_LSM9DS1.h>  // IMU library`
@@ -347,7 +448,6 @@ _(Simplify this section. I'm trying to organize into a process of building, and 
   
 #### 3. `void loop()`
 - `BLEDevice central = BLE.central(); // Wait for a BLE central to connect`
-  - Waiting for central to connect might mean that other things can't go on first (so be aware)
 - if statements:
 ```
   if (IMU.accelerationAvailable()) {
@@ -374,17 +474,18 @@ _(Simplify this section. I'm trying to organize into a process of building, and 
 
 
 #
+
 #
+
 #
+
 #
 
+The following is what was used inside of Structure of Arduino File. **Wait to remove this section until after resolving the 'structure' section.**
 
+# 
 
-
-
-The resulting combo sketch is here. Some of this information will be swiped to combine with _golf-swing-acc_.
-
-To simplify, keep this section temporarily for reference, but combine commands INTO _golf-swing-acc_ with the BLE commands and test, and then publish [above](#all-the-golf-swing-acc-ble-code-is-here)
+_Do we need to keep this section in the documentation?_ **Delete it?** The code is combined with hello world, but the "good" version is the one that took our "acc" one and added "ble" code, and the code is commented up throughout for clarity already. Technically, it's not used, but rather is a rough first draft, as I was going through the process of creating what I meant to use this for.
 ##### All the _golf-swing-hello-world_ code is here:
 ```
 /*
@@ -483,94 +584,19 @@ void loop() {
 } //v
 ```
 
-
-
-
 #
-##### important
-One of the future modifications needs to be utilizing the BLE code that features **state change only** notifications, so that nRF only receives one-time signal that the state has changed between Ready and Resting, rather than as it is now, which always prints its state to BLE
-
-Also
-
-nRF Connect uses a lot of power on the smartphone. I expect that nRF Connect will be used only for development purposes and I can discover how to create an app that only utilizes what's needed for full functionality and no extra.
-#
-#
-#
-#
-
-_(edited down to here)_
-
-##### Digging into App Dev
-
-As it turns out, we didn't see the accelerometer data inside the app, but we were able to pass text into the app, such as "Ready" and "Resting".
-I don't know whether it will be necessary to transfer this kind of raw data to the app.
-"Ready" and "Resting" could be read in the app as hex and as ASCII text. (one byte per letter)
-
-In the code, we need to send data of a type that can be meaningful to nRF Connect. 
-I will need to understand how to program my phone with it now that I'm getting data.
-I need to learn how nRF Connect interfaces with my Android.
-
-**And this brings us to developing with nRF Connect!**
-
-### For nRF Connect Development:
-- I need nRF Connect for Desktop:
-[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
-- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop:
-[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
-- There are videos for installation:
-[YouTube](https://youtu.be/2cv_jjqk5hg)
-
-
-
-
-
-
 #
 [_[ Link to **Structure of Arduino Files** ]_](#structure-of-arduino-files)
 #
-#
-#
-#
-
-
-##### Notes about combining the files:
 
 #
 
-(doing this)
-- Take the BLE commands and integrate them into my _golf-swing-acc_ sketch: (done)
-- Try **reversing** the action, and take my IMU sketch and pull it line by line **into** the _Hello World_ sketch. (did this, delete)
-  - For one thing, I can read what was sent from the device, also, I confirmed the non-serial battery solution applied. (**test battery-only on 'golf swing hello world'**)
-- Save _golf-swing-acc_ as _testing-ready-resting-imu-ble_ (done) (rewrite this to fact) (n/a - we're at a point where the only file I want is the 'golf swing hello world' one, so determine what I used and what is extraneous, and drop extra in delete folder)
+#
 
 #
 
-- My [integrated IMU/BLE configuration](#modifying-the-file) displayed a **hex value** in _nRF Connect_ rather than readable data.
-  - Need to transform the hex value into a readable one. (Explore more BLE examples first.) (might be next phase, maybe could ignore)
-  - I am able to get strings go go through, just not floats. Don't know if this is relevant.
-- Make the nRF Connect readings display "Ready" / "Resting" **(DONE!)**
-  - **I have created a file that shows Ready/Resting on the serial monitor and on the nRF Connect app, but also, I have gotten the LED on the device to light up as well!**
-  - Once that question is answered, I'll get my phone to turn its flashlight on/off as a result. (yep)
 
-
-
-
-
-
-
-
-
-
-
-
-#
-##### Link to entire file here: [**_golf-swing-hello-world code_**](#all-the-golf-swing-hello-world-code-is-here)
-
-#
-#
-
-
-##### _(move UUID Info directly above Reference section)_
+##### _(move this UUID Info directly above Reference section)_
 
 
 # UUID Info:
@@ -613,38 +639,9 @@ fa94204d-dc71-4585-aa63-98b8133c5266
 #
 
 #
-
-
-
-
-
-
-(good notes here)
-##### Description:
-What we want to do for this project is to read information from the sensor and then 
-get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
-While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to 
-get the phone to chirp good/bad golf swings. 
-- There is a difference between constantly notifying about the state and simply notifying about a state change.
-- Notifying only about a state change will be helpful to eliminate unnecessary BLE communication.
-- Checking a state change can happen less frequently than the device baud rate, so we don't get bounces of the states due to natural movement. 
-  - Best example was when the LED lit briefly, flashing the previous state of the LED during the transition to a new state. It looked like a bounce.
-
+(organize this Reference section)
 #
-#
-#
-#
-# add to documentation
-#### nRF Connect looks like this
 
-(screenshot of my phone screen with device listed)
-<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
-
-(video of device LED on and off when it tips on y-axis)
-<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
-
-#
-#
 # Reference:
 
 - Here's the okdo.com example, including [_BLE Hello World_](#the-ble-hello-world-sketch): [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc)
@@ -674,7 +671,7 @@ And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides
 
 
 #
-## combine with 'reference'
+(combine with 'reference')
 #### Examples:
 BLE is basically done, so move important stuff to the [Reference](#reference) section.
 - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE**
@@ -685,9 +682,14 @@ BLE is basically done, so move important stuff to the [Reference](#reference) se
 
 
 #
-## add to 'reference'
+(add to 'reference')
+#
 (these are good notes that should be incorporated into [Reference](#reference) section)
-## New notes for modding the file:
+
+
+
+### New notes for modding the file:
+
 
 Arduino's reference for BLE:
 - **From https://www.arduino.cc/en/Reference/ArduinoBLE**
@@ -701,9 +703,6 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
 
 #
-#
-#
-#
 
 ##### (See also: [New notes for modding the file](#new-notes-for-modding-the-file))
 
@@ -712,60 +711,40 @@ Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular vel
 ### code has been copied already, so just keep essential or unique stuff
 Maybe this formatting is more readable?
 ##### most of this will be in the 'file structure' section (TRUE)
+##### this was literally the first draft, and this kind of thing has been written twice before
 (do this entire process again, using different example BLE sketch) (DONE!)
 
 ( use this section to describe the _golf-sensors-acc_ ) (I think this section is unnecessary because it's going to end up in the "Structure of Arduino files" section)
 
-
-
-Top of sketch. First, add the two libraries. (**copy to Structure**)
+Top of sketch. First, add the two libraries. (**copy to Structure**)<-- right here, did this, and so it's in there already
 ```
-#include <ArduinoBLE.h>           // Bluetooth Library
-#include <Arduino_LSM9DS1.h>      // IMU
+
 ```
 
 
 Next, create the SERVICE name "180C". 
 ```
-// BLE Service Name
-BLEService customService("180C");
+
 ```
 
 ##### characteristic notes:
 Next, add a specific CHARACTERISTIC. If it were a string, there would also be a number for its data length.
 - "2A58" seems quite arbitrary and in other examples is actually the 128-bit UUID. Came from the example. _Each characteristic either DOES or DOES NOT need a unique UUID, so I'll have to **look this up** and why._ (I believe that a service has a unique UUID, and it's characteristics are also unique UUIDs.) [**Refer to UUID section.**](#UUID-info)
+
 ```
-// BLE Characteristics
-// Syntax: BLE<DATATYPE>Characteristic <NAME>(<UUID>, <PROPERTIES>, <DATA LENGTH>)
-BLEFloatCharacteristic ble_magnetic("2A58", BLERead | BLENotify);
+
 ```
 
 
 In `void setup()`, first check whether the services have started. (also [caveat](#caveat))
 ```
-void setup() {
-  Serial.begin(9600);
-  while (!Serial);
-  Serial.println("Started");
-  
-  // add BLE
-  if (!BLE.begin()) {
-    Serial.println("Failed to initialize BLE!");
-    while (1);
-  }
-  
-  // add IMU
-  if (!IMU.begin()) {
-    Serial.println("Failed to initialize IMU!");
-    while (1);
-  }
+
 ```
 
 
 Create the name of the service to find in nRF Connect (done)
 ```
-  // Setting BLE Name
-  BLE.setLocalName("Arduino Environment Sensor");
+
 ```
 
 ##### char advert notes:
@@ -774,51 +753,25 @@ Here, _"ble_magnetic"_ refers to the IMU readings, the accelerometer in our case
 (_might change this from "magnetic" to "acc"_)
 - This would be where more characteristics are added. 
 Anything that's going to be sent to the smartphone via BLE would be added like this, under `customService.addCharacteristic(example_char)` and then accessed within later code and displayed using `example_char.writeValue()`. (true, good note)
+
 ```
-  // Setting BLE Service Advertisment
-  BLE.setAdvertisedService(customService);
 
-  // Adding characteristics to BLE Service Advertisment
-  customService.addCharacteristic(ble_magnetic);
-
-  // Adding the service to the BLE stack
-  BLE.addService(customService);
 ```
 
 
 Invoke the BLE to advertise. And also go ahead and print that it's active. (done)
 ```
-  // Start advertising
-  BLE.advertise();
-  Serial.println("Bluetooth device is now active, waiting for connections...");
+
 ```
 
 
-That's the end of `void setup()`. I've left the original commands to print as-is from the original. (don't need)
-```
-  // IMU original stuff:
-  Serial.print("Accelerometer sample rate = ");
-  Serial.print(IMU.accelerationSampleRate());
-  Serial.println(" Hz");
-  Serial.println();
-  Serial.println("Acceleration in G's");
-  Serial.println("X\tY\tZ");
-}
-```
 
 ##### void loop notes:
 - initialize variables in the void loop()
 
 Now the `void loop()`. 
 ```
-void loop() {
-  float x, y, z; // IMU params
-  // Variable to check if central device is connected
-  BLEDevice central = BLE.central();
 
-  if (central) {
-    // Serial.print("Connected to central: ");
-    // Serial.println(central.address());
 ```
 
 
@@ -827,18 +780,10 @@ This `while` statement is why nothing shows up in Monitor until BLE connects the
 The `readValues()` is not used in this case, but in the _RoboCraze_ example, it combines readings and labels into a string
 which can be read easily in nRF Connect with `writeValue(m)`. 
 _( `readValues()` is a function; read [here](#structure-of-arduino-files) )_ `readValues()` is a subroutine to collect the x,y,z of the sensor, and combine it into a readable string.
-**And the `readValues()` function executes from inside of the `while (central.connected())` loop.**
+**And the `readValues()` function executes from inside of the `while (central.connected())` loop.** (refer to the actual code from _RoboCraze_ for what's in 'readValues'
 
 ```
-    while (central.connected()) {
-      delay(200); // take this out if necessary
 
-      // Read values from sensors
-      //readValues();
-
-      // Writing sensor values to the characteristic
-      //ble_magnetic.writeValue(m);
-      //delay(1000); // so we can read it
 ```
 
 ##### note for `void loop()` in 'structure'
@@ -849,14 +794,9 @@ Next, using `readAcceleration()` and `writeValue()` sends information to the BLE
 - It turns out that it's really easy to make Strings show up in the app. 
 - I don't know whether I need any raw data for the current step.
   - In the code, yes/no on the threshold, triggers LED on/off, and "Ready"/"Resting" write to the nRF Connect app, as well as to the serial monitor.
-  - So it might not need any raw data via BLE at all. All the action and calculations will be in the local code, nothing to do with BLE. Sending on/off signals for stuff is all it needs to do. If there's more of a purpose then I don't know what it is. We should keep this simple.
+  - So it might not need any raw data via BLE at all. **NOT FOR READY/RESTING STATES** All the action and calculations will be in the local code, nothing to do with BLE. Sending on/off signals for stuff is all it needs to do. If there's more of a purpose then I don't know what it is. We should keep this simple.
 ```
-      // IMU checking on Y and printing all to Monitor
-      if (IMU.accelerationAvailable()) {
-        IMU.readAcceleration(x, y, z);
 
-        ble_magnetic.writeValue(y);
-        //delay(1000); // so we can read it
 ```
 
 
@@ -866,58 +806,20 @@ _So how are they converted/kept and sent?_ (really necessary?)
 
 Then the same stuff from before. Including the one second pause that I mentioned.
 ```
-        if ( y > -.85 ) {         // -1G is the threshold
-          Serial.print("Ready!");
-          Serial.print('\t');
-          Serial.print("X = ");
-          Serial.print(x);
-          Serial.print('\t');
-          Serial.print("Y = ");
-          Serial.print(y);
-          Serial.print('\t');
-          Serial.print("Z = ");
-          Serial.println(z);
-          }
-        else { 
-          Serial.print("One second delay...");
-          Serial.print('\t');
-          Serial.print("Y = ");
-          Serial.println(y);
-          delay(1000); // one second delay
-          }
-        }
-      }
-    }
+
 ```
 
 
 Next, this wraps up the `void loop()` and shows up in Monitor before the devices connect.
 ```
-    Serial.print("Disconnected from central: ");
-    Serial.println(central.address());
 
-  }
 ```
 
 _This is where x,y,z readings are combined and turned into text strings, rather than leaving it as RAW._
 
 And down here is where the `readValues()` is. Used in the _RoboCraze_ example sketch.
 ```
-//void readValues()
-//{
-//  m = y; // random try in case I understand this
-  
-    /*
-    // Reading raw sensor values from three sensors
-    float x, y, z;
-    if (IMU.magneticFieldAvailable()) {
-      IMU.readMagneticField(x, y, z);
 
-    // Saving sensor values into a user presentable way with units
-    m = "X:" + String(x) + ", Y:" + String(y);
-    }
-    */
-//}
 ```
 
 # end
@@ -943,10 +845,14 @@ And down here is where the `readValues()` is. Used in the _RoboCraze_ example sk
 #
 # Finish connecting BLE 100% as planned before moving on to the SDK part
 #
-##### [Digging into app dev](#digging-into-app-dev)
+## Link to: [Digging into app dev](#digging-into-app-dev)
 (later move this section down here if appropriate)
 
+"Digging into app dev" is a conclusion and intro. Any discussion under this heading would be a transitional narrative.
+#
 
+##### should move to its own page starting with step four
+Everything below this point contains Step Four and beyond, plus all the rambling notes that flew out of my brain.
 
 #
 ##### Step Four:
@@ -1119,7 +1025,10 @@ What are the specific physical instruments needed to determine whether the motio
 - Then enables the Accelerometer again, waiting to be in Ready state again
 
 
-
+# Second Ending Right Here
+#
+#
+#
 #
 #
 
