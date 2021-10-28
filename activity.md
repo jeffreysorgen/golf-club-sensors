@@ -129,7 +129,7 @@ The rest of the code here has shown us, like the prior example, what a basic `.i
 
 #
 ### Importing new functionality into our code
-
+Combining what we know into our old _golf-swing-acc_ sketch:
 ##### All the _golf-swing-acc-ble_ code is here:
 
 ```
