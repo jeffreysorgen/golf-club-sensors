@@ -463,9 +463,9 @@ I need to learn how nRF Connect interfaces with my Android.
 
 #### (15 unique v4UUIDs)
 ```
-355d2b52-982c-4598-b9b4-c19156686e1a    // for <describe>
-9e5982a7-9ef0-48e0-a167-8112ada5f184    // for <describe>
-9dc52af2-d585-4fb7-93a7-922b463239fe    // etc
+355d2b52-982c-4598-b9b4-c19156686e1a    // for imuUUID
+9e5982a7-9ef0-48e0-a167-8112ada5f184    // for accUUID
+9dc52af2-d585-4fb7-93a7-922b463239fe    // for stateUUID
 8564aabe-417c-4fe4-8a40-543ea08079f4
 3e8c97c5-6ae5-444f-b56e-20a741e7bf99
 f2024cef-dae8-4db7-bddb-76c696cdc115
