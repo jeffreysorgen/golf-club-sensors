@@ -1,5 +1,3 @@
-- Create _golf-swing-acc-ble_ from copy of _golf-swing-acc_
-- Add Accelerometer, BLE, and LED functionality in simplest form to _golf-swing-acc-ble_
 - Add the new code to documentation
 - Add descriptions below the new code, using the 'structure' section with other examples if necessary
 
@@ -133,18 +131,142 @@ The rest of the code here has shown us, like the prior example, what a basic `.i
 ### Importing new functionality into our code
 
 ##### All the _golf-swing-acc-ble_ code is here:
-(insert SIMPLIFIED built code for _golf-swing-acc-ble_)
 
+```
+/*
+ * Arduino LSM9DS1 
+ * - Simple Accelerometer
+ * golf-swing-acc
+ * golf-swing-acc-ble
+ */
+ 
+// LIBRARIES
+#include <ArduinoBLE.h>         // BLE library
+#include <Arduino_LSM9DS1.h>    // IMU library
 
+// CONSTANTS
+static const char* imuUUID = "355d2b52-982c-4598-b9b4-c19156686e1a";
+static const char* accUUID = "9e5982a7-9ef0-48e0-a167-8112ada5f184";
+static const char* stateUUID = "9dc52af2-d585-4fb7-93a7-922b463239fe";
 
+// BLE SERVICE NAME
+BLEService IMUService(imuUUID);           // for the IMU service
 
+// BLE CHARACTERISTICS
+BLEFloatCharacteristic ble_accelerometer(accUUID, BLERead | BLENotify);
+BLEStringCharacteristic ble_state(stateUUID, BLERead | BLENotify, 10);
 
+// FUNCTION PROTOTYPE
+/*
+ * set up more functions here
+ */
 
+void setup() {
+  // INITIALIZE THE SENSORS (and serial)
+  IMU.begin();          // initialize IMU (added)
+  Serial.begin(9600);   // initialize serial comms
+  //while (!Serial);    // comment this out
+
+  // INITIALIZE THE DEVICE PINS (added)
+  pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin
+  
+  // CHECK FOR FAILURE
+  // BLE check, will hang on failure?
+  if (!BLE.begin()) {
+    Serial.println("starting BLE failed!");
+    while (1); 
+  }
+  // IMU check
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU!");
+    while (1); 
+  }
+  
+  // SET BLE NAME for connection
+  BLE.setLocalName("Jeff's Nano33BLE");
+  
+  // ADVERTISE SERVICES
+  BLE.setAdvertisedService(IMUService);
+  
+  // ADD CHARACTERISTICS TO BLE SERVICES
+  IMUService.addCharacteristic(ble_accelerometer);
+  IMUService.addCharacteristic(ble_state);
+  
+  // ADD SERVICES TO BLE STACK
+  BLE.addService(IMUService);    // Add IMU Service
+  
+  // SET VALUES FOR STRINGS
+  /*
+   * setValue(x) stuff here
+   */
+  
+  // START ADVERTISING
+  BLE.advertise();
+  
+} //s
+
+void loop() {
+  // Wait for a BLE central to connect
+  BLEDevice central = BLE.central();
+
+  // IMU activity
+  float x, y, z;
+
+  if (IMU.accelerationAvailable()) {
+    IMU.readAcceleration(x, y, z);
+
+    ble_accelerometer.writeValue(y);
+
+    // threshold is -1G
+    if ( y > -.85 ) {
+      
+      // print to BLE
+      ble_state.writeValue("Ready!");
+      
+      // engage the LED
+      digitalWrite(LED_BUILTIN, HIGH);
+      
+      // print to Serial port
+      Serial.print("Ready!");
+      Serial.print('\t');
+      Serial.print("X = ");
+      Serial.print(x);
+      Serial.print('\t');
+      Serial.print("Y = ");
+      Serial.print(y);
+      Serial.print('\t');
+      Serial.print("Z = ");
+      Serial.println(z);
+      }
+    
+    else { 
+      
+      // print to BLE
+      ble_state.writeValue("Resting!");
+      
+      // engage the LED
+      digitalWrite(LED_BUILTIN, LOW);
+      
+      // print to Serial port
+      Serial.print("One second delay...");
+      Serial.print('\t');
+      Serial.print("Y = ");
+      Serial.println(y);
+      delay(1000); // one second delay
+      }
+    }
+  } //v
+
+```
 
 #
+
 #
+
 #
+
 #
+
 ## Structure of Arduino files
 (insert 'structure-of-arduino-files' with descriptions and examples)
 ##### (wait to finish new code before expanding on this)
