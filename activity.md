@@ -273,17 +273,16 @@ void loop() {
 4. I used UUIDs in their long form as constants
 5. I don't know if I could use a shorter form of UUID like "180C" or "300a"
 
+
+
+
+
 ##### important future change
 One of the future modifications needs to be utilizing the BLE code that features **state change only** notifications, so that nRF only receives one-time signal that the state has changed between Ready and Resting, rather than as it is now, which always prints its state to BLE
 
 #
 
-
-
-
-
 - My integrated IMU/BLE configuration, above, displayed a **hex value** in _nRF Connect_ rather than readable data.
-  - I am able to get strings go go through, just not floats. Don't know if this is relevant.
 - Make the nRF Connect readings display "Ready" / "Resting" **(DONE!)**
   - **I have created a file that shows Ready/Resting on the serial monitor and on the nRF Connect app, but also, I have gotten the LED on the device to light up as well!**
   - Once that question is answered, I'll get my phone to turn its flashlight on/off as a result. (yep)
