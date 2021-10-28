@@ -279,21 +279,20 @@ void loop() {
 
 
 
-##### important future change
+##### Important future change:
+
+#### Notify on change of state
+
 One of the future modifications needs to be utilizing the BLE code that features **state change only** notifications, so that nRF only receives one-time signal that the state has changed between Ready and Resting, rather than as it is now, which always prints its state to BLE
-##### Now that state changes can be sent to the smartphone, try to turn its flashlight on/off with the signal!
 
+**Now that state changes can be sent to the smartphone, try to turn its flashlight on/off with the signal!**
+What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
+While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
+- There is a difference between constantly notifying about the state and simply notifying about a state change.
+- Notifying only about a state change will be helpful to eliminate unnecessary BLE communication.
+- Checking a state change can happen less frequently than the device baud rate, so we don't get bounces of the states due to natural movement. 
+  - For example, during its transition to a new state the LED lit very briefly, flashing the previous state of the LED. It looked like a bounce.
 #
-#
-
-
-
-
-
-#
-
-
-
 #### nRF Connect looks like this
 
 (screenshot of my phone screen with device listed)
@@ -303,6 +302,9 @@ One of the future modifications needs to be utilizing the BLE code that features
 <p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
 
 #
+
+##### (UUID info goes here)
+Reference stuff could be on the top of the Step Four page
 #
 #
 #
@@ -311,16 +313,6 @@ One of the future modifications needs to be utilizing the BLE code that features
 
 
 
-(good notes here)
-##### Description:
-What we want to do for this project is to read information from the sensor and then 
-get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
-While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to 
-get the phone to chirp good/bad golf swings. 
-- There is a difference between constantly notifying about the state and simply notifying about a state change.
-- Notifying only about a state change will be helpful to eliminate unnecessary BLE communication.
-- Checking a state change can happen less frequently than the device baud rate, so we don't get bounces of the states due to natural movement. 
-  - Best example was when the LED lit briefly, flashing the previous state of the LED during the transition to a new state. It looked like a bounce.
 #
 
 
