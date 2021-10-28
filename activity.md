@@ -1,4 +1,3 @@
-##### Todo:
 - Split into another page starting with Step Four
 - **Edit more**
 
