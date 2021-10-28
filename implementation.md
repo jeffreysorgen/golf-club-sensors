@@ -45,8 +45,8 @@ _skip to
 23. **Add BLE** Successfully [copied the process](activity.md/#try-the-ble-example-sketch) of a YouTuber to add BLE services on the device.
 24. **Power** Documented several potential development and prototyping [**solutions**](#solve-for-power)
 25. Generated [pseudo code](activity.md#state-change-pseudo-code) for state changes
-26. DEVELOPED the BLE+IMU code, and it's time to _get it documented_ and move to the [**SDK!**](activity.md#step-four)
-
+26. **New Code** Created _golf-swing-imu-ble_ which communicates via BLE to a smartphone
+27. **Editing** Consolidating the documentation in preparation for moving to **Step Four: [the SDK!](activity.md#step-four)**
 
 ##### Learning about this:
 - **nRF Connect**, IMU sensors, BLE, C++, data collection
