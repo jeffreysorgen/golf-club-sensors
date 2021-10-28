@@ -455,7 +455,6 @@ I need to learn how nRF Connect interfaces with my Android.
   - A complete [reference](https://www.arduino.cc/reference/en/)
   - And one specifically for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
 - Here's some GATT information [(_LINK_)](https://www.oreilly.com/library/view/getting-started-with/9781491900550/ch04.html) from O'Reilly (2014), and its repository, [(_here._)](https://github.com/microbuilder/IntroToBLE)
-- Here's a 
 - **Nordic Semi** resources:
   - Helpful [**beginners tutorial**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/ble-advertising-a-beginners-tutorial) from Nordic Semi. 
   - And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/bluetooth-smart-and-the-nordics-softdevices-part-1)
@@ -490,7 +489,7 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 #
 #
 #
-##### Possibly useful ideas go here
+### Possibly useful ideas go here
 
 Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
 
@@ -501,98 +500,30 @@ Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular vel
 #
 # and DELETE THIS NEXT also
 ## maybe combine into little notes section?
-##### (See also: [New notes for modding the file](#new-notes-for-modding-the-file))
 
-# Modifying the file:
-## why is this here?
-### code has been copied already, so just keep essential or unique stuff
-Maybe this formatting is more readable?
-##### most of this will be in the 'file structure' section (TRUE)
-##### this was literally the first draft, and this kind of thing has been written twice before
-(do this entire process again, using different example BLE sketch) (DONE!)
-
-( use this section to describe the _golf-sensors-acc_ ) (I think this section is unnecessary because it's going to end up in the "Structure of Arduino files" section)
-
-Top of sketch. First, add the two libraries. (**copy to Structure**)<-- right here, did this, and so it's in there already
-```
-
-```
-Next, create the SERVICE name "180C". 
-```
-
-```
 ##### characteristic notes:
 Next, add a specific CHARACTERISTIC. If it were a string, there would also be a number for its data length.
 - "2A58" seems quite arbitrary and in other examples is actually the 128-bit UUID. Came from the example. _Each characteristic either DOES or DOES NOT need a unique UUID, so I'll have to **look this up** and why._ (I believe that a service has a unique UUID, and it's characteristics are also unique UUIDs.) [**Refer to UUID section.**](#UUID-info)
-```
 
-```
-In `void setup()`, first check whether the services have started. (also [caveat](#caveat))
-```
-
-```
-Create the name of the service to find in nRF Connect (done)
-```
-
-```
 ##### char advert notes:
-Tell the device to advertise the service (send info via BLE to the receiving end). 
-Here, _"ble_magnetic"_ refers to the IMU readings, the accelerometer in our case. 
-(_might change this from "magnetic" to "acc"_)
-- This would be where more characteristics are added. 
 Anything that's going to be sent to the smartphone via BLE would be added like this, under `customService.addCharacteristic(example_char)` and then accessed within later code and displayed using `example_char.writeValue()`. (true, good note)
-```
 
-```
-Invoke the BLE to advertise. And also go ahead and print that it's active. (done)
-```
-
-```
-##### void loop notes:
-- initialize variables in the void loop()
-
-Now the `void loop()`. 
-```
-
-```
-Do these things _while_ BLE is connected. _(Read [the caveat](#caveat).)_ 
-This `while` statement is why nothing shows up in Monitor until BLE connects the two devices. (_**not really**_) 
+##### robocraze example notes
+Here is where the `readValues()` is used in the _RoboCraze_ example sketch.
 The `readValues()` is not used in this case, but in the _RoboCraze_ example, it combines readings and labels into a string
 which can be read easily in nRF Connect with `writeValue(m)`. 
 _( `readValues()` is a function; read [here](#structure-of-arduino-files) )_ `readValues()` is a subroutine to collect the x,y,z of the sensor, and combine it into a readable string.
 **And the `readValues()` function executes from inside of the `while (central.connected())` loop.** (refer to the actual code from _RoboCraze_ for what's in 'readValues'
-```
+- _This is where x,y,z readings are combined and turned into text strings, rather than leaving it as RAW._
 
-```
-##### note for `void loop()` in 'structure'
-Next, using `readAcceleration()` and `writeValue()` sends information to the BLE App. (yes)
-##### important: (good notes)
-**I need to make this more readable.** I don't know why it writes as a HEX or ID. But the HEX changes as I move the device around, and slows to one second when in the _Resting_ state, meaning that it's properly functioning. **But the reading doesn't make sense.**
-- It turns out that it's really easy to make Strings show up in the app. 
-- I don't know whether I need any raw data for the current step.
-  - In the code, yes/no on the threshold, triggers LED on/off, and "Ready"/"Resting" write to the nRF Connect app, as well as to the serial monitor.
-  - So it might not need any raw data via BLE at all. **NOT FOR READY/RESTING STATES** All the action and calculations will be in the local code, nothing to do with BLE. Sending on/off signals for stuff is all it needs to do. If there's more of a purpose then I don't know what it is. We should keep this simple.
-```
 
-```
-_This is where the y is read and Ready/Resting is established._
-_These values for y need to get sent to BLE._ **(do they?)**
-_So how are they converted/kept and sent?_ (really necessary?)
+#
+#
+#
+#
+#
+#
 
-Then the same stuff from before. Including the one second pause that I mentioned.
-```
-
-```
-Next, this wraps up the `void loop()` and shows up in Monitor before the devices connect.
-```
-
-```
-_This is where x,y,z readings are combined and turned into text strings, rather than leaving it as RAW._
-
-And down here is where the `readValues()` is. Used in the _RoboCraze_ example sketch.
-```
-
-```
 # So, like a conclusion here? 
 ## Link to: [Digging into app dev](#digging-into-app-dev)
 "Digging into app dev" is a conclusion and intro. Any discussion under this heading would be a transitional narrative. It is brief, but I was intending on saying that we've connected the device to the app, and now it's time to figure out how the app works. In order to do that, we need to dig into the development tools of nRF Connect. **There's a YouTube set of videos** which I think I have put in [reference](#reference) but if not needs to be there. It looked complicated, but the videos were pretty clear (and recently made). Also, there's a webinar in just a few days (November 3 I think.)  
