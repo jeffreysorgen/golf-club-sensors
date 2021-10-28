@@ -331,11 +331,7 @@ void loop() {
 4. I used UUIDs in their long form as constants [_(Notes about UUID)_](#notes-about-uuid)
 5. I don't know if I could use a shorter form of UUID like "180C" or "300a"
 
-
-
-
 ##### Important future change:
-
 #### Notify on change of state
 
 One of the future modifications needs to be utilizing the BLE code that features **state change only** notifications, so that nRF only receives one-time signal that the state has changed between Ready and Resting, rather than as it is now, which always prints its state to BLE. 
@@ -348,6 +344,7 @@ While the flashlight functionality won't be used in the end, that solution is cr
 - Checking a state change can happen less frequently than the device baud rate, so we don't get bounces of the states due to natural movement. 
   - For example, during its transition to a new state the LED lit very briefly, flashing the previous state of the LED. It looked like a bounce.
 - [LINK to more here](#state-change-reference-in-here) 
+- [Another link to state change](#state-change)
 
 #
 #### nRF Connect looks like this
@@ -397,46 +394,6 @@ fa94204d-dc71-4585-aa63-98b8133c5266
 #
 
 #
-##### Digging into App Dev
-# App Development
-We were able to pass text into the app, such as "Ready" and "Resting".
-"Ready" and "Resting" could be read as a string, and could read each letter hex value. 
-Both strings began with the same hex values for "R" and "e".
-
-I need to learn how nRF Connect interfaces with my Android.
-
-**And this brings us to developing with nRF Connect!**
-
-### For nRF Connect Development:
-- I need nRF Connect for Desktop:
-[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
-- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop:
-[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
-- There are videos for installation:
-[YouTube](https://youtu.be/2cv_jjqk5hg)
-
-
-#
-#
-#
-#
-
-##### [Link to Step Four](#step-four)
-
-#
-#
-
-[_[ Link to **Structure of Arduino Files** ]_](#structure-of-arduino-files)
-
-#
-
-(Reference stuff could be on the top of the Step Four page)
-
-#
-
-(organize this Reference section)
-
-#
 
 # Reference:
 
@@ -463,17 +420,8 @@ I need to learn how nRF Connect interfaces with my Android.
   - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
 - **Hackster** tutorial: Here's a helpful [IMU and BLE](https://www.hackster.io/gov/imu-to-you-ae53e1) tutorial from hackster.io
 - Wiki about [C data types](https://en.wikipedia.org/wiki/C_data_types#stdint.h)
-#
-#### Examples for reference:
-- Also go through the later lessons in _**EdX Deployment**_ class
 
 #
-- Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
-  - and in which he mentions "BLE2902" but I can't find usage for it yet. But it showed up on nRF Connect "0x2902"
-
-#
-#
-
 
 ##### Arduino's reference for BLE:
 - **From https://www.arduino.cc/en/Reference/ArduinoBLE**
@@ -486,20 +434,45 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 **Updating a characteristic.** When Y-axis, `y < -0.85`, changes from true to false or back, this is the moment to send BLE data, nothing else. Save on BLE energy. _Need to adopt energy-saving code later._
 
 #
-#
-#
-#
-### Possibly useful ideas go here
-
-Interesting: There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
-
-
-
 
 #
+
 #
-# and DELETE THIS NEXT also
-## maybe combine into little notes section?
+
+#
+
+# Possibly useful ideas go here
+
+**Interesting:** There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
+
+**[Magic wand](#magic-wand)**
+
+##### Note about HEX
+We were able to pass text into the app, such as "Ready" and "Resting".
+"Ready" and "Resting" could be read as a string, and could read each letter hex value. 
+Both strings began with the same hex values for "R" and "e".
+
+#
+##### Helpful Info:
+- The all-inclusive Arduino file will be saved as _golf-sensors.ino_ when more sensors are involved.
+  - Multiple "h" file can probably be included, to split off logically (see: [_magic wand_](#digging-deeper-into-the-magic-wand) example) from the _.ino_ file.
+- For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
+- Create an _interval_ for some sensor readings, using `millis()` not `delay()`. But `delay()` is good during Resting state, because all sensors are meant to be off.
+- _**Magic Wand**_ [example](#digging-deeper-into-the-magic-wand)
+
+#
+
+#
+
+#
+
+#
+
+##### notes
+- Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
+  - and in which he mentions "BLE2902" but I can't find usage for it yet. But it showed up on nRF Connect "0x2902"
+
+#
 
 ##### characteristic notes:
 Next, add a specific CHARACTERISTIC. If it were a string, there would also be a number for its data length.
@@ -516,38 +489,51 @@ _( `readValues()` is a function; read [here](#structure-of-arduino-files) )_ `re
 **And the `readValues()` function executes from inside of the `while (central.connected())` loop.** (refer to the actual code from _RoboCraze_ for what's in 'readValues'
 - _This is where x,y,z readings are combined and turned into text strings, rather than leaving it as RAW._
 
+#
+#### Repository Question
+- Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. 
 
 #
-#
-#
-#
-#
+
 #
 
-# So, like a conclusion here? 
+#
+
+#
+##### So, like a conclusion here? 
+# BLE conclusion
+
 ## Link to: [Digging into app dev](#digging-into-app-dev)
 "Digging into app dev" is a conclusion and intro. Any discussion under this heading would be a transitional narrative. It is brief, but I was intending on saying that we've connected the device to the app, and now it's time to figure out how the app works. In order to do that, we need to dig into the development tools of nRF Connect. **There's a YouTube set of videos** which I think I have put in [reference](#reference) but if not needs to be there. It looked complicated, but the videos were pretty clear (and recently made). Also, there's a webinar in just a few days (November 3 I think.)  
+
 #
 
 # end
 
-
-
-
-
-
-
-
-
-
-
-
+#
+#
+#
 
 #
 #
 #
+
+##### Digging into App Dev
+# App Development
+I need to learn how nRF Connect interfaces with my Android.
+
+### For nRF Connect Development:
+- I need nRF Connect for Desktop:
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
+- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop:
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
+- There are videos for installation:
+[YouTube](https://youtu.be/2cv_jjqk5hg)
+
 #
 #
+#
+
 #
 #
 #
@@ -570,22 +556,19 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
   - Can the nRF App turn on/off the phone's **flashlight**? (_Good Idea!_)
 - Make the smartphone beep in Ready state
 
-
 #### Insert video
 <p align="center"><img src="http://some_place.com/image.png" /></p>
 
 ##### Video of moving device back and forth, and hearing the beep sound from the phone
 
-
+# State Change Info
 ### Identifying a state change and taking action
-
 What I want is a way for my Android to recognize a state change coming from the **arduino**. 
 - When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
 - More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
 - There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely
 
 ##### State change: (pseudo code)
-
 ```
 resting = state("Resting");
 ready = state("Ready");
@@ -603,6 +586,7 @@ if ( now !== earlier ) {      // if state has now changed
     pass;                     // now == earlier, so no state change
 ```
 
+#
 
 ### Dog bark KWS example:
 Sensor devices similar to the BLE Sense have been used to trigger audio to play from another device.
@@ -615,33 +599,28 @@ And I want my accelerometer to trigger my phone flashlight on/off, because it se
 - Question is whether it's using BLE or some other connection. But it's a good example of KWS.
   - Wouldn't need BLE if listening device connects with wire to audio player!
 
+#
 
+#
 
 #
+
 #
-#
-#
+
+##### [Link to step four](#step-four)
 ##### (Step Four: Enable Smartphone to BEEP)
 - When creating this sketch, we must create a new Development Sketch, "_dev-sdk-ble-pitches_".
 - For the sketch here, since it's for immediate development, just create high and low pitches for the transitions into Ready and Resting states, respectively, and we'll save the code for future reference.
 - Probably later create a third sketch that combines code from _golf-swing-acc_, the new inclusive sketch, and this _dev_ sketch.
 
-## Reference Info:
-- The all-inclusive Arduino file will be saved as _golf-sensors.ino_ when more sensors are involved.
-  - Multiple "h" file can probably be included, to split off logically (see: [_magic wand_](#digging-deeper-into-the-magic-wand) example) from the _.ino_ file.
-- For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
-- Create an _interval_ for some sensor readings, using `millis()` not `delay()`. But `delay()` is good during Resting state, because all sensors are meant to be off.
-- _**Magic Wand**_ [example](#digging-deeper-into-the-magic-wand)
-
-
-
-
-
-
-
-
+#
 
 #
+
+#
+
+#
+##### this is good a Conclusion
 # All the hard parts of connectivity are done.
 We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
 Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
@@ -649,44 +628,10 @@ After experimenting with a couple of example sketches, we incorporated the BLE l
 
 _**Once those readings were being sent to the device, we configured nRF Connect to take action on the smartphone to make it beep.**_ (Not done yet)
 
-# final step
-#### After collecting gyro/KWS data
-**_Accumulate all the data._**
-The final step of the project is figuring out how to send the collected data to a pool where we can use it to generate a universal dataset for **machine learning** so that we can improve our model. 
-There is no user-specific information in the data being collected, so the sky is the limit.
-Collecting all the data. This step will be after data collection is sorted out, and PCB prototyping is being considered.
-
-##### But first, do step [five](#step-five) and [six](#step-six)
-
-
-
-
+#
 
 #
-#
-#
-#
-# Digging deeper into the _magic wand_:
-##### (more stuff)
-- **LEARN** 
-[from the course](https://learning.edx.org/course/course-v1:HarvardX+TinyML3+1T2021/block-v1:HarvardX+TinyML3+1T2021+type@sequential+block@e355a78c0dcd49b6acbeeaf8f7492859/block-v1:HarvardX+TinyML3+1T2021+type@vertical+block@6e2f8e18dd814e63ad68f60e380b6633)
-about the _magic-wand_ sketch to see how the DATA is recorded there and what gets transmitted to the Serial Monitor, and then how that data displays on the Monitor from that data. What converts that data to the 'readable' visualization of the motion?
-[**This** is the link to the course data collection browser app (use Chrome)](https://tinyml.seas.harvard.edu/magic_wand/).
-- **TEST the motion of the gyro/acc.** Can this motion show up on the Plotter or Monitor? What does this motion look like for gyro/acc individually? Is it helpful to sample the data more slowly for better visualization?
-- HOW does this data get recorded into a data point? We recorded a data set for the Exercise. So _how was that collected?_
-- **_Can this activity happen LOCALLY?_** Because the exercise actually resided on _tinymlx.io_ or something. And that's where all the data got generated.
-- **How much reliance upon external websites is necessary? Why not ALL local?**
-
-
-
-
-
-
-
-#
-#
-#
-# And then:
+# for one of the steps (4,5,6):
 ## AFTER enabling smartphone to beep when sensing Ready orientation
 ### QUESTION: What is the next physical step?
 What is the Accelerometer doing at this point?
@@ -696,51 +641,43 @@ What are the specific physical instruments needed to determine whether the motio
 - It might just be the other 2 axes from the accelerometer. In this case, don't include the axis to which gravity is applied. Only use the other 2, and when they're below a threshold, they're still. (Having said that, I believe the gyro will be even more obvious)
 
 #
+# steps five and six
 ##### Step Five:
 ## Get Gyro going
-
 1. Figure out the Gyro data on Monitor.
 1. Figure out how to collect gyro data.
 1. Figure out how to **add** the KWS field ('yes'|null) to that data point.
 1. Figure out how to combine data points into a **usable DATA SET** (with or without the KWS resolved)
-
-
 #
 ##### Step Six:
 ## Collect gyro data
-
 - Once in Ready state, figure out how to **enable the Gyro** to collect a sweep of data once motion begins.
 - Watch Gyro data in Monitor. Collect X,Y,Z coordinates of Gyro, as well as TIME STAMPS (so, 4 dimensions)
   - As soon as Gyro reads that it's sitting still, that's when the collection can begin. 
 - WHAT do Gyroscope readings represent? Are these what we want for our DATA COLLECTION?
   - Will fewer data points save memory? Is it necessary? (No, for now)
 - Collect some data, and **then stop** when the Gyro is still again to SAVE THE DATA.
-
-
 ## More steps
-
 - The gyro/acc record movement (_HOW MUCH MOVEMENT?_)
   - This data will require normalization, eliminating noise (LEARN)
   - Then a label must be applied to the recorded data points ('yes'|null)
 - Then transmit the data points to smartphone
 - Then enables the Accelerometer again, waiting to be in Ready state again
 
+#
+# final step
 
-# Second Ending Right Here
-# MAYBE THIS SHOULD BE WHERE WE MAKE NEW PAGE INSTEAD?
-#
-#
-#
-#
+#### After collecting gyro/KWS data
+**_Accumulate all the data._**
+The final step of the project is figuring out how to send the collected data to a pool where we can use it to generate a universal dataset for **machine learning** so that we can improve our model. 
+There is no user-specific information in the data being collected, so the sky is the limit.
+Collecting all the data. This step will be after data collection is sorted out, and PCB prototyping is being considered.
 
-#### Repository Question
-- Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. 
+##### But first, do step [five](#step-five) and [six](#step-six)
+_Move sections around for better clarity_
 
 #
-#
-
-
-### What are more parts to the project?
+# What are more parts to the project?
 
 #### Figure out:
 - how to determine amount of memory being used
@@ -768,6 +705,33 @@ What are the specific physical instruments needed to determine whether the motio
 - testing prototype
 - collect 10X more data
 
+#
+
+#
+
+#
+
+#
+
+Move magic wand to [reference](#reference) section:
+##### magic wand
+## Digging deeper into the _magic wand_:
+- **LEARN** 
+[from the course](https://learning.edx.org/course/course-v1:HarvardX+TinyML3+1T2021/block-v1:HarvardX+TinyML3+1T2021+type@sequential+block@e355a78c0dcd49b6acbeeaf8f7492859/block-v1:HarvardX+TinyML3+1T2021+type@vertical+block@6e2f8e18dd814e63ad68f60e380b6633)
+about the _magic-wand_ sketch to see how the DATA is recorded there and what gets transmitted to the Serial Monitor, and then how that data displays on the Monitor from that data. What converts that data to the 'readable' visualization of the motion?
+[**This** is the link to the course data collection browser app (use Chrome)](https://tinyml.seas.harvard.edu/magic_wand/).
+- **TEST the motion of the gyro/acc.** Can this motion show up on the Plotter or Monitor? What does this motion look like for gyro/acc individually? Is it helpful to sample the data more slowly for better visualization?
+- HOW does this data get recorded into a data point? We recorded a data set for the Exercise. So _how was that collected?_
+- **_Can this activity happen LOCALLY?_** Because the exercise actually resided on _tinymlx.io_ or something. And that's where all the data got generated.
+- **How much reliance upon external websites is necessary? Why not ALL local?**
+
+#
+
+#
+
+#
+
+#
 
 #
 ## More Learning:
@@ -776,11 +740,12 @@ What are the specific physical instruments needed to determine whether the motio
   - **Fully utilize GitHub features and functionality**
 - **TinyML Book** Create new repository "hello-world-arduino" for book exercise (sine function)
 
+#
 
 # [<-- back to Implementation](implementation.md)
 
-
 ## Also:
+
 * Determine whether to keep the TEST site called _jdsgithubpages_ (probably not)
 * Determine whether _ArduinoBLE-to-Android_ repository is necessary. (probably not) (DO NOT NEED _ArduinoBLE-to-Android_ so probably delete it.)
 * Determine whether to add photo of Arduino project on Git Profile page as a GIF (probably not)
@@ -801,6 +766,7 @@ What are the specific physical instruments needed to determine whether the motio
 
 #
 ### Jot down ideas for other projects here
+
 - wind turbine ( Is the most popular product TinyML or IoT? )
 - Continue recording _golf-swing-sensors_ progress in THIS repository
 - **LED glasses** which display "HIGHLND" across them
