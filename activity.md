@@ -149,12 +149,17 @@ static const char* imuUUID = "355d2b52-982c-4598-b9b4-c19156686e1a";
 static const char* accUUID = "9e5982a7-9ef0-48e0-a167-8112ada5f184";
 static const char* stateUUID = "9dc52af2-d585-4fb7-93a7-922b463239fe";
 
-// BLE SERVICE NAME
-BLEService IMUService(imuUUID);           // for the IMU service
+// INITIALIZE VARIABLES
+/*
+ * (example) String p, t, m; // Initalizing global variables for...
+ */
 
-// BLE CHARACTERISTICS
-BLEFloatCharacteristic ble_accelerometer(accUUID, BLERead | BLENotify);
-BLEStringCharacteristic ble_state(stateUUID, BLERead | BLENotify, 10);
+// BLE SERVICE NAME (create service)
+BLEService IMUService(imuUUID);
+
+// BLE CHARACTERISTICS (create characteristics)
+BLEFloatCharacteristic ble_accelerometer(accUUID, BLERead | BLENotify); // for the IMU service
+BLEStringCharacteristic ble_state(stateUUID, BLERead | BLENotify, 10); // for the IMU service
 
 // FUNCTION PROTOTYPE
 /*
@@ -163,15 +168,15 @@ BLEStringCharacteristic ble_state(stateUUID, BLERead | BLENotify, 10);
 
 void setup() {
   // INITIALIZE THE SENSORS (and serial)
-  IMU.begin();          // initialize IMU (added)
+  IMU.begin();          // initialize IMU
   Serial.begin(9600);   // initialize serial comms
   //while (!Serial);    // comment this out
 
-  // INITIALIZE THE DEVICE PINS (added)
+  // INITIALIZE THE DEVICE PINS
   pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin
   
   // CHECK FOR FAILURE
-  // BLE check, will hang on failure?
+  // BLE check
   if (!BLE.begin()) {
     Serial.println("starting BLE failed!");
     while (1); 
@@ -182,8 +187,8 @@ void setup() {
     while (1); 
   }
   
-  // SET BLE NAME for connection
-  BLE.setLocalName("Jeff's Nano33BLE");
+  // SET BLE NAME (create device name)
+  BLE.setLocalName("Nano33BLESense");
   
   // ADVERTISE SERVICES
   BLE.setAdvertisedService(IMUService);
@@ -192,7 +197,7 @@ void setup() {
   IMUService.addCharacteristic(ble_accelerometer);
   IMUService.addCharacteristic(ble_state);
   
-  // ADD SERVICES TO BLE STACK
+  // ADD SERVICES TO BLE STACK (add service to advertise)
   BLE.addService(IMUService);    // Add IMU Service
   
   // SET VALUES FOR STRINGS
@@ -200,7 +205,7 @@ void setup() {
    * setValue(x) stuff here
    */
   
-  // START ADVERTISING
+  // START ADVERTISING (advertise all services)
   BLE.advertise();
   
 } //s
@@ -215,7 +220,7 @@ void loop() {
   if (IMU.accelerationAvailable()) {
     IMU.readAcceleration(x, y, z);
 
-    ble_accelerometer.writeValue(y);
+    ble_accelerometer.writeValue(y);    // sends hex value
 
     // threshold is -1G
     if ( y > -.85 ) {
@@ -256,7 +261,6 @@ void loop() {
       }
     }
   } //v
-
 ```
 
 #
