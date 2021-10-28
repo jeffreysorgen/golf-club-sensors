@@ -266,7 +266,10 @@ void loop() {
     }
   } //v
 ```
+- **We have created code that shows Ready/Resting on the serial monitor and on the nRF Connect app, but also, we got the LED on the device to light up as well!**
+
 # and now...
+
 1. Data is being sent from the device to nRF Connect
 2. The device sends Ready/Resting depending on a threshold in the code
 3. Accelerometer value is sent in the form of a **_hex_** (don't know if this matters yet)
@@ -276,16 +279,13 @@ void loop() {
 
 
 
-
 ##### important future change
 One of the future modifications needs to be utilizing the BLE code that features **state change only** notifications, so that nRF only receives one-time signal that the state has changed between Ready and Resting, rather than as it is now, which always prints its state to BLE
+##### Now that state changes can be sent to the smartphone, try to turn its flashlight on/off with the signal!
 
 #
+#
 
-- My integrated IMU/BLE configuration, above, displayed a **hex value** in _nRF Connect_ rather than readable data.
-- Make the nRF Connect readings display "Ready" / "Resting" **(DONE!)**
-  - **I have created a file that shows Ready/Resting on the serial monitor and on the nRF Connect app, but also, I have gotten the LED on the device to light up as well!**
-  - Once that question is answered, I'll get my phone to turn its flashlight on/off as a result. (yep)
 
 
 
