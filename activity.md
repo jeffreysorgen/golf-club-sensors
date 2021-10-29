@@ -848,8 +848,10 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
   - **INCORPORATING _KWS_** for verbal commands! Like, "highlnd" would display "HIGHLND" across the frame, and could do "party", "love", "hearts" (heart emojis), and with special design specs I could do ANY voice commands. Of course limited to device capacity. Maybe not for the _feather_ but another that includes a microphone and capacity for TinyML.
 
 
-#
-# Thoughts and notes
+**_[Thoughts and notes --> ](thoughtsandnotes.md)_**
+
+# delete EVERYTHING BELOW here
+#### Thoughts and notes
 _**(move ALL of the following to its own page)**_
 ## Fourier
 - I would like to convert MOTION recorded here and stored in JSON into a _Fourier Series_ because it seems that that would be a good way to create 3D time-series illustrations
