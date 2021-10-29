@@ -324,9 +324,6 @@ void loop() {
   (1)<img src="http://some_place.com/nrf-screenshot.png"  width="20%">
   (2)<img src="http://some_place.com/y-axis-led-video.png"  width="20%">
 </p>
-#
-`(1)<img src="images/Sm-attaching to a stick.png" width="20%">`
-#
 
 Next:
 - [**_[ Digging deeper into BLE --> ]_**](EnablingBLE.md)
