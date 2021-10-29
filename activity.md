@@ -342,7 +342,7 @@ _(video of device LED on and off when it tips on y-axis)_
 
 #
 #
-**_(moved to enablingble.md)_**
+**_(moved to EnablingBLE.md)_**
 ## and now...
 1. Data is being sent from the device to nRF Connect
 2. The device sends Ready/Resting depending on a threshold in the code
