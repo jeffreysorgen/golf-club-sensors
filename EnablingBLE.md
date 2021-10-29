@@ -11,6 +11,28 @@
 
 #
 
+
+
+### notify/indicate
+
+Go through entire process this user did implementing Notify/Indicate. [FORUM](https://forum.arduino.cc/c/using-arduino/programming-questions/20)
+
+**However this is developed, it's going to need CCCP, whatever that is.** [LINK](https://forum.arduino.cc/t/feature-request-option-to-set-cccd-value/919852)
+
+From same FORUM: Link to Arduino forum about [notify/indicate](https://forum.arduino.cc/t/notifications-and-indications-disabled-nrf-connect/915757)
+```
+const uint8_t notificationOn[] = {0x1, 0x0};
+pRemoteCharacteristic->getDescriptor(BLEUUID((uint16_t)0x2902))->writeValue((uint8_t*)notificationOn, 2, true);
+```
+He's pointing out the nRF Connect functionality with Notify and Indicate. Refers to video mentioned here:
+- Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
+  - and in which he mentions "BLE2902" but I can't find usage for it yet. But it showed up on nRF Connect "0x2902"
+
+
+
+
+
+
 ### State change info
 
 ##### Important future change:
@@ -53,22 +75,6 @@ if ( now !== earlier ) {      // if state has now changed
     pass;                     // now == earlier, so no state change
 ```
 #
-
-### notify/indicate
-
-Go through entire process this user did implementing Notify/Indicate. [FORUM](https://forum.arduino.cc/c/using-arduino/programming-questions/20)
-
-However this is developed, it's going to need CCCP, whatever that is. [LINK](https://forum.arduino.cc/t/feature-request-option-to-set-cccd-value/919852)
-
-From same FORUM: Link to Arduino forum about [notify/indicate](https://forum.arduino.cc/t/notifications-and-indications-disabled-nrf-connect/915757)
-```
-const uint8_t notificationOn[] = {0x1, 0x0};
-pRemoteCharacteristic->getDescriptor(BLEUUID((uint16_t)0x2902))->writeValue((uint8_t*)notificationOn, 2, true);
-```
-He's pointing out the nRF Connect functionality with Notify and Indicate. Refers to video mentioned here:
-- Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
-  - and in which he mentions "BLE2902" but I can't find usage for it yet. But it showed up on nRF Connect "0x2902"
-
 
 
 
