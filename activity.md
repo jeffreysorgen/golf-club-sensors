@@ -417,8 +417,8 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 # Possibly useful ideas go here
 
 - [(link to notify/indicate)](EnablingBLE.md#notifyindicate)
-- [(link to **Magic wand**](#magic-wand)
-- [(link to "digging deeper into the **magic wand** example](#digging-deeper-into-the-magic-wand)
+- [(link to **Magic wand**)](#magic-wand)
+- [(link to "digging deeper into the **magic wand**" example)](#digging-deeper-into-the-magic-wand)
 
 
 #
