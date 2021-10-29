@@ -25,11 +25,32 @@ While the flashlight functionality won't be used in the end, that solution is cr
 - [LINK to more here](#state-change-reference-in-here) 
 - [Another link to state change](#state-change)
 
+
+#### notify/indicate
+
+Link to Arduino forum about [notify/indicate](https://forum.arduino.cc/t/notifications-and-indications-disabled-nrf-connect/915757)
+```
+const uint8_t notificationOn[] = {0x1, 0x0};
+pRemoteCharacteristic->getDescriptor(BLEUUID((uint16_t)0x2902))->writeValue((uint8_t*)notificationOn, 2, true);
+```
+He's pointing out the nRF Connect functionality with Notify and Indicate. Refers to video mentioned in [resource section](#resources)
+
+
+
+
+
+
+
+
+
+
+
+
+
 #
-#### nRF Connect looks like this
+#
+#
 
-(screenshot of my phone screen with device listed)
-<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
-
-(video of device LED on and off when it tips on y-axis)
-<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
+#
+#
+#
