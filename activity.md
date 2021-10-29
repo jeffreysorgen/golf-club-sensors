@@ -322,6 +322,11 @@ void loop() {
 ```
 - **We have created code that shows Ready/Resting on the serial monitor and on the nRF Connect app, but also, we got the LED on the device to light up as well!**
 
+
+
+# [Digging deeper into BLE -->](EnablingBLE.md)
+
+
 # and now...
 
 1. Data is being sent from the device to nRF Connect
