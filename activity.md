@@ -325,6 +325,8 @@ void loop() {
 ##### video of device LED on and off when it tips on y-axis
 <p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
 
+#
+
 Next:
 - [**_[ Digging deeper into BLE --> ]_**](EnablingBLE.md)
 - [**_[ UUID Info ]_**](uuid-info)
