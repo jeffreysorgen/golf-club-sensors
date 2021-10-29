@@ -28,15 +28,11 @@ He's pointing out the nRF Connect functionality with Notify and Indicate. Refers
 - Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
   - and in which he mentions "BLE2902" but I can't find usage for it yet. But it showed up on nRF Connect "0x2902"
 
+#
 
+### State Change info
 
-
-
-
-### State change info
-
-##### Important future change:
-#### Notify on change of state
+**Important to enable Notify for Change of State**
 
 One of the future modifications needs to be utilizing the BLE code that features **state change only** notifications, so that nRF only receives one-time signal that the state has changed between Ready and Resting, rather than as it is now, which always prints its state to BLE. 
 
