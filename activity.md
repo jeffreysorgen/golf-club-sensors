@@ -315,7 +315,7 @@ void loop() {
     }
   } //v
 ```
-- **We have created code that shows Ready/Resting on the serial monitor and on the nRF Connect app, but also, we got the LED on the device to light up as well!**
+**We have created code that shows Ready/Resting on the serial monitor and on the nRF Connect app, but also, we got the LED on the device to light up as well!**
 
 ##### screenshot of my phone screen with device listed
 <p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
