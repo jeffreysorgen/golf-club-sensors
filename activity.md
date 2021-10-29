@@ -325,6 +325,8 @@ void loop() {
   (2)<img src="http://some_place.com/y-axis-led-video.png"  width="20%">
 </p>
 
+#
+
 Next:
 - [**_[ Digging deeper into BLE --> ]_**](EnablingBLE.md)
 - [**_[ UUID Info ]_**](uuid-info)
@@ -332,7 +334,6 @@ Next:
 - [**_[ Enabling the gyro ]_**](#steps-five-and-six)
 - [**_[ Recording the data ]_**](#steps-five-and-six)
 - [**_[ KWS (Key Word Spotting) ]_**](#key-word-spotting)
-
 
 #
 
@@ -410,6 +411,19 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 
 #
 
+##### magic wand
+### Digging deeper into the _magic wand_:
+- **LEARN** 
+[from the course](https://learning.edx.org/course/course-v1:HarvardX+TinyML3+1T2021/block-v1:HarvardX+TinyML3+1T2021+type@sequential+block@e355a78c0dcd49b6acbeeaf8f7492859/block-v1:HarvardX+TinyML3+1T2021+type@vertical+block@6e2f8e18dd814e63ad68f60e380b6633)
+about the _magic-wand_ sketch to see how the DATA is recorded there and what gets transmitted to the Serial Monitor, and then how that data displays on the Monitor from that data. What converts that data to the 'readable' visualization of the motion?
+[**This** is the link to the course data collection browser app (use Chrome)](https://tinyml.seas.harvard.edu/magic_wand/).
+- **TEST the motion of the gyro/acc.** Can this motion show up on the Plotter or Monitor? What does this motion look like for gyro/acc individually? Is it helpful to sample the data more slowly for better visualization?
+- HOW does this data get recorded into a data point? We recorded a data set for the Exercise. So _how was that collected?_
+- **_Can this activity happen LOCALLY?_** Because the exercise actually resided on _tinymlx.io_ or something. And that's where all the data got generated.
+- **How much reliance upon external websites is necessary? Why not ALL local?**
+
+#
+
 #
 
 #
@@ -420,8 +434,7 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 
 - [(link to notify/indicate)](EnablingBLE.md#notifyindicate)
 - [(link to **Magic wand**)](#magic-wand)
-- [(link to "digging deeper into the **magic wand**" example)](#digging-deeper-into-the-magic-wand)
-
+  - [(link to "digging deeper into the **magic wand**" example)](#digging-deeper-into-the-magic-wand)
 
 #
 
@@ -555,10 +568,8 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
   - Can the nRF App turn on/off the phone's **flashlight**? (_Good Idea!_)
   - Make the smartphone beep in Ready state
 
-#### Insert video
-<p align="center"><img src="http://some_place.com/image.png" /></p>
-
 ##### Video of moving device back and forth, and hearing the beep sound from the phone
+<p align="center"><img src="http://some_place.com/image.png" /></p>
 
 #
 
@@ -587,6 +598,11 @@ _**Once those readings were being sent to the device, we configured nRF Connect 
 #
 
 #
+
+#
+
+#
+
 # for one of the steps (4,5,6):
 _(QUESTION: What is the next physical step?)_
 ##### "Getting the gyro going" (step five)
@@ -668,18 +684,6 @@ _Move sections around for better clarity_
 #
 
 #
-
-Move magic wand to [reference](#reference) section:
-##### magic wand
-## Digging deeper into the _magic wand_:
-- **LEARN** 
-[from the course](https://learning.edx.org/course/course-v1:HarvardX+TinyML3+1T2021/block-v1:HarvardX+TinyML3+1T2021+type@sequential+block@e355a78c0dcd49b6acbeeaf8f7492859/block-v1:HarvardX+TinyML3+1T2021+type@vertical+block@6e2f8e18dd814e63ad68f60e380b6633)
-about the _magic-wand_ sketch to see how the DATA is recorded there and what gets transmitted to the Serial Monitor, and then how that data displays on the Monitor from that data. What converts that data to the 'readable' visualization of the motion?
-[**This** is the link to the course data collection browser app (use Chrome)](https://tinyml.seas.harvard.edu/magic_wand/).
-- **TEST the motion of the gyro/acc.** Can this motion show up on the Plotter or Monitor? What does this motion look like for gyro/acc individually? Is it helpful to sample the data more slowly for better visualization?
-- HOW does this data get recorded into a data point? We recorded a data set for the Exercise. So _how was that collected?_
-- **_Can this activity happen LOCALLY?_** Because the exercise actually resided on _tinymlx.io_ or something. And that's where all the data got generated.
-- **How much reliance upon external websites is necessary? Why not ALL local?**
 
 #
 
