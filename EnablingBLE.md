@@ -1,4 +1,5 @@
-##### Digging into BLE
+- enable the descriptors
+
 [Back](activity.md)
 
 # What we've accomplished
