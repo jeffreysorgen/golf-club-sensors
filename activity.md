@@ -411,8 +411,8 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 
 #
 
-##### magic wand
-### Digging deeper into the _magic wand_:
+##### Digging deeper into the _magic wand_
+### magic wand
 - **LEARN** 
 [from the course](https://learning.edx.org/course/course-v1:HarvardX+TinyML3+1T2021/block-v1:HarvardX+TinyML3+1T2021+type@sequential+block@e355a78c0dcd49b6acbeeaf8f7492859/block-v1:HarvardX+TinyML3+1T2021+type@vertical+block@6e2f8e18dd814e63ad68f60e380b6633)
 about the _magic-wand_ sketch to see how the DATA is recorded there and what gets transmitted to the Serial Monitor, and then how that data displays on the Monitor from that data. What converts that data to the 'readable' visualization of the motion?
@@ -434,7 +434,6 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 - [(link to notify/indicate)](EnablingBLE.md#notifyindicate)
 - [(link to **Magic wand**)](#magic-wand)
-  - [(link to "digging deeper into the **magic wand**" example)](#digging-deeper-into-the-magic-wand)
 
 #
 
