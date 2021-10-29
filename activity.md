@@ -411,7 +411,7 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 
 # Possibly useful ideas go here
 
-[(link to notify/indicate)](ImplementingBLE.md#state-change-info)
+[(link to notify/indicate)](EnablingBLE.md#notifyindicate)
 
 #
 
