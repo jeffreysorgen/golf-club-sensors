@@ -11,7 +11,7 @@
 
 #
 
-## State change
+### State change info
 
 ##### Important future change:
 #### Notify on change of state
@@ -29,25 +29,8 @@ While the flashlight functionality won't be used in the end, that solution is cr
 - [Another link to state change](activity.md#state-change)
 
 #
-### notify/indicate
 
-Link to Arduino forum about [notify/indicate](https://forum.arduino.cc/t/notifications-and-indications-disabled-nrf-connect/915757)
-```
-const uint8_t notificationOn[] = {0x1, 0x0};
-pRemoteCharacteristic->getDescriptor(BLEUUID((uint16_t)0x2902))->writeValue((uint8_t*)notificationOn, 2, true);
-```
-He's pointing out the nRF Connect functionality with Notify and Indicate. Refers to video mentioned here:
-- Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
-  - and in which he mentions "BLE2902" but I can't find usage for it yet. But it showed up on nRF Connect "0x2902"
-
-#
-
-#
-
-#
-
-## State Change Info
-##### Identifying a state change and taking action
+#### Identifying a state change and taking action
 What I want is a way for my Android to recognize a state change coming from the **arduino**. 
 - When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
 - More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
@@ -71,6 +54,16 @@ if ( now !== earlier ) {      // if state has now changed
 ```
 #
 
+### notify/indicate
+
+Link to Arduino forum about [notify/indicate](https://forum.arduino.cc/t/notifications-and-indications-disabled-nrf-connect/915757)
+```
+const uint8_t notificationOn[] = {0x1, 0x0};
+pRemoteCharacteristic->getDescriptor(BLEUUID((uint16_t)0x2902))->writeValue((uint8_t*)notificationOn, 2, true);
+```
+He's pointing out the nRF Connect functionality with Notify and Indicate. Refers to video mentioned here:
+- Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
+  - and in which he mentions "BLE2902" but I can't find usage for it yet. But it showed up on nRF Connect "0x2902"
 
 
 
