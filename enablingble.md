@@ -23,8 +23,8 @@ While the flashlight functionality won't be used in the end, that solution is cr
 - Notifying only about a state change will be helpful to eliminate unnecessary BLE communication. 
 - Checking a state change can happen less frequently than the device baud rate, so we don't get bounces of the states due to natural movement. 
   - For example, during its transition to a new state the LED lit very briefly, flashing the previous state of the LED. It looked like a bounce.
-- [LINK to more here](#state-change-reference-in-here) 
-- [Another link to state change](#state-change)
+- [LINK to more here](activity.md#state-change-reference-in-here) 
+- [Another link to state change](activity.md#state-change)
 
 #
 ### notify/indicate
