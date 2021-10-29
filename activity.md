@@ -325,8 +325,6 @@ void loop() {
 ##### video of device LED on and off when it tips on y-axis
 <p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
 
-#
-
 [**_[ Digging deeper into BLE --> ]_**](EnablingBLE.md)
 
 #
@@ -463,21 +461,7 @@ Steps:
 
 #
 
-
-
-
-
-
-##### notes
-- Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
-  - and in which he mentions "BLE2902" but I can't find usage for it yet. But it showed up on nRF Connect "0x2902"
-
 #
-
-
-
-
-
 
 ##### characteristic notes:
 Next, add a specific CHARACTERISTIC. If it were a string, there would also be a number for its data length.
