@@ -324,11 +324,7 @@ void loop() {
   (1)<img src="http://some_place.com/nrf-screenshot.png" />
   (2)<img src="http://some_place.com/y-axis-led-video.png" />
 </p>
-#
-```
-(1)<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
-(2)<p align="center"><img src="http://some_place.com/y-axis-led-video.png" /></p>
-```
+
 #
 
 Next:
