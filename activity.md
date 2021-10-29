@@ -3,7 +3,7 @@
 [*[ 2 Solve for Power ]*](implementation.md/#solve-for-power)
 [*[ **Step Three: Enable BLE+IMU** ]*](#step-three)
 [*[ Step Four: Enable Smartphone to BEEP ]*](#step-four)
-[_[ jump to new project ideas-> ]_](#jot-down-ideas-for-other-projects-here)
+[_[ jump to new project ideas-> ]_](thoughtsandnotes.md)
 
 #
 ##### Step Three:
