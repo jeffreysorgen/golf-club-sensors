@@ -562,37 +562,6 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
 
 
 
-# check this and delete
-**_(moved to ImplementingBLE.md)_**
-# State Change Info
-### Identifying a state change and taking action
-What I want is a way for my Android to recognize a state change coming from the **arduino**. 
-- When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
-- More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
-- There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely
-##### State change: (pseudo code)
-```
-resting = state("Resting");
-ready = state("Ready");
-now = update.state();         // returns "Ready" or "Resting"
-
-if ( now !== earlier ) {      // if state has now changed
-    if (now == resting) {     // and is now Resting
-        beep(low);            // then beep low for new Resting state
-        }
-    else {
-        beep(high);           // otherwise beep high for new Ready state
-        }
-    earlier=now;              // update earlier state with now state
-    }
-    pass;                     // now == earlier, so no state change
-```
-#
-**_(end of stuff that moved)_**
-
-
-
-
 
 
 
