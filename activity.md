@@ -443,6 +443,11 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 # Possibly useful ideas go here
 
 Link to Arduino forum about [notify/indicate](https://forum.arduino.cc/t/notifications-and-indications-disabled-nrf-connect/915757)
+```
+const uint8_t notificationOn[] = {0x1, 0x0};
+pRemoteCharacteristic->getDescriptor(BLEUUID((uint16_t)0x2902))->writeValue((uint8_t*)notificationOn, 2, true);
+```
+He's pointing out the nRF Connect functionality with Notify and Indicate. Refers to video mentioned in [resource section](#resources)
 
 #
 
