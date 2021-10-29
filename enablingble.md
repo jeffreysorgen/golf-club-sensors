@@ -26,7 +26,7 @@ While the flashlight functionality won't be used in the end, that solution is cr
 - [LINK to more here](#state-change-reference-in-here) 
 - [Another link to state change](#state-change)
 
-
+#
 ### notify/indicate
 
 Link to Arduino forum about [notify/indicate](https://forum.arduino.cc/t/notifications-and-indications-disabled-nrf-connect/915757)
