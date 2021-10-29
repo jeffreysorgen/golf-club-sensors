@@ -611,13 +611,21 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
 
 ##### Video of moving device back and forth, and hearing the beep sound from the phone
 
+
+
+
+
+
+
+
+#
+##### (move to implementingble.md)
 # State Change Info
 ### Identifying a state change and taking action
 What I want is a way for my Android to recognize a state change coming from the **arduino**. 
 - When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
 - More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
 - There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely
-
 ##### State change: (pseudo code)
 ```
 resting = state("Resting");
@@ -635,9 +643,18 @@ if ( now !== earlier ) {      // if state has now changed
     }
     pass;                     // now == earlier, so no state change
 ```
+#
+##### (end of stuff that moved)
+
+
+
+
+
+
+
+
 
 #
-
 ### Dog bark KWS example:
 Sensor devices similar to the BLE Sense have been used to trigger audio to play from another device.
 The dog barking example from YouTube (here) is one. 
