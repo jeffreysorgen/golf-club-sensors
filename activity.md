@@ -804,8 +804,8 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 
 #
-**_(move to thoughtandnotes.md)_**
-### Jot down ideas for other projects here
+**_(move to thoughtsandnotes.md)_**
+##### [Jot down ideas for other projects here --> ](thoughtsandnotes.md#other-projects)
 - wind turbine ( Is the most popular product TinyML or IoT? )
 - Continue recording _golf-swing-sensors_ progress in THIS repository
 - **LED glasses** which display "HIGHLND" across them (**ORDERED!!**)
