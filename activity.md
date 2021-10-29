@@ -1,5 +1,3 @@
-- **Edit more**
-
 [*[ Overview ]*](README.md/#golf-swing-sensors)
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
 [*[ 2 Solve for Power ]*](implementation.md/#solve-for-power)
@@ -131,8 +129,8 @@ The code for the LED will be useful for indicating "Ready" and "Resting" states.
 **These two examples have shown us what a basic `.ino` file looks like.**
 
 #
-##### Structure of Arduino files
-### Arduino File Structure
+##### (Structure of Arduino files)
+## Arduino File Structure
 
 Here we will describe the very basic structure of an Arduino `.ino` file. 
 
@@ -180,11 +178,11 @@ Here we will describe the very basic structure of an Arduino `.ino` file.
 - subroutines and stuff (edit this)
 
 
-
-
 #
-### Importing new functionality into our code
-We're now going to take what we've learned from our two examples and incorporate them into our feature code, now called _golf-swing-acc-ble_.
+## Creating the new code
+##### Importing new functionality into our code
+
+We're now going to take what we've learned from our two examples and incorporate them into our feature code, now called **_golf-swing-acc-ble_**.
 
 ##### All the _golf-swing-acc-ble_ code is here:
 ```
@@ -326,6 +324,13 @@ void loop() {
 <p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
 
 [**_[ Digging deeper into BLE --> ]_**](EnablingBLE.md)
+[**_[ UUID Info ]_**](uuid-info)
+[**_[ Reference ]_**](#reference)
+
+[**_[ Enabling the gyro ]_**](#steps-five-and-six)
+[**_[ Recording the data ]_**](#steps-five-and-six)
+[**_[ KWS (Key Word Spotting) ]_**](#key-word-spotting)
+
 
 #
 
@@ -411,13 +416,14 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 
 # Possibly useful ideas go here
 
-[(link to notify/indicate)](EnablingBLE.md#notifyindicate)
+- [(link to notify/indicate)](EnablingBLE.md#notifyindicate)
+- [(link to **Magic wand**](#magic-wand)
+- [(link to "digging deeper into the **magic wand** example](#digging-deeper-into-the-magic-wand)
+
 
 #
 
 **Interesting:** There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
-
-**[Magic wand](#magic-wand)**
 
 ##### Note about HEX
 We were able to pass text into the app, such as "Ready" and "Resting".
@@ -430,11 +436,10 @@ Both strings began with the same hex values for "R" and "e".
   - Multiple "h" file can probably be included, to split off logically (see: [_magic wand_](#digging-deeper-into-the-magic-wand) example) from the _.ino_ file.
 - For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
 - Create an _interval_ for some sensor readings, using `millis()` not `delay()`. But `delay()` is good during Resting state, because all sensors are meant to be off.
-- _**Magic Wand**_ [example](#digging-deeper-into-the-magic-wand)
 
 #
 #### Key Word Spotting
-- Need to bump up the application for key word spotting.
+- Need to bump up the application for key word spotting. (break this section out independently)
 - Enable the microphone on the Arduino to do this.
 - Start using **TensorFlow Micro**.
 - Which step is this going to be? Before enabling gyro? Collect gyro data first?
@@ -491,20 +496,22 @@ _( `readValues()` is a function; read [here](#structure-of-arduino-files) )_ `re
 #
 
 #
-##### So, like a conclusion here? 
+##### Transition/conclusion
 # BLE conclusion
+Move this to "Digging deeper into BLE" section, after enabling the code on the device.
+This lies between completing the BLE code and "Getting Started with the SDK".
 
 ## Link to: [Digging into app dev](#digging-into-app-dev)
-"Digging into app dev" is a conclusion and intro. Any discussion under this heading would be a transitional narrative. It is brief, but I was intending on saying that we've connected the device to the app, and now it's time to figure out how the app works. In order to do that, we need to dig into the development tools of nRF Connect. **There's a YouTube set of videos** which I think I have put in [reference](#reference) but if not needs to be there. It looked complicated, but the videos were pretty clear (and recently made). Also, there's a webinar in just a few days (November 3 I think.)  
+"Digging into app dev" is a conclusion and intro. Any discussion under this heading would be a transitional narrative. It is brief, but I was intending on saying that we've connected the device to the app, and now it's time to figure out how the app works. In order to do that, we need to dig into the development tools of nRF Connect. **There's a YouTube set of videos** (check this) which I think I have put in [reference](#reference) but if not needs to be there. It looked complicated, but the videos were pretty clear (and recently made). Also, there's a webinar in just a few days (November 3 I think.)  
 
 #
-#
+
 #
 
 #
-#
-#
 
+#
+##### "Getting Started with the SDK"
 ##### Digging into App Dev
 # App Development
 I need to learn how nRF Connect interfaces with my Android.
@@ -531,17 +538,17 @@ Everything below this point contains Step Four and beyond, plus all the rambling
 #
 ##### Step Four:
 ## Enable Smartphone to BEEP
-
+- Enabling the smartphone to Beep will come after "Getting Started with the SDK"
+- Requires App Development: Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
 - Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
 
-#### Description
+##### Description
 Proof of feasibility. Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way.
-- Requires App Development: Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
 - Enable smartphone functions via nRF (Requires SDK)
-- What can be configured in my phone that receives commands from the nRF Connect application?
-  - Can the phone app trigger **BEEP** or a vibration/buzz? (But should be just once, at change of its state)
+- What can be configured in my phone when it receives commands from the nRF Connect application?
+  - Can the phone app trigger **BEEP** or a vibration/buzz? (But should be just once, at _change of its state_)
   - Can the nRF App turn on/off the phone's **flashlight**? (_Good Idea!_)
-- Make the smartphone beep in Ready state
+  - Make the smartphone beep in Ready state
 
 #### Insert video
 <p align="center"><img src="http://some_place.com/image.png" /></p>
@@ -555,7 +562,7 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
 
 
 
-#
+# check this and delete
 **_(moved to ImplementingBLE.md)_**
 # State Change Info
 ### Identifying a state change and taking action
