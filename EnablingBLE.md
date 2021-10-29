@@ -56,7 +56,11 @@ if ( now !== earlier ) {      // if state has now changed
 
 ### notify/indicate
 
-Link to Arduino forum about [notify/indicate](https://forum.arduino.cc/t/notifications-and-indications-disabled-nrf-connect/915757)
+Go through entire process this user did implementing Notify/Indicate. [FORUM](https://forum.arduino.cc/c/using-arduino/programming-questions/20)
+
+However this is developed, it's going to need CCCP, whatever that is. [LINK](https://forum.arduino.cc/t/feature-request-option-to-set-cccd-value/919852)
+
+From same FORUM: Link to Arduino forum about [notify/indicate](https://forum.arduino.cc/t/notifications-and-indications-disabled-nrf-connect/915757)
 ```
 const uint8_t notificationOn[] = {0x1, 0x0};
 pRemoteCharacteristic->getDescriptor(BLEUUID((uint16_t)0x2902))->writeValue((uint8_t*)notificationOn, 2, true);
