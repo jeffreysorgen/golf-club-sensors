@@ -322,14 +322,18 @@ void loop() {
 ```
 - **We have created code that shows Ready/Resting on the serial monitor and on the nRF Connect app, but also, we got the LED on the device to light up as well!**
 
+_(screenshot of my phone screen with device listed)_
+<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
+
+_(video of device LED on and off when it tips on y-axis)_
+<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
 
 
 
 
 
 
-
-#### [Digging deeper into BLE -->](EnablingBLE.md)
+## [Digging deeper into BLE -->](EnablingBLE.md)
 
 
 
@@ -338,7 +342,7 @@ void loop() {
 
 #
 #
-##### (moved to enablingble.md)
+**_(moved to enablingble.md)_**
 ## and now...
 1. Data is being sent from the device to nRF Connect
 2. The device sends Ready/Resting depending on a threshold in the code
@@ -358,12 +362,8 @@ While the flashlight functionality won't be used in the end, that solution is cr
   - For example, during its transition to a new state the LED lit very briefly, flashing the previous state of the LED. It looked like a bounce.
 - [LINK to more here](#state-change-reference-in-here) 
 - [Another link to state change](#state-change-info)
-#
-##### (end of what moved)
 
-
-
-
+**_(end of what moved)_**
 
 #
 
@@ -372,14 +372,6 @@ While the flashlight functionality won't be used in the end, that solution is cr
 #
 
 #
-
-#### nRF Connect looks like this
-
-(screenshot of my phone screen with device listed)
-<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
-
-(video of device LED on and off when it tips on y-axis)
-<p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
 
 #
 ## UUID Info:
@@ -443,7 +435,7 @@ fa94204d-dc71-4585-aa63-98b8133c5266
 
 #
 
-##### Arduino's reference for BLE:
+#### Arduino's reference for BLE:
 - **From https://www.arduino.cc/en/Reference/ArduinoBLE**
 
 ##### (state change reference in here)
@@ -463,6 +455,8 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 
 # Possibly useful ideas go here
 [(link to notify/indicate)](implementingble.md#notifyindicate)
+
+**_(moved to implementble.md)_**
 ##### notify/indicate
 
 Link to Arduino forum about [notify/indicate](https://forum.arduino.cc/t/notifications-and-indications-disabled-nrf-connect/915757)
@@ -471,6 +465,8 @@ const uint8_t notificationOn[] = {0x1, 0x0};
 pRemoteCharacteristic->getDescriptor(BLEUUID((uint16_t)0x2902))->writeValue((uint8_t*)notificationOn, 2, true);
 ```
 He's pointing out the nRF Connect functionality with Notify and Indicate. Refers to video mentioned in [resource section](#resources)
+
+_**(end of moved part)**_
 
 #
 
@@ -520,11 +516,21 @@ Steps:
 
 #
 
+
+
+
+
+
 ##### notes
 - Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
   - and in which he mentions "BLE2902" but I can't find usage for it yet. But it showed up on nRF Connect "0x2902"
 
 #
+
+
+
+
+
 
 ##### characteristic notes:
 Next, add a specific CHARACTERISTIC. If it were a string, there would also be a number for its data length.
@@ -837,14 +843,14 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 - wind turbine ( Is the most popular product TinyML or IoT? )
 - Continue recording _golf-swing-sensors_ progress in THIS repository
-- **LED glasses** which display "HIGHLND" across them
+- **LED glasses** which display "HIGHLND" across them (**ORDERED!!**)
   - **Acquire** one of the mounts/PCB boards, and maybe later design PCB myself. Requires Adafruit _feather_ board. I imagine I'd document a project just like this _golf-sensors_ one, step by step. Fun to imagine Patreon or YouTube connections also. I like the idea of offering this to fans and artists. Should be very fun to do, with profit potential.
   - **INCORPORATING _KWS_** for verbal commands! Like, "highlnd" would display "HIGHLND" across the frame, and could do "party", "love", "hearts" (heart emojis), and with special design specs I could do ANY voice commands. Of course limited to device capacity. Maybe not for the _feather_ but another that includes a microphone and capacity for TinyML.
 
 
 #
 # Thoughts and notes
-
+_**(move ALL of the following to its own page)**_
 ## Fourier
 - I would like to convert MOTION recorded here and stored in JSON into a _Fourier Series_ because it seems that that would be a good way to create 3D time-series illustrations
 - ([3B1B Fourier Series video here](https://youtu.be/r6sGWTCMz2k?t=1226)) The video describes 2 dimensions, but what I'm interested in calculating is in 3 dimensions.
