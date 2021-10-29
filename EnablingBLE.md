@@ -31,7 +31,7 @@ He's pointing out the nRF Connect functionality with Notify and Indicate. Refers
 #
 This should be coordinated like turning on and off the LED. 
 The LED is literally turned on repeatedly through the loop. 
-We need to turn the LED on `(if "Ready" state = True)` and turn it off it it's False.
+**We need to turn the LED on or off only when a change of state has been noticed.**
 But use Notify/Indicate to get this to happen. 
 Check the "2902" thing. `00` is off and `01` is on.
 Obviously, rotating the y-axis is what makes this change happen.
