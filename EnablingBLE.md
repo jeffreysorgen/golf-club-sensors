@@ -9,6 +9,8 @@
 4. I used UUIDs in their long form as constants [_(Notes about UUID)_](activity.md#notes-about-uuid)
 5. I don't know if I could use a shorter form of UUID like "180C" or "300a"
 
+#
+
 ## State change
 
 ##### Important future change:
