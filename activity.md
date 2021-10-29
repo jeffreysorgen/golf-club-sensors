@@ -324,10 +324,12 @@ void loop() {
 
 
 
-# [Digging deeper into BLE -->](EnablingBLE.md)
+#### [Digging deeper into BLE -->](EnablingBLE.md)
 
-
-# and now...
+#
+#
+##### (moved to enablingble.md)
+## and now...
 
 1. Data is being sent from the device to nRF Connect
 2. The device sends Ready/Resting depending on a threshold in the code
@@ -349,8 +351,17 @@ While the flashlight functionality won't be used in the end, that solution is cr
   - For example, during its transition to a new state the LED lit very briefly, flashing the previous state of the LED. It looked like a bounce.
 - [LINK to more here](#state-change-reference-in-here) 
 - [Another link to state change](#state-change)
+#
+##### (end of what moved)
 
 #
+
+#
+
+#
+
+#
+
 #### nRF Connect looks like this
 
 (screenshot of my phone screen with device listed)
@@ -390,12 +401,6 @@ d49b4462-2bfd-4d92-8103-88ed9429e662
 52f6c067-db43-4e53-893b-d7d98406901b
 fa94204d-dc71-4585-aa63-98b8133c5266
 ```
-
-#
-
-#
-
-#
 
 #
 
@@ -446,6 +451,8 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 #
 
 # Possibly useful ideas go here
+
+##### notify/indicate
 
 Link to Arduino forum about [notify/indicate](https://forum.arduino.cc/t/notifications-and-indications-disabled-nrf-connect/915757)
 ```
