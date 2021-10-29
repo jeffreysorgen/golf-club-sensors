@@ -330,23 +330,8 @@ _(video of device LED on and off when it tips on y-axis)_
 
 
 
-
-
+#
 [**_[ Digging deeper into BLE --> ]_**](EnablingBLE.md)
-
-
-
-
-
-
-#
-#
-#
-
-#
-
-#
-
 #
 
 #
