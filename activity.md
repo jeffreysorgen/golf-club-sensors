@@ -848,5 +848,13 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
   - **INCORPORATING _KWS_** for verbal commands! Like, "highlnd" would display "HIGHLND" across the frame, and could do "party", "love", "hearts" (heart emojis), and with special design specs I could do ANY voice commands. Of course limited to device capacity. Maybe not for the _feather_ but another that includes a microphone and capacity for TinyML.
 
 
+
+#
 **_[Thoughts and notes --> ](thoughtsandnotes.md)_**
+#
+
+
+
+
+
 
