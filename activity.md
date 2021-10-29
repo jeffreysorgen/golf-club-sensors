@@ -437,6 +437,7 @@ We were able to pass text into the app, such as "Ready" and "Resting".
 Both strings began with the same hex values for "R" and "e".
 
 #
+
 ##### Helpful Info:
 - The all-inclusive Arduino file will be saved as _golf-sensors.ino_ when more sensors are involved.
   - Multiple "h" file can probably be included, to split off logically (see: [_magic wand_](#digging-deeper-into-the-magic-wand) example) from the _.ino_ file.
@@ -444,6 +445,7 @@ Both strings began with the same hex values for "R" and "e".
 - Create an _interval_ for some sensor readings, using `millis()` not `delay()`. But `delay()` is good during Resting state, because all sensors are meant to be off.
 
 #
+
 #### Key Word Spotting
 - Need to bump up the application for key word spotting. (break this section out independently)
 - Enable the microphone on the Arduino to do this.
@@ -472,6 +474,18 @@ Steps:
 
 #
 
+#### Dog bark KWS example:
+Sensor devices similar to the BLE Sense have been used to trigger audio to play from another device.
+The dog barking example from YouTube (here) is one. 
+So I need to use the matching code from that example and apply it for my purpose,
+which is to get nRF Connect to trigger actions in my phone.
+That microphone sensor created KWS model that triggered an app to play some prerecorded audio.
+And I want my accelerometer to trigger my phone flashlight on/off, because it senses _Ready/Resting_ states.
+- Found [**this**](https://youtu.be/v5hBjouFHQY) dog bark video about how the BLE Sense triggered other devices.
+- Question is whether it's using BLE or some other connection. But it's a good example of KWS.
+  - Wouldn't need BLE if listening device connects with wire to audio player!
+
+#
 #
 
 ##### characteristic notes:
@@ -512,6 +526,7 @@ This lies between completing the BLE code and "Getting Started with the SDK".
 
 #
 ##### "Getting Started with the SDK"
+_(This might be Step Four?)_
 ##### Digging into App Dev
 # App Development
 I need to learn how nRF Connect interfaces with my Android.
@@ -525,18 +540,10 @@ I need to learn how nRF Connect interfaces with my Android.
 [YouTube](https://youtu.be/2cv_jjqk5hg)
 
 #
-#
-#
-
-#
-#
-#
-
-##### should move to its own page starting with step four
-Everything below this point contains Step Four and beyond, plus all the rambling notes that flew out of my brain.
 
 #
 ##### Step Four:
+_(might be called "getting started with sdk")_
 ## Enable Smartphone to BEEP
 - Enabling the smartphone to Beep will come after "Getting Started with the SDK"
 - Requires App Development: Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
@@ -555,40 +562,11 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
 
 ##### Video of moving device back and forth, and hearing the beep sound from the phone
 
-
-
-
-
-
-
-
-
-
-
-
-#
-#
-### Dog bark KWS example:
-Sensor devices similar to the BLE Sense have been used to trigger audio to play from another device.
-The dog barking example from YouTube (here) is one. 
-So I need to use the matching code from that example and apply it for my purpose,
-which is to get nRF Connect to trigger actions in my phone.
-That microphone sensor created KWS model that triggered an app to play some prerecorded audio.
-And I want my accelerometer to trigger my phone flashlight on/off, because it senses _Ready/Resting_ states.
-- Found [**this**](https://youtu.be/v5hBjouFHQY) dog bark video about how the BLE Sense triggered other devices.
-- Question is whether it's using BLE or some other connection. But it's a good example of KWS.
-  - Wouldn't need BLE if listening device connects with wire to audio player!
-
-#
-
-#
-
-#
-
 #
 
 ##### [Link to step four](#step-four)
 ##### (Step Four: Enable Smartphone to BEEP)
+(edit this stuff, maybe not needed)
 - When creating this sketch, we must create a new Development Sketch, "_dev-sdk-ble-pitches_".
 - For the sketch here, since it's for immediate development, just create high and low pitches for the transitions into Ready and Resting states, respectively, and we'll save the code for future reference.
 - Probably later create a third sketch that combines code from _golf-swing-acc_, the new inclusive sketch, and this _dev_ sketch.
@@ -601,7 +579,7 @@ And I want my accelerometer to trigger my phone flashlight on/off, because it se
 
 #
 ##### this is a good Conclusion
-# All the hard parts of connectivity are done.
+# All the hard parts of _connectivity_ are done.
 We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
 Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
 After experimenting with a couple of example sketches, we incorporated the BLE library to the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming from the Nano33BLE.
@@ -612,9 +590,8 @@ _**Once those readings were being sent to the device, we configured nRF Connect 
 
 #
 # for one of the steps (4,5,6):
-## AFTER enabling smartphone to beep when sensing Ready orientation
-(insert KWS)
-### QUESTION: What is the next physical step?
+_(QUESTION: What is the next physical step?)_
+##### "Getting the gyro going" (step five)
 What is the Accelerometer doing at this point?
 - When the Accelerometer is in the Ready state, another sensor (gyro, or maybe acc) identifies the Stillness state and prepares to record movement.
 What are the specific physical instruments needed to determine whether the motion has stopped? 
