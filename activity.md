@@ -340,14 +340,16 @@ Next:
 ## UUID Info:
 #### Notes about UUID
 
+- [Online UUID Generator](https://www.uuidgenerator.net/) created the [unique UUIDs](#15-unique-v4uuids)
 - _Keep studying about UUID_
 - Need to have specific UUIDs for each IMU param
 - I can't find a specific standard UUID for x,y,z on the Accelerometer
   - what does the **raw** IMU data look like? (move this)
 - check the hackster.io post in the [Reference](#reference)
   - Here: the [hackster](https://www.hackster.io/gov/imu-to-you-ae53e1) site again
-- I thought I would need to use the BLE UUID spec which I thought was "important for ble" [(reference)](#reference)
-- Go simpler. Look how they use them in the examples, and use theirs instead.
+- I thought I would need to use the BLE UUID spec which I thought was "important for ble"
+  - UUID for BLE: _XXXXXXXX-0000-1000-8000-00805F9B34FB_ (Look this up to find standard BLE list)
+- Go simpler. Look how they use them in the examples, and use theirs instead. Also, make them up: "FFF1" etc.
 
 #### (15 unique v4UUIDs)
 ```
@@ -373,9 +375,6 @@ fa94204d-dc71-4585-aa63-98b8133c5266
 # Reference:
 
 - Here's the okdo.com example, including [_BLE Hello World_](#the-ble-hello-world-sketch): [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc) (keep this info in reference section)
-- UUID for BLE: _XXXXXXXX-0000-1000-8000-00805F9B34FB_ Look this up to find standard BLE list
-- [Online UUID Generator](https://www.uuidgenerator.net/)
-  - Here are 15 unique [**v4-UUIDs**](#15-unique-v4uuids) from the generator
 - Helpful from Argenox:
   - [**Argenox website**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a good place to READ about BLE
   - Here's the [Bluetooth Low Energy Library](https://www.argenox.com/library/bluetooth-low-energy/)
