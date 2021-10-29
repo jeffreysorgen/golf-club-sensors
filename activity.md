@@ -321,10 +321,11 @@ void loop() {
 
 ##### (1) phone screen with device listed (2) turning on and off the LED by tipping on the y-axis
 <p align="center">
-  (1)<img src="http://some_place.com/nrf-screenshot.png" />
-  (2)<img src="http://some_place.com/y-axis-led-video.png" />
+  (1)<img src="http://some_place.com/nrf-screenshot.png"  width="20%">
+  (2)<img src="http://some_place.com/y-axis-led-video.png"  width="20%">
 </p>
-
+#
+`(1)<img src="images/Sm-attaching to a stick.png" width="20%">`
 #
 
 Next:
