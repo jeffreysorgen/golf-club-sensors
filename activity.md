@@ -324,22 +324,29 @@ void loop() {
 
 
 
+
+
+
+
+
 #### [Digging deeper into BLE -->](EnablingBLE.md)
+
+
+
+
+
 
 #
 #
 ##### (moved to enablingble.md)
 ## and now...
-
 1. Data is being sent from the device to nRF Connect
 2. The device sends Ready/Resting depending on a threshold in the code
 3. Accelerometer value is sent in the form of a **_hex_** (don't know if this matters yet)
 4. I used UUIDs in their long form as constants [_(Notes about UUID)_](#notes-about-uuid)
 5. I don't know if I could use a shorter form of UUID like "180C" or "300a"
-
 ##### Important future change:
 #### Notify on change of state
-
 One of the future modifications needs to be utilizing the BLE code that features **state change only** notifications, so that nRF only receives one-time signal that the state has changed between Ready and Resting, rather than as it is now, which always prints its state to BLE. 
 
 **Now that state changes can be sent to the smartphone, try to turn its flashlight on/off with the signal!**
@@ -353,6 +360,10 @@ While the flashlight functionality won't be used in the end, that solution is cr
 - [Another link to state change](#state-change)
 #
 ##### (end of what moved)
+
+
+
+
 
 #
 
@@ -451,7 +462,7 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 #
 
 # Possibly useful ideas go here
-
+[(link to notify/indicate)](implementingble.md#notifyindicate)
 ##### notify/indicate
 
 Link to Arduino forum about [notify/indicate](https://forum.arduino.cc/t/notifications-and-indications-disabled-nrf-connect/915757)
