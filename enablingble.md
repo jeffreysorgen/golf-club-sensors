@@ -45,8 +45,8 @@ He's pointing out the nRF Connect functionality with Notify and Indicate. Refers
 
 #
 
-# State Change Info
-### Identifying a state change and taking action
+## State Change Info
+##### Identifying a state change and taking action
 What I want is a way for my Android to recognize a state change coming from the **arduino**. 
 - When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
 - More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
