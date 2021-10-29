@@ -29,6 +29,16 @@ He's pointing out the nRF Connect functionality with Notify and Indicate. Refers
   - and in which he mentions "BLE2902" but I can't find usage for it yet. But it showed up on nRF Connect "0x2902"
 
 #
+This should be coordinated like turning on and off the LED. 
+The LED is literally turned on repeatedly through the loop. 
+We need to turn the LED on `(if "Ready" state = True)` and turn it off it it's False.
+But use Notify/Indicate to get this to happen. 
+Check the "2902" thing. `00` is off and `01` is on.
+Obviously, rotating the y-axis is what makes this change happen.
+
+
+
+#
 
 ### State Change info
 
