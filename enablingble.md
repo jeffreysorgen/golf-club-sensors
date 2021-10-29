@@ -9,7 +9,7 @@
 4. I used UUIDs in their long form as constants [_(Notes about UUID)_](activity.md#notes-about-uuid)
 5. I don't know if I could use a shorter form of UUID like "180C" or "300a"
 
-# State change
+## State change
 
 ##### Important future change:
 #### Notify on change of state
@@ -37,8 +37,38 @@ pRemoteCharacteristic->getDescriptor(BLEUUID((uint16_t)0x2902))->writeValue((uin
 He's pointing out the nRF Connect functionality with Notify and Indicate. Refers to video mentioned in [resource section](#resources)
 
 
+#
 
+#
 
+#
+
+#
+
+# State Change Info
+### Identifying a state change and taking action
+What I want is a way for my Android to recognize a state change coming from the **arduino**. 
+- When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
+- More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
+- There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely
+##### State change: (pseudo code)
+```
+resting = state("Resting");
+ready = state("Ready");
+now = update.state();         // returns "Ready" or "Resting"
+
+if ( now !== earlier ) {      // if state has now changed
+    if (now == resting) {     // and is now Resting
+        beep(low);            // then beep low for new Resting state
+        }
+    else {
+        beep(high);           // otherwise beep high for new Ready state
+        }
+    earlier=now;              // update earlier state with now state
+    }
+    pass;                     // now == earlier, so no state change
+```
+#
 
 
 
