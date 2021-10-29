@@ -344,6 +344,7 @@ Next:
 - _Keep studying about UUID_
 - Need to have specific UUIDs for each IMU param
 - I can't find a specific standard UUID for x,y,z on the Accelerometer
+  - check _GATT Angulars_ note, [**here**](#gatt-angulars) 
   - what does the **raw** IMU data look like? (move this)
 - check the hackster.io post in the [Reference](#reference)
   - Here: the [hackster](https://www.hackster.io/gov/imu-to-you-ae53e1) site again
@@ -436,6 +437,7 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 #
 
+##### GATT angulars
 **Interesting:** There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
 
 #
