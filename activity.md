@@ -323,13 +323,13 @@ void loop() {
 ##### video of device LED on and off when it tips on y-axis
 <p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
 
-[**_[ Digging deeper into BLE --> ]_**](EnablingBLE.md)
-[**_[ UUID Info ]_**](uuid-info)
-[**_[ Reference ]_**](#reference)
-
-[**_[ Enabling the gyro ]_**](#steps-five-and-six)
-[**_[ Recording the data ]_**](#steps-five-and-six)
-[**_[ KWS (Key Word Spotting) ]_**](#key-word-spotting)
+Next:
+- [**_[ Digging deeper into BLE --> ]_**](EnablingBLE.md)
+- [**_[ UUID Info ]_**](uuid-info)
+- [**_[ Reference ]_**](#reference)
+- [**_[ Enabling the gyro ]_**](#steps-five-and-six)
+- [**_[ Recording the data ]_**](#steps-five-and-six)
+- [**_[ KWS (Key Word Spotting) ]_**](#key-word-spotting)
 
 
 #
