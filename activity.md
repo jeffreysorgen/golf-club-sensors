@@ -429,6 +429,8 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 
 **Interesting:** There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
 
+#
+
 ##### Note about HEX
 We were able to pass text into the app, such as "Ready" and "Resting".
 "Ready" and "Resting" could be read as a string, and could read each letter hex value. 
