@@ -430,19 +430,8 @@ Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client
 #
 
 # Possibly useful ideas go here
-[(link to notify/indicate)](implementingble.md#notifyindicate)
 
-**_(moved to implementble.md)_**
-##### notify/indicate
-
-Link to Arduino forum about [notify/indicate](https://forum.arduino.cc/t/notifications-and-indications-disabled-nrf-connect/915757)
-```
-const uint8_t notificationOn[] = {0x1, 0x0};
-pRemoteCharacteristic->getDescriptor(BLEUUID((uint16_t)0x2902))->writeValue((uint8_t*)notificationOn, 2, true);
-```
-He's pointing out the nRF Connect functionality with Notify and Indicate. Refers to video mentioned in [resource section](#resources)
-
-_**(end of moved part)**_
+[(link to notify/indicate)](ImplementingBLE.md#notifyindicate)
 
 #
 
@@ -601,7 +590,7 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
 
 
 #
-##### (move to implementingble.md)
+**_(moved to ImplementingBLE.md)_**
 # State Change Info
 ### Identifying a state change and taking action
 What I want is a way for my Android to recognize a state change coming from the **arduino**. 
@@ -626,7 +615,7 @@ if ( now !== earlier ) {      // if state has now changed
     pass;                     // now == earlier, so no state change
 ```
 #
-##### (end of stuff that moved)
+**_(end of stuff that moved)_**
 
 
 
@@ -635,7 +624,7 @@ if ( now !== earlier ) {      // if state has now changed
 
 
 
-
+#
 #
 ### Dog bark KWS example:
 Sensor devices similar to the BLE Sense have been used to trigger audio to play from another device.
@@ -791,8 +780,8 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 - **TinyML Book** Create new repository "hello-world-arduino" for book exercise (sine function)
 
 #
-
-# [<-- back to Implementation](implementation.md)
+[**_[ <-- back to Implementation ]_**](implementation.md)
+#
 
 ## Also:
 
@@ -815,8 +804,8 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 
 #
+**_(move to thoughtandnotes.md)_**
 ### Jot down ideas for other projects here
-
 - wind turbine ( Is the most popular product TinyML or IoT? )
 - Continue recording _golf-swing-sensors_ progress in THIS repository
 - **LED glasses** which display "HIGHLND" across them (**ORDERED!!**)
