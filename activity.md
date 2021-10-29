@@ -328,7 +328,7 @@ void loop() {
 #
 
 Next:
-- [**_[ Digging deeper into BLE --> ]_**](EnablingBLE.md)
+- [**_[ Continuing with BLE --> ]_**](EnablingBLE.md)
 - [**_[ UUID Info ]_**](uuid-info)
 - [**_[ Reference ]_**](#reference)
 - [**_[ Enabling the gyro ]_**](#steps-five-and-six)
