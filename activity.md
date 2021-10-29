@@ -128,10 +128,7 @@ The big takeaway with this code is that the `while (central.connected()){` comma
 **_It's LED-centric code._** 
 The code for the LED will be useful for indicating "Ready" and "Resting" states.
 
-These two examples have shown us what a basic `.ino` file looks like.
-
-
-
+**These two examples have shown us what a basic `.ino` file looks like.**
 
 #
 ##### Structure of Arduino files
@@ -322,19 +319,18 @@ void loop() {
 ```
 - **We have created code that shows Ready/Resting on the serial monitor and on the nRF Connect app, but also, we got the LED on the device to light up as well!**
 
-_(screenshot of my phone screen with device listed)_
+##### screenshot of my phone screen with device listed
 <p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
 
-_(video of device LED on and off when it tips on y-axis)_
+##### video of device LED on and off when it tips on y-axis
 <p align="center"><img src="http://some_place.com/nrf-screenshot.png" /></p>
-
-
 
 #
+
 [**_[ Digging deeper into BLE --> ]_**](EnablingBLE.md)
-#
 
 #
+
 ## UUID Info:
 #### Notes about UUID
 
@@ -344,7 +340,7 @@ _(video of device LED on and off when it tips on y-axis)_
   - what does the **raw** IMU data look like? (move this)
 - check the hackster.io post in the [Reference](#reference)
   - Here: the [hackster](https://www.hackster.io/gov/imu-to-you-ae53e1) site again
-- I thought I would need to use the BLE UUID spec which I thought was "important for ble" [(below)](#reference)
+- I thought I would need to use the BLE UUID spec which I thought was "important for ble" [(reference)](#reference)
 - Go simpler. Look how they use them in the examples, and use theirs instead.
 
 #### (15 unique v4UUIDs)
@@ -396,10 +392,11 @@ fa94204d-dc71-4585-aa63-98b8133c5266
 
 #
 
-#### Arduino's reference for BLE:
+### Arduino's reference for BLE:
 - **From https://www.arduino.cc/en/Reference/ArduinoBLE**
 
 ##### (state change reference in here)
+
 **Notify or Indicate.** Think of this as _Sender_ and _Reader_. ArduinoBLESense is the _sender_ and when a reading changes, the nRF Connect is going to be the _reader_ at the right moment. For my purposes, the _sender_ wants to let the _reader_ know that the state has changed from Ready to Resting, and vice versa. This reduces the BLE communication (which is the most energy-hungry part of this project) down to one single instance: _characteristic change_ (state change). The model BLE uses is known as a **publish-and-subscribe model.**
 
 Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client_
@@ -438,7 +435,7 @@ Both strings began with the same hex values for "R" and "e".
 - _**Magic Wand**_ [example](#digging-deeper-into-the-magic-wand)
 
 #
-##### Key Word Spotting
+#### Key Word Spotting
 - Need to bump up the application for key word spotting.
 - Enable the microphone on the Arduino to do this.
 - Start using **TensorFlow Micro**.
@@ -460,9 +457,9 @@ Steps:
   - It looks like TinyML model could end up being KWS for this and also Gesture-type Model for gyro data. But now that I describe it like this, it doesn't sound so bad. After all, this is the same thing that happened in the class when image-spotting (face-ID) is ongoing, and when True, it switches over to KWS. **This** is the principle of **multi-tenancy**.
 
 ##### Steps:
-- Finish App Development (**get the phone to beep**) and finalize it, including video of success and simplifying code.
+- Finish App Development (**get the phone to beep**) and _finalize_ it, including video of success and simplifying code.
 - Create simple KWS code.
-  - **Turn the LED on and off with "yes" or "no".** Use Pete Warden's simple dataset (refer to the class) so that I don't have to create my own, or use EdgeImpulse to create my own "yes"/"no" dataset, or do it myself as I did in the class.
+  - **Turn the LED on and off with "yes" or "no".** Use Pete Warden's simple dataset _(refer to the class)_ so that I don't have to create my own, or use EdgeImpulse to create my own "yes"/"no" dataset, or do it myself as I did in the class.
 
 #
 
