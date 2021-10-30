@@ -356,7 +356,7 @@ Next:
 - I thought I would need to use the BLE UUID spec which I thought was "important for ble"
   - UUID for BLE: _XXXXXXXX-0000-1000-8000-00805F9B34FB_ (Look this up to find standard BLE list)
 - Go simpler. Look how they use them in the examples, and use theirs instead. Also, make them up: "FFF1" etc.
-- Changed to 16-bit to be easier to read.
+- Changed to 16-bit in the code.
 
 #### (15 unique v4UUIDs)
 ```
