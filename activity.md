@@ -325,9 +325,7 @@ void loop() {
 </p>
 
 ##### Turning on and off the LED by tilting on the y-axis
-<p align="center">
-  <img src="images/myBLEtilt.gif"  width="35%">
-</p>
+  <img src="images/myBLEtilt.gif"  width="50%">
 
 #
 
