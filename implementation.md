@@ -47,6 +47,7 @@ _skip to
 25. Generated [pseudo code](activity.md#state-change-pseudo-code) for state changes
 26. **New Code** Created _golf-swing-imu-ble_ which communicates via BLE to a smartphone
 27. **Editing** Consolidating the documentation in preparation for moving to **Step Four: [the SDK!](activity.md#step-four)**
+28. **Posted to Reddit!** [HERE](https://www.reddit.com/r/arduino/comments/qja9y6/nano33blesense_project_first_step_solve_for_power/)
 
 ##### Learning about this:
 - **nRF Connect**, IMU sensors, BLE, C++, data collection
