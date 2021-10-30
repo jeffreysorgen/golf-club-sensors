@@ -1,3 +1,4 @@
+- how to enable notify or indicate
 - enable the descriptors
 
 [Back](activity.md)
@@ -16,20 +17,60 @@
 
 ### notify/indicate
 
-Go through entire process this user did implementing Notify/Indicate. [FORUM](https://forum.arduino.cc/c/using-arduino/programming-questions/20)
+We need to send notifications about a change of state between Ready and Resting.
+We've syncronized the LED to turn on and off with this also.
+As the code loops it sends its state every time through BLE. 
+When the app reads "Ready" it is getting that information from the device constantly.
 
-**However this is developed, it's going to need CCCP, whatever that is.** [LINK](https://forum.arduino.cc/t/feature-request-option-to-set-cccd-value/919852)
+So what we are going to do is figure out how to send a notification only when the state has changed and stays changed
 
-From same FORUM: Link to Arduino forum about [notify/indicate](https://forum.arduino.cc/t/notifications-and-indications-disabled-nrf-connect/915757)
-```
-const uint8_t notificationOn[] = {0x1, 0x0};
-pRemoteCharacteristic->getDescriptor(BLEUUID((uint16_t)0x2902))->writeValue((uint8_t*)notificationOn, 2, true);
-```
-He's pointing out the nRF Connect functionality with Notify and Indicate. Refers to video mentioned here:
-- Here's a YouTube video ( [*Bluetooth BLE on ESP32 works! Tutorial for Arduino IDE*](https://youtu.be/osneajf7Xkg) ) that shows some detail about Server/Client and characteristics
-  - and in which he mentions "BLE2902" but I can't find usage for it yet. But it showed up on nRF Connect "0x2902"
+`CREATE FUNCTION stateChanged(millis)`
+`readMillis(millis)`
+`currentState(now)`
+
+`if currentState(now) == currentState(500) == currentState(1000) == currentState(2000) { pass; }`
+`else if (currentState(500) == currentState(1000) == currentState(2000) {stateChanged = True}`
+`pass;`
+`if stateChanged { SEND NOTIFY }`
+
 
 #
+#
+#
+#
+
+#
+#
+#
+#
+#
+#
+#
+
+`if currentState(now) != currentState(`
+`millis++1` _(or however it works in C++)_
+`if stateChanged(now) == True, then if stateChanged(500), then if stateChanged(1000), then send NOTIFY, and then millis=0`
+
+
+
+
+#
+Here's the [FORUM for Arduino.](https://forum.arduino.cc/c/using-arduino/programming-questions/20)
+- COPY HIS CODE
+
+Go through entire process this user did implementing Notify/Indicate. **However this is developed, it's going to need CCCP, whatever that is.** 
+- [(link to question) Set CCCD value](https://forum.arduino.cc/t/feature-request-option-to-set-cccd-value/919852)
+- [(link to question) Notify/Indicate](https://forum.arduino.cc/t/notifications-and-indications-disabled-nrf-connect/915757)
+
+He's discussing the nRF Connect functionality with Notify and Indicate. Also refers to video mentioned here about [BLE on Arduino](https://youtu.be/osneajf7Xkg) which shows some detail about Server/Client and characteristics
+  - In this he mentions "BLE2902" _(figuring that out next)_ 
+  - In nRF Connect shows up as "0x2902"
+
+#
+## Try the code
+
+#
+
 This should be coordinated like turning on and off the LED. 
 The LED is literally turned on repeatedly through the loop. 
 **We need to turn the LED on or off only when a change of state has been noticed.**
