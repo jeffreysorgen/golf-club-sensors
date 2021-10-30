@@ -13,15 +13,11 @@
 
 #
 
-
-### Arduino's reference for BLE:
-- **From https://www.arduino.cc/en/Reference/ArduinoBLE**
-
-##### (state change reference in here)
-
 **Notify or Indicate.** Think of this as _Sender_ and _Reader_. ArduinoBLESense is the _sender_ and when a reading changes, the nRF Connect is going to be the _reader_ at the right moment. For my purposes, the _sender_ wants to let the _reader_ know that the state has changed from Ready to Resting, and vice versa. This reduces the BLE communication (which is the most energy-hungry part of this project) down to one single instance: _characteristic change_ (state change). The model BLE uses is known as a **publish-and-subscribe model.**
 
 Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client_
+
+(**From https://www.arduino.cc/en/Reference/ArduinoBLE**)
 
 #
 
