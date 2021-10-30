@@ -320,6 +320,10 @@ void loop() {
 #
 
 ##### Phone screen with device listed 
+
+<img src="images/BLEScanning.png"  width="40%">
+<img src="images/BLEConnected.png"  width="40%">
+
 <p align="center">
   <img src="http://some_place.com/nrf-screenshot.png"  width="20%">
 </p>
