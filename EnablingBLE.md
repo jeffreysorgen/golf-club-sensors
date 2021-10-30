@@ -30,7 +30,6 @@ Getting the nRF Connect to respond to a state change coming from the Arduino:
 - When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
 - More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
 - Construct code that will send a change of state notification when it happens, which can then be held in the nRF Connect app until the next update.
-- Another way to look at this is by doing a check on **whether the states match** on the peripheral and client, and if it doesn't, to update the client, although it might require more communication between devices.
 - This _pseudo code_ should transform into a function that updates the current readyState using incremental millis() or clock every 500ms. Then checks whether the state has changed, and if it did, it will send a Notify to BLE with `blenotify(notifyBit)`
 
 ##### State change: (pseudo code)
@@ -107,6 +106,7 @@ While the flashlight functionality won't be used in the end, that solution is cr
 
 #
 - There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely, but for now I built it into this code. Is there a way for the client to ask the peripheral whether the state has changed? Maybe. But how frequently and how much power consumption. Of course, the peripheral could ignore requests for update as well. Unless there's another way to think about this, I don't think this matters much. No savings of effort or energy.
+- Another way to look at this is by doing a check on **whether the states match** on the peripheral and client, and if it doesn't, to update the client, although it might require more communication between devices.
 
 
 #
