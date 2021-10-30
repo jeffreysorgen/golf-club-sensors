@@ -21,35 +21,66 @@ We need to send notifications about a change of state between Ready and Resting.
 We've syncronized the LED to turn on and off with this also.
 As the code loops it sends its state every time through BLE. 
 When the app reads "Ready" it is getting that information from the device constantly.
-
-So what we are going to do is figure out how to send a notification only when the state has changed and stays changed
-
-`CREATE FUNCTION stateChanged(millis)`
-`readMillis(millis)`
-`currentState(now)`
-
-`if currentState(now) == currentState(500) == currentState(1000) == currentState(2000) { pass; }`
-`else if (currentState(500) == currentState(1000) == currentState(2000) {stateChanged = True}`
-`pass;`
-`if stateChanged { SEND NOTIFY }`
+This is excessive. 
 
 
 #
-#
-#
+
+
+#### Identifying a state change and taking action
+What I want is a way for my Android to recognize a state change coming from the **arduino**. 
+- When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
+- More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
+- Construct code that will send a change of state notification when it happens, which can then be held in the nRF Connect app until the next update.
+- Another way to look at this is by doing a check on **whether the states match** on the peripheral and client, and if it doesn't, to update the client, although it might require more communication between devices.
+- There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely, but for now I built it into this code. 
+- This _pseudo code_ should transform into a function that updates the current readyState using incremental millis() or clock every 500ms. Then checks whether the state has changed, and if it did, it will send a Notify to BLE with `blenotify(notifyBit)`
+
+##### State change: (pseudo code)
+```
+resting = state("Resting");
+ready = state("Ready");
+earlier = now;
+now = update.state();        // returns "Ready" or "Resting"
+
+if ( now !== earlier ) {     // if state has now changed
+    if (now == resting) {    // and is now Resting
+        beep(low);           // then beep low for new Resting state
+        notifyBit = 0;
+        }
+    else if (now == ready) {
+        beep(high);          // otherwise beep high for new Ready state
+        notifyBit = 1;
+        }
+    blenotify(notifyBit);    // sends BIT to BLE "descriptor" (or something)
+    }
+
+else {
+    pass;                    // now == earlier, so no state change
+    }
+
+earlier=now;                 // update earlier state with now state
+
+```
 #
 
-#
-#
-#
-#
-#
-#
-#
 
-`if currentState(now) != currentState(`
-`millis++1` _(or however it works in C++)_
-`if stateChanged(now) == True, then if stateChanged(500), then if stateChanged(1000), then send NOTIFY, and then millis=0`
+
+
+
+
+
+
+
+
+
+Here's the _pseudo code_ to start going in the right direction. Figure out where this will fit into our system.
+
+
+
+
+
+
 
 
 
@@ -100,28 +131,7 @@ While the flashlight functionality won't be used in the end, that solution is cr
 
 #
 
-#### Identifying a state change and taking action
-What I want is a way for my Android to recognize a state change coming from the **arduino**. 
-- When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
-- More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
-- There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely
-##### State change: (pseudo code)
-```
-resting = state("Resting");
-ready = state("Ready");
-now = update.state();         // returns "Ready" or "Resting"
 
-if ( now !== earlier ) {      // if state has now changed
-    if (now == resting) {     // and is now Resting
-        beep(low);            // then beep low for new Resting state
-        }
-    else {
-        beep(high);           // otherwise beep high for new Ready state
-        }
-    earlier=now;              // update earlier state with now state
-    }
-    pass;                     // now == earlier, so no state change
-```
 #
 
 
@@ -129,6 +139,74 @@ if ( now !== earlier ) {      // if state has now changed
 
 
 
+
+
+```
+update.state();               // returns "Ready" or "Resting"
+    millis++1;
+    if millis !== 1000 {      // adjust for latency
+        pass;
+        }
+        else if ( y < -0.85 ) {
+            return "Resting";
+            }
+        else if { 
+            return "Ready"
+            }
+        }
+      
+
+```
+#
+#
+#
+
+#
+#
+#
+(Trying to use multiple time increments but probably simpler is better intead.)
+
+Here, I want to check if the current Ready state is True, and if it was also true for the last 2.5 seconds.
+```
+float y;                        // accelerometer y-axis
+int millis;                     // integer number of millis up to 2500
+bool readyState( a, b, c, d, e, f );  // save the past states as "Resting" (when first powered up)
+bool stateChanged;               // state is consistent for 2.5 seconds
+
+readyState ( a, b, c, d, e, f ) = False;  // all "Resting" until it isn't
+
+millis ++1;                     // or use clock function
+if millis == 500 {
+    e = d; d = c; c = b; b = a; // shift array up by 500ms increment (need to use readyState(x))
+    if (y < -0.85) {            // check for readyState
+        a = False;              // readyState
+        }
+        else { 
+        a = True;               // now the array has a new value
+        }
+
+        if ( a == c == e ) {            // for now, 800ms, 1200ms, 2000ms
+          stateChanged = False;         // no change in state
+          millis++1;                    // increment by 1ms, (or change to clock-check function)
+          }
+          else if ( b == c == e ) {     // a is different now
+            stateChanged = True;
+            millis = 0;
+            }
+
+    if stateChanged {
+      SEND NOTIFY;
+      }
+
+
+
+create function update();       // create prototype function
+  
+if ( millis == 500 ) {          // has it been 500 millis since last update
+  update();                     // 500 x 5 = 2500 millis
+  }                             // else don't do update
+
+```
 
 #
 #
