@@ -319,19 +319,21 @@ void loop() {
 
 #
 
-##### Phone screen with device listed 
-
-<img src="images/BLEScanning.png"  width="40%">
-<img src="images/BLEConnected.png"  width="40%">
+##### Phone screen with device listed: Scanning, Connected 
 
 <p align="center">
-  <img src="http://some_place.com/nrf-screenshot.png"  width="20%">
+  <img src="images/BLEScanning.png"  width="40%">
+  <img src="images/BLEConnected.png"  width="40%">
 </p>
+
 
 ##### Turning on and off the LED by tilting on the y-axis
   <img src="images/myBLEtilt.gif"  width="50%">
   
 #
+<p align="center">
+  <img src="http://some_place.com/nrf-screenshot.png"  width="20%">
+</p>
 
 ## Summary so far:
 
