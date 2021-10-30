@@ -8,7 +8,7 @@
 1. Data is being sent from the device to nRF Connect
 2. The device sends Ready/Resting depending on a threshold in the code
 3. Accelerometer value is sent in the form of a **_hex_** (don't know if this matters yet)
-4. I used UUIDs in their long form as constants [_(Notes about UUID)_](activity.md#notes-about-uuid)
+4. I used UUIDs in their long form as constants [_(Notes about UUID)_](activity.md#uuid-info)
 5. I don't know if I could use a shorter form of UUID like "180C" or "300a"
 
 #
