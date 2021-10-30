@@ -356,13 +356,14 @@ Next:
 - I thought I would need to use the BLE UUID spec which I thought was "important for ble"
   - UUID for BLE: _XXXXXXXX-0000-1000-8000-00805F9B34FB_ (Look this up to find standard BLE list)
 - Go simpler. Look how they use them in the examples, and use theirs instead. Also, make them up: "FFF1" etc.
+- Changed to 16-bit to be easier to read.
 
 #### (15 unique v4UUIDs)
 ```
-355d2b52-982c-4598-b9b4-c19156686e1a    // for imuUUID
-9e5982a7-9ef0-48e0-a167-8112ada5f184    // for accUUID
-9dc52af2-d585-4fb7-93a7-922b463239fe    // for stateUUID
-8564aabe-417c-4fe4-8a40-543ea08079f4
+355d2b52-982c-4598-b9b4-c19156686e1a    // for imuUUID (ffe0)
+9e5982a7-9ef0-48e0-a167-8112ada5f184    // for accUUID (ffe1)
+9dc52af2-d585-4fb7-93a7-922b463239fe    // for stateUUID (ffe2)
+8564aabe-417c-4fe4-8a40-543ea08079f4    
 3e8c97c5-6ae5-444f-b56e-20a741e7bf99
 f2024cef-dae8-4db7-bddb-76c696cdc115
 62237f9d-7652-442a-a36a-0a68d96bd617
