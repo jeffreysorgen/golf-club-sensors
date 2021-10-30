@@ -1,7 +1,7 @@
 - how to enable notify or indicate
 - enable the descriptors
 
-[Back](activity.md)
+[Back](activity.md#summary-so-far)
 
 # What we've accomplished
 
