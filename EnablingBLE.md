@@ -36,7 +36,9 @@ The model BLE uses is known as a "publish-and-subscribe" model.
 We're going to try to enable one element of the BLE functionality which will send a notification only when the state changes.
 The code will send a change of state notification when it happens, which can then be held in the nRF Connect app until the next update.
 
-This **_pseudo code_** should transform into a function that updates the current readyState every half-second, using incremental millis() or clock every 500ms. In the loop it will check whether the state has changed, and if it did, it will send a Notify to BLE with `blenotify(notifyBit)`. _Going to need to learn to code a function now._ 
+This **_pseudo code_** should transform into a function that updates the current readyState every half-second, using incremental millis() or clock every 500ms. 
+In the loop it will check whether the state has changed, and if it did, it will send a Notify to BLE with `blenotify(notifyBit)`. 
+_Going to need to learn to code a function now._ 
 
 ##### State change: (pseudo code)
 ```
@@ -67,7 +69,15 @@ earlier=now;                 // update earlier state with now state
 #
 _Going to need to learn to code a function now._
 
-We're going to modify _golf-swing-acc-ble_ (now **_golf-swing-acc-ble-NOTIFY_**), and include the code that will notify the Client of a state change. We can see this in "Client Characteristic Configuration" or UUID "0x2902".
+We're going to modify _golf-swing-acc-ble_ (now **_golf-swing-acc-ble-NOTIFY_**), and include the code that will notify the Client of a state change. 
+We can see this in "Client Characteristic Configuration" or UUID "0x2902".
+
+- First, disengage the loop to print to the Serial port so we can just see whether our function was called.
+- Maybe print "Ready" just using _print_ so it doesn't scroll down
+- And for testing, put a delay() in to only loop a few times a second. 
+- Call the function every half second, so use `if millis(500)`
+
+
 #
 #
 Here's the [FORUM for Arduino.](https://forum.arduino.cc/c/using-arduino/programming-questions/20)
