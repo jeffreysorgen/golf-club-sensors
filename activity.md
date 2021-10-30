@@ -326,8 +326,6 @@ void loop() {
 
 ##### Turning on and off the LED by tilting on the y-axis
   <img src="images/myBLEtilt.gif"  width="50%">
-  <img src="images/myBLEtilt.mp4"  width="50%">
-
 #
 
 ## Summary so far:
