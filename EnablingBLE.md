@@ -23,19 +23,17 @@
 
 Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client_
 
+#
+
 **Updating a characteristic.** When Y-axis, `y < -0.85`, changes from true to false or back, this is the moment to send BLE data, nothing else. Save on BLE energy. _Need to adopt energy-saving code later._
 
 #
-##### Next:
-
-### notify/indicate
 
 We need to send notifications about a change of state between Ready and Resting.
 We've syncronized the LED to turn on and off with this also.
 As the code loops it sends its state every time through BLE. 
 When the app reads "Ready" it is getting that information from the device constantly.
 This is excessive. 
-
 
 #
 
