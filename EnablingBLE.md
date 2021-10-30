@@ -1,59 +1,84 @@
+- how to program a function() in C++/Arduino
 - how to enable notify or indicate
 - enable the descriptors
 
-[Back](activity.md)
+[Back](activity.md#summary-so-far)
 
 # What we've accomplished
 
 1. Data is being sent from the device to nRF Connect
-2. The device sends Ready/Resting depending on a threshold in the code
-3. Accelerometer value is sent in the form of a **_hex_** (don't know if this matters yet)
-4. I used UUIDs in their long form as constants [_(Notes about UUID)_](activity.md#notes-about-uuid)
-5. I don't know if I could use a shorter form of UUID like "180C" or "300a"
+2. The device sends Ready/Resting to the app depending on a threshold in the code
+3. Accelerometer value is sent in the form of a **_hex_** (don't know if this makes a difference in our project)
+4. We used UUIDs in their long form as constants [_(Notes about UUID)_](activity.md#uuid-info)
+5. Then started to use a shorter, 16-bit form of UUID, like "ffe0" and "ffe1"
 
 #
-##### Next:
 
+Right now, information is being sent through BLE every time the code loops.
+We need to send notifications about a change of state to the Client (nRF Connect) when the peripheral changes its state from Ready to Resting or back.
+When the app reads "Ready!" or "Resting!" it is receiving 6 or 8 bytes of information from the device constantly, which is excessive. 
+So we need to enable Notify functionality (or Indicate) so that we can send the data once and be done until the state changes again.
+This reduces the BLE communication (which is the most energy-hungry part of this project) down to one single instance: _characteristic change_ (state change). 
 
-### notify/indicate
+**Updating a characteristic.** 
+When Y-axis, `y < -0.85`, changes from True to False or back, this is the moment to send BLE data and nothing else, to save on BLE energy. _We now need to adopt this energy-saving code._
 
-We need to send notifications about a change of state between Ready and Resting.
-We've syncronized the LED to turn on and off with this also.
-As the code loops it sends its state every time through BLE. 
-When the app reads "Ready" it is getting that information from the device constantly.
+**Notify or Indicate.** 
+(Here's something from [ArduinoBLE Reference](https://www.arduino.cc/en/Reference/ArduinoBLE))
+Think of this as _Sender_ and _Reader_. 
+ArduinoBLESense device is the _sender_, or Peripheral. 
+When a reading changes, the nRF Connect app is going to be the _reader_, or Client.
+The model BLE uses is known as a "publish-and-subscribe" model.
 
-So what we are going to do is figure out how to send a notification only when the state has changed and stays changed
+#
 
-`CREATE FUNCTION stateChanged(millis)`
-`readMillis(millis)`
-`currentState(now)`
+#### Responding to a state change
+We're going to try to enable one element of the BLE functionality which will send a notification only when the state changes.
+The code will send a change of state notification when it happens, which can then be held in the nRF Connect app until the next update.
 
-`if currentState(now) == currentState(500) == currentState(1000) == currentState(2000) { pass; }`
-`else if (currentState(500) == currentState(1000) == currentState(2000) {stateChanged = True}`
-`pass;`
-`if stateChanged { SEND NOTIFY }`
+This **_pseudo code_** should transform into a function that updates the current readyState every half-second, using incremental millis() or clock every 500ms. 
+In the loop it will check whether the state has changed, and if it did, it will send a Notify to BLE with `blenotify(notifyBit)`. 
+_Going to need to learn to code a function now._ 
+
+##### State change: (pseudo code)
+```
+resting = state("Resting");
+ready = state("Ready");
+earlier = now;
+now = update.state();        // returns "Ready" or "Resting"
+
+if ( now !== earlier ) {     // if state has now changed
+    if (now == resting) {    // and is now Resting
+        beep(low);           // then beep low for new Resting state
+        notifyBit = 0;
+        }
+    else if (now == ready) {
+        beep(high);          // otherwise beep high for new Ready state
+        notifyBit = 1;
+        }
+    blenotify(notifyBit);    // sends BIT to BLE "descriptor" (or something)
+    }
+
+else {
+    pass;                    // now == earlier, so no state change
+    }
+
+earlier=now;                 // update earlier state with now state
+
+```
+#
+_Going to need to learn to code a function now._
+
+We're going to modify _golf-swing-acc-ble_ (now **_golf-swing-acc-ble-NOTIFY_**), and include the code that will notify the Client of a state change. 
+We can see this in "Client Characteristic Configuration" or UUID "0x2902".
+
+- First, disengage the loop to print to the Serial port so we can just see whether our function was called.
+- Maybe print "Ready" just using _print_ so it doesn't scroll down
+- And for testing, put a delay() in to only loop a few times a second. 
+- Call the function every half second, so use `if millis(500)`
 
 
 #
-#
-#
-#
-
-#
-#
-#
-#
-#
-#
-#
-
-`if currentState(now) != currentState(`
-`millis++1` _(or however it works in C++)_
-`if stateChanged(now) == True, then if stateChanged(500), then if stateChanged(1000), then send NOTIFY, and then millis=0`
-
-
-
-
 #
 Here's the [FORUM for Arduino.](https://forum.arduino.cc/c/using-arduino/programming-questions/20)
 - COPY HIS CODE
@@ -95,33 +120,17 @@ While the flashlight functionality won't be used in the end, that solution is cr
 - Notifying only about a state change will be helpful to eliminate unnecessary BLE communication. 
 - Checking a state change can happen less frequently than the device baud rate, so we don't get bounces of the states due to natural movement. 
   - For example, during its transition to a new state the LED lit very briefly, flashing the previous state of the LED. It looked like a bounce.
-- [LINK to more here](activity.md#state-change-reference-in-here) 
-- [Another link to state change](activity.md#state-change)
 
 #
+- There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely, but for now I built it into this code. Is there a way for the client to ask the peripheral whether the state has changed? Maybe. But how frequently and how much power consumption. Of course, the peripheral could ignore requests for update as well. Unless there's another way to think about this, I don't think this matters much. No savings of effort or energy.
+- Another way to look at this is by doing a check on **whether the states match** on the peripheral and client, and if it doesn't, to update the client, although it might require more communication between devices.
 
-#### Identifying a state change and taking action
-What I want is a way for my Android to recognize a state change coming from the **arduino**. 
+
+#
+Flashlight:
 - When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
 - More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
-- There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely
-##### State change: (pseudo code)
-```
-resting = state("Resting");
-ready = state("Ready");
-now = update.state();         // returns "Ready" or "Resting"
 
-if ( now !== earlier ) {      // if state has now changed
-    if (now == resting) {     // and is now Resting
-        beep(low);            // then beep low for new Resting state
-        }
-    else {
-        beep(high);           // otherwise beep high for new Ready state
-        }
-    earlier=now;              // update earlier state with now state
-    }
-    pass;                     // now == earlier, so no state change
-```
 #
 
 
@@ -129,6 +138,73 @@ if ( now !== earlier ) {      // if state has now changed
 
 
 
+
+```
+update.state();               // returns "Ready" or "Resting"
+    millis++1;
+    if millis !== 1000 {      // adjust for latency
+        pass;
+        }
+        else if ( y < -0.85 ) {
+            return "Resting";
+            }
+        else if { 
+            return "Ready"
+            }
+        }
+      
+
+```
+#
+#
+#
+
+#
+#
+#
+(Trying to use multiple time increments but probably simpler is better intead.)
+
+Here, I want to check if the current Ready state is True, and if it was also true for the last 2.5 seconds.
+```
+float y;                        // accelerometer y-axis
+int millis;                     // integer number of millis up to 2500
+bool readyState( a, b, c, d, e, f );  // save the past states as "Resting" (when first powered up)
+bool stateChanged;               // state is consistent for 2.5 seconds
+
+readyState ( a, b, c, d, e, f ) = False;  // all "Resting" until it isn't
+
+millis ++1;                     // or use clock function
+if millis == 500 {
+    e = d; d = c; c = b; b = a; // shift array up by 500ms increment (need to use readyState(x))
+    if (y < -0.85) {            // check for readyState
+        a = False;              // readyState
+        }
+        else { 
+        a = True;               // now the array has a new value
+        }
+
+        if ( a == c == e ) {            // for now, 800ms, 1200ms, 2000ms
+          stateChanged = False;         // no change in state
+          millis++1;                    // increment by 1ms, (or change to clock-check function)
+          }
+          else if ( b == c == e ) {     // a is different now
+            stateChanged = True;
+            millis = 0;
+            }
+
+    if stateChanged {
+      SEND NOTIFY;
+      }
+
+
+
+create function update();       // create prototype function
+  
+if ( millis == 500 ) {          // has it been 500 millis since last update
+  update();                     // 500 x 5 = 2500 millis
+  }                             // else don't do update
+
+```
 
 #
 #

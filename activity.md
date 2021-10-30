@@ -319,11 +319,13 @@ void loop() {
 
 #
 
-##### Images: (1) phone screen with device listed (2) turning on and off the LED by tilting on the y-axis
+##### Phone screen with device listed 
 <p align="center">
-  (1) <img src="http://some_place.com/nrf-screenshot.png"  width="20%">
-  (2) <img src="http://some_place.com/y-axis-led-video.png"  width="20%">
+  <img src="http://some_place.com/nrf-screenshot.png"  width="20%">
 </p>
+
+##### Turning on and off the LED by tilting on the y-axis
+  <img src="images/myBLEtilt.gif"  width="50%">
 
 #
 
@@ -356,13 +358,14 @@ Next:
 - I thought I would need to use the BLE UUID spec which I thought was "important for ble"
   - UUID for BLE: _XXXXXXXX-0000-1000-8000-00805F9B34FB_ (Look this up to find standard BLE list)
 - Go simpler. Look how they use them in the examples, and use theirs instead. Also, make them up: "FFF1" etc.
+- Changed to 16-bit in the code.
 
 #### (15 unique v4UUIDs)
 ```
-355d2b52-982c-4598-b9b4-c19156686e1a    // for imuUUID
-9e5982a7-9ef0-48e0-a167-8112ada5f184    // for accUUID
-9dc52af2-d585-4fb7-93a7-922b463239fe    // for stateUUID
-8564aabe-417c-4fe4-8a40-543ea08079f4
+355d2b52-982c-4598-b9b4-c19156686e1a    // for imuUUID (ffe0)
+9e5982a7-9ef0-48e0-a167-8112ada5f184    // for accUUID (ffe1)
+9dc52af2-d585-4fb7-93a7-922b463239fe    // for stateUUID (ffe2)
+8564aabe-417c-4fe4-8a40-543ea08079f4    
 3e8c97c5-6ae5-444f-b56e-20a741e7bf99
 f2024cef-dae8-4db7-bddb-76c696cdc115
 62237f9d-7652-442a-a36a-0a68d96bd617
@@ -400,19 +403,6 @@ fa94204d-dc71-4585-aa63-98b8133c5266
   - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
 - **Hackster** tutorial: Here's a helpful [IMU and BLE](https://www.hackster.io/gov/imu-to-you-ae53e1) tutorial from hackster.io
 - Wiki about [C data types](https://en.wikipedia.org/wiki/C_data_types#stdint.h)
-
-#
-
-### Arduino's reference for BLE:
-- **From https://www.arduino.cc/en/Reference/ArduinoBLE**
-
-##### (state change reference in here)
-
-**Notify or Indicate.** Think of this as _Sender_ and _Reader_. ArduinoBLESense is the _sender_ and when a reading changes, the nRF Connect is going to be the _reader_ at the right moment. For my purposes, the _sender_ wants to let the _reader_ know that the state has changed from Ready to Resting, and vice versa. This reduces the BLE communication (which is the most energy-hungry part of this project) down to one single instance: _characteristic change_ (state change). The model BLE uses is known as a **publish-and-subscribe model.**
-
-Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client_
-
-**Updating a characteristic.** When Y-axis, `y < -0.85`, changes from true to false or back, this is the moment to send BLE data, nothing else. Save on BLE energy. _Need to adopt energy-saving code later._
 
 #
 
