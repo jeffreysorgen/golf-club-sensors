@@ -6,34 +6,34 @@
 # What we've accomplished
 
 1. Data is being sent from the device to nRF Connect
-2. The device sends Ready/Resting depending on a threshold in the code
-3. Accelerometer value is sent in the form of a **_hex_** (don't know if this matters yet)
-4. I used UUIDs in their long form as constants [_(Notes about UUID)_](activity.md#uuid-info)
-5. Started to use a shorter, 16-bit form of UUID like "ffe0" and "ffe1"
+2. The device sends Ready/Resting to the app depending on a threshold in the code
+3. Accelerometer value is sent in the form of a **_hex_** (don't know if this makes a difference in our project)
+4. We used UUIDs in their long form as constants [_(Notes about UUID)_](activity.md#uuid-info)
+5. Then started to use a shorter, 16-bit form of UUID, like "ffe0" and "ffe1"
 
 #
 
-**Notify or Indicate.** Think of this as _Sender_ and _Reader_. ArduinoBLESense is the _sender_ and when a reading changes, the nRF Connect is going to be the _reader_ at the right moment. For my purposes, the _sender_ wants to let the _reader_ know that the state has changed from Ready to Resting, and vice versa. This reduces the BLE communication (which is the most energy-hungry part of this project) down to one single instance: _characteristic change_ (state change). The model BLE uses is known as a **publish-and-subscribe model.**
+Right now, information is being sent through BLE every time the code loops.
+We need to send notifications about a change of state to the Client (nRF Connect) when the peripheral changes its state from Ready to Resting or back.
+When the app reads "Ready!" or "Resting!" it is receiving 6 or 8 bytes of information from the device constantly, which is excessive. 
+So we need to enable Notify functionality (or Indicate) so that we can send the data once and be done until the state changes again.
+This reduces the BLE communication (which is the most energy-hungry part of this project) down to one single instance: _characteristic change_ (state change). 
 
-Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client_
+**Updating a characteristic.** 
+When Y-axis, `y < -0.85`, changes from True to False or back, this is the moment to send BLE data and nothing else, to save on BLE energy. _We now need to adopt this energy-saving code._
 
-(**From https://www.arduino.cc/en/Reference/ArduinoBLE**)
-
-#
-
-**Updating a characteristic.** When Y-axis, `y < -0.85`, changes from true to false or back, this is the moment to send BLE data, nothing else. Save on BLE energy. _Need to adopt energy-saving code later._
-
-#
-
-We need to send notifications about a change of state between Ready and Resting.
-We've syncronized the LED to turn on and off with this also.
-As the code loops it sends its state every time through BLE. 
-When the app reads "Ready" it is getting that information from the device constantly.
-This is excessive. 
+**Notify or Indicate.** 
+(Here's something from [ArduinoBLE Reference](https://www.arduino.cc/en/Reference/ArduinoBLE))
+Think of this as _Sender_ and _Reader_. 
+ArduinoBLESense device is the _sender_, or Peripheral. 
+When a reading changes, the nRF Connect app is going to be the _reader_, or Client.
+The model BLE uses is known as a "publish-and-subscribe" model.
 
 #
 
 #### Responding to a state change
+We're going to try to enable one aspect of the BLE functionality which will send 
+
 Getting the nRF Connect to respond to a state change coming from the Arduino:
 - When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
 - More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
