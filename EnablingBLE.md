@@ -12,6 +12,20 @@
 5. I don't know if I could use a shorter form of UUID like "180C" or "300a"
 
 #
+
+
+### Arduino's reference for BLE:
+- **From https://www.arduino.cc/en/Reference/ArduinoBLE**
+
+##### (state change reference in here)
+
+**Notify or Indicate.** Think of this as _Sender_ and _Reader_. ArduinoBLESense is the _sender_ and when a reading changes, the nRF Connect is going to be the _reader_ at the right moment. For my purposes, the _sender_ wants to let the _reader_ know that the state has changed from Ready to Resting, and vice versa. This reduces the BLE communication (which is the most energy-hungry part of this project) down to one single instance: _characteristic change_ (state change). The model BLE uses is known as a **publish-and-subscribe model.**
+
+Sender/Arduino is _Peripheral/Server_, and Reader/nRF Connect is _Central/Client_
+
+**Updating a characteristic.** When Y-axis, `y < -0.85`, changes from true to false or back, this is the moment to send BLE data, nothing else. Save on BLE energy. _Need to adopt energy-saving code later._
+
+#
 ##### Next:
 
 ### notify/indicate
