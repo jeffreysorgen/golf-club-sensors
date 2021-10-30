@@ -1,3 +1,4 @@
+- how to program a function() in C++/Arduino
 - how to enable notify or indicate
 - enable the descriptors
 
@@ -32,13 +33,10 @@ The model BLE uses is known as a "publish-and-subscribe" model.
 #
 
 #### Responding to a state change
-We're going to try to enable one aspect of the BLE functionality which will send 
+We're going to try to enable one element of the BLE functionality which will send a notification only when the state changes.
+The code will send a change of state notification when it happens, which can then be held in the nRF Connect app until the next update.
 
-Getting the nRF Connect to respond to a state change coming from the Arduino:
-- When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
-- More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
-- Construct code that will send a change of state notification when it happens, which can then be held in the nRF Connect app until the next update.
-- This _pseudo code_ should transform into a function that updates the current readyState using incremental millis() or clock every 500ms. Then checks whether the state has changed, and if it did, it will send a Notify to BLE with `blenotify(notifyBit)`
+This **_pseudo code_** should transform into a function that updates the current readyState every half-second, using incremental millis() or clock every 500ms. In the loop it will check whether the state has changed, and if it did, it will send a Notify to BLE with `blenotify(notifyBit)`. _Going to need to learn to code a function now._ 
 
 ##### State change: (pseudo code)
 ```
@@ -67,7 +65,10 @@ earlier=now;                 // update earlier state with now state
 
 ```
 #
+_Going to need to learn to code a function now._
 
+We're going to modify _golf-swing-acc-ble_ (now **_golf-swing-acc-ble-NOTIFY_**), and include the code that will notify the Client of a state change. We can see this in "Client Characteristic Configuration" or UUID "0x2902".
+#
 #
 Here's the [FORUM for Arduino.](https://forum.arduino.cc/c/using-arduino/programming-questions/20)
 - COPY HIS CODE
@@ -116,7 +117,11 @@ While the flashlight functionality won't be used in the end, that solution is cr
 
 
 #
+Flashlight:
+- When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
+- More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
 
+#
 
 
 
