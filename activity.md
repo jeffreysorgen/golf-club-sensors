@@ -322,7 +322,7 @@ void loop() {
 ##### Images: (1) phone screen with device listed (2) turning on and off the LED by tilting on the y-axis
 <p align="center">
   (1) <img src="http://some_place.com/nrf-screenshot.png"  width="20%">
-  (2) <img src="http://some_place.com/y-axis-led-video.png"  width="20%">
+  (2) <img src="images/myBLEtilt.gif"  width="20%">
 </p>
 
 #
