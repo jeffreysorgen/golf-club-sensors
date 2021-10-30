@@ -109,8 +109,6 @@ While the flashlight functionality won't be used in the end, that solution is cr
 - Notifying only about a state change will be helpful to eliminate unnecessary BLE communication. 
 - Checking a state change can happen less frequently than the device baud rate, so we don't get bounces of the states due to natural movement. 
   - For example, during its transition to a new state the LED lit very briefly, flashing the previous state of the LED. It looked like a bounce.
-- [LINK to more here](activity.md#state-change-reference-in-here) 
-- [Another link to state change](activity.md#state-change)
 
 #
 - There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely, but for now I built it into this code. Is there a way for the client to ask the peripheral whether the state has changed? Maybe. But how frequently and how much power consumption. Of course, the peripheral could ignore requests for update as well. Unless there's another way to think about this, I don't think this matters much. No savings of effort or energy.
