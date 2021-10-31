@@ -1,6 +1,5 @@
-- how to program a function() in C++/Arduino
+- start over _golf-swing-acc-ble-NOTIFY_ from original
 - how to enable notify or indicate
-- enable the descriptors
 
 [Back](activity.md#summary-so-far)
 
