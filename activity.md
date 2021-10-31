@@ -319,22 +319,13 @@ void loop() {
 
 #
 
-##### Phone screen with device listed: Scanning, Connected 
-
-<p align="center">
-  <img src="images/BLEScanning.png"  width="25%">
-  <img src="images/BLEConnected.png"  width="25%">
-</p>
-
+##### Phone screen with device listed: (1)Scanning, (2)Connected 
+(1)<img src="images/BLEScanning.png" width="25%"> (2)<img src="images/BLEConnected.png"  width="25%">
 
 ##### Turning on and off the LED by tilting on the y-axis
   <img src="images/myBLEtilt.gif"  width="50%">
   
 #
-<p align="center">
-  <img src="http://some_place.com/nrf-screenshot.png"  width="20%">
-</p>
-
 ## Summary so far:
 
 In this section we transformed the _golf-swing-acc_ code to include BLE communication. We took two example sketches to learn about the Arduino file structure and imported the code we needed into **_golf-swing-acc-ble_** to enable it to communicate with a smartphone running the _nRF Connect_ app.
