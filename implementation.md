@@ -6,9 +6,9 @@
 [*[ Step Two: Solve for Power ]*](#solve-for-power)
 [*[ Step Three: Enabling BLE ]*](activity.md/#enabling-ble)
 
-# Implementation:
+## Implementation:
 
-## Completed:
+##### Completed:
 
 _skip to
 [\[Sept\]](#2021-sept)
