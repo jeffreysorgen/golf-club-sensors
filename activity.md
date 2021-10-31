@@ -322,8 +322,8 @@ void loop() {
 ##### Phone screen with device listed: Scanning, Connected 
 
 <p align="center">
-  <img src="images/BLEScanning.png"  height="20%">
-  <img src="images/BLEConnected.png"  width="40%">
+  <img src="images/BLEScanning.png"  width="25%">
+  <img src="images/BLEConnected.png"  width="25%">
 </p>
 
 
