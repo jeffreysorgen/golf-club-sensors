@@ -132,8 +132,6 @@ if !readystate {
 ```
 
 
-So `if nowstate == readystate, then pause and check again` or however that works.
-And if `
 
 #
 
