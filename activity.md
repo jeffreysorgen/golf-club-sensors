@@ -129,7 +129,6 @@ The code for the LED will be useful for indicating "Ready" and "Resting" states.
 **These two examples have shown us what a basic `.ino` file looks like.**
 
 #
-##### (Structure of Arduino files)
 ## Arduino File Structure
 
 Here we will describe the very basic structure of an Arduino `.ino` file. 
