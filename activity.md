@@ -7,7 +7,7 @@
 
 #
 ##### Step Three:
-## Enabling BLE
+# Enabling BLE
 
 #### Description
 Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app we can download from Google Play called _nRF Connect_. Let's go through the process of getting that started right here. 
