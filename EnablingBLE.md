@@ -78,6 +78,69 @@ We can see this in "Client Characteristic Configuration" or UUID "0x2902".
 
 
 #
+
+Need to simplify the code.
+What is the purpose?
+Club is in Resting state, so halt all things for one second.
+When it's in resting state, there is a delay before checking for its state again.
+
+First things first.
+Club is in the bag, getting rattled around. 
+Resting state, but pops into Ready state sometimes. 
+If it pops into Ready state, then we should verify that it's in Ready state
+and not just bouncing around.
+Resting state has to exist for most of two seconds.
+(Or, Ready state needs to coordinate with the GYRO right at that moment.)
+But checking 'nowstate' and 'earlier' isn't enough.
+Need to compare 'nowstate' to 'earlier' and 'muchearlier' also.
+Basically, `if nowstate == laststate == earlier == muchearlier {no state change}`.
+If nowstate is Resting then delay two seconds to check again.
+
+```
+setup loop() {
+    nowstate = laststate = earlier = muchearlier = false;
+void loop() {
+    read_the_y_axis();
+    if (y > -.85) {
+        readystate = true;
+        do stuff;
+        do gyro stuff etc;
+        }
+        else {
+            Serial.print("Resting...");
+            // triple-check if still Resting
+            readystate = false;
+            muchearlier = earlier;
+            earlier = laststate;
+            laststate = nowstate;
+            if (nowstate == muchearlier) {
+                nowstate = laststate = earlier = muchearlier = false; // was just a bounce
+                nostatechange = true; // still Resting
+                delay(2000); // because resting
+                }
+if !readystate {
+    Serial.print("Resting ");
+    Serial.println(y);
+    }
+    else {
+        pass; // Serial.print("Ready!");
+    }
+ 
+    
+
+
+```
+
+
+So `if nowstate == readystate, then pause and check again` or however that works.
+And if `
+
+#
+
+#
+
+#
+
 #
 Here's the [FORUM for Arduino.](https://forum.arduino.cc/c/using-arduino/programming-questions/20)
 - COPY HIS CODE
