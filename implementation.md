@@ -72,7 +72,7 @@ _skip to
 
 #
 ##### Step One:
-## The Accelerometer
+# The Accelerometer
 
 #### Description: 
 **The goal is to "turn on" readings when sensor is oriented with clubhead down at the ground.**
@@ -177,7 +177,7 @@ Swinging the club around won't put it into that Resting state unless it register
 
 #
 ##### Step Two:
-## Solve for Power
+# Solve for Power
 ### Future prototyping solution
 - Later can build an obviously better solution.  
 - When 100% finished developing with my Arduino Nano 33 BLE Sense, I will be looking into using a different board for prototyping, and a battery solution will definitely be a part of the research.
@@ -197,7 +197,6 @@ Swinging the club around won't put it into that Resting state unless it register
 
 ##### Charging up a dead old phone, simultaneously powering Nano33BLE
 <img src="images/Sm-batterypack.png" width="35%">
-
 
 
 ### Alternative development solution
