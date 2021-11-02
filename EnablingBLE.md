@@ -1,4 +1,4 @@
-- start over _golf-swing-acc-ble-NOTIFY_ from original
+- _golf-swing-acc-ble-NOTIFY-testing2_ **is WORKING** but needs millis() timing
 - how to enable notify or indicate
 
 [Back](activity.md#summary-so-far)
