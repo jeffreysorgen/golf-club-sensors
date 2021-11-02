@@ -1,4 +1,5 @@
 - _golf-swing-acc-ble-NOTIFY-testing3_ **is WORKING** but needs to incorporate **BLE transmission**
+- add this: `images/stateshanges.gif`
 - how to enable notify or indicate
     - what setting on the peripheral is used to send on/off to the client?
 
