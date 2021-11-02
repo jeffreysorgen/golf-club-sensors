@@ -1,4 +1,3 @@
-- _golf-swing-acc-ble-NOTIFY-testing3_ **is WORKING** but needs to incorporate **BLE transmission**
 - how to enable notify or indicate
     - what setting on the peripheral is used to send on/off to the client?
 
@@ -26,6 +25,12 @@ This reduces the BLE communication (which is the most energy-hungry part of this
 ##### State changes by tilting on the y-axis
   <p align="center"><img src="images/stateshanges.gif"  width="90%"></p>
 
+#
+- Added a timing functionality so it checks for new state, and accommodates for any unintentional bounces.
+- Added logic to the code so that Resting is 1 and Ready is 0
+- _did other things here but I don't know where to go with this right now_
+- _Most likely, need to just figure out what to do in nrfconnect, and **act upon the UUID changing from 0 to 1**_
+#
 #
 #
 So we need to enable Notify functionality (or Indicate) so that we can send the data once and be done until the state changes again.
