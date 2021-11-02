@@ -18,21 +18,28 @@ Right now, information is being sent through BLE every time the code loops.
 We need to send notifications about a change of state to the Client (nRF Connect) when the peripheral changes its state from Ready to Resting or back.
 When the app reads "Ready!" or "Resting!" it is receiving 6 or 8 bytes of information from the device constantly, which is excessive. 
 
-So we need to modify the code so that it will only send data via BLE when necessary, when the state changes from Ready to Resting.
-This reduces the BLE communication (which is the most energy-hungry part of this project) down to one single instance: _characteristic change_ (state change). 
+### Peripheral-side code is done
 
-**The new code has this function.** (_golf-swing-acc-ble-statechange_) It looks like this in the monitor, and sends BLE data only when the words "State change to" show up.
+**The new code now has this function.** (_golf-swing-acc-ble-statechange_) 
+We needed to modify the code so that it will only send data via BLE when necessary, when the state switches between Ready and Resting. 
+This reduces the BLE communication (which is the most energy-hungry part of this project) down to one single instance: _a characteristic change_ (state change). 
+We substituted using entire words, "Resting" and "Ready", and instead used _boolean 1/0_ to do the same thing.
+It looks like this in the monitor, and sends BLE data only at the point when the words "State change to" show up.
 
 ##### State changes by tilting on the y-axis
   <p align="center"><img src="images/stateshanges.gif"  width="90%"></p>
 
 #
+The code:
 - Added a timing functionality so it checks for new state, and accommodates for any unintentional bounces.
 - Added logic to the code so that Resting is 1 and Ready is 0
 - _did other things here but I don't know where to go with this right now_
+
+And now:
 - _Most likely, need to just figure out what to do in nrfconnect, and **act upon the UUID changing from 0 to 1**_
 #
 #
+##### done to here
 #
 So we need to enable Notify functionality (or Indicate) so that we can send the data once and be done until the state changes again.
 
@@ -54,7 +61,7 @@ The code will send a change of state notification when it happens, which can the
 
 This **_pseudo code_** should transform into a function that updates the current readyState every half-second, using incremental millis() or clock every 500ms. 
 In the loop it will check whether the state has changed, and if it did, it will send a Notify to BLE with `blenotify(notifyBit)`. 
-_Going to need to learn to code a function now._ 
+_Going to need to learn to code a function now._ (But are we?)
 
 ##### State change: (pseudo code)
 ```
