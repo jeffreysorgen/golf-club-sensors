@@ -25,7 +25,7 @@ This reduces the BLE communication (which is the most energy-hungry part of this
 #
 
 ##### Turning on and off the LED by tilting on the y-axis
-  <img src="images/stateshanges.gif"  width="80%">
+  <p align="center"><img src="images/stateshanges.gif"  width="90%"></p>
 
 #
 
