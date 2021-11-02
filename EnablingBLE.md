@@ -24,7 +24,8 @@ This reduces the BLE communication (which is the most energy-hungry part of this
 **The new code has this function.** It looks like this in the monitor, and sends BLE data only when the words "State change to" show up.
 #
 
-- add this here: `images/stateshanges.gif`
+##### Turning on and off the LED by tilting on the y-axis
+  <img src="images/stateshanges.gif"  width="80%">
 
 #
 
