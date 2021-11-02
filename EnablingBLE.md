@@ -17,8 +17,18 @@
 Right now, information is being sent through BLE every time the code loops.
 We need to send notifications about a change of state to the Client (nRF Connect) when the peripheral changes its state from Ready to Resting or back.
 When the app reads "Ready!" or "Resting!" it is receiving 6 or 8 bytes of information from the device constantly, which is excessive. 
-So we need to enable Notify functionality (or Indicate) so that we can send the data once and be done until the state changes again.
+
+So we need to modify the code so that it will only send data via BLE when necessary, when the state changes from Ready to Resting.
 This reduces the BLE communication (which is the most energy-hungry part of this project) down to one single instance: _characteristic change_ (state change). 
+
+**The new code has this function.** It looks like this in the monitor, and sends BLE data only when the words "State change to" show up.
+
+##### State changes by tilting on the y-axis
+  <p align="center"><img src="images/stateshanges.gif"  width="90%"></p>
+
+#
+#
+So we need to enable Notify functionality (or Indicate) so that we can send the data once and be done until the state changes again.
 
 **Updating a characteristic.** 
 When Y-axis, `y < -0.85`, changes from True to False or back, this is the moment to send BLE data and nothing else, to save on BLE energy. _We now need to adopt this energy-saving code._

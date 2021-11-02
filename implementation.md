@@ -48,6 +48,7 @@ _skip to
 26. **New Code** Created _golf-swing-imu-ble_ which communicates via BLE to a smartphone
 27. **Editing** Consolidating the documentation in preparation for moving to **Step Four: [the SDK!](activity.md#step-four)**
 28. **Posted to Reddit!** [HERE](https://www.reddit.com/r/arduino/comments/qja9y6/nano33blesense_project_first_step_solve_for_power/)
+29. (november) **CODE** Solved for "bounce" problem with accelerometer and enabled READY/RESTING states properly.
 
 ##### Learning about this:
 - **nRF Connect**, IMU sensors, BLE, C++, data collection
@@ -172,8 +173,8 @@ void loop() {
 This section was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
 The goal was to basically create on/off states, accomplished here by using a threshold for the Ready and Resting states. 
 
-### Possible exception to this configuration
-Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason.
+### Exception to this configuration
+Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason. **This exception has been resolved in the code.**
 
 #
 ##### Step Two:
