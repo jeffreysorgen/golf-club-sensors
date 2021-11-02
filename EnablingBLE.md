@@ -21,7 +21,7 @@ When the app reads "Ready!" or "Resting!" it is receiving 6 or 8 bytes of inform
 So we need to modify the code so that it will only send data via BLE when necessary, when the state changes from Ready to Resting.
 This reduces the BLE communication (which is the most energy-hungry part of this project) down to one single instance: _characteristic change_ (state change). 
 
-**The new code has this function.** It looks like this in the monitor, and sends BLE data only when the words "State change to" show up.
+**The new code has this function.** (_golf-swing-acc-ble-statechange_) It looks like this in the monitor, and sends BLE data only when the words "State change to" show up.
 
 ##### State changes by tilting on the y-axis
   <p align="center"><img src="images/stateshanges.gif"  width="90%"></p>
