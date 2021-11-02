@@ -62,6 +62,8 @@ The code will send a change of state notification when it happens, which can the
 
 This **_pseudo code_** should transform into a function that updates the current readyState every half-second, using incremental millis() or clock every 500ms. 
 In the loop it will check whether the state has changed, and if it did, it will send a Notify to BLE with `blenotify(notifyBit)`. 
+(DID THIS!)
+
 _Going to need to learn to code a function now._ (But are we?)
 
 ##### State change: (pseudo code)
