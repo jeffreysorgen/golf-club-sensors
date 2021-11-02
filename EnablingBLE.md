@@ -1,4 +1,4 @@
-- _golf-swing-acc-ble-NOTIFY-testing2_ **is WORKING** but needs millis() timing and then incorporating BLE transmission
+- _golf-swing-acc-ble-NOTIFY-testing3_ **is WORKING** but needs to incorporate **BLE transmission**
 - how to enable notify or indicate
     - what setting on the peripheral is used to send on/off to the client?
 
