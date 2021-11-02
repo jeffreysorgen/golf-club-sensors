@@ -39,6 +39,11 @@ The code:
 And now:
 - _Most likely, need to just figure out what to do in nrfconnect, and **act upon the UUID changing from 0 to 1**_
 #
+
+This is the research I am doing now.
+- nRF Connect to respond by making my phone beep or flashlight on and off
+
+
 #
 #
 #
