@@ -17,6 +17,7 @@
 Right now, information is being sent through BLE every time the code loops.
 We need to send notifications about a change of state to the Client (nRF Connect) when the peripheral changes its state from Ready to Resting or back.
 When the app reads "Ready!" or "Resting!" it is receiving 6 or 8 bytes of information from the device constantly, which is excessive. 
+Making that change, and...
 
 ### Peripheral-side code is done
 
