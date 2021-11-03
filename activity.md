@@ -328,7 +328,8 @@ void loop() {
 ##### Turning on and off the LED by tilting on the y-axis
   <img src="images/myBLEtilt.gif"  width="50%">
   
-##
+#
+
 ## Summary so far:
 
 In this section we transformed the _golf-swing-acc_ code to include BLE communication. We took two example sketches to learn about the Arduino file structure and imported the code we needed into **_golf-swing-acc-ble_** to enable it to communicate with a smartphone running the _nRF Connect_ app.
