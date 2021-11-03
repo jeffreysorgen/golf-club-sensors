@@ -5,7 +5,7 @@
 [*[ Step Four: Enable Smartphone to BEEP ]*](#step-four)
 [_[ jump to new project ideas-> ]_](thoughtsandnotes.md/#other-projects)
 
-#
+##
 ##### Step Three:
 # Enabling BLE
 
@@ -46,7 +46,7 @@ But a [**battery-only**](implementation.md/#current-development-solution) soluti
 After being untethered from the computer, the device was trying to find the serial port from which it's now disconnected.
 So this one change will allow the device to function in nRF Connect the same way as it did before.
 
-#
+##
 ### The Hello World BLE Sketch
 
 Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, it's time to simplify and specialize our code.
@@ -55,7 +55,7 @@ There is a simple _BLE Hello World_ sketch from [okdo.com](#reference) that turn
 
 _What's interesting to me (newbie!) is using `static const char* greeting = "Hello World!";` first, and then later using `greetingCharacteristic.setValue(greeting);` for that string to appear through the characteristic._
 
-#
+##
 
 Starting with this simple code as a base, **we'll combine it with our own _golf-swing-acc_ sketch** 
 so that we can see what gets sent to _nRF Connect_ from the BLESense.
@@ -141,7 +141,7 @@ Here we will describe the very basic structure of an Arduino `.ino` file.
 3. `void loop()` and
 4. *"other functions"*
 
-#
+##
 
 **1. Prior to `void setup()`**
 
@@ -327,10 +327,11 @@ void loop() {
 ##### Turning on and off the LED by tilting on the y-axis
   <img src="images/myBLEtilt.gif"  width="50%">
   
-#
+##
 ## Summary so far:
 
 In this section we transformed the _golf-swing-acc_ code to include BLE communication. We took two example sketches to learn about the Arduino file structure and imported the code we needed into **_golf-swing-acc-ble_** to enable it to communicate with a smartphone running the _nRF Connect_ app.
+
 #
 
 Next:
@@ -341,10 +342,8 @@ Next:
 - [**_[ Enabling the gyro ]_**](#steps-five-and-six)
 - [**_[ Recording the data ]_**](#steps-five-and-six)
 
-#
-
+##
 ## UUID Info:
-#### Notes about UUID
 
 - [Online UUID Generator](https://www.uuidgenerator.net/) created the [unique UUIDs](#15-unique-v4uuids)
 - _Keep studying about UUID_
@@ -359,7 +358,8 @@ Next:
 - Go simpler. Look how they use them in the examples, and use theirs instead. Also, make them up: "FFF1" etc.
 - Changed to 16-bit in the code.
 
-#### (15 unique v4UUIDs)
+**15 unique v4UUIDs:**
+
 ```
 355d2b52-982c-4598-b9b4-c19156686e1a    // for imuUUID (ffe0)
 9e5982a7-9ef0-48e0-a167-8112ada5f184    // for accUUID (ffe1)
@@ -377,6 +377,8 @@ d49b4462-2bfd-4d92-8103-88ed9429e662
 52f6c067-db43-4e53-893b-d7d98406901b
 fa94204d-dc71-4585-aa63-98b8133c5266
 ```
+
+#
 
 #
 
@@ -427,6 +429,10 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 # Possibly useful ideas go here
 
 - [(link to **Magic wand**)](#magic-wand)
+- The all-inclusive Arduino file will be saved as _golf-sensors.ino_ when more sensors are involved.
+  - Multiple "h" file can probably be included, to split off logically (see: [_magic wand_](#magic-wand) example) from the _.ino_ file.
+- For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
+- Change LED from one state to the other: `digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));`
 
 #
 
@@ -439,18 +445,6 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 We were able to pass text into the app, such as "Ready" and "Resting".
 "Ready" and "Resting" could be read as a string, and could read each letter hex value. 
 Both strings began with the same hex values for "R" and "e".
-
-#
-
-##### Helpful Info:
-- The all-inclusive Arduino file will be saved as _golf-sensors.ino_ when more sensors are involved.
-  - Multiple "h" file can probably be included, to split off logically (see: [_magic wand_](#magic-wand) example) from the _.ino_ file.
-- For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
-- Change LED from one state to the other: `digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));`
-
-#
-
-#
 
 #
 
