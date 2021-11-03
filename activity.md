@@ -423,7 +423,6 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 # Possibly useful ideas go here
 
-- [(link to notify/indicate)](EnablingBLE.md#notifyindicate)
 - [(link to **Magic wand**)](#magic-wand)
 
 #
