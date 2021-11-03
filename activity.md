@@ -489,6 +489,11 @@ And I want my accelerometer to trigger my phone flashlight on/off, because it se
   - Wouldn't need BLE if listening device connects with wire to audio player!
 
 #
+
+**KWS idea.** Enable the microphone after the flashlight starts to function with the IMU.
+Use the Warden Dataset to configure KWS to utilize "yes" and "no" to turn off and on the flashlight, using TinyML.
+
+#
 #
 
 ##### characteristic notes:
