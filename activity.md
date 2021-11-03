@@ -319,7 +319,7 @@ void loop() {
 ```
 **We have created code that shows Ready/Resting on the serial monitor and on the nRF Connect app, but also, we got the LED on the device to light up as well!**
 
-#
+##
 
 ##### Phone screen with device listed: (1)Scanning, (2)Connected 
 (1)<img src="images/BLEScanning.png" width="25%"> (2)<img src="images/BLEConnected.png"  width="25%">
