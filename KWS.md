@@ -1,4 +1,4 @@
-[back](EnablingBLE.md)
+[back](activity.md#summary-so-far)
 
 #### Key Word Spotting
 - Need to bump up the application for key word spotting. (break this section out independently)
