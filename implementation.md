@@ -57,9 +57,9 @@ _skip to
 31. **KWS.md** Page for Key Word Spotting step has been set up, [here](kws.md), and step is in progress.
 
 ##### Learning about this:
-- **nRF Connect**, IMU sensors, BLE, C++, data collection
+- **[Kotlin](https://kotlinlang.org/)** and Android
+- nRF Connect, IMU sensors, BLE, C++, data collection
 - GitHub Desktop, possibly GitBASH, KiCad, LTspice, OSHPARK
-- Arduino Components and code requirements
 
 ## Flow for Golf Swing sensors:
 
