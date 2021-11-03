@@ -551,8 +551,10 @@ _**Once those readings were being sent to the device, we configured nRF Connect 
 #
 
 # for one of the steps (4,5,6):
-_(QUESTION: What is the next physical step?)_
 ##### "Getting the gyro going" (step five)
+
+**Where we left off with the Accelerometer:**
+
 What is the Accelerometer doing at this point?
 - When the Accelerometer is in the Ready state, another sensor (gyro, or maybe acc) identifies the Stillness state and prepares to record movement.
 What are the specific physical instruments needed to determine whether the motion has stopped? 
@@ -560,14 +562,18 @@ What are the specific physical instruments needed to determine whether the motio
 - It might just be the other 2 axes from the accelerometer. In this case, don't include the axis to which gravity is applied. Only use the other 2, and when they're below a threshold, they're still. (Having said that, I believe the gyro will be even more obvious)
 
 #
+
 # steps five and six
+
 ##### Step Five:
 ## Get Gyro going
 1. Figure out the Gyro data on Monitor.
 1. Figure out how to collect gyro data.
 1. Figure out how to **add** the KWS field ('yes'|null) to that data point.
 1. Figure out how to combine data points into a **usable DATA SET** (with or without the KWS resolved)
-#
+
+##
+
 ##### Step Six:
 ## Collect gyro data
 - Once in Ready state, figure out how to **enable the Gyro** to collect a sweep of data once motion begins.
@@ -586,19 +592,21 @@ What are the specific physical instruments needed to determine whether the motio
 #
 # final step
 
-#### After collecting gyro/KWS data
+**After collecting gyro/KWS data:**
+
 **_Accumulate all the data._**
 The final step of the project is figuring out how to send the collected data to a pool where we can use it to generate a universal dataset for **machine learning** so that we can improve our model. 
 There is no user-specific information in the data being collected, so the sky is the limit.
 Collecting all the data. This step will be after data collection is sorted out, and PCB prototyping is being considered.
 
-##### But first, do step [five](#step-five) and [six](#step-six)
-_Move sections around for better clarity_
+**But first, do step [five](#step-five) and [six](#step-six)**
 
 #
+
 # What are more parts to the project?
 
-#### Figure out:
+**Figure out:**
+
 - how to determine amount of memory being used
 - how to begin recording a golf swing
 - how to finish recording a golf swing
@@ -612,7 +620,8 @@ _Move sections around for better clarity_
 - how to RECONFIGURE smartphone app from Ready state orientation to 'good swing' chirp
 - finally, is it possible to simultaneously collect data and provide inference?
 
-#### Next:
+**Next:**
+
 - how to gather components/parts list
 - LEARN about power requirements
 - LEARN about electronics configuration (physical)
@@ -632,25 +641,18 @@ _Move sections around for better clarity_
 
 #
 
-#
-
-#
-
-#
-
-#
-
-#
+##
 ## More Learning:
 - Repeat EdX course material, do all TinyML assignments again
   - Include Jupyter Notebooks, Python, C++ (the h files, c files and others)
   - **Fully utilize GitHub features and functionality**
 - **TinyML Book** Create new repository "hello-world-arduino" for book exercise (sine function)
 
-#
-[**_[ <-- back to Implementation ]_**](implementation.md)
-#
+##
 
+[**_[ <-- back to Implementation ]_**](implementation.md)
+
+##
 ## Also:
 
 * Determine whether to keep the TEST site called _jdsgithubpages_ (probably not)
@@ -672,8 +674,9 @@ _Move sections around for better clarity_
 
 
 #
+
 [**_[ Thoughts and Notes --> ]_**](thoughtsandnotes.md)
-#
+##
 
 
 
