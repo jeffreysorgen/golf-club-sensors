@@ -36,16 +36,16 @@ Uses BLE:
 
 Uses IMU:
 - If Event Data exists, send data via BLE and clear buffer
-- IMU void loop waits for zero orientation on plane, 
+- IMU waits for zero orientation on plane, 
   * then waits for motion to settle, 
   * then enables recording of swing motion (event loop) 
 - record the motion event
   * store motion data
-  * engage the KWS void loop 
+  * engage the KWS 
 
 Uses KWS:
 - KWS void loop listens for 'yes'
-- after delay, records null label then returns to IMU void loop
-- after 'yes' Keyword, records Yes label then returns to IMU void loop
+- after delay, records null label
+- after 'yes' Keyword, records Yes label then returns to IMU input
 
 ### [Implementation -->](implementation.md)
