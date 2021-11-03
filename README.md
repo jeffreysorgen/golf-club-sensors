@@ -31,7 +31,7 @@ The BLE service provides a way to record data without restrictions. It's simply 
 
 ## Flow:
 Uses BLE:
-- Start by connecting the MCU to the smartphone (_how is this done?_)
+- Start by connecting the MCU to the smartphone
 - Begin IMU void loop
 
 Uses IMU:
@@ -48,4 +48,4 @@ Uses KWS:
 - after delay, records null label then returns to IMU void loop
 - after 'yes' Keyword, records Yes label then returns to IMU void loop
 
-# [Implementation -->](implementation.md)
+### [Implementation -->](implementation.md)
