@@ -171,8 +171,9 @@ Here we will describe the very basic structure of an Arduino `.ino` file.
   
 **3. `void loop()`**
 
-- settings and calculations within the repeated loop (edit this)
-- _if-else_ statements
+- conditional settings and calculations repeated within the loop
+- _if-else_ statements, etc
+- engaging LEDs, etc
 
 **4. other functions**
 
