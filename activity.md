@@ -332,11 +332,11 @@ In this section we transformed the _golf-swing-acc_ code to include BLE communic
 
 Next:
 - [**_[ Continuing with BLE --> ]_**](EnablingBLE.md)
+- [**_[ KWS (Key Word Spotting) ]_**](#key-word-spotting)
 - [**_[ UUID Info ]_**](uuid-info)
 - [**_[ Reference ]_**](#reference)
 - [**_[ Enabling the gyro ]_**](#steps-five-and-six)
 - [**_[ Recording the data ]_**](#steps-five-and-six)
-- [**_[ KWS (Key Word Spotting) ]_**](#key-word-spotting)
 
 #
 
