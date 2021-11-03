@@ -438,17 +438,13 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 #
 
-##### GATT angulars
+##### GATT angulars:
 **Interesting:** There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
 
-#
-
-##### Note about HEX
+##### Note about HEX:
 We were able to pass text into the app, such as "Ready" and "Resting".
 "Ready" and "Resting" could be read as a string, and could read each letter hex value. 
 Both strings began with the same hex values for "R" and "e".
-
-#
 
 ##### characteristic notes:
 Next, add a specific CHARACTERISTIC. If it were a string, there would also be a number for its data length.
@@ -457,7 +453,7 @@ Next, add a specific CHARACTERISTIC. If it were a string, there would also be a 
 ##### char advert notes:
 Anything that's going to be sent to the smartphone via BLE would be added like this, under `customService.addCharacteristic(example_char)` and then accessed within later code and displayed using `example_char.writeValue()`. (true, good note)
 
-##### robocraze example notes
+##### robocraze example notes:
 Here is where the `readValues()` is used in the _RoboCraze_ example sketch.
 The `readValues()` is not used in this case, but in the _RoboCraze_ example, it combines readings and labels into a string
 which can be read easily in nRF Connect with `writeValue(m)`. 
@@ -465,7 +461,7 @@ _( `readValues()` is a function; read [here](#structure-of-arduino-files) )_ `re
 **And the `readValues()` function executes from inside of the `while (central.connected())` loop.** (refer to the actual code from _RoboCraze_ for what's in 'readValues'
 - _This is where x,y,z readings are combined and turned into text strings, rather than leaving it as RAW._
 
-#
+##
 #### Repository Question
 - Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. 
 
