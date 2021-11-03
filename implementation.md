@@ -13,6 +13,7 @@
 _skip to
 [\[Sept\]](#2021-sept)
 [\[Oct\]](#2021-oct)
+[\[Nov\]](#2021-oct)
 2021_
 
 ##### _2021 Sept_ 
@@ -48,7 +49,11 @@ _skip to
 26. **New Code** Created _golf-swing-imu-ble_ which communicates via BLE to a smartphone
 27. **Editing** Consolidating the documentation in preparation for moving to **Step Four: [the SDK!](activity.md#step-four)**
 28. **Posted to Reddit!** [HERE](https://www.reddit.com/r/arduino/comments/qja9y6/nano33blesense_project_first_step_solve_for_power/)
-29. (november) **CODE** Solved for "bounce" problem with accelerometer and enabled READY/RESTING states properly.
+
+##### _2021 Nov_
+
+29. **CODE** Solved the sensor "bounce" problem with accelerometer and enabled READY/RESTING states.
+30. **Bluetooth** BLE has been properly enabled to communicate with smartphone, time to dig into the SDK
 
 ##### Learning about this:
 - **nRF Connect**, IMU sensors, BLE, C++, data collection
