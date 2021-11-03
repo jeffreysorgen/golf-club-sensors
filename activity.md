@@ -332,8 +332,7 @@ In this section we transformed the _golf-swing-acc_ code to include BLE communic
 
 Next:
 - [**_[ Continuing with BLE --> ]_**](EnablingBLE.md)
-- [**_[ New KWS (Key Word Spotting) --> ]_**](KWS.md)
-- [**_[ Old KWS (Key Word Spotting) ]_**](#key-word-spotting)
+- [**_[ KWS (Key Word Spotting) --> ]_**](KWS.md)
 - [**_[ UUID Info ]_**](uuid-info)
 - [**_[ Reference ]_**](#reference)
 - [**_[ Enabling the gyro ]_**](#steps-five-and-six)
@@ -443,9 +442,8 @@ Both strings began with the same hex values for "R" and "e".
 
 ##### Helpful Info:
 - The all-inclusive Arduino file will be saved as _golf-sensors.ino_ when more sensors are involved.
-  - Multiple "h" file can probably be included, to split off logically (see: [_magic wand_](#digging-deeper-into-the-magic-wand) example) from the _.ino_ file.
+  - Multiple "h" file can probably be included, to split off logically (see: [_magic wand_](#magic-wand) example) from the _.ino_ file.
 - For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
-- Create an _interval_ for some sensor readings, using `millis()` not `delay()`. But `delay()` is good during Resting state, because all sensors are meant to be off.
 - Change LED from one state to the other: `digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));`
 
 #
