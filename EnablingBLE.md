@@ -73,17 +73,17 @@ While the flashlight functionality won't be used in the end, that solution is cr
 
 #
 
+Flashlight:
+- When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
+- More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
+
+#
+
 - So we need to enable functionality within _nrfconnect_ to do something.
 - We've already sent the data once, so do something, and when it changes, do something else.
 - Code: When Y-axis, `y < -0.85`, changes from True to False or back, this is the moment to send BLE data and nothing else, to save on BLE energy.
 - We're going to try to enable one element of the BLE functionality which will send a notification only when the state changes.
 - The code will send a change of state notification when it happens, which can then be held in the nRF Connect app until the next update.
-
-#
-
-Flashlight:
-- When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
-- More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
 
 #
 
