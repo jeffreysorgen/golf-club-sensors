@@ -353,12 +353,12 @@ Next:
 - Need to have specific UUIDs for each IMU param
 - I can't find a specific standard UUID for x,y,z on the Accelerometer
   - check _GATT Angulars_ note, [**here**](#gatt-angulars) 
-  - what does the **raw** IMU data look like? (move this)
+  - what does the **raw** IMU data look like?
 - check the hackster.io post in the [Reference](#reference)
   - Here: the [hackster](https://www.hackster.io/gov/imu-to-you-ae53e1) site again
 - I thought I would need to use the BLE UUID spec which I thought was "important for ble"
-  - UUID for BLE: _XXXXXXXX-0000-1000-8000-00805F9B34FB_ (Look this up to find standard BLE list)
-- Go simpler. Look how they use them in the examples, and use theirs instead. Also, make them up: "FFF1" etc.
+  - UUID for BLE: _XXXXXXXX-0000-1000-8000-00805F9B34FB_ _(Look this up to find standard BLE list)_
+- Go simpler. Look how they use them in the examples, and use theirs instead. Also, make them up: "FFE0" etc.
 - Changed to 16-bit in the code.
 
 ##### 15 unique v4UUIDs:
