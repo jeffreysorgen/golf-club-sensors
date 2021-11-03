@@ -54,6 +54,7 @@ _skip to
 
 29. **CODE** Solved the sensor "bounce" problem with accelerometer and enabled READY/RESTING states.
 30. **Bluetooth** BLE has been properly enabled to communicate with smartphone, time to dig into the SDK
+31. **KWS.md** Page for Key Word Spotting step has been set up, [here](kws.md), and step is in progress.
 
 ##### Learning about this:
 - **nRF Connect**, IMU sensors, BLE, C++, data collection
