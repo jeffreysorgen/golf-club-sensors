@@ -9,7 +9,8 @@
 ##### Step Three:
 # Enabling BLE
 
-#### Description
+**Description:**
+
 Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app we can download from Google Play called _nRF Connect_. Let's go through the process of getting that started right here. 
 
 ### Try the BLE example sketch
@@ -20,7 +21,8 @@ Upload the sketch to the device... _**And it works exactly as it does in that vi
 _But there is a [**caveat**](#caveat) which I discovered for this example._ 
 We'll refer to this _RoboCraze_ code for reference in the future if we need to.
 
-#### To do this:
+**To do this:**
+
 1. Download _nRF Connect_ from **Google Play** (also available for iOS)
 2. Find the `environment_sensor_ble.ino` file from the _Robocraze_ repository and copy it locally. 
 _(Right-click on _Raw_, save the file, and drop into same-name folder, as required by Arduino.)_
@@ -37,7 +39,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 With the USB cable plugged into the computer I **_can_** discover _"Arduino Environment Sensor"_ in nRF Connect. 
 But a [**battery-only**](implementation.md/#current-development-solution) solution can **_not_**. So...
 
-#### For battery-only:
+**For battery-only:**
 
 - **Comment out `//while (!Serial);`** 
 
@@ -51,7 +53,7 @@ Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, i
 
 There is a simple _BLE Hello World_ sketch from [okdo.com](#reference) that turns on the amber LED on the Arduino board when it connects. And after connecting with nRF Connect, we can read "Hello World" on our smartphone.
 
-What's interesting to me (newbie!) is using `static const char* greeting = "Hello World!";` first, and then later using `greetingCharacteristic.setValue(greeting);` for that string to appear through the characteristic.
+_What's interesting to me (newbie!) is using `static const char* greeting = "Hello World!";` first, and then later using `greetingCharacteristic.setValue(greeting);` for that string to appear through the characteristic._
 
 #
 
@@ -120,20 +122,19 @@ void loop() {
 }
 ```
 
-#### How we will use this:
+**How we will use this:**
 
 The big takeaway with this code is that the `while (central.connected()){` command just hangs the activity until BLE disconnects and then the code turns the LED off. 
 **_It's LED-centric code._** 
 The code for the LED will be useful for indicating "Ready" and "Resting" states.
 
-**These two examples have shown us what a basic `.ino` file looks like.**
+**_We've seen in those two examples what a basic `.ino` file looks like._** Here's a summary...
 
-#
 ## Arduino File Structure
 
 Here we will describe the very basic structure of an Arduino `.ino` file. 
 
-#### At the most basic level, there are four sections:
+**At the most basic level, there are four sections:**
 
 1. *"prior to"*
 2. `void setup()`
@@ -141,45 +142,47 @@ Here we will describe the very basic structure of an Arduino `.ino` file.
 4. *"other functions"*
 
 #
-#### 1. **Prior to `void setup()`**
+
+**1. Prior to `void setup()`**
 
 - These can be within _namespace_
 - First add LIBRARIES
-- Set CONSTANTS
+- Initialize and name CONSTANTS
 - Initialize VARIABLES
-- Add SERVICES
+- Initialize BLE SERVICES
   - Give the Services and Characteristics their UUIDs ([here](#uuid-info) for more info)
-- Add respective Service CHARACTERISTICS
+- Initialize respective BLE Service CHARACTERISTICS
 - Create the FUNCTION PROTOTYPE (which reside in "other functions" area)
 
-#### 2. `void setup()`
+**2. `void setup()`**
 
-- INITIALIZE THE SENSORS
+- Initialize the SENSORS
 - Initialize SERIAL COMMUNICATION
-- And initialize OTHER things (such as built-in LED pin)
+- Initialize OTHER things (such as built-in LED pin)
 - Check for FAILURE
-- Set the NAME to show up in the SCAN
-- Set BLE SERVICE ADVERTISEMENT
-- ADD CHARACTERISTICS to the BLE services
-- ADD SERVICE to the BLE stack
-  - The variable names were previously declared in "Add Services" section prior to the setup loop
-- Set VALUES for strings
-  - This variable was set previously, in the "Constants" section prior to the setup loop
-- ADVERTISE
+- Create the BLE NAME to show up in the SCAN
+- Create the BLE SERVICE for advertising
+- Create the BLE Service CHARACTERISTICS
+- ADD the BLE SERVICE to advertise
+  - The variable names were previously initialized above
+- ADVERTISE BLE
+- Set VALUES for strings or constants
+  - These variables were previously initialized above
   
-#### 3. `void loop()`
+**3. `void loop()`**
 
 - settings and calculations within the repeated loop (edit this)
 - _if-else_ statements
 
-#### 4. **other functions**
+**4. other functions**
 
 - subroutines and stuff (edit this)
 
 
-#
+
 ## Creating the new code
-##### Importing new functionality into our code
+
+**Importing new functionality into our code:**
 
 We're now going to take what we've learned from our two examples and incorporate them into our feature code, now called **_golf-swing-acc-ble_**.
 
