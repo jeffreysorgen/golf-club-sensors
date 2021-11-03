@@ -1,6 +1,7 @@
 - how to use the UUID being send to _nrfconnect_
 - how to enable notify or indicate
     - what setting on the peripheral is used to send on/off to the client?
+- move the KWS section to its own page
 
 [Back](activity.md#summary-so-far)
 
