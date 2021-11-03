@@ -4,6 +4,7 @@
 - move the KWS section to its own page
 - what is [Kotlin?](https://kotlinlang.org/)
 - Here is Androide BLE [guide](https://punchthrough.com/android-ble-guide/)
+- Need new GIF for "tilt LED"
 
 [Back](activity.md#summary-so-far)
 
