@@ -17,7 +17,7 @@ If you're like me trying to remember what you saw on YouTube, then it's hard to 
 ### Purpose of the Device:
 There are _two_. The first is data collection, described here. Its architecture expects me to say 'yes' following a good swing. 
 
-The other purpose is to use collected data for an ML model that beeps a signal when it identifies a good practice swing. **Unsure if it's possible to implement both purposes.**
+The other purpose is to use collected data for an ML model that beeps a signal when it identifies a good practice swing. **Goal is to implement both purposes simultaneously.**
 
 ### Physical Description:
 Attach a small form factor MCU to the back of a golf club head securely to engage movement sensors.
@@ -44,7 +44,7 @@ Uses IMU:
   * engage the KWS 
 
 Uses KWS:
-- KWS void loop listens for 'yes'
+- KWS function listens for 'yes'
 - after delay, records null label
 - after 'yes' Keyword, records Yes label then returns to IMU input
 
