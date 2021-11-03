@@ -49,4 +49,4 @@ Uses KWS:
 - after 'yes' Keyword, records Yes label then returns to IMU input
 
 #
-#### [Implementation -->](implementation.md)
+**Next: [*[ Implementation --> ]*](implementation.md#step-one)**
