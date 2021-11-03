@@ -448,7 +448,7 @@ Both strings began with the same hex values for "R" and "e".
 - Change LED from one state to the other: `digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));`
 
 #
-
+(move to new page kws.md)
 #### Key Word Spotting
 - Need to bump up the application for key word spotting. (break this section out independently)
 - Enable the microphone on the Arduino to do this.
@@ -493,6 +493,7 @@ And I want my accelerometer to trigger my phone flashlight on/off, because it se
 **KWS idea.** Enable the microphone after the flashlight starts to function with the IMU.
 Use the Warden Dataset to configure KWS to utilize "yes" and "no" to turn off and on the flashlight, using TinyML.
 
+(end of moved section)
 #
 #
 
