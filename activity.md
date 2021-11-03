@@ -344,7 +344,8 @@ Next:
 - [**_[ Enabling the gyro ]_**](#steps-five-and-six)
 - [**_[ Recording the data ]_**](#steps-five-and-six)
 
-##
+#
+
 ## UUID Info:
 
 - [Online UUID Generator](https://www.uuidgenerator.net/) created the [unique UUIDs](#15-unique-v4uuids)
@@ -360,8 +361,7 @@ Next:
 - Go simpler. Look how they use them in the examples, and use theirs instead. Also, make them up: "FFF1" etc.
 - Changed to 16-bit in the code.
 
-**15 unique v4UUIDs:**
-
+##### 15 unique v4UUIDs:
 ```
 355d2b52-982c-4598-b9b4-c19156686e1a    // for imuUUID (ffe0)
 9e5982a7-9ef0-48e0-a167-8112ada5f184    // for accUUID (ffe1)
