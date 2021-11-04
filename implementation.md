@@ -223,7 +223,7 @@ Swinging the club around won't put it into that Resting state unless it register
   - It's a good example for a stationary device.
 
 #
-[*[ <-- back to README ]*](README.md)
+[*[ Top ]*](GolfSwingSensors#golf-swing-sensors.md)
 [*[ Step One ]*](#step-one)
 [*[ Step Two ]*](#step-two)
 **Next: [*[ Step Three: Enabling BLE --> ]*](EnablingBLE.md/#step-three)**
