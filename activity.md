@@ -354,6 +354,7 @@ Next:
 - I can't find a specific standard UUID for x,y,z on the Accelerometer
   - check _GATT Angulars_ note, [**here**](#gatt-angulars) 
   - what does the **raw** IMU data look like?
+- Here's some GATT information [(_LINK_)](https://www.oreilly.com/library/view/getting-started-with/9781491900550/ch04.html) from O'Reilly (2014), and its repository, [(_here._)](https://github.com/microbuilder/IntroToBLE)
 - check the hackster.io post in the [Reference](#reference)
   - Here: the [hackster](https://www.hackster.io/gov/imu-to-you-ae53e1) site again
 - I thought I would need to use the BLE UUID spec which I thought was "important for ble"
@@ -397,7 +398,6 @@ fa94204d-dc71-4585-aa63-98b8133c5266
   - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
   - A complete [reference](https://www.arduino.cc/reference/en/)
   - And one specifically for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
-- Here's some GATT information [(_LINK_)](https://www.oreilly.com/library/view/getting-started-with/9781491900550/ch04.html) from O'Reilly (2014), and its repository, [(_here._)](https://github.com/microbuilder/IntroToBLE)
 - **Nordic Semi** resources:
   - Helpful [**beginners tutorial**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/ble-advertising-a-beginners-tutorial) from Nordic Semi. 
   - And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/bluetooth-smart-and-the-nordics-softdevices-part-1)
