@@ -17,7 +17,7 @@
 #
 
 So far, information is being sent through BLE every time the code loops.
-Istead, we need to send notifications about a change of state to the Client (nRF Connect) when the peripheral changes its state from Ready to Resting or back.
+Instead, we need to send notifications about a change of state to the Client (nRF Connect) when the peripheral changes its state from Ready to Resting or back.
 When the app reads "Ready!" or "Resting!" it is receiving 6 or 8 bytes of information from the device constantly, which is excessive. 
 
 Making that change, and...
@@ -52,7 +52,7 @@ And now:
 #
 
 This is the research I am doing now.
-- nRF Connect to respond by making my phone beep or flashlight on and off
+- nRF Connect to respond by making my phone beep or flashlight on and off (or more likely, using Android Studio instead)
 
 #
 
