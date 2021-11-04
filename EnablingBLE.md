@@ -43,10 +43,10 @@ It looks like this in the monitor, and sends BLE data only at the point when the
 The code:
 - Added a timing functionality so it checks for new state, and accommodates for any unintentional bounces.
 - Added logic to the code so that Resting is 1 and Ready is 0
-- (_did other things here but I don't know where to go with this right now_)
+- _There are other things (which might be nice to have included here)_
 
 And now:
-- _Most likely, need to just figure out what to do in nrfconnect, and **act upon the UUID changing from 0 to 1**_
+- _Most likely, need to just figure out what to do with an Android app, and **act upon the UUID changing from 0 to 1**_
 
 #
 
