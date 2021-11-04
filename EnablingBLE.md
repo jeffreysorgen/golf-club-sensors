@@ -1,16 +1,3 @@
-- how to use the UUID being send to _nrfconnect_
-- how to enable notify or indicate
-    - what setting on the peripheral is used to send on/off to the client?
-- Need new GIF for "tilt LED"
-
-[Back](activity.md#summary-so-far)
-
-# What we've accomplished
-. . . . . .
-
-(insert previous page from top down to 'so far...')
-
-
 [*[ Overview ]*](README.md/#golf-swing-sensors)
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
 [*[ 2 Solve for Power ]*](implementation.md/#solve-for-power)
@@ -346,28 +333,15 @@ void loop() {
 
 In this section we transformed the _golf-swing-acc_ code to include BLE communication. We took two example sketches to learn about the Arduino file structure and imported the code we needed into **_golf-swing-acc-ble_** to enable it to communicate with a smartphone running the _nRF Connect_ app.
 
-#
+. . . . . . . . . .
 
-
-
-
-
-
-
-
-
-
-
-
-
-. . . . . . 
 1. Data is being sent from the device to nRF Connect
 2. The device sends Ready/Resting to the app depending on a threshold in the code
 3. Accelerometer value is sent in the form of a **_hex_** (don't know if this makes a difference in our project)
 4. We used UUIDs in their long form as constants [_(Notes about UUID)_](activity.md#uuid-info)
 5. Then started to use a shorter, 16-bit form of UUID, like "ffe0" and "ffe1"
 
-#
+##
 
 So far, information is being sent through BLE every time the code loops.
 Instead, we need to send notifications about a change of state to the Client (nRF Connect) when the peripheral changes its state from Ready to Resting or back.
@@ -388,7 +362,7 @@ It looks like this in the monitor, and sends BLE data only at the point when the
 
 
 ##### State changes by tilting on the y-axis
-  <p align="center"><img src="images/stateshanges.gif"  width="90%"></p>
+  <p align="center"><img src="images/stateshanges.gif"  width="80%"></p>
 
 
 
@@ -401,6 +375,39 @@ The code:
 
 And now:
 - _Most likely, need to just figure out what to do with an Android app, and **act upon the UUID changing from 0 to 1**_
+
+#
+
+#
+
+#
+
+. . . . . . . .
+
+- how to use the UUID being send to _nrfconnect_
+- how to enable notify or indicate
+    - what setting on the peripheral is used to send on/off to the client?
+- Need new GIF for "tilt LED"
+
+[Back](activity.md#summary-so-far)
+
+##### What we've accomplished
+. . . . . .
+
+(insert previous page from top down to 'so far...')
+
+
+
+
+
+
+
+
+
+
+#
+
+#
 
 #
 
