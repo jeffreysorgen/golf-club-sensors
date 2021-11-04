@@ -450,30 +450,15 @@ Both strings began with the same hex values for "R" and "e".
 Next, add a specific CHARACTERISTIC. If it were a string, there would also be a number for its data length.
 - "2A58" seems quite arbitrary and in other examples is actually the 128-bit UUID. Came from the example. _Each characteristic either DOES or DOES NOT need a unique UUID, so I'll have to **look this up** and why._ (I believe that a service has a unique UUID, and it's characteristics are also unique UUIDs.) [**Refer to UUID section.**](#UUID-info)
 
-##### char advert notes:
-Anything that's going to be sent to the smartphone via BLE would be added like this, under `customService.addCharacteristic(example_char)` and then accessed within later code and displayed using `example_char.writeValue()`. (true, good note)
+#
 
-##### robocraze example notes:
-Here is where the `readValues()` is used in the _RoboCraze_ example sketch.
-The `readValues()` is not used in this case, but in the _RoboCraze_ example, it combines readings and labels into a string
-which can be read easily in nRF Connect with `writeValue(m)`. 
-_( `readValues()` is a function; read [here](#structure-of-arduino-files) )_ `readValues()` is a subroutine to collect the x,y,z of the sensor, and combine it into a readable string.
-**And the `readValues()` function executes from inside of the `while (central.connected())` loop.** (refer to the actual code from _RoboCraze_ for what's in 'readValues'
-- _This is where x,y,z readings are combined and turned into text strings, rather than leaving it as RAW._
+#
+
+#
+
+#
 
 ##
-#### Repository Question
-- Are libraries separate from this code? (probably yes) Libraries are listed within the code, so no need to describe more than _"verify you have all the libraries installed"_. 
-
-#
-
-#
-
-#
-
-#
-
-#
 ##### Transition/conclusion
 # BLE conclusion
 Move this to "Digging deeper into BLE" section, after enabling the code on the device.
