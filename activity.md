@@ -382,7 +382,7 @@ fa94204d-dc71-4585-aa63-98b8133c5266
 **Interesting:** There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
 
 ##### UUID BLE specification:
-- _I read this was important for BLE:_ UUID for BLE: _"XXXXXXXX-0000-1000-8000-00805F9B34FB"_ _(Look this up to find standard BLE list)_
+_I read that this was important for BLE:_ UUID for BLE: _"XXXXXXXX-0000-1000-8000-00805F9B34FB"_ _(Look this up to find standard BLE list)_
 
 #
 
@@ -489,18 +489,17 @@ We started with physically setting up the Arduino Nano33BLESense as if it were a
 Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
 After experimenting with a couple of example sketches, we incorporated the BLE library to the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming from the Nano33BLE.
 
-_**Once those readings were being sent to the device, we configured nRF Connect to take action on the smartphone to make it beep.**_ (Not done yet. Maybe use Android Studio instead.)
+Now that data is being transmitted from the Nano33BLESense, we need to develop an Android application that receives it. (Might be in _nrfconnect_ or might be using Android Studio instead.)
 
-We eventually developed an Android app that would turn on and off a flashlight or beep high and low, depending on the Resting state. (in progress)
-
-##### Video of moving device back and forth, and hearing the beep sound from the phone
-<p align="center"><img src="http://some_place.com/image.png" /></p>
+We want to develop an Android app that will turn on and off its flashlight or beep high and low, depending on the Resting state.
 
 #
 
 #
 
 #
+
+**_Now that we've created an Android app:_**
 
 ##
 # steps five and six
