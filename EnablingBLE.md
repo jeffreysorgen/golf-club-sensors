@@ -346,19 +346,17 @@ So far, information is being sent through BLE every time the code loops.
 Instead, we need to send notifications about a change of state to the Client (nRF Connect) when the peripheral changes its state from Ready to Resting or back.
 When the app reads "Ready!" or "Resting!" it is receiving 6 or 8 bytes of information from the device constantly, which is excessive. 
 
+##
+
 Making that change, and...
-
-
-
 ### Peripheral-side code is done
 
 **The new code now has this function.** (_golf-swing-acc-ble-statechange_) 
-We needed to modify the code so that it will only send data via BLE when necessary, when the state switches between Ready and Resting. 
-This reduces the BLE communication (which is the most energy-hungry part of this project) down to one single instance: _a characteristic change_ (state change). 
-We substituted using entire words, "Resting" and "Ready", and instead use now _boolean 1/0_ to do the same thing.
-It looks like this in the monitor, and sends BLE data only at the point when the words "State change to" show up. 
+We modified the code so that it will only send data via BLE when necessary, when the state switches between Ready and Resting. 
+This reduces the BLE communication (which is the most energy-hungry part of this project) down to a single instance: _a characteristic change_ (state change). 
+We substituted using entire words, "Resting" and "Ready", and instead now use _boolean 1/0_ to do the same thing.
 
-
+It sends BLE data only at the point of the state change (note the words "State change to" in the monitor)
 
 ##### State changes by tilting on the y-axis
   <p align="center"><img src="images/stateshanges.gif"  width="80%"></p>
