@@ -1,7 +1,6 @@
 - how to use the UUID being send to _nrfconnect_
 - how to enable notify or indicate
     - what setting on the peripheral is used to send on/off to the client?
-- what is [Kotlin?](https://kotlinlang.org/)
 - Need new GIF for "tilt LED"
 
 [Back](activity.md#summary-so-far)
