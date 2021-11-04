@@ -459,6 +459,7 @@ We want to develop an Android app that will turn on and off its flashlight or be
 
 ### App Development
 - Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
+- Here is **Android BLE [guide](https://punchthrough.com/android-ble-guide/)**
 - What can be configured in my phone when it receives commands from the nRF Connect (or other) application?
   - Can the phone app trigger **BEEP** or a vibration/buzz?
   - Can the App turn on/off the phone's **flashlight**?
