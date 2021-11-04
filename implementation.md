@@ -227,6 +227,6 @@ Swinging the club around won't put it into that Resting state unless it register
 [*[ Step One ]*](#step-one)
 [*[ Step Two ]*](#step-two)
 **Next: [*[ Step Three: Enabling BLE --> ]*](EnablingBLE.md/#step-three)**
-[*[ 4 ]*](#activity.md/#step-four)
-[*[ 5 ]*](#activity.md/#steps-five-and-six)
+[*[ 4 ]*](activity.md/#step-four)
+[*[ 5 ]*](activity.md/#steps-five-and-six)
 
