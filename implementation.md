@@ -54,11 +54,12 @@ _skip to
 
 29. **CODE** Solved the sensor "bounce" problem with accelerometer and enabled READY/RESTING states.
 30. **Bluetooth** BLE has been properly enabled to communicate with smartphone, time to dig into the SDK
+31. **KWS.md** Page for Key Word Spotting step has been set up, [here](kws.md), and step is in progress.
 
 ##### Learning about this:
-- **nRF Connect**, IMU sensors, BLE, C++, data collection
+- **[Kotlin](https://kotlinlang.org/)** and Android
+- nRF Connect, IMU sensors, BLE, C++, data collection
 - GitHub Desktop, possibly GitBASH, KiCad, LTspice, OSHPARK
-- Arduino Components and code requirements
 
 ## Flow for Golf Swing sensors:
 
@@ -80,7 +81,8 @@ _skip to
 ##### Step One:
 # The Accelerometer
 
-#### Description: 
+**Description:**
+
 **The goal is to "turn on" readings when sensor is oriented with clubhead down at the ground.**
 What instrument determines when to begin doing something? 
 **The accelerometer**. 
@@ -90,7 +92,8 @@ Resting state is the negative value of its Ready state.
 Some combination of coordinates might need to be calculated with advanced math for _gravity=zero._
 But at this stage of development it probably isn't necessary.
 
-#### Why the Accelerometer?
+**Why the Accelerometer?**
+
 I need one reading - _knowing the orientation of the device._ 
 Since the Accelerometer +/- Z axis is up/down, then this is the sensor to use. 
 Depending on how the device is attached, it's one of the three axes. 
@@ -98,7 +101,8 @@ It's mounted flat and perpendicular to the stick, so the axis changes to the Y-a
 The axis is "opposite" when the club handle is pointing down and in Resting state. 
 When the handle is upright, the club is in play and the sensor is in Ready state.
 
-#### For energy conservation: 
+**For energy conservation:**
+
 First, understand the orientation of the device.
 When the sensor identifies its orientation is as if the club has been put back in the golf bag, then the device just uses one accelerometer parameter, `y < -.85`, meaning Resting state, and then continues to check every second for a change in state. 
 BLE will remain engaged.
@@ -116,13 +120,16 @@ These readings will determine the Ready or Resting state orientation
 (3)<img src="images/Sm-device orientation.png" width="20%">
 (4)<img src="images/Sm-rest orientation.png" width="20%">
 
-#### The readings of the accelerometer, according to the setup in the images:
+**The readings of the accelerometer, according to the setup in the images:**
+
 There is a difference between the Ready(2) position and the Resting(4) orientation. When the device is attached as shown(1), one parameter, the Y-axis (in red) of the Accelerometer, tells the system whether it's in Ready state or it's in Resting state. When the Y-axis reading is positive then the sensor is in one state, and when it's negative it's in the other. Attached this way, the graph(3) shows that the Ready state is positive and the Resting state is negative.
 
-#### Notes about Resting state
+**Notes about Resting state:**
+
 The Resting state is meant for when the club is in the bag. If it's in the bag then it's not going to take readings. That would be wasteful. So it's meant to pause all the readings before any more readings are taken. The sensor will stay in Resting state until it senses Ready state. Once in Ready state, the other sensors are turned back on again.
 
-#### What happens: 
+**What happens:**
+
 1. powered on
 2. in the bag, so Resting state
 3. pulled out of the bag, senses Ready state
@@ -137,7 +144,7 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 
 <img src="images/one second delay.PNG" width="50%"/>
 
-## Updating the Arduino Nano 33 BLE
+### Updating the Arduino Nano 33 BLE
 - **Find** _SimpleAccelerometer_ from the Example files in the **Arduino_LSM9DS1 folder**
 - IMPORTANT: **Save it as** _golf-swing-acc_
 - **Add the _if-else_ statements within the _void() loop_ as shown.** (the rest is unchanged) 
@@ -178,13 +185,15 @@ void loop() {
 This section was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
 The goal was to basically create on/off states, accomplished here by using a threshold for the Ready and Resting states. 
 
-### Exception to this configuration
-Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason. **This exception has been resolved in the code.**
+**Exception to this configuration:**
+
+Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason. **This exception has been resolved in later code.**
 
 #
 ##### Step Two:
 # Solve for Power
-### Future prototyping solution
+
+#### Future prototyping solution
 - Later can build an obviously better solution.  
 - When 100% finished developing with my Arduino Nano 33 BLE Sense, I will be looking into using a different board for prototyping, and a battery solution will definitely be a part of the research.
   - **The board needs to include (1) an IMU, (2) a microphone, and (3) a solvable battery option**
@@ -194,7 +203,7 @@ Swinging the club around won't put it into that Resting state unless it register
   - **CR1220** is a small, common coin-type battery
   - **LIR2032H** is a common 3.7 rechargable, but 20mm, so like a nickel size.
 
-### Current development solution
+#### Current development solution
 - **Connect with only BLE and be _physically detached_ from the computer.**
 - Attach the Arduino Sense (USBmicro port) to a power source.
 - Use a lightweight **phone recharger** (with 2 USB out) to serve this purpose during development.  
@@ -205,7 +214,7 @@ Swinging the club around won't put it into that Resting state unless it register
 <img src="images/Sm-batterypack.png" width="35%">
 
 
-### Alternative development solution
+#### Alternative development solution
 - This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
 - There's a power solution in the TinyML Course, attaching a 9V battery to the **Learning Kit Shield**. 
   - This [**Appendix**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
