@@ -330,8 +330,6 @@ void loop() {
 </p>
 
 ##
-(Turning on and off the LED by tilting on the y-axis)
-
 ## Summary so far:
 
 In this section we transformed the _golf-swing-acc_ code to include BLE communication. We took two example sketches to learn about the Arduino file structure and imported the code we needed into **_golf-swing-acc-ble_** to enable it to communicate with a smartphone running the _nRF Connect_ app.
@@ -381,7 +379,7 @@ fa94204d-dc71-4585-aa63-98b8133c5266
 **More UUID-Specific info:**
 
 ##### GATT angulars:
-**Interesting:** There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
+**Interesting:** There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force. _But if I use this measure, it will appear in the MCU code and not transmitted via BLE._
 
 ##### UUID BLE specification:
 _I read that this was important for BLE:_ UUID for BLE: _"XXXXXXXX-0000-1000-8000-00805F9B34FB"_ _(Look this up to find standard BLE list)_
