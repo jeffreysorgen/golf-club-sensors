@@ -442,9 +442,8 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 **_other headings:_**
 ##### Digging into App Dev
-##### App Development
 ##### Enable Smartphone to BEEP
-
+##### Getting Started with the SDK
 ##
 ##### Step Four:
 # Enable Smartphone Response
@@ -459,10 +458,7 @@ Now that data is being transmitted from the Nano33BLESense, we need to develop a
 
 We want to develop an Android app that will turn on and off its flashlight or beep high and low, depending on the Resting state.
 
-
-##
-##### Getting Started with the SDK
-## SDK
+### App Development
 - Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
 - What can be configured in my phone when it receives commands from the nRF Connect (or other) application?
   - Can the phone app trigger **BEEP** or a vibration/buzz?
