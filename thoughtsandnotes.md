@@ -4,11 +4,12 @@
 
 ## Other Projects:
 _(Jot down ideas for other projects here)_
-- wind turbine ( Is the most popular product TinyML or IoT? )
-- **Golf Bag Robot** Attach servos and a wheel to my golf bag, and make it use Image Recognition to follow me around on the golf course. Hold the flag (use red/green _COLOR_) up, and it moves forward, to the side and it goes that way, hold it down and it stops. _GOOD PROJECT!_
 - **LED glasses** which display "HIGHLND" across them (**ORDERED!!**)
   - **Acquire** one of the mounts/PCB boards, and maybe later design PCB myself. Requires Adafruit _feather_ board. I imagine I'd document a project just like this _golf-sensors_ one, step by step. Fun to imagine Patreon or YouTube connections also. I like the idea of offering this to fans and artists. Should be very fun to do, with profit potential.
-  - **INCORPORATING _KWS_** for verbal commands! Like, "highlnd" would display "HIGHLND" across the frame, and could do "party", "love", "hearts" (heart emojis), and with special design specs I could do ANY voice commands. Of course limited to device capacity. Maybe not for the _feather_ but another that includes a microphone and capacity for TinyML.
+  - **INCORPORATE _KWS_** for verbal commands! Like, "highlnd" would display "HIGHLND" across the frame, and could do "party", "love", "hearts" (heart emojis), and with special design specs I could do ANY voice commands. Of course limited to device capacity. Maybe not for the _feather_ but another that includes a microphone and capacity for TinyML.
+- **Golf Bag Robot** Attach servos and a wheel to my golf bag, and make it use Image Recognition to follow me around on the golf course. Hold the flag up (or use red/green _COLOR_) and it moves forward, to the side and it goes that way, hold it down and it stops.
+  - _Color "flag" stick._ Round dots on the end of a stick. One end is Yellow, both sides. The other end is Green and Red, respectively, on opposite end of the stick. Holding the Green dot up and Yellow down, move forward. If Green is to the Side of the Yellow, then go that way! If Red dot is visible, then stop. If Yellow is above the Green, then straighten out and go fastest possible. 
+- Wind turbine ( Is the most popular product TinyML or IoT? )
 - Continue recording _golf-swing-sensors_ progress in THIS repository
 
 
