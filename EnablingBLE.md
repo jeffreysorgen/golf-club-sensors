@@ -1,4 +1,4 @@
-[*[ Overview ]*](README.md/#golf-swing-sensors)
+[*[ Overview ]*](GolfSwingSensors.md/#golf-swing-sensors)
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
 [*[ 2 Solve for Power ]*](implementation.md/#solve-for-power)
 [*[ **Step Three: Enable BLE+IMU** ]*](#step-three)
