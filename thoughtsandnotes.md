@@ -58,6 +58,10 @@ However, I am removing all the horsepower. I am greatly simplifying what's been 
 #
 #
 #
+#
+#
+**Note for repository description.** This repository is the narrative of my own progress in development, from start to... to wherever I am now. This can be a beginners guide because it's all new to me, and I am including all the stuff that I need to always remember.
+#
 IDEA: (I didn't know where to put this)
 Use the microphone on the BLE device to turn on and off the flashlight on my phone.
 Do this right after I finish attaching the flashlight to the y-axis tilt.
