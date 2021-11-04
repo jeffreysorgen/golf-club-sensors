@@ -21,9 +21,11 @@ _(Jot down ideas for other projects here)_
 
 ### This means?
 - that a _multi-dimensional_ line can be generated, against which comparisons can be made for a VERY QUICK INFERENCE!
-- To illustrate, imagine a drone on a 3D path, and add 2 more dimensions (parameters) such as temperature and pressure. Now it's a 5-dimensional line against which a model can make a quick inference!
+- To illustrate, imagine a drone on a 3D path, plus time, and add 2 more dimensions (parameters) such as temperature and pressure. Now it's a 6-dimensional "line" (shape) against which a model can make a quick inference!
 ##
-The above might describe some complete science fiction. I  may be thinking about this in the wrong way. After a very superficial review of Fourier Transform, I think that "3D" aspects are asking too much. I really don't think this is what I am looking for.
+The above might describe some complete science fiction. I  may be thinking about this in the wrong way. After a very superficial review of Fourier Transform, I think that "3D" aspects are asking too much. I really don't think this is what I am looking for. _(Oh?)_
+- It might be though. What if the complex calculations taught about FT are in fact learnable by just including x,y,z and time in a machine learning model.
+  - _A good swing has these coordinates across this timeline, so yes, it's a good swing by inference._
 
 ### Or it's possible that...
 - all I really need is something that we learned about when we were analyzing spectrograms from AUDIO samples, and transforming them using **FFT (Fast Fourier Transform)** so maybe this can be applied to my problem, where there is a singular path (2D), but with one additional corresponding parameter.
