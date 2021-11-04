@@ -336,7 +336,7 @@ In this section we transformed the _golf-swing-acc_ code to include BLE communic
 
 1. Data is being sent from the device to nRF Connect
 2. The device sends "Ready"/"Resting" to the app depending on a threshold in the code
-3. Accelerometer value is sent in the form of a **_hex_** (don't know if this makes a difference in our project)
+3. Accelerometer value is sent in the form of a **_hex_** (don't know if this makes a difference to the project)
 4. We used UUIDs in their long form as constants [_(Notes about UUID)_](activity.md#uuid-info)
 5. Then started to use a shorter, 16-bit form of UUID, like "ffe0" and "ffe1"
 
