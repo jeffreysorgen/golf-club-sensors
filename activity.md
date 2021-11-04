@@ -438,35 +438,18 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 #
 
-##
+#
+
+**other headings:**
 ##### Digging into App Dev
 ##### App Development
-
-# Getting Started with the SDK
-
-_(This might be Step Four?)_
-
-**Notes:** "Digging into app dev" is a conclusion and intro. Any discussion under this heading would be a transitional narrative. It is brief, but I was intending on saying that we've connected the device to the app, and now it's time to figure out how the app works. In order to do that, we need to dig into the development tools of nRF Connect. **There's a YouTube set of videos** (below). It looks complicated, but the videos were pretty clear (and recently made). Might be more from a recent webinar Novemeber 3.
-
-##### For nRF Connect Development:**
-
-- I need nRF Connect for Desktop:
-[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
-- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop:
-[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
-- There are videos for installation:
-[YouTube](https://youtu.be/2cv_jjqk5hg)
-
-**Might not need nRF Connect. Might instead need _Android Studio_.**
+##### Enable Smartphone to BEEP
 
 ##
-##### Enable Smartphone to BEEP
 ##### Step Four:
-## Enable Smartphone Response
+# Enable Smartphone Response
 
-- Enabling the smartphone to Beep will come after "Getting Started with the SDK"
-- Requires App Development: Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
-- Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
+##### Getting Started with the SDK
 
 **Description:**
 
@@ -478,18 +461,27 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
   - Can the nRF (or other) App turn on/off the phone's **flashlight**?
   - Make the smartphone beep in Ready state
 
+**Notes:** "Digging into app dev" is a conclusion and intro. Any discussion under this heading would be a transitional narrative. It is brief, but I was intending on saying that we've connected the device to the app, and now it's time to figure out how the app works. In order to do that, we need to dig into the development tools of nRF Connect. **There's a YouTube set of videos** (below). It looks complicated, but the videos were pretty clear (and recently made). Might be more from a recent webinar Novemeber 3.
+
+- Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
+
+##### For nRF Connect Development:**
+- App Development: 
+Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
+- I need nRF Connect for Desktop: 
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
+- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop: 
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
+- There are videos for installation: [YouTube](https://youtu.be/2cv_jjqk5hg)
+
+**Might not need nRF Connect. Might instead need _Android Studio_.**
+
 ##### Video of moving device back and forth, and hearing the beep sound from the phone
 <p align="center"><img src="http://some_place.com/image.png" /></p>
 
-#
-
-#
-
-#
-
-#
-
 ##
+## Conclusion, sort of:
+
 **The device connectivity is done**
 
 We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
@@ -501,7 +493,7 @@ We eventually developed an Android app that would turn on and off a flashlight o
 _**Once those readings were being sent to the device, we configured nRF Connect to take action on the smartphone to make it beep.**_ (Not done yet. Maybe use Android Studio instead.)
 
 ##
-**Where we left off with the Accelerometer:**
+## Where we left off with the Accelerometer:
 
 What is the Accelerometer doing at this point?
 - When the Accelerometer is in the Ready state, another sensor (gyro, or maybe acc) identifies the Stillness state and prepares to record movement.
@@ -517,6 +509,8 @@ What are the specific physical instruments needed to determine whether the motio
 
 ##
 # steps five and six
+
+##
 ##### Step Five:
 ## Get Gyro going
 
