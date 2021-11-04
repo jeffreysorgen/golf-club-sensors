@@ -384,7 +384,7 @@ fa94204d-dc71-4585-aa63-98b8133c5266
 ##### GATT angulars:
 **Interesting:** There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
 
-**BLE-specification:**
+##### UUID BLE specification:
 - _I read this was important for BLE:_ UUID for BLE: _"XXXXXXXX-0000-1000-8000-00805F9B34FB"_ _(Look this up to find standard BLE list)_
 
 
