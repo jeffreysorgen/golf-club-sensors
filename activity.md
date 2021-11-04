@@ -349,16 +349,13 @@ Next:
 ## UUID Info:
 
 - [Online UUID Generator](https://www.uuidgenerator.net/) created the [unique UUIDs](#15-unique-v4uuids)
-- _Keep studying about UUID_
 - Need to have specific UUIDs for each IMU param
-- I can't find a specific standard UUID for x,y,z on the Accelerometer
+- Can't find a specific standard UUID for x,y,z on the Accelerometer
   - check _GATT Angulars_ note, [**here**](#gatt-angulars) 
   - what does the **raw** IMU data look like?
 - Here's some GATT information [(_LINK_)](https://www.oreilly.com/library/view/getting-started-with/9781491900550/ch04.html) from O'Reilly (2014), and its repository, [(_here._)](https://github.com/microbuilder/IntroToBLE)
-- check the hackster.io post in the [Reference](#reference)
-  - Here: the [hackster](https://www.hackster.io/gov/imu-to-you-ae53e1) site again
-- Go simpler. Look how they use them in the examples, and use theirs instead. Also, make them up: "FFE0" etc.
-- Changed to 16-bit in the code.
+- Check this hackster.io post, [**here**](https://www.hackster.io/gov/imu-to-you-ae53e1), again
+- Changed to 16-bit in the code, "FFE0", etc.
 
 ##### 15 unique v4UUIDs:
 ```
@@ -387,9 +384,6 @@ fa94204d-dc71-4585-aa63-98b8133c5266
 ##### UUID BLE specification:
 - _I read this was important for BLE:_ UUID for BLE: _"XXXXXXXX-0000-1000-8000-00805F9B34FB"_ _(Look this up to find standard BLE list)_
 
-
-
-
 #
 
 #
@@ -416,7 +410,16 @@ fa94204d-dc71-4585-aa63-98b8133c5266
 - **Hackster** tutorial: Here's a helpful [IMU and BLE](https://www.hackster.io/gov/imu-to-you-ae53e1) tutorial from hackster.io
 - Wiki about [C data types](https://en.wikipedia.org/wiki/C_data_types#stdint.h)
 
-#
+##
+
+**Tips for the code:**
+
+- The all-inclusive Arduino file will be saved as _golf-sensors.ino_ when more sensors are involved.
+  - Multiple "h" file can probably be included, to split off logically (see: [_magic wand_](#magic-wand) example) from the _.ino_ file.
+- For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
+- Change LED from one state to the other: `digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));`
+
+##
 
 ##### Digging deeper into the _magic wand_
 ### magic wand
@@ -435,19 +438,48 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 #
 
-#
+##
+##### Digging into App Dev
+##### App Development
 
-# Possibly useful ideas go here
+# Getting Started with the SDK
 
-- [(link to **Magic wand**)](#magic-wand)
-- The all-inclusive Arduino file will be saved as _golf-sensors.ino_ when more sensors are involved.
-  - Multiple "h" file can probably be included, to split off logically (see: [_magic wand_](#magic-wand) example) from the _.ino_ file.
-- For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
-- Change LED from one state to the other: `digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));`
+_(This might be Step Four?)_
 
-#
+**Notes:** "Digging into app dev" is a conclusion and intro. Any discussion under this heading would be a transitional narrative. It is brief, but I was intending on saying that we've connected the device to the app, and now it's time to figure out how the app works. In order to do that, we need to dig into the development tools of nRF Connect. **There's a YouTube set of videos** (below). It looks complicated, but the videos were pretty clear (and recently made). Might be more from a recent webinar Novemeber 3.
 
+##### For nRF Connect Development:**
 
+- I need nRF Connect for Desktop:
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
+- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop:
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
+- There are videos for installation:
+[YouTube](https://youtu.be/2cv_jjqk5hg)
+
+**Might not need nRF Connect. Might instead need _Android Studio_.**
+
+##
+##### Enable Smartphone to BEEP
+##### Step Four:
+## Enable Smartphone Response
+
+- Enabling the smartphone to Beep will come after "Getting Started with the SDK"
+- Requires App Development: Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
+- Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
+
+**Description:**
+
+Proof of feasibility. Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way.
+- Enable smartphone functions via nRF (Requires SDK) (Or Android Studio instead)
+- Make high and low pitches for "Ready" state on/off (as the example) and apply this same code later
+- What can be configured in my phone when it receives commands from the nRF Connect (or other) application?
+  - Can the phone app trigger **BEEP** or a vibration/buzz?
+  - Can the nRF (or other) App turn on/off the phone's **flashlight**?
+  - Make the smartphone beep in Ready state
+
+##### Video of moving device back and forth, and hearing the beep sound from the phone
+<p align="center"><img src="http://some_place.com/image.png" /></p>
 
 #
 
@@ -458,85 +490,17 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 #
 
 ##
-##### Transition/conclusion
-# BLE conclusion
-Move this to "Digging deeper into BLE" section, after enabling the code on the device.
-This lies between completing the BLE code and "Getting Started with the SDK".
+**The device connectivity is done**
 
-#### Link to: [Digging into app dev](#digging-into-app-dev)
-"Digging into app dev" is a conclusion and intro. Any discussion under this heading would be a transitional narrative. It is brief, but I was intending on saying that we've connected the device to the app, and now it's time to figure out how the app works. In order to do that, we need to dig into the development tools of nRF Connect. **There's a YouTube set of videos** (check this) which I think I have put in [reference](#reference) but if not needs to be there. It looked complicated, but the videos were pretty clear (and recently made). Also, there's a webinar in just a few days (November 3 I think.)  
-
-#
-##### "Getting Started with the SDK"
-_(This might be Step Four?)_
-##### Digging into App Dev
-# App Development
-I need to learn how nRF Connect interfaces with my Android.
-
-### For nRF Connect Development:
-- I need nRF Connect for Desktop:
-[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
-- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop:
-[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
-- There are videos for installation:
-[YouTube](https://youtu.be/2cv_jjqk5hg)
-
-#
-
-#
-##### Step Four:
-_(might be called "getting started with sdk")_
-## Enable Smartphone to BEEP
-- Enabling the smartphone to Beep will come after "Getting Started with the SDK"
-- Requires App Development: Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
-- Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
-
-##### Description
-Proof of feasibility. Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way.
-- Enable smartphone functions via nRF (Requires SDK)
-- What can be configured in my phone when it receives commands from the nRF Connect application?
-  - Can the phone app trigger **BEEP** or a vibration/buzz? (But should be just once, at _change of its state_)
-  - Can the nRF App turn on/off the phone's **flashlight**? (_Good Idea!_)
-  - Make the smartphone beep in Ready state
-
-##### Video of moving device back and forth, and hearing the beep sound from the phone
-<p align="center"><img src="http://some_place.com/image.png" /></p>
-
-#
-
-##### [Link to step four](#step-four)
-##### (Step Four: Enable Smartphone to BEEP)
-(edit this stuff, maybe not needed)
-- When creating this sketch, we must create a new Development Sketch, "_dev-sdk-ble-pitches_".
-- For the sketch here, since it's for immediate development, just create high and low pitches for the transitions into Ready and Resting states, respectively, and we'll save the code for future reference.
-- Probably later create a third sketch that combines code from _golf-swing-acc_, the new inclusive sketch, and this _dev_ sketch.
-
-#
-
-#
-
-#
-
-#
-##### this is a good Conclusion
-# All the hard parts of _connectivity_ are done.
 We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
 Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
 After experimenting with a couple of example sketches, we incorporated the BLE library to the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming from the Nano33BLE.
 
-_**Once those readings were being sent to the device, we configured nRF Connect to take action on the smartphone to make it beep.**_ (Not done yet)
+We eventually developed an Android app that would turn on and off a flashlight or beep high and low, depending on the Resting state.
 
-#
+_**Once those readings were being sent to the device, we configured nRF Connect to take action on the smartphone to make it beep.**_ (Not done yet. Maybe use Android Studio instead.)
 
-#
-
-#
-
-#
-
-# for one of the steps (4,5,6):
-##### "Getting the gyro going" (step five)
-
+##
 **Where we left off with the Accelerometer:**
 
 What is the Accelerometer doing at this point?
@@ -547,19 +511,24 @@ What are the specific physical instruments needed to determine whether the motio
 
 #
 
-# steps five and six
+#
 
-##### Step Five:
-## Get Gyro going
-1. Figure out the Gyro data on Monitor.
-1. Figure out how to collect gyro data.
-1. Figure out how to **add** the KWS field ('yes'|null) to that data point.
-1. Figure out how to combine data points into a **usable DATA SET** (with or without the KWS resolved)
+#
 
 ##
+# steps five and six
+##### Step Five:
+## Get Gyro going
 
+1. Figure out the Gyro data on Monitor.
+2. Figure out how to collect gyro data.
+3. Figure out how to **add** the KWS field ('yes'|null) to that data point.
+4. Figure out how to combine data points into a **usable DATA SET** (with or without the KWS resolved)
+
+##
 ##### Step Six:
 ## Collect gyro data
+
 - Once in Ready state, figure out how to **enable the Gyro** to collect a sweep of data once motion begins.
 - Watch Gyro data in Monitor. Collect X,Y,Z coordinates of Gyro, as well as TIME STAMPS (so, 4 dimensions)
   - As soon as Gyro reads that it's sitting still, that's when the collection can begin. 
@@ -573,8 +542,8 @@ What are the specific physical instruments needed to determine whether the motio
 - Then transmit the data points to smartphone
 - Then enables the Accelerometer again, waiting to be in Ready state again
 
-#
-# final step
+##
+## final step
 
 **After collecting gyro/KWS data:**
 
@@ -587,7 +556,12 @@ Collecting all the data. This step will be after data collection is sorted out, 
 
 #
 
-# What are more parts to the project?
+#
+
+#
+
+##
+## What are more parts to the project?
 
 **Figure out:**
 
@@ -616,8 +590,6 @@ Collecting all the data. This step will be after data collection is sorted out, 
 - how to prototype (OSHPARK)
 - testing prototype
 - collect 10X more data
-
-#
 
 #
 
@@ -657,13 +629,6 @@ Collecting all the data. This step will be after data collection is sorted out, 
 * "SWINGTASTIC"
 
 
-#
-
+##
 [**_[ Thoughts and Notes --> ]_**](thoughtsandnotes.md)
 ##
-
-
-
-
-
-
