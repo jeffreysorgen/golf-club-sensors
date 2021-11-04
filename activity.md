@@ -4,7 +4,7 @@
 [*[ Overview ]*](README.md/#golf-swing-sensors)
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
 [*[ 2 Solve for Power ]*](implementation.md/#solve-for-power)
-[*[ 3 Enable BLE ]*](EnableBLE.md#step-three)
+[*[ 3 Enable BLE ]*](EnablingBLE.md#step-three)
 [*[ Step Four: Enable Smartphone Response ]*](#step-four)
 [*[ Step 4.5: Enable KWS ]*](KWS.md)
 [*[ Enabling the Gyro ]*](#steps-five-and-six)
