@@ -5,6 +5,8 @@
 [*[ Step Four: Enable Smartphone Response ]*](activity.md#step-four)
 [_[ jump to new project ideas-> ]_](thoughtsandnotes.md/#other-projects)
 
+[*[ "Accomplished so far..." ]*](#accomplished-so-far)
+
 ##
 ##### Step Three:
 # Enabling BLE
