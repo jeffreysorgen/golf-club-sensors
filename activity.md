@@ -438,43 +438,7 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 #
 
-#
-
-##### Getting Started with the SDK
-Proof of feasibility. Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way.
-- Enable smartphone functions via nRF (Requires SDK) (Or Android Studio instead)
-- Make high and low pitches for "Ready" state on/off (as the example) and apply this same code later
-- What can be configured in my phone when it receives commands from the nRF Connect (or other) application?
-  - Can the phone app trigger **BEEP** or a vibration/buzz?
-  - Can the nRF (or other) App turn on/off the phone's **flashlight**?
-  - Make the smartphone beep in Ready state
-
-**Notes:** "Digging into app dev" is a conclusion and intro. Any discussion under this heading would be a transitional narrative. It is brief, but I was intending on saying that we've connected the device to the app, and now it's time to figure out how the app works. In order to do that, we need to dig into the development tools of nRF Connect. **There's a YouTube set of videos** (below). It looks complicated, but the videos were pretty clear (and recently made). Might be more from a recent webinar Novemeber 3.
-
-- Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
-
-**For nRF Connect Development:**
-
-- App Development: 
-Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
-- I need nRF Connect for Desktop: 
-[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
-- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop: 
-[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
-- There are videos for installation: [YouTube](https://youtu.be/2cv_jjqk5hg)
-
-**Might not need nRF Connect. Might instead need _Android Studio_.**
-
-
-#
-
-#
-
-#
-
-#
-
-**other headings:**
+**_other headings:_**
 ##### Digging into App Dev
 ##### App Development
 ##### Enable Smartphone to BEEP
@@ -493,11 +457,37 @@ Now that data is being transmitted from the Nano33BLESense, we need to develop a
 
 We want to develop an Android app that will turn on and off its flashlight or beep high and low, depending on the Resting state.
 
-#
+
+##
+##### Getting Started with the SDK
+## SDK
+- Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
+- What can be configured in my phone when it receives commands from the nRF Connect (or other) application?
+  - Can the phone app trigger **BEEP** or a vibration/buzz?
+  - Can the App turn on/off the phone's **flashlight**?
+- Enable smartphone functions with _nrfconnect_ or Android Studio (Requires SDK and toolchain)
+- Make high and low pitches for "Ready" state on/off (as the example) and apply this same code later. _Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way._
+
+##### For nRF Connect Development:
+**We've connected the device to the nRF Connect App, and now it's time to figure out how to get a response from it.**
+- nRF Connect App Development: 
+Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
+- I need nRF Connect for Desktop: 
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
+- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop: 
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
+- It looks complicated, but the videos were pretty clear (and recently made). The **videos** for installation are here on [_YouTube._](https://youtu.be/2cv_jjqk5hg) Might be more from a recent webinar November 3.
+
+
+**Might not need nRF Connect. Might instead need _Android Studio_.**
 
 #
 
 #
+
+#
+
+# And...
 
 **_Now that we've created an Android app:_**
 
