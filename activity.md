@@ -391,6 +391,8 @@ _I read that this was important for BLE:_ UUID for BLE: _"XXXXXXXX-0000-1000-800
 # Reference:
 
 - Here's the okdo.com example, including [_BLE Hello World_](#the-ble-hello-world-sketch): [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc)
+- **Hackster** tutorial: Here's a helpful [IMU and BLE](https://www.hackster.io/gov/imu-to-you-ae53e1) tutorial from hackster.io
+- Wiki about [C data types](https://en.wikipedia.org/wiki/C_data_types#stdint.h)
 - Helpful from Argenox:
   - [**Argenox website**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a good place to READ about BLE
   - Here's the [Bluetooth Low Energy Library](https://www.argenox.com/library/bluetooth-low-energy/)
@@ -407,8 +409,6 @@ _I read that this was important for BLE:_ UUID for BLE: _"XXXXXXXX-0000-1000-800
 - **nRF Connect:**
   - nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
   - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
-- **Hackster** tutorial: Here's a helpful [IMU and BLE](https://www.hackster.io/gov/imu-to-you-ae53e1) tutorial from hackster.io
-- Wiki about [C data types](https://en.wikipedia.org/wiki/C_data_types#stdint.h)
 
 ##
 
