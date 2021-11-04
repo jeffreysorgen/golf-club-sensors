@@ -14,11 +14,11 @@
 ##
 
 This page:
-- [UUID Info](uuid-info)
+- [UUID Info](#uuid-info)
 - [Reference](#reference)
 - [Enable Smartphone Response](#step-four)
 - [Enabling the gyro](#steps-five-and-six)
-- [Recording the data](#steps-five-and-six)
+- [Recording the data](#steps-five-and-six) 
 
 ##
 ## UUID Info:
