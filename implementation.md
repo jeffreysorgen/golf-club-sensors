@@ -46,7 +46,7 @@ _skip to
 23. **Add BLE** Successfully [copied the process](EnablingBLE.md/#try-the-ble-example-sketch) of a YouTuber to add BLE services on the device.
 24. **Power** Documented several potential development and prototyping [**battery solutions**](#solve-for-power)
 25. Generated [pseudo code](activity.md#state-change-pseudo-code) for state changes
-26. **New Code** Created _golf-swing-imu-ble_ which communicates via BLE to a smartphone
+26. **New Code** Created [_golf-swing-imu-ble_](EnablingBLE.md#all-the-golf-swing-acc-ble-code-is-here) which communicates via BLE to a smartphone
 27. **Editing** Consolidated the documentation in preparation for moving to **Step Four: [the SDK!](activity.md#step-four)**
 28. **Posted to Reddit!** [HERE](https://www.reddit.com/r/arduino/comments/qja9y6/nano33blesense_project_first_step_solve_for_power/)
 
