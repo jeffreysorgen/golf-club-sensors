@@ -317,7 +317,6 @@ void loop() {
     }
   } //v
 ```
-- **We have created code that displays Ready/Resting on the serial monitor and in the nRF Connect app, but also, we got the LED on the device to light up as well!**
 
 ##
 
@@ -327,6 +326,9 @@ void loop() {
   (2)<img src="images/BLEConnected.png" width="20%">
   (3)<img src="images/myBLEtilt.gif" width="45%">
 </p>
+
+##
+- **We have created code that displays Ready/Resting on the serial monitor and in the nRF Connect app, but also, we got the LED on the device to light up as well!**
 
 ##
 ## Summary so far:
