@@ -357,8 +357,6 @@ Next:
 - Here's some GATT information [(_LINK_)](https://www.oreilly.com/library/view/getting-started-with/9781491900550/ch04.html) from O'Reilly (2014), and its repository, [(_here._)](https://github.com/microbuilder/IntroToBLE)
 - check the hackster.io post in the [Reference](#reference)
   - Here: the [hackster](https://www.hackster.io/gov/imu-to-you-ae53e1) site again
-- I thought I would need to use the BLE UUID spec which I thought was "important for ble"
-  - UUID for BLE: _XXXXXXXX-0000-1000-8000-00805F9B34FB_ _(Look this up to find standard BLE list)_
 - Go simpler. Look how they use them in the examples, and use theirs instead. Also, make them up: "FFE0" etc.
 - Changed to 16-bit in the code.
 
@@ -380,6 +378,17 @@ d49b4462-2bfd-4d92-8103-88ed9429e662
 52f6c067-db43-4e53-893b-d7d98406901b
 fa94204d-dc71-4585-aa63-98b8133c5266
 ```
+
+**More UUID-Specific info:**
+
+##### GATT angulars:
+**Interesting:** There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
+
+**BLE-specification:**
+- _I read this was important for BLE:_ UUID for BLE: _"XXXXXXXX-0000-1000-8000-00805F9B34FB"_ _(Look this up to find standard BLE list)_
+
+
+
 
 #
 
@@ -438,17 +447,7 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 #
 
-##### GATT angulars:
-**Interesting:** There are two GATT units, 0x2743 and 0x2744, which are _angular velocity (radian per second)_ and _angular acceleration (radian per second squared)_, respectively. Don't know whether I'd be able to use this. It's related to centripetal force.
 
-##### Note about HEX:
-We were able to pass text into the app, such as "Ready" and "Resting".
-"Ready" and "Resting" could be read as a string, and could read each letter hex value. 
-Both strings began with the same hex values for "R" and "e".
-
-##### characteristic notes:
-Next, add a specific CHARACTERISTIC. If it were a string, there would also be a number for its data length.
-- "2A58" seems quite arbitrary and in other examples is actually the 128-bit UUID. Came from the example. _Each characteristic either DOES or DOES NOT need a unique UUID, so I'll have to **look this up** and why._ (I believe that a service has a unique UUID, and it's characteristics are also unique UUIDs.) [**Refer to UUID section.**](#UUID-info)
 
 #
 
