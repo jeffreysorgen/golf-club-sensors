@@ -143,7 +143,7 @@ Here we will describe the very basic structure of an Arduino `.ino` file.
 
 ##
 
-**1. Prior to `void setup()`**
+**1. prior to `void setup()`**
 
 - These can be within _namespace_
 - First add LIBRARIES
