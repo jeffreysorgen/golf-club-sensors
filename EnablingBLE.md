@@ -334,7 +334,7 @@ void loop() {
 
 **We have created code that displays Ready/Resting on the serial monitor and in the nRF Connect app, but also, we got the LED on the device to light up as well!**
 
-In this section we transformed the _golf-swing-acc_ code to include BLE communication. We took two example sketches to learn about the Arduino file structure and imported the code we needed into **_golf-swing-acc-ble_** to enable it to communicate with a smartphone running the _nRF Connect_ app.
+In this section we have transformed the _golf-swing-acc_ code to include BLE communication. We took two example sketches to learn about the Arduino file structure and imported the code we needed into **_golf-swing-acc-ble_** to enable it to communicate with a smartphone running the _nRF Connect_ app.
 
 1. Data is being sent from the device to nRF Connect
 2. The device sends "Ready"/"Resting" to the app depending on a threshold in the code
