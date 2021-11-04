@@ -424,21 +424,11 @@ This is the research I am doing now.
 
 #
 
-Todo:
-- how to use the UUID being send to _nrfconnect_
-- how to enable notify or indicate
-    - what setting on the peripheral is used to send on/off to the client?
-- Need new GIF for "tilt LED"
-
-[Back](activity.md)
-
-#
-
-#
 #
 
 #
 
+##
 ##### State change: (pseudo code)
 
 This **_pseudo code_** models the code we used to transform into functionality that updates the current readyState every half-second. (used `millis()`) 
