@@ -521,6 +521,7 @@ What are the specific physical instruments needed to determine whether the motio
 - WHAT do Gyroscope readings represent? Are these what we want for our DATA COLLECTION?
   - Will fewer data points save memory? Is it necessary? (No, for now)
 - Collect some data, and **then stop** when the Gyro is still again to SAVE THE DATA.
+  - Like when speed slows from fastest by 90 percent.
 ## More steps
 - The gyro/acc record movement (_HOW MUCH MOVEMENT?_)
   - This data will require normalization, eliminating noise (LEARN)
