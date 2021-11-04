@@ -440,19 +440,7 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 #
 
-**other headings:**
-##### Digging into App Dev
-##### App Development
-##### Enable Smartphone to BEEP
-
-##
-##### Step Four:
-# Enable Smartphone Response
-
 ##### Getting Started with the SDK
-
-**Description:**
-
 Proof of feasibility. Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way.
 - Enable smartphone functions via nRF (Requires SDK) (Or Android Studio instead)
 - Make high and low pitches for "Ready" state on/off (as the example) and apply this same code later
@@ -465,7 +453,8 @@ Proof of feasibility. Beep triggered by in/out of Ready state is not for final p
 
 - Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
 
-##### For nRF Connect Development:**
+**For nRF Connect Development:**
+
 - App Development: 
 Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
 - I need nRF Connect for Desktop: 
@@ -476,30 +465,36 @@ Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-softwa
 
 **Might not need nRF Connect. Might instead need _Android Studio_.**
 
-##### Video of moving device back and forth, and hearing the beep sound from the phone
-<p align="center"><img src="http://some_place.com/image.png" /></p>
+
+#
+
+#
+
+#
+
+#
+
+**other headings:**
+##### Digging into App Dev
+##### App Development
+##### Enable Smartphone to BEEP
 
 ##
-## Conclusion, sort of:
+##### Step Four:
+# Enable Smartphone Response
 
-**The device connectivity is done**
+**Description:**
 
 We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
 Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
 After experimenting with a couple of example sketches, we incorporated the BLE library to the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming from the Nano33BLE.
 
-We eventually developed an Android app that would turn on and off a flashlight or beep high and low, depending on the Resting state.
-
 _**Once those readings were being sent to the device, we configured nRF Connect to take action on the smartphone to make it beep.**_ (Not done yet. Maybe use Android Studio instead.)
 
-##
-## Where we left off with the Accelerometer:
+We eventually developed an Android app that would turn on and off a flashlight or beep high and low, depending on the Resting state. (in progress)
 
-What is the Accelerometer doing at this point?
-- When the Accelerometer is in the Ready state, another sensor (gyro, or maybe acc) identifies the Stillness state and prepares to record movement.
-What are the specific physical instruments needed to determine whether the motion has stopped? 
-- I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
-- It might just be the other 2 axes from the accelerometer. In this case, don't include the axis to which gravity is applied. Only use the other 2, and when they're below a threshold, they're still. (Having said that, I believe the gyro will be even more obvious)
+##### Video of moving device back and forth, and hearing the beep sound from the phone
+<p align="center"><img src="http://some_place.com/image.png" /></p>
 
 #
 
@@ -509,6 +504,16 @@ What are the specific physical instruments needed to determine whether the motio
 
 ##
 # steps five and six
+## Where we left off with the Accelerometer:
+
+**What is the Accelerometer doing at this point?**
+- When the Accelerometer is in the Ready state, another sensor (gyro, or maybe acc) identifies the Stillness state and prepares to record movement.
+
+**Notes:**
+
+What are the specific physical instruments needed to determine whether the motion has stopped? 
+- I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
+- It might just be the other 2 axes from the accelerometer. In this case, don't include the axis to which gravity is applied. Only use the other 2, and when they're below a threshold, they're still. (Having said that, I believe the gyro will be even more obvious)
 
 ##
 ##### Step Five:
