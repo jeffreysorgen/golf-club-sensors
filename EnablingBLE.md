@@ -6,7 +6,25 @@
 [Back](activity.md#summary-so-far)
 
 # What we've accomplished
+. . . . . .
+(insert entire top of page down to "so far...")
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+. . . . . . .
 1. Data is being sent from the device to nRF Connect
 2. The device sends Ready/Resting to the app depending on a threshold in the code
 3. Accelerometer value is sent in the form of a **_hex_** (don't know if this makes a difference in our project)
