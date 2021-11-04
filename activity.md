@@ -322,13 +322,15 @@ void loop() {
 
 ##
 
-##### Phone screen with device listed: (1)Scanning, (2)Connected 
-(1)<img src="images/BLEScanning.png" width="25%"> (2)<img src="images/BLEConnected.png"  width="25%">
+##### Phone screen with device listed: (1)Scanning, (2)Connected, (3)Tilting on the y-axis to turn on/off the LED
+<p align="center">
+  (1)<img src="images/BLEScanning.png" width="20%">
+  (2)<img src="images/BLEConnected.png" width="20%">
+  (3)<img src="images/myBLEtilt.gif" width="45%">
+</p>
 
-##### Turning on and off the LED by tilting on the y-axis
-  <img src="images/myBLEtilt.gif"  width="50%">
-  
-#
+##
+(Turning on and off the LED by tilting on the y-axis)
 
 ## Summary so far:
 
