@@ -177,8 +177,7 @@ Here we will describe the very basic structure of an Arduino `.ino` file.
 
 **4. other functions**
 
-- subroutines and stuff (edit this)
-
+- subroutines _(and other stuff)_
 
 
 ## Creating the new code
