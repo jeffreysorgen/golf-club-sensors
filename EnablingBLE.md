@@ -326,7 +326,7 @@ void loop() {
 <p align="center">
   (1)<img src="images/BLEScanning.png" width="20%">
   (2)<img src="images/BLEConnected.png" width="20%">
-  (3)<img src="images/myBLEtilt.gif" width="45%">
+  (3)<img src="images/myBLEtilt.gif" width="30%">
 </p>
 
 ##
