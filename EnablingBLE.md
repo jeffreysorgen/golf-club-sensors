@@ -393,10 +393,11 @@ One of the future modifications needs to be utilizing the BLE code that features
 
 .............
 
+### the key:
+**Link to [KABLE](https://github.com/JuulLabs/kable)**
+- "Kotlin Asynchronous Bluetooth Low Energy provides a simple Coroutines-powered API for interacting with Bluetooth Low Energy devices."
 
-
-
-
+.............
 
 
 
