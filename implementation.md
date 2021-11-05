@@ -56,10 +56,11 @@ _skip to
 30. **Bluetooth** BLE has been properly enabled to communicate with smartphone, time to dig into the SDK
 31. **KWS.md** Page for Key Word Spotting step has been set up, [_here_](kws.md), and step is in progress.
 32. Modified the _README.md_ down to one sentence, and then created [_GolfSwingSensors.md_](GolfSwingSensors.md) for the rest.
+33. Determined that Android Studio will be the starting point to develop the Client app for the project (step four)
 
 ##### Learning about this:
-- **[Kotlin](https://kotlinlang.org/)** and Android
-- nRF Connect, IMU sensors, BLE, C++, data collection
+- **[Kotlin](https://kotlinlang.org/)** and **Android Studio**
+- IMU sensors, BLE, C++, data collection
 - GitHub Desktop, possibly GitBASH, KiCad, LTspice, OSHPARK
 
 ## Flow for Golf Swing sensors:
