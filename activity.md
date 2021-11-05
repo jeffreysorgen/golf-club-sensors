@@ -1,3 +1,5 @@
+- organize BLE page better
+- move Step Four over to BLE page
 - determine what to do with the on/off data coming from the device _(Android Studio?)_
 - Need new GIF for "tilt LED"
 
