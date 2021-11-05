@@ -344,67 +344,9 @@ In this section we have transformed the _golf-swing-acc_ code to include BLE com
 
 ##
 
-But we don't want information to be sent via BLE every time the code loops.
-Instead, we need to send notifications about a change of state to the Client (nRF Connect) when the sensor changes its state from Ready to Resting or back.
-When the Client app reads "Ready!" or "Resting!" it receives every character, 6 or 8 bytes of information, from the device constantly, which is excessive.
-_(It's sending all y-axis information right now too, but that will change later)_
+**Making that change, and...**
 
-
-The code:
-- Add logic to the code so that Resting is 1 and Ready is 0
-- Add an interval buffer to accommodate for any unintentional bounces when it checks its state.
-- Write to BLE only when the state changes
-
-............
-
-We modified _golf-swing-acc-ble_ (now **_golf-swing-acc-ble-statechange_**) to include the code that will notify the client of a state change.
-
-We can see this change in the Value field of the UUID ("0xFFE2") for the specific characteristic: `value (0x) 00` and `value (0x) 01`.
-
-............
-
-**Now that state changes can be sent to the smartphone, try to turn its flashlight on/off with the signal!**
-What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
-While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
-- There is a difference between constantly notifying about the state and simply notifying about a state change.
-- Notifying only about a state change will be helpful to eliminate unnecessary BLE communication. 
-- Checking a state change can happen less frequently than the device baud rate, so we don't get bounces of the states due to natural movement. 
-  - For example, during its transition to a new state the LED lit very briefly, flashing the previous state of the LED. It looked like a bounce.
-
-.............
-
-Flashlight:
-- When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
-- More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
-
-.............
-
-**Important to enable Notify for Change of State**
-
-One of the future modifications needs to be utilizing the BLE code that features **state change only** notifications, so that nRF only receives one-time signal that the state has changed between Ready and Resting, rather than as it is now, which always prints its state to BLE. 
-
-.............
-
-- So we need to enable functionality within _nrfconnect_ to do something.
-- We've already sent the data once, so do something, and when it changes, do something else.
-- Code: When Y-axis, `y < -0.85`, changes from True to False or back, this is the moment to send BLE data and nothing else, to save on BLE energy.
-- We're going to try to enable one element of the BLE functionality which will send a notification only when the state changes.
-- The code will send a change of state notification when it happens, which can then be held in the nRF Connect app until the next update.
-
-.............
-
-### the key:
-**Link to [KABLE](https://github.com/JuulLabs/kable)**
-- "Kotlin Asynchronous Bluetooth Low Energy provides a simple Coroutines-powered API for interacting with Bluetooth Low Energy devices."
-
-.............
-
-
-
-............
-##
-Making that change, and...
-### Peripheral-side code is done
+## Peripheral-side code is done
 
 **The new code now has this function.** (_golf-swing-acc-ble-statechange_) 
 We modified the code so that it will only send data via BLE when necessary, when the state switches between Ready and Resting. 
@@ -416,6 +358,71 @@ It sends BLE data only at the point of the state change (note the words "State c
 ##### State changes by tilting on the y-axis
   <p align="center"><img src="images/stateshanges.gif"  width="80%"></p>
 
+But we don't want information to be sent via BLE every time the code loops.
+Instead, we need to send notifications about a change of state to the Client (nRF Connect) when the sensor changes its state from Ready to Resting or back.
+When the Client app reads "Ready!" or "Resting!" it receives every character, 6 or 8 bytes of information, from the device constantly, which is excessive.
+_(It's sending all y-axis information right now too, but that will change later)_
+
+The code:
+- Add logic to the code so that Resting is 1 and Ready is 0
+- Add an interval buffer to accommodate for any unintentional bounces when it checks its state.
+- Write to BLE only when the state changes
+
+##
+##
+
+We modified _golf-swing-acc-ble_ (now **_golf-swing-acc-ble-statechange_**) to include the code that will notify the client of a state change.
+
+We can see this change in the Value field of the UUID ("0xFFE2") for the specific characteristic: `value (0x) 00` and `value (0x) 01`.
+
+#
+
+**Now that state changes can be sent to the smartphone, try to turn its flashlight on/off with the signal!**
+What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
+While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
+- There is a difference between constantly notifying about the state and simply notifying about a state change.
+- Notifying only about a state change will be helpful to eliminate unnecessary BLE communication. 
+- Checking a state change can happen less frequently than the device baud rate, so we don't get bounces of the states due to natural movement. 
+  - For example, during its transition to a new state the LED lit very briefly, flashing the previous state of the LED. It looked like a bounce.
+
+#
+
+**Important to enable Notify for Change of State**
+
+One of the future modifications needs to be utilizing the BLE code that features **state change only** notifications, so that nRF only receives one-time signal that the state has changed between Ready and Resting, rather than as it is now, which always prints its state to BLE. 
+
+#
+
+- So we need to enable functionality within _nrfconnect_ to do something.
+- We've already sent the data once, so do something, and when it changes, do something else.
+- Code: When Y-axis, `y < -0.85`, changes from True to False or back, this is the moment to send BLE data and nothing else, to save on BLE energy.
+- We're going to try to enable one element of the BLE functionality which will send a notification only when the state changes.
+- The code will send a change of state notification when it happens, which can then be held in the nRF Connect app until the next update.
+
+#
+
+#
+
+#
+
+#
+
+##
+**[*[ Step Four: Enable Smartphone Response ]*](activity.md#step-four)**
+##
+##
+
+#
+
+### the key:
+**Link to [KABLE](https://github.com/JuulLabs/kable)**
+- "Kotlin Asynchronous Bluetooth Low Energy provides a simple Coroutines-powered API for interacting with Bluetooth Low Energy devices."
+
+#
+
+Flashlight:
+- When the state goes from 0 to 1, I want the phone's flashlight to turn on. When it goes from 1 to 0, should turn off.
+- More directly, state change into and out of Ready/Resting states. If `y < -.85` then turn on the flashlight on my phone!
 
 #
 
@@ -424,6 +431,29 @@ Now:
 
 This is the research I am doing now.
 - nRF Connect to respond by making my phone beep or flashlight on and off (or more likely, using Android Studio instead)
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+#
+
+
+#
 
 #
 
