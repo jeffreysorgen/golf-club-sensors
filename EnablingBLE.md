@@ -401,18 +401,22 @@ One of the future modifications needs to be utilizing the BLE code that features
 
 #
 
-#
+**Notify or Indicate.** 
+(Here's something from [ArduinoBLE Reference](https://www.arduino.cc/en/Reference/ArduinoBLE))
+Think of this as _Sender_ and _Reader_. 
+ArduinoBLESense device is the _sender_, or Peripheral. 
+When a reading changes, the nRF Connect app is going to be the _reader_, or Client.
+The model BLE uses is known as a "publish-and-subscribe" model.
 
 #
 
 #
 
 ##
+##### link to step four:
 **[*[ Step Four: Enable Smartphone Response ]*](activity.md#step-four)**
 ##
 ##
-
-#
 
 ### the key:
 **Link to [KABLE](https://github.com/JuulLabs/kable)**
@@ -431,27 +435,6 @@ Now:
 
 This is the research I am doing now.
 - nRF Connect to respond by making my phone beep or flashlight on and off (or more likely, using Android Studio instead)
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
 
 #
 
@@ -494,17 +477,7 @@ earlier=now;                 // update earlier state with now state
 
 ```
 
-#
-
-#
-
-##### (reference)
-**Notify or Indicate.** 
-(Here's something from [ArduinoBLE Reference](https://www.arduino.cc/en/Reference/ArduinoBLE))
-Think of this as _Sender_ and _Reader_. 
-ArduinoBLESense device is the _sender_, or Peripheral. 
-When a reading changes, the nRF Connect app is going to be the _reader_, or Client.
-The model BLE uses is known as a "publish-and-subscribe" model.
+##
 
 #
 
@@ -512,7 +485,6 @@ The model BLE uses is known as a "publish-and-subscribe" model.
 - There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely, but for now I built it into this code. 
 - Is there a way for the client to ask the peripheral whether the state has changed? Maybe. But how frequently and how much power consumption. Of course, the peripheral could ignore requests for update as well. Unless there's another way to think about this, I don't think this matters much. No savings of effort or energy.
 - Another way to look at this is by doing a check on **whether the states match** on the peripheral and client, and if it doesn't, to update the client, although it might require more communication between devices.
-
 
 #
 
