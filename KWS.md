@@ -1,7 +1,17 @@
 [(activity.md)](activity.md)
 [(EnablingBLE.md)](EnablingBLE.md)
 
+##### Step 4.5
+# Enabling KWS
+Now that we're able to get a signal from the Nano33BLESense 
+to prompt the Android smartphone to turn its flashlight on and off. 
+Let's now reprogram the device utilizing Key Word Spotting to do the same thing 
+just by speaking into the microphone "Yes" and "No" for on and off.
+
+. . . . . . . . .
+
 #### Key Word Spotting
+
 - Need to bump up the application for key word spotting. (break this section out independently)
 - Enable the microphone on the Arduino to do this.
 - Start using **TensorFlow Micro**.
