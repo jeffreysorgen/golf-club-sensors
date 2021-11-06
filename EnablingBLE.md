@@ -1,5 +1,3 @@
-- Android Studio
-
 [*[ Overview ]*](GolfSwingSensors.md/#golf-swing-sensors)
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
 [*[ 2 Solve for Power ]*](implementation.md/#solve-for-power)
@@ -393,6 +391,7 @@ _(end)_
 (move to its own page _AppDev.md_)
 
 #
+- Android Studio
 
 [*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
 [*[ 1 ]*](implementation.md/#the-accelerometer)
