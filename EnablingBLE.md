@@ -396,7 +396,7 @@ void loop() {
 [*[ 1 ]*](implementation.md/#the-accelerometer)
 [*[ 2 ]*](implementation.md/#solve-for-power)
 [*[ 3 ]*](#step-three)
-**[Next: _[ 4 ]_](#step-four)**
+**[_Next: [ 4 ]_](#step-four)**
 [*[ Reference ]*](activity.md/#reference)
 [*[ KWS ]*](KWS.md/#key-word-spotting)
 [*[ 5 & 6 ]*](activity.md/#steps-five-and-six)
