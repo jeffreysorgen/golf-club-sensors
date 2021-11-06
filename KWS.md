@@ -1,5 +1,5 @@
-[activity.md](activity.md)
-[EnablingBLE.md](EnablingBLE.md)
+[(activity.md)](activity.md)
+[(EnablingBLE.md)](EnablingBLE.md)
 
 #### Key Word Spotting
 - Need to bump up the application for key word spotting. (break this section out independently)
