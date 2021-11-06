@@ -4,7 +4,8 @@
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
 [*[ 2 Solve for Power ]*](implementation.md/#solve-for-power)
 [*[ **Step Three: Enable BLE+IMU** ]*](#step-three)
-[*[ Step Four: Enable Smartphone Response ]*](activity.md#step-four)
+[*[ Step Four: Enable Smartphone Response ]*](#step-four)
+[*[ Steps 5 & 6 ]*](activity.md/#steps-five-and-six)
 [_[ jump to new project ideas-> ]_](thoughtsandnotes.md/#other-projects)
 
 [*[ "Accomplished so far..." ]*](#accomplished-so-far)
