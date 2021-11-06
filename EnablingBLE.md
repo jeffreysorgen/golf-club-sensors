@@ -420,55 +420,7 @@ Now:
 This is the research I am doing now.
 - nRF Connect to respond by making my phone beep or flashlight on and off (or more likely, using Android Studio instead)
 
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-(delete all of below)
+##
 ##
 
-**Stuff I'm no longer considering but might be useful:**
 
-- There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely, but for now I built it into this code. 
-- Is there a way for the client to ask the peripheral whether the state has changed? Maybe. But how frequently and how much power consumption. Of course, the peripheral could ignore requests for update as well. Unless there's another way to think about this, I don't think this matters much. No savings of effort or energy.
-- Another way to look at this is by doing a check on **whether the states match** on the peripheral and client, and if it doesn't, to update the client, although it might require more communication between devices.
-
-##
-
-**For nRF Connect Development:**
-
-_We've connected the device to the nRF Connect App, and now it's time to figure out how to get a response from it._
-- nRF Connect App Development: 
-Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
-- I need nRF Connect for Desktop: 
-[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
-- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop: 
-[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
-- It looks complicated, but the videos were pretty clear (and recently made). The **videos** for installation are here on [_YouTube._](https://youtu.be/2cv_jjqk5hg) Might be more from a recent webinar November 3.
-
-##
-
-**might be unrelated to our own project**
-
-Here's the [FORUM for Arduino.](https://forum.arduino.cc/c/using-arduino/programming-questions/20)
-- COPY HIS CODE
-
-Go through entire process this user did implementing Notify/Indicate. **However this is developed, it's going to need CCCP, whatever that is.** 
-- [(link to question) Set CCCD value](https://forum.arduino.cc/t/feature-request-option-to-set-cccd-value/919852)
-- [(link to question) Notify/Indicate](https://forum.arduino.cc/t/notifications-and-indications-disabled-nrf-connect/915757)
-
-He's discussing the nRF Connect functionality with Notify and Indicate. Also refers to video mentioned here about [BLE on Arduino](https://youtu.be/osneajf7Xkg) which shows some detail about Server/Client and characteristics
-  - In this he mentions "BLE2902" _(figuring that out next)_ 
-  - In nRF Connect shows up as "0x2902"
-
-**Should go back to this FORUM to see if this makes more sense now that I finished with this step.**
-
-##
-(delete down to here)
