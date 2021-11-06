@@ -25,7 +25,6 @@ and copied the code from its [**accompanying GitHub repository**](https://github
 This example reads information from the sensors and then simply displays it in the phone app. 
 Upload the sketch to the device... _**And it works exactly as it does in that video.**_ 
 _But there is a [**caveat**](#caveat) which I discovered for this example._ 
-We'll refer to this _RoboCraze_ code for reference in the future if we need to.
 
 **To do this:**
 
