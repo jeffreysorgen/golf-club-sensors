@@ -346,7 +346,7 @@ Created **_golf-swing-acc-ble-statechange_** with this modified code:
 - Eliminate accidental state changes from the sensor
 - Send data via BLE **only** when the state changes 
 - Send _boolean 1/0_ rather than the strings, "Resting" and "Ready"
-- Use the shorter 16-bit UUID, like "ffe0" and "ffe1". [_(More about UUID)_](activity.md#uuid-info)
+- Use the shorter 16-bit UUID, like `ffe0` and `ffe1` [_(More about UUID)_](activity.md#uuid-info)
 
 #
 
