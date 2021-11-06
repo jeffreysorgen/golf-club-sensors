@@ -19,6 +19,7 @@
 Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app we can download from Google Play called _nRF Connect_. Let's go through the process of getting that started right here. 
 
 ### Try the BLE example sketch
+
 I found [_**this video**_](https://youtu.be/2q_tA8v5l1Y) from _Robocraze_ to be helpful, 
 and copied the code from its [**accompanying GitHub repository**](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
 This example reads information from the sensors and then simply displays it in the phone app. 
@@ -40,17 +41,17 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 
 ##### Caveat:
+
 With the USB cable plugged into the computer I **_can_** discover _"Arduino Environment Sensor"_ in nRF Connect. 
 But a [**battery-only**](implementation.md/#current-development-solution) solution can **_not_**. So...
 
 **For battery-only:**
 
-- **Comment out `//while (!Serial);`** 
+- Comment out `//while (!Serial);` 
 
 After being untethered from the computer, the device was trying to find the serial port from which it's now disconnected.
 So this one change will allow the device to function in _nRF Connect_ the same way as it did before.
 
-##
 ### The Hello World BLE Sketch
 
 Now that we've got the BLE connecting, and IMU data showing up in _nRF Connect_, it's time to simplify and specialize our code.
@@ -69,7 +70,7 @@ The LED will be useful for indicating "Ready" and "Resting" states.
 
 We've seen in those two examples what a basic `.ino` file looks like. **Here's a summary:**
 
-## Arduino File Structure
+### Arduino File Structure
 
 Here we will describe the very basic structure of an Arduino `.ino` file. 
 
@@ -116,8 +117,7 @@ Here we will describe the very basic structure of an Arduino `.ino` file.
 
 - subroutines _(and other stuff)_
 
-##
-## Creating the new code
+### Creating the new code
 
 **Importing new functionality into our code:**
 
@@ -126,26 +126,20 @@ We're now going to take what we've learned from our two examples and incorporate
 - View the combined code [**here**](#all-the-golf-swing-acc-ble-code-is-here)
 
 ##### Phone screen with device listed: (1) scanning, (2) connected, (3) tilting on the y-axis to turn on/off the LED
+
 <p align="center">
   (1) <img src="images/BLEScanning.png" width="20%">
   (2) <img src="images/BLEConnected.png" width="20%">
   (3) <img src="images/myBLEtilt.gif" width="30%">
 </p>
 
-#### Accomplished so far:
+##
 
-We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
-Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
-After experimenting with a couple of example sketches, we incorporated the BLE library into the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming from the Nano33BLESense.
+**Almost done**
 
 Although things are working well, there are still two things we should improve upon. 
 One tweak is to accommodate for an unintentional state change from a bounce of the sensor, 
 and the other is to reduce the amount of BLE communication, sending only once at the moment of a state change.
-
-##### BLE sends data only when the words "State change to" appear
-<img src="images/stateshanges.gif" width="80%">
-
-**Peripheral-side code is done**
 
 Created **_golf-swing-acc-ble-statechange_** with this modified code: 
 - Eliminate accidental state changes from the sensor
@@ -153,8 +147,17 @@ Created **_golf-swing-acc-ble-statechange_** with this modified code:
 - Send _boolean 1/0_ rather than the strings, "Resting" and "Ready"
 - Use the shorter 16-bit UUID, like `ffe0` and `ffe1` [_(More about UUID)_](activity.md#uuid-info)
 
-##
+##### BLE sends data only when the words "State change to" appear
+
+<img src="images/stateshanges.gif" width="80%">
+
 ## Summary:
+
+**Server/peripheral-side programming is done.**
+
+We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
+Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
+After experimenting with a couple of example sketches, we incorporated the BLE library into the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming from the Nano33BLESense.
 
 The Nano33BLESense has been programmed to communicate with a Client (central), so it's now time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy.
 
