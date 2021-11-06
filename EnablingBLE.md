@@ -387,7 +387,7 @@ void loop() {
 
 ##
 
-(move to its own page _AppDev.md_)
+[(Link to _AppDev.md_)](AppDev.md)
 
 #
 - Android Studio
