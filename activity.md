@@ -1,26 +1,51 @@
-- organize BLE page better
-- move Step Four over to BLE page
-- determine what to do with the on/off data coming from the device _(Android Studio?)_
-- Need new GIF for "tilt LED"
-
 [*[ Overview ]*](README.md/#golf-swing-sensors)
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
 [*[ 2 Solve for Power ]*](implementation.md/#solve-for-power)
-[*[ 3 Enable BLE ]*](EnablingBLE.md#step-three)
-[*[ Step Four: Enable Smartphone Response ]*](#step-four)
+**[*[ 3 Enable BLE ]*](EnablingBLE.md#step-three)**
+[*[ Step Four: Enable Smartphone Response ]*](EnablingBLE.md/#step-four)
 [*[ Step 4.5: Enable KWS ]*](KWS.md)
 [*[ Enabling the Gyro ]*](#steps-five-and-six)
 [*[ Recording the Data ]*](#steps-five-and-six)
 [_[ jump to new project ideas-> ]_](thoughtsandnotes.md/#other-projects)
 
-##
-
-This page:
-- [UUID Info](#uuid-info)
+**This page is now "Reference, etc."**
 - [Reference](#reference)
-- [Enable Smartphone Response](#step-four)
+- [UUID Info](#uuid-info)
+- [Magic Wand Info](#magic-wand)
+- [( <-- Enable Smartphone Response )](EnablingBLE.md/#step-four)
 - [Enabling the gyro](#steps-five-and-six)
 - [Recording the data](#steps-five-and-six) 
+
+##
+# Reference:
+
+- Here's the okdo.com example, including [_BLE Hello World_](#the-ble-hello-world-sketch): [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc)
+- **Hackster** tutorial: Here's a helpful [IMU and BLE](https://www.hackster.io/gov/imu-to-you-ae53e1) tutorial from hackster.io
+- Wiki about [C data types](https://en.wikipedia.org/wiki/C_data_types#stdint.h)
+- Helpful from Argenox:
+  - [**Argenox website**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a good place to READ about BLE
+  - Here's the [Bluetooth Low Energy Library](https://www.argenox.com/library/bluetooth-low-energy/)
+  - Here is a link for [BLE and batteries](https://www.argenox.com/library/bluetooth-low-energy/powering-ble-batt/)
+- **Arduino** resources:
+  - Arduino's reference for BLE](#arduinos-reference-for-ble) _(double check this link)_
+  - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE**
+  - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
+  - A complete [reference](https://www.arduino.cc/reference/en/)
+  - And one specifically for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
+- **Nordic Semi** resources:
+  - Helpful [**beginners tutorial**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/ble-advertising-a-beginners-tutorial) from Nordic Semi. 
+  - And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/bluetooth-smart-and-the-nordics-softdevices-part-1)
+#### _Reader and Sender:_ 
+- Definition from [ArduinoBLE Reference](https://www.arduino.cc/en/Reference/ArduinoBLE)
+- Think of this as _Sender_ and _Reader_. 
+ArduinoBLESense device is the _sender_ (Peripheral). 
+When a reading changes, the nRF Connect app is going to be the _reader_ (Client).
+The model BLE uses is known as a "publish-and-subscribe" model.
+#### _Coding Tips:_
+- The all-inclusive Arduino file will be saved as _golf-sensors.ino_ when more sensors are involved.
+  - Multiple "h" file can probably be included, to split off logically (see: [_magic wand_](#magic-wand) example) from the _.ino_ file.
+- For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
+- Change LED from one state to the other: `digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));`
 
 ##
 ## UUID Info:
@@ -61,44 +86,8 @@ fa94204d-dc71-4585-aa63-98b8133c5266
 ##### UUID BLE specification:
 _I read that this was important for BLE:_ UUID for BLE: _"XXXXXXXX-0000-1000-8000-00805F9B34FB"_ _(Look this up to find standard BLE list)_
 
-#
-
 ##
-# Reference:
-
-- Here's the okdo.com example, including [_BLE Hello World_](#the-ble-hello-world-sketch): [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc)
-- **Hackster** tutorial: Here's a helpful [IMU and BLE](https://www.hackster.io/gov/imu-to-you-ae53e1) tutorial from hackster.io
-- Wiki about [C data types](https://en.wikipedia.org/wiki/C_data_types#stdint.h)
-- Helpful from Argenox:
-  - [**Argenox website**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a good place to READ about BLE
-  - Here's the [Bluetooth Low Energy Library](https://www.argenox.com/library/bluetooth-low-energy/)
-  - Here is a link for [BLE and batteries](https://www.argenox.com/library/bluetooth-low-energy/powering-ble-batt/)
-- **Arduino** resources:
-  - Arduino's reference for BLE](#arduinos-reference-for-ble) _(double check this link)_
-  - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE**
-  - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
-  - A complete [reference](https://www.arduino.cc/reference/en/)
-  - And one specifically for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
-- **Nordic Semi** resources:
-  - Helpful [**beginners tutorial**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/ble-advertising-a-beginners-tutorial) from Nordic Semi. 
-  - And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/bluetooth-smart-and-the-nordics-softdevices-part-1)
-- **nRF Connect:**
-  - nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
-  - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
-
-##
-
-**Tips for the code:**
-
-- The all-inclusive Arduino file will be saved as _golf-sensors.ino_ when more sensors are involved.
-  - Multiple "h" file can probably be included, to split off logically (see: [_magic wand_](#magic-wand) example) from the _.ino_ file.
-- For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
-- Change LED from one state to the other: `digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));`
-
-##
-
-##### Digging deeper into the _magic wand_
-### magic wand
+## magic wand
 - **LEARN** 
 [from the course](https://learning.edx.org/course/course-v1:HarvardX+TinyML3+1T2021/block-v1:HarvardX+TinyML3+1T2021+type@sequential+block@e355a78c0dcd49b6acbeeaf8f7492859/block-v1:HarvardX+TinyML3+1T2021+type@vertical+block@6e2f8e18dd814e63ad68f60e380b6633)
 about the _magic-wand_ sketch to see how the DATA is recorded there and what gets transmitted to the Serial Monitor, and then how that data displays on the Monitor from that data. What converts that data to the 'readable' visualization of the motion?
@@ -108,63 +97,16 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 - **_Can this activity happen LOCALLY?_** Because the exercise actually resided on _tinymlx.io_ or something. And that's where all the data got generated.
 - **How much reliance upon external websites is necessary? Why not ALL local?**
 
-#
-
-#
-
-#
-
-#
-
-**_other headings:_**
-##### Digging into App Dev
-##### Enable Smartphone to BEEP
-##### Getting Started with the SDK
 ##
-##### Step Four:
-# Enable Smartphone Response
-
-**Description:**
-
-We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
-Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
-After experimenting with a couple of example sketches, we incorporated the BLE library to the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming from the Nano33BLE.
-
-Now that data is being transmitted from the Nano33BLESense, we need to develop an Android application that receives it. (Might be in _nrfconnect_ or might be using Android Studio instead.)
-
-We want to develop an Android app that will turn on and off its flashlight or beep high and low, depending on the Resting state.
-
-### App Development
-- Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
-- Here is **Android BLE [guide](https://punchthrough.com/android-ble-guide/)**
-- What can be configured in my phone when it receives commands from the nRF Connect (or other) application?
-  - Can the phone app trigger **BEEP** or a vibration/buzz?
-  - Can the App turn on/off the phone's **flashlight**?
-- Enable smartphone functions with _nrfconnect_ or Android Studio (Requires SDK and toolchain)
-- Make high and low pitches for "Ready" state on/off (as the example) and apply this same code later. 
-- _Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way._
-
-##### For nRF Connect Development:
-**We've connected the device to the nRF Connect App, and now it's time to figure out how to get a response from it.**
-- nRF Connect App Development: 
-Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
-- I need nRF Connect for Desktop: 
-[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
-- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop: 
-[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
-- It looks complicated, but the videos were pretty clear (and recently made). The **videos** for installation are here on [_YouTube._](https://youtu.be/2cv_jjqk5hg) Might be more from a recent webinar November 3.
-
-
-**Might not need nRF Connect. Might instead need _Android Studio_.**
 
 #
 
 #
 
-#
+##
+**Link to: [*[ Step Four: Enable Smartphone Response ]*](EnablingBLE.md/#step-four)**
 
 # And...
-
 **_Now that we've created an Android app:_**
 
 ##
@@ -219,7 +161,7 @@ Collecting all the data. This step will be after data collection is sorted out, 
 
 **But first, do step [five](#step-five) and [six](#step-six)**
 
-#
+##
 
 #
 
@@ -256,7 +198,7 @@ Collecting all the data. This step will be after data collection is sorted out, 
 - testing prototype
 - collect 10X more data
 
-#
+##
 
 #
 
@@ -295,5 +237,50 @@ Collecting all the data. This step will be after data collection is sorted out, 
 
 
 ##
-[**_[ Thoughts and Notes --> ]_**](thoughtsandnotes.md)
+## [**_[ Thoughts and Notes --> ]_**](thoughtsandnotes.md)
+##
+
+#
+
+#
+
+#
+
+##
+## Stuff I'm no longer considering but might be useful:
+
+- There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely, but for now I built it into this code. 
+- Is there a way for the client to ask the peripheral whether the state has changed? Maybe. But how frequently and how much power consumption. Of course, the peripheral could ignore requests for update as well. Unless there's another way to think about this, I don't think this matters much. No savings of effort or energy.
+- Another way to look at this is by doing a check on **whether the states match** on the peripheral and client, and if it doesn't, to update the client, although it might require more communication between devices.
+
+##
+
+**For nRF Connect Development:**
+
+_We've connected the device to the nRF Connect App, and now it's time to figure out how to get a response from it._
+- nRF Connect App Development: 
+Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
+- I need nRF Connect for Desktop: 
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
+- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop: 
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
+- It looks complicated, but the videos were pretty clear (and recently made). The **videos** for installation are here on [_YouTube._](https://youtu.be/2cv_jjqk5hg) Might be more from a recent webinar November 3.
+
+##
+
+**might be unrelated to our own project**
+
+Here's the [FORUM for Arduino.](https://forum.arduino.cc/c/using-arduino/programming-questions/20)
+- COPY HIS CODE
+
+Go through entire process this user did implementing Notify/Indicate. **However this is developed, it's going to need CCCP, whatever that is.** 
+- [(link to question) Set CCCD value](https://forum.arduino.cc/t/feature-request-option-to-set-cccd-value/919852)
+- [(link to question) Notify/Indicate](https://forum.arduino.cc/t/notifications-and-indications-disabled-nrf-connect/915757)
+
+He's discussing the nRF Connect functionality with Notify and Indicate. Also refers to video mentioned here about [BLE on Arduino](https://youtu.be/osneajf7Xkg) which shows some detail about Server/Client and characteristics
+  - In this he mentions "BLE2902" _(figuring that out next)_ 
+  - In nRF Connect shows up as "0x2902"
+
+**Should go back to this FORUM to see if this makes more sense now that I finished with this step.**
+
 ##

@@ -1,8 +1,12 @@
+- Android Studio
+
 [*[ Overview ]*](GolfSwingSensors.md/#golf-swing-sensors)
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
 [*[ 2 Solve for Power ]*](implementation.md/#solve-for-power)
-[*[ **Step Three: Enable BLE+IMU** ]*](#step-three)
-[*[ Step Four: Enable Smartphone Response ]*](activity.md#step-four)
+[*[ 3 Enabling BLE ]*](#step-three)
+**[*[ Step Four: Enable Smartphone Response ]*](#step-four)**
+[*[ Step 4.5: Enable KWS ]*](KWS.md)
+[*[ Steps 5 & 6 ]*](activity.md/#steps-five-and-six)
 [_[ jump to new project ideas-> ]_](thoughtsandnotes.md/#other-projects)
 
 [*[ "Accomplished so far..." ]*](#accomplished-so-far)
@@ -54,8 +58,6 @@ So this one change will allow the device to function in nRF Connect the same way
 Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, it's time to simplify and specialize our code.
 
 There is a simple _BLE Hello World_ sketch from [okdo.com](#reference) that turns on the amber LED on the Arduino board when it connects. And after connecting with nRF Connect, we can read "Hello World" on our smartphone.
-
-_What's interesting to me (newbie!) is using `static const char* greeting = "Hello World!";` first, and then later using `greetingCharacteristic.setValue(greeting);` for that string to appear through the characteristic._
 
 ##
 
@@ -320,105 +322,87 @@ void loop() {
   } //v
 ```
 
-##
-
 ##### Phone screen with device listed: (1)Scanning, (2)Connected, (3)Tilting on the y-axis to turn on/off the LED
 <p align="center">
-  (1)<img src="images/BLEScanning.png" width="20%">
-  (2)<img src="images/BLEConnected.png" width="20%">
-  (3)<img src="images/myBLEtilt.gif" width="30%">
+  (1) <img src="images/BLEScanning.png" width="20%">
+  (2) <img src="images/BLEConnected.png" width="20%">
+  (3) <img src="images/myBLEtilt.gif" width="30%">
 </p>
 
 ##
-## Accomplished so far:
+#### Accomplished so far:
 
-**We have created code that displays Ready/Resting on the serial monitor and in the nRF Connect app, but also, we got the LED on the device to light up as well!**
+We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
+Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
+After experimenting with a couple of example sketches, we incorporated the BLE library into the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming from the Nano33BLESense.
 
-In this section we have transformed the _golf-swing-acc_ code to include BLE communication. We took two example sketches to learn about the [Arduino file structure](#arduino-file-structure), and then imported the code we needed into **_golf-swing-acc-ble_** to enable it to communicate with a smartphone running the _nRF Connect_ app.
+Although things are working well, there are still two things we should improve upon. 
+One tweak is to accommodate for an unintentional state change from a bounce of the sensor, 
+and the other is to reduce the amount of BLE communication, sending only once at the moment of a state change.
 
-1. Data is being sent from the device to nRF Connect
-2. The device sends "Ready"/"Resting" to the app depending on a threshold in the code
-3. Accelerometer value is sent in the form of a **_hex_** (don't know if this makes a difference to the project)
-4. We used UUIDs in their long form as constants [_(About UUID)_](activity.md#uuid-info)
-5. Then started to use a shorter, 16-bit form of UUID, like "ffe0" and "ffe1"
+##
+##### BLE sends data only when the words "State change to" appear
+<img src="images/stateshanges.gif" width="80%">
+
+**Peripheral-side code is done**
+
+Created **_golf-swing-acc-ble-statechange_** with this modified code: 
+- Eliminate accidental state changes from the sensor
+- Send data via BLE **only** when the state changes 
+- Send _boolean 1/0_ rather than the strings, "Resting" and "Ready"
+- Use the shorter 16-bit UUID, like `ffe0` and `ffe1` [_(More about UUID)_](activity.md#uuid-info)
 
 ##
 
-**Making that change, and...**
+#
+<-- **(edit everything below here)** -->
+#
 
-## Peripheral-side code is done
-
-**The new code now has this function.** (_golf-swing-acc-ble-statechange_) 
-We modified the code so that it will only send data via BLE when necessary, when the state switches between Ready and Resting. 
-This reduces the BLE communication (which is the most energy-hungry part of this project) down to a single instance: _a characteristic change_ (state change). 
-We substituted using entire words, "Resting" and "Ready", and instead now use _boolean 1/0_ to do the same thing.
-
-It sends BLE data only at the point of the state change (note the words "State change to" in the monitor)
-
-##### State changes by tilting on the y-axis
-  <p align="center"><img src="images/stateshanges.gif"  width="80%"></p>
-
-But we don't want information to be sent via BLE every time the code loops.
-Instead, we need to send notifications about a change of state to the Client (nRF Connect) when the sensor changes its state from Ready to Resting or back.
-When the Client app reads "Ready!" or "Resting!" it receives every character, 6 or 8 bytes of information, from the device constantly, which is excessive.
 _(It's sending all y-axis information right now too, but that will change later)_
-
-The code:
-- Add logic to the code so that Resting is 1 and Ready is 0
-- Add an interval buffer to accommodate for any unintentional bounces when it checks its state.
-- Write to BLE only when the state changes
-
-##
-##
-
-We modified _golf-swing-acc-ble_ (now **_golf-swing-acc-ble-statechange_**) to include the code that will notify the client of a state change.
-
-We can see this change in the Value field of the UUID ("0xFFE2") for the specific characteristic: `value (0x) 00` and `value (0x) 01`.
 
 #
 
 **Now that state changes can be sent to the smartphone, try to turn its flashlight on/off with the signal!**
 What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
 While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
-- There is a difference between constantly notifying about the state and simply notifying about a state change.
-- Notifying only about a state change will be helpful to eliminate unnecessary BLE communication. 
-- Checking a state change can happen less frequently than the device baud rate, so we don't get bounces of the states due to natural movement. 
-  - For example, during its transition to a new state the LED lit very briefly, flashing the previous state of the LED. It looked like a bounce.
 
-#
-
-**Important to enable Notify for Change of State**
-
-One of the future modifications needs to be utilizing the BLE code that features **state change only** notifications, so that nRF only receives one-time signal that the state has changed between Ready and Resting, rather than as it is now, which always prints its state to BLE. 
-
-#
-
-- So we need to enable functionality within _nrfconnect_ to do something.
-- We've already sent the data once, so do something, and when it changes, do something else.
-- Code: When Y-axis, `y < -0.85`, changes from True to False or back, this is the moment to send BLE data and nothing else, to save on BLE energy.
-- We're going to try to enable one element of the BLE functionality which will send a notification only when the state changes.
-- The code will send a change of state notification when it happens, which can then be held in the nRF Connect app until the next update.
-
-#
-
-**Notify or Indicate.** 
-(Here's something from [ArduinoBLE Reference](https://www.arduino.cc/en/Reference/ArduinoBLE))
-Think of this as _Sender_ and _Reader_. 
-ArduinoBLESense device is the _sender_, or Peripheral. 
-When a reading changes, the nRF Connect app is going to be the _reader_, or Client.
-The model BLE uses is known as a "publish-and-subscribe" model.
+##
 
 #
 
 #
 
 ##
-##### link to step four:
-**[*[ Step Four: Enable Smartphone Response ]*](activity.md#step-four)**
+[(link to "Reference, etc" page)](activity.md#reference)
 ##
-##
+##### Step Four:
+# Enable Smartphone Response
 
-### the key:
+(edit)
+
+#
+
+Now that data is being transmitted from the Nano33BLESense, we need to develop an Android application that receives it. (Android Studio)
+
+#
+
+We want to develop an Android app that will turn on and off its flashlight or beep high and low, depending on the Resting state.
+
+#
+
+##### App Development
+- Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
+- Here is **Android BLE [guide](https://punchthrough.com/android-ble-guide/)**
+- What can be configured in my phone when it receives commands from the nRF Connect (or other) application?
+  - Can the phone app trigger **BEEP** or a vibration/buzz?
+  - Can the App turn on/off the phone's **flashlight**?
+- Enable smartphone functions with _nrfconnect_ or Android Studio (Requires SDK and toolchain)
+- Make high and low pitches for "Ready" state on/off (as the example) and apply this same code later. 
+- _Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way._
+
+#
+
+#### the key:
 **Link to [KABLE](https://github.com/JuulLabs/kable)**
 - "Kotlin Asynchronous Bluetooth Low Energy provides a simple Coroutines-powered API for interacting with Bluetooth Low Energy devices."
 
@@ -444,49 +428,32 @@ This is the research I am doing now.
 
 #
 
-##
-##### State change: (pseudo code)
-
-This **_pseudo code_** models the code we used to transform into functionality that updates the current readyState every half-second. (used `millis()`) 
-In the loop it checks whether the state has changed, and if it did, it sends boolean data to the client smartphone.
-
-##### still need this pseudo code for reference but can delete later
-```
-resting = state("Resting");
-ready = state("Ready");
-earlier = now;
-now = update.state();        // returns "Ready" or "Resting"
-
-if ( now !== earlier ) {     // if state has now changed
-    if (now == resting) {    // and is now Resting
-        beep(low);           // then beep low for new Resting state
-        notifyBit = 0;
-        }
-    else if (now == ready) {
-        beep(high);          // otherwise beep high for new Ready state
-        notifyBit = 1;
-        }
-    blenotify(notifyBit);    // sends BIT to BLE "descriptor" (or something)
-    }
-
-else {
-    pass;                    // now == earlier, so no state change
-    }
-
-earlier=now;                 // update earlier state with now state
-
-```
-
-##
-
 #
 
+#
+(delete all of below)
+##
+
 **Stuff I'm no longer considering but might be useful:**
+
 - There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely, but for now I built it into this code. 
 - Is there a way for the client to ask the peripheral whether the state has changed? Maybe. But how frequently and how much power consumption. Of course, the peripheral could ignore requests for update as well. Unless there's another way to think about this, I don't think this matters much. No savings of effort or energy.
 - Another way to look at this is by doing a check on **whether the states match** on the peripheral and client, and if it doesn't, to update the client, although it might require more communication between devices.
 
-#
+##
+
+**For nRF Connect Development:**
+
+_We've connected the device to the nRF Connect App, and now it's time to figure out how to get a response from it._
+- nRF Connect App Development: 
+Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
+- I need nRF Connect for Desktop: 
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
+- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop: 
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
+- It looks complicated, but the videos were pretty clear (and recently made). The **videos** for installation are here on [_YouTube._](https://youtu.be/2cv_jjqk5hg) Might be more from a recent webinar November 3.
+
+##
 
 **might be unrelated to our own project**
 
@@ -502,6 +469,6 @@ He's discussing the nRF Connect functionality with Notify and Indicate. Also ref
   - In nRF Connect shows up as "0x2902"
 
 **Should go back to this FORUM to see if this makes more sense now that I finished with this step.**
-#
 
-#
+##
+(delete down to here)
