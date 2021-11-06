@@ -195,6 +195,7 @@ Swinging the club around won't put it into that Resting state unless it register
 # Solve for Power
 
 #### Future prototyping solution
+
 - Later can build an obviously better solution.  
 - When 100% finished developing with my Arduino Nano 33 BLE Sense, I will be looking into using a different board for prototyping, and a battery solution will definitely be a part of the research.
   - **The board needs to include (1) an IMU, (2) a microphone, and (3) a solvable battery option**
@@ -205,6 +206,7 @@ Swinging the club around won't put it into that Resting state unless it register
   - **LIR2032H** is a common 3.7 rechargable, but 20mm, so like a nickel size.
 
 #### Current development solution
+
 - **Connect with only BLE and be _physically detached_ from the computer.**
 - Attach the Arduino Sense (USBmicro port) to a power source.
 - Use a lightweight **phone recharger** (with 2 USB out) to serve this purpose during development.  
@@ -212,9 +214,11 @@ Swinging the club around won't put it into that Resting state unless it register
 - **Charging an _old phone_ at the same time will prevent this auto-shutoff** 
 
 ##### Charging up a dead old phone, simultaneously powering Nano33BLE
+
 <img src="images/Sm-batterypack.png" width="35%">
 
 #### Alternative development solution
+
 - This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
 - There's a power solution in the TinyML Course, attaching a 9V battery to the **Learning Kit Shield**. 
   - This [**Appendix**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
