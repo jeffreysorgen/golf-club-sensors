@@ -103,17 +103,14 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 #
 
-##
-##### [_(link to step four)_](EnablingBLE.md#step-four)
-##
-
 #
 
 #
 
 ##
-# And...
+**Link to: [*[ Step Four: Enable Smartphone Response ]*](EnablingBLE.md/#step-four)**
 
+### And...
 **_Now that we've created an Android app:_**
 
 ##
