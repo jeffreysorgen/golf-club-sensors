@@ -358,16 +358,6 @@ Created **_golf-swing-acc-ble-statechange_** with this modified code:
 <-- **(edit everything below here)** -->
 #
 
-_(It's sending all y-axis information right now too, but that will change later)_
-
-#
-
-**Now that state changes can be sent to the smartphone, try to turn its flashlight on/off with the signal!**
-What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
-While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
-
-##
-
 #
 
 #
@@ -378,6 +368,13 @@ While the flashlight functionality won't be used in the end, that solution is cr
 
 - Link to [_BLE Hello World_ code is here](#ble-hello-world-code-is-here)
 - Link to [_golf-swing-acc-ble_ code is here](#all-the-golf-swing-acc-ble-code-is-here)
+
+##
+
+
+**Now that state changes can be sent to the smartphone, try to turn its flashlight on/off with the signal!**
+What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
+While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
 
 ##
 
