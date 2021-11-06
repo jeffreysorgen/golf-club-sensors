@@ -56,12 +56,11 @@ So this one change will allow the device to function in nRF Connect the same way
 
 Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, it's time to simplify and specialize our code.
 
-There is a simple _BLE Hello World_ sketch from [okdo.com](#reference) that turns on the amber LED on the Arduino board when it connects. And after connecting with nRF Connect, we can read "Hello World" on our smartphone.
-
-There is a simple _BLE Hello World_ sketch from [okdo.com](#reference) that turns on the amber LED on the Arduino board when it connects, and then we can read "Hello World" on the Client (smartphone) app.
-
+There is a _BLE Hello World_ sketch from [okdo.com](activity.md/#reference) 
+that turns on the amber LED on the Arduino board when it connects, 
+and we can then read "Hello World" on the Client (smartphone) app.
 Starting with this simple code as a base, **we'll combine it with our own _golf-swing-acc_ sketch** 
-so that we can see what gets sent to _nRF Connect_ from the BLESense.
+so that we can see what gets sent to _nRF Connect_ from the Nano33BLESense.
 
 ##### _BLE Hello World_ code is here:
 ```
@@ -125,7 +124,8 @@ void loop() {
 }
 ```
 
-_([Link to code](#ble-hello-world-code-is-here))_
+- _Hello World BLE code_ is [**here**](#ble-hello-world-code-is-here)
+- [(back)](#the-hello-world-ble-sketch)
 
 **How we will use this:**
 
