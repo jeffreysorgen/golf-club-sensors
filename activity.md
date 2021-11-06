@@ -3,7 +3,7 @@
 [*[ 2 Solve for Power ]*](implementation.md/#solve-for-power)
 **[*[ 3 Enable BLE ]*](EnablingBLE.md#step-three)**
 [*[ Step Four: Enable Smartphone Response ]*](EnablingBLE.md/#step-four)
-[*[ Step 4.5: Enable KWS ]*](KWS.md)
+[*[ Step 4.5: Enable KWS ]*](KWS.md/#key-word-spotting)
 [*[ Enabling the Gyro ]*](#steps-five-and-six)
 [*[ Recording the Data ]*](#steps-five-and-six)
 [_[ jump to new project ideas-> ]_](thoughtsandnotes.md/#other-projects)
