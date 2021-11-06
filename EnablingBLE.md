@@ -3,8 +3,9 @@
 [*[ Overview ]*](GolfSwingSensors.md/#golf-swing-sensors)
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
 [*[ 2 Solve for Power ]*](implementation.md/#solve-for-power)
-[*[ **Step Three: Enable BLE+IMU** ]*](#step-three)
-[*[ Step Four: Enable Smartphone Response ]*](#step-four)
+[*[ 3 Enabling BLE ]*](#step-three)
+**[*[ Step Four: Enable Smartphone Response ]*](#step-four)**
+[*[ Step 4.5: Enable KWS ]*](KWS.md)
 [*[ Steps 5 & 6 ]*](activity.md/#steps-five-and-six)
 [_[ jump to new project ideas-> ]_](thoughtsandnotes.md/#other-projects)
 
