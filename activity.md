@@ -116,11 +116,6 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 ##### Step Four:
 # Enable Smartphone Response
 
-**Description:**
-
-We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
-Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
-After experimenting with a couple of example sketches, we incorporated the BLE library to the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming from the Nano33BLE.
 
 Now that data is being transmitted from the Nano33BLESense, we need to develop an Android application that receives it. (Might be in _nrfconnect_ or might be using Android Studio instead.)
 
