@@ -7,6 +7,7 @@
 **[*[ Step Four: Enable Smartphone Response ]*](#step-four)**
 [*[ Step 4.5: Enable KWS ]*](KWS.md/#key-word-spotting)
 [*[ Steps 5 & 6 ]*](activity.md/#steps-five-and-six)
+[*[ Reference, etc. ]*](activity.md/#reference)
 [_[ jump to new project ideas-> ]_](thoughtsandnotes.md/#other-projects)
 
 ##
