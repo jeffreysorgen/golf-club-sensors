@@ -426,8 +426,6 @@ While this specific functionality won't be used in the end, the solution is cruc
 
 1. Develop the Hello World of Android Apps
 
-**<-- edit everything below here -->**
-
 ##### Development:
 
 - Enable smartphone functions with Android Studio 
@@ -435,8 +433,7 @@ While this specific functionality won't be used in the end, the solution is cruc
 - Enable the app to act upon a BLE characteristic changing from 0 to 1
 - Here is **Android BLE [guide](https://punchthrough.com/android-ble-guide/)**
 
-# And...
-### Now that we've installed a functional app on our Android: 
+## And now that we've installed a functional app on our Android...
 ##### the key:
 **Link to [KABLE](https://github.com/JuulLabs/kable)**
 - "Kotlin Asynchronous Bluetooth Low Energy provides a simple Coroutines-powered API for interacting with Bluetooth Low Energy devices."
