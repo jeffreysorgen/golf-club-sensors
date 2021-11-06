@@ -246,3 +246,20 @@ Collecting all the data. This step will be after data collection is sorted out, 
 ##
 [**_[ Thoughts and Notes --> ]_**](thoughtsandnotes.md)
 ##
+
+#
+
+#
+
+##
+
+
+
+
+
+
+
+
+
+(insert end stuff here from BLE page)
+- activity.md has become "Reference, etc." page
