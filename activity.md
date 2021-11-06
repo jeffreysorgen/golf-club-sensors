@@ -1,7 +1,3 @@
-- Android Studio
-- edit BLE page
-  - move Step Four over to BLE page
-
 [*[ Overview ]*](README.md/#golf-swing-sensors)
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
 [*[ 2 Solve for Power ]*](implementation.md/#solve-for-power)
