@@ -58,8 +58,6 @@ Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, i
 
 There is a simple _BLE Hello World_ sketch from [okdo.com](#reference) that turns on the amber LED on the Arduino board when it connects. And after connecting with nRF Connect, we can read "Hello World" on our smartphone.
 
-##
-
 Starting with this simple code as a base, **we'll combine it with our own _golf-swing-acc_ sketch** 
 so that we can see what gets sent to _nRF Connect_ from the BLESense.
 
