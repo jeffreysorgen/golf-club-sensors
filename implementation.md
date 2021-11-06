@@ -65,7 +65,7 @@ _skip to
 
 ## Flow for Golf Swing sensors:
 
-- **BLE** is enabled when the device is powered, waits for pairing forever.
+- **BLE** is enabled when the device is powered.
 - Pairs with phone app.
 - Clear device buffer and **begin loop**
 - Enable mag/acc/gyro
@@ -106,15 +106,15 @@ When the handle is upright, the club is in play and the sensor is in Ready state
 **For energy conservation:**
 
 First, understand the orientation of the device.
-When the sensor identifies its orientation is as if the club has been put back in the golf bag, then the device just uses one accelerometer parameter, `y < -.85`, meaning Resting state, and then continues to check every second for a change in state. 
+When the sensor identifies its orientation is as if the club has been put back in the golf bag, then the device just uses one accelerometer parameter, `y < -.85`, meaning Resting state, and then continues to check every two seconds for a change in state. 
 BLE will remain engaged.
 The connected smartphone device will **beep** only when it identifies a _state change_.
-This _beep_ at this point is just for development purposes, but is intended for future use elsewhere.
+The _beep_ at this point is for development purposes, and is intended for future use elsewhere.
 
 ### Setting up the device:
 These readings will determine the Ready or Resting state orientation
 - For ease of use, put the Arduino into a breadboard and then attach it to a stick in a perpendicular fashion as shown here. 
-- _Imagine your golf club is either being used, or is put back in the golf bag._
+- _Imagine your golf club is either being used, or has been put back in the golf bag._
 
 ##### Images: (1)Attach the device to a stick (2)Ready orientation (3)Device orientation (4)Resting orientation
 (1)<img src="images/Sm-attaching to a stick.png" width="20%">
@@ -147,7 +147,7 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 <img src="images/one second delay.PNG" width="50%"/>
 
 ### Updating the Arduino Nano 33 BLE
-- **Find** _SimpleAccelerometer_ from the Example files in the **Arduino_LSM9DS1 folder**
+- **Find** the _SimpleAccelerometer_ sketch from the Example files in the **Arduino_LSM9DS1 folder**
 - IMPORTANT: **Save it as** _golf-swing-acc_
 - **Add the _if-else_ statements within the _void() loop_ as shown.** (the rest is unchanged) 
   - The _if/else_ statement creates the _-0.85_ threshold between the Ready and Resting states.
@@ -182,7 +182,6 @@ void loop() {
   }
 ```
 
-
 ## Summary:
 This section was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
 The goal was to basically create on/off states, accomplished here by using a threshold for the Ready and Resting states. 
@@ -214,7 +213,6 @@ Swinging the club around won't put it into that Resting state unless it register
 
 ##### Charging up a dead old phone, simultaneously powering Nano33BLE
 <img src="images/Sm-batterypack.png" width="35%">
-
 
 #### Alternative development solution
 - This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
