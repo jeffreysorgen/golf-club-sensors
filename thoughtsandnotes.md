@@ -4,11 +4,13 @@
 
 ## Other Projects:
 _(Jot down ideas for other projects here)_
-- wind turbine ( Is the most popular product TinyML or IoT? )
-- Continue recording _golf-swing-sensors_ progress in THIS repository
 - **LED glasses** which display "HIGHLND" across them (**ORDERED!!**)
   - **Acquire** one of the mounts/PCB boards, and maybe later design PCB myself. Requires Adafruit _feather_ board. I imagine I'd document a project just like this _golf-sensors_ one, step by step. Fun to imagine Patreon or YouTube connections also. I like the idea of offering this to fans and artists. Should be very fun to do, with profit potential.
-  - **INCORPORATING _KWS_** for verbal commands! Like, "highlnd" would display "HIGHLND" across the frame, and could do "party", "love", "hearts" (heart emojis), and with special design specs I could do ANY voice commands. Of course limited to device capacity. Maybe not for the _feather_ but another that includes a microphone and capacity for TinyML.
+  - **INCORPORATE _KWS_** for verbal commands! Like, "highlnd" would display "HIGHLND" across the frame, and could do "party", "love", "hearts" (heart emojis), and with special design specs I could do ANY voice commands. Of course limited to device capacity. Maybe not for the _feather_ but another that includes a microphone and capacity for TinyML.
+- **Golf Bag Robot** Attach servos and a wheel to my golf bag, and make it use Image Recognition to follow me around on the golf course. Hold the flag up (or use red/green _COLOR_) and it moves forward, to the side and it goes that way, hold it down and it stops. _Good idea, but not for profit. Just fun._
+  - _Color "flag" stick._ Colors on two ends of a stick. One end is Yellow, both sides. The other end is Green and Red, respectively, on opposite end of the stick. Holding the Green dot up and Yellow down, move forward. If Green is to the Side of the Yellow, then go that way! If Red dot is visible, then stop. If Yellow is above the Green, then straighten out and go fastest possible. Could be yellow triangle, green square, and red circle.
+- Wind turbine ( Is the most popular product TinyML or IoT? )
+- Continue recording _golf-swing-sensors_ progress in THIS repository
 
 
 ## Fourier
@@ -19,9 +21,11 @@ _(Jot down ideas for other projects here)_
 
 ### This means?
 - that a _multi-dimensional_ line can be generated, against which comparisons can be made for a VERY QUICK INFERENCE!
-- To illustrate, imagine a drone on a 3D path, and add 2 more dimensions (parameters) such as temperature and pressure. Now it's a 5-dimensional line against which a model can make a quick inference!
+- To illustrate, imagine a drone on a 3D path, plus time, and add 2 more dimensions (parameters) such as temperature and pressure. Now it's a 6-dimensional "line" (shape) against which a model can make a quick inference!
 ##
-The above might describe some complete science fiction. I  may be thinking about this in the wrong way. After a very superficial review of Fourier Transform, I think that "3D" aspects are asking too much. I really don't think this is what I am looking for.
+The above might describe some complete science fiction. I  may be thinking about this in the wrong way. After a very superficial review of Fourier Transform, I think that "3D" aspects are asking too much. I really don't think this is what I am looking for. _(Oh?)_
+- It might be though. What if the complex calculations taught about FT are in fact learnable by just including x,y,z and time in a machine learning model.
+  - _A good swing has these coordinates across this timeline, so yes, it's a good swing by inference._
 
 ### Or it's possible that...
 - all I really need is something that we learned about when we were analyzing spectrograms from AUDIO samples, and transforming them using **FFT (Fast Fourier Transform)** so maybe this can be applied to my problem, where there is a singular path (2D), but with one additional corresponding parameter.

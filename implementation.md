@@ -1,10 +1,10 @@
 
-[*[ back to overview ]*](README.md)
+[*[ back to overview ]*](GolfSwingSensors.md#golf-swing-sensors)
 [*[ completed ]*](#completed)
 [*[ learning ]*](#learning-about-this)
 [_[ **Step One: The Accelerometer** ]_](#the-accelerometer)
 [*[ Step Two: Solve for Power ]*](#solve-for-power)
-[*[ Step Three: Enabling BLE ]*](activity.md/#enabling-ble)
+[*[ Step Three: Enabling BLE ]*](EnablingBLE.md/#enabling-ble)
 
 ## Implementation
 
@@ -22,13 +22,13 @@ _skip to
 2. **Markdown** Learned to use [Markdown from this guide](https://guides.github.com/features/mastering-markdown/)
 3. **TinyML** Took course for TinyML from EdX ([complete](https://credentials.edx.org/credentials/4601700d748c4de0b3a57315ff04831c/))
 4. **activity.md** Describes my next steps, ideas, and this Completed list (now is a [to-do list](activity.md))
-5. **golf-swing-idea.md** Defines the parts of my golf swing idea (now incorporated into README and deleted)
+5. **golf-swing-idea.md** Defines the parts of my golf swing idea (incorporated into README and deleted)
 6. **GitHub Pages** Added using [this guide](https://guides.github.com/features/pages/) and is accessible _here_ (ongoing)
 7. Changed _hello-world_ (this) repository to PRIVATE, so it now isn't publicly available on GitHub Pages either (Now renamed to _golf-swing-sensors_ and **is** public. GHPages not enabled.)
 8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository (now may not be needed)
 9. Defined Golf Swing Data Flow, [_below_](#flow-for-golf-swing-sensors)
-10. Created _new-readme.md_ (now [README](README.md)), added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list. (Now deleted the old readme-old.md.)
-11. Renamed (this) repository: _hello-world_ is now _golf-swing-sensors_, and updated [README.md](readme.md)
+10. Created _new-readme.md_, _(then README.md, then [GolfSwingSensors.md](GolfSwingSensors.md))_, added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list. (Now deleted the old readme-old.md.)
+11. Renamed (this) repository: _hello-world_ is now _golf-swing-sensors_, and updated README.md _(now content is in [GolfSwingSensors.md](GolfSwingSensors.md#golf-swing-sensors)_
 12. [Implementation Part One:](#the-accelerometer) **Set up Accelerometer**
 
 ##### _2021 Oct_
@@ -39,31 +39,33 @@ _skip to
 16. LEARNED that it's easy to mess up in GitHub desktop, so _be careful_
 17. **Electronics** Learned cursory principles of electronics from __LinkedIn Learning__.
 18. **3D Printing** Learned Basics of 3D Printing from __LinkedIn Learning__.
-19. **Arduino sketch** created for Accelerometer - _golf-swing-acc_ ([here](#updating-the-arduino-nano-33-ble)) and kept it **simple**. 
+19. **Arduino sketch** created for Accelerometer - _golf-swing-acc_ ([here](EnablingBLE.md#updating-the-arduino-nano-33-ble)) and kept it **simple**. 
 20. **GitHub Markdown** Learned styling for tables, images and code block
 21. Added code block and image from Monitor to this documentation. 
-22. **Accelerometer** Completed documentation, and it's time to move on to [**adding BLE**](activity.md/#enabling-ble) to the system!
-23. **Add BLE** Successfully [copied the process](activity.md/#try-the-ble-example-sketch) of a YouTuber to add BLE services on the device.
+22. **Accelerometer** Completed documentation, and it's time to move on to [**adding BLE**](EnablingBLE.md/#enabling-ble) to the system!
+23. **Add BLE** Successfully [copied the process](EnablingBLE.md/#try-the-ble-example-sketch) of a YouTuber to add BLE services on the device.
 24. **Power** Documented several potential development and prototyping [**battery solutions**](#solve-for-power)
 25. Generated [pseudo code](activity.md#state-change-pseudo-code) for state changes
-26. **New Code** Created _golf-swing-imu-ble_ which communicates via BLE to a smartphone
-27. **Editing** Consolidating the documentation in preparation for moving to **Step Four: [the SDK!](activity.md#step-four)**
+26. **New Code** Created [_golf-swing-imu-ble_](EnablingBLE.md#all-the-golf-swing-acc-ble-code-is-here) which communicates via BLE to a smartphone
+27. **Editing** Consolidated the documentation in preparation for moving to **Step Four: [the SDK!](activity.md#step-four)**
 28. **Posted to Reddit!** [HERE](https://www.reddit.com/r/arduino/comments/qja9y6/nano33blesense_project_first_step_solve_for_power/)
 
 ##### _2021 Nov_
 
-29. **CODE** Solved the sensor "bounce" problem with accelerometer and enabled READY/RESTING states.
+29. **CODE** Solved the sensor "bounce" problem with accelerometer and enabled READY/RESTING states. _(golf-swing-imu-ble-statechange)_
 30. **Bluetooth** BLE has been properly enabled to communicate with smartphone, time to dig into the SDK
-31. **KWS.md** Page for Key Word Spotting step has been set up, [here](kws.md), and step is in progress.
+31. **KWS.md** Page for Key Word Spotting step has been set up, [_here_](kws.md), and step is in progress.
+32. Modified the _README.md_ down to one sentence, and then created [_GolfSwingSensors.md_](GolfSwingSensors.md) for the rest.
+33. Determined that Android Studio will be the starting point to develop the Client app for the project (step four)
 
 ##### Learning about this:
-- **[Kotlin](https://kotlinlang.org/)** and Android
-- nRF Connect, IMU sensors, BLE, C++, data collection
+- **[Kotlin](https://kotlinlang.org/)** and **Android Studio**
+- IMU sensors, BLE, C++, data collection
 - GitHub Desktop, possibly GitBASH, KiCad, LTspice, OSHPARK
 
 ## Flow for Golf Swing sensors:
 
-- **BLE** is enabled when the device is powered, waits for pairing forever.
+- **BLE** is enabled when the device is powered.
 - Pairs with phone app.
 - Clear device buffer and **begin loop**
 - Enable mag/acc/gyro
@@ -77,7 +79,7 @@ _skip to
   - _Beep/buzz if good swing_
   - _Silent (or low tone) if no match_
 
-#
+##
 ##### Step One:
 # The Accelerometer
 
@@ -104,15 +106,15 @@ When the handle is upright, the club is in play and the sensor is in Ready state
 **For energy conservation:**
 
 First, understand the orientation of the device.
-When the sensor identifies its orientation is as if the club has been put back in the golf bag, then the device just uses one accelerometer parameter, `y < -.85`, meaning Resting state, and then continues to check every second for a change in state. 
+When the sensor identifies its orientation is as if the club has been put back in the golf bag, then the device just uses one accelerometer parameter, `y < -.85`, meaning Resting state, and then continues to check every two seconds for a change in state. 
 BLE will remain engaged.
 The connected smartphone device will **beep** only when it identifies a _state change_.
-This _beep_ at this point is just for development purposes, but is intended for future use elsewhere.
+The _beep_ at this point is for development purposes, and is intended for future use elsewhere.
 
 ### Setting up the device:
 These readings will determine the Ready or Resting state orientation
 - For ease of use, put the Arduino into a breadboard and then attach it to a stick in a perpendicular fashion as shown here. 
-- _Imagine your golf club is either being used, or is put back in the golf bag._
+- _Imagine your golf club is either being used, or has been put back in the golf bag._
 
 ##### Images: (1)Attach the device to a stick (2)Ready orientation (3)Device orientation (4)Resting orientation
 (1)<img src="images/Sm-attaching to a stick.png" width="20%">
@@ -145,7 +147,7 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 <img src="images/one second delay.PNG" width="50%"/>
 
 ### Updating the Arduino Nano 33 BLE
-- **Find** _SimpleAccelerometer_ from the Example files in the **Arduino_LSM9DS1 folder**
+- **Find** the _SimpleAccelerometer_ sketch from the Example files in the **Arduino_LSM9DS1 folder**
 - IMPORTANT: **Save it as** _golf-swing-acc_
 - **Add the _if-else_ statements within the _void() loop_ as shown.** (the rest is unchanged) 
   - The _if/else_ statement creates the _-0.85_ threshold between the Ready and Resting states.
@@ -180,8 +182,7 @@ void loop() {
   }
 ```
 
-
-## Conclusion:
+## Summary:
 This section was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
 The goal was to basically create on/off states, accomplished here by using a threshold for the Ready and Resting states. 
 
@@ -189,11 +190,12 @@ The goal was to basically create on/off states, accomplished here by using a thr
 
 Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason. **This exception has been resolved in later code.**
 
-#
+##
 ##### Step Two:
 # Solve for Power
 
 #### Future prototyping solution
+
 - Later can build an obviously better solution.  
 - When 100% finished developing with my Arduino Nano 33 BLE Sense, I will be looking into using a different board for prototyping, and a battery solution will definitely be a part of the research.
   - **The board needs to include (1) an IMU, (2) a microphone, and (3) a solvable battery option**
@@ -204,6 +206,7 @@ Swinging the club around won't put it into that Resting state unless it register
   - **LIR2032H** is a common 3.7 rechargable, but 20mm, so like a nickel size.
 
 #### Current development solution
+
 - **Connect with only BLE and be _physically detached_ from the computer.**
 - Attach the Arduino Sense (USBmicro port) to a power source.
 - Use a lightweight **phone recharger** (with 2 USB out) to serve this purpose during development.  
@@ -211,18 +214,22 @@ Swinging the club around won't put it into that Resting state unless it register
 - **Charging an _old phone_ at the same time will prevent this auto-shutoff** 
 
 ##### Charging up a dead old phone, simultaneously powering Nano33BLE
+
 <img src="images/Sm-batterypack.png" width="35%">
 
-
 #### Alternative development solution
+
 - This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
 - There's a power solution in the TinyML Course, attaching a 9V battery to the **Learning Kit Shield**. 
-  - This [**Appendix**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
+  - This [**Appendix from the TinyMLx repo**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
   - It's certainly not designed for swinging around, but it is proof that there's a pinout solution.
   - It's a good example for a stationary device.
 
 #
-[*[ <-- back to README ]*](README.md)
+[*[ Top ]*](GolfSwingSensors.md#golf-swing-sensors.md)
 [*[ Step One ]*](#step-one)
 [*[ Step Two ]*](#step-two)
-**Next: [*[ Step Three: Enabling BLE --> ]*](activity.md/#step-three)**
+**Next: [*[ Step Three: Enabling BLE --> ]*](EnablingBLE.md/#step-three)**
+[*[ 4 ]*](EnablingBLE.md/#step-four)
+[*[ 5 ]*](activity.md/#steps-five-and-six)
+
