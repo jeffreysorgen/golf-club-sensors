@@ -352,7 +352,7 @@ Created **_golf-swing-acc-ble-statechange_** with this modified code:
 - Use the shorter 16-bit UUID, like `ffe0` and `ffe1` [_(More about UUID)_](activity.md#uuid-info)
 
 ##
-............
+............v
 
 #
 
