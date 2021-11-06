@@ -8,6 +8,11 @@ to prompt the Android smartphone to turn its flashlight on and off.
 Let's now reprogram the device utilizing Key Word Spotting to do the same thing 
 just by speaking into the microphone "Yes" and "No" for on and off.
 
+1. Use the microphone library
+2. Test simple code that the mic works ("check, check..." lights up the LED)
+3. (big step here) Get it to understand the words "Yes" and "No" versus all other words. _Only need the word "Yes" in the end, so will go through this process again later._
+
+
 . . . . . . . . .
 
 #### Key Word Spotting
