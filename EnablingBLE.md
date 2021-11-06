@@ -153,7 +153,7 @@ Here we will describe the very basic structure of an Arduino `.ino` file.
 - Initialize and name CONSTANTS
 - Initialize VARIABLES
 - Initialize BLE SERVICES
-  - Give the Services and Characteristics their UUIDs ([here](#uuid-info) for more info)
+  - Give the Services and Characteristics their UUIDs ([here](activity.md/#uuid-info) for more info)
 - Initialize respective BLE Service CHARACTERISTICS
 - Create the FUNCTION PROTOTYPE (which reside in "other functions" area)
 
@@ -321,7 +321,10 @@ void loop() {
   } //v
 ```
 
-##### Phone screen with device listed: (1)Scanning, (2)Connected, (3)Tilting on the y-axis to turn on/off the LED
+- View the combined code [**here**](#all-the-golf-swing-acc-ble-code-is-here)
+- [(back)](#creating-the-new-code)
+
+##### Phone screen with device listed: (1) scanning, (2) connected, (3) tilting on the y-axis to turn on/off the LED
 <p align="center">
   (1) <img src="images/BLEScanning.png" width="20%">
   (2) <img src="images/BLEConnected.png" width="20%">
@@ -339,7 +342,6 @@ Although things are working well, there are still two things we should improve u
 One tweak is to accommodate for an unintentional state change from a bounce of the sensor, 
 and the other is to reduce the amount of BLE communication, sending only once at the moment of a state change.
 
-##
 ##### BLE sends data only when the words "State change to" appear
 <img src="images/stateshanges.gif" width="80%">
 
@@ -375,7 +377,8 @@ While the flashlight functionality won't be used in the end, that solution is cr
 
 (move code to here in the end)
 
-Link to [BLE Hello World code is here](#ble-hello-world-code-is-here)
+- Link to [_BLE Hello World_ code is here](#ble-hello-world-code-is-here)
+- Link to [_golf-swing-acc-ble_ code is here](#all-the-golf-swing-acc-ble-code-is-here)
 
 ##
 
