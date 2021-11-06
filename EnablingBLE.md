@@ -408,33 +408,26 @@ void loop() {
 
 **Description:**
 
-(edit)
+- Now that data is being transmitted from the Nano33BLESense, we need to develop an Android application that receives it.
+- What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
+- While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
+- _Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way._
 
 **To do:**
 1. Develop the Hello World of Android Apps
 
 **<-- edit everything below here -->**
 
-- Now that data is being transmitted from the Nano33BLESense, we need to develop an Android application that receives it.
 - We want to develop an Android app that will turn on and off its flashlight or beep high and low, depending on the Resting state.
-- Now that state changes can be sent to the smartphone, try to turn its flashlight on/off with the signal.
-- What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
-- While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
-- What can be configured in my phone when it receives commands from the application?
-  - Can the phone app trigger **BEEP** or a vibration/buzz?
-  - Can the App turn on/off the phone's **flashlight**?
-- Enable smartphone functions with Android Studio (Requires SDK and toolchain)
 - Make high and low pitches for "Ready" state on/off (as the example) and apply this same code later. 
-- _Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way._
 - Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
-- Flashlight:
-  - When the state goes from 0 to 1, turn the flashlight on. 
-  - When it goes from 1 to 0, should turn off.
+- Flashlight: When the state goes from 0 to 1, turn the flashlight on, and vice versa.
   
 ##### Dev:
 - Try and utilize virtual environment.
 - Figure out what to do with an Android app, and **act upon the UUID changing from 0 to 1**_
 - Here is **Android BLE [guide](https://punchthrough.com/android-ble-guide/)**
+- Enable smartphone functions with Android Studio (Requires SDK and toolchain)
 
 ##### the key:
 **Link to [KABLE](https://github.com/JuulLabs/kable)**
