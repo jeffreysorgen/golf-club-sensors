@@ -466,4 +466,3 @@ He's discussing the nRF Connect functionality with Notify and Indicate. Also ref
 **Should go back to this FORUM to see if this makes more sense now that I finished with this step.**
 
 ##
-##
