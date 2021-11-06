@@ -139,7 +139,7 @@ Although things are working well, there are still two things we should improve u
 One tweak is to accommodate for an unintentional state change from a bounce of the sensor, 
 and the other is to reduce the amount of BLE communication, sending only once at the moment of a state change.
 
-Created **_golf-swing-acc-ble-statechange_** with this modified code: 
+So we created **_golf-swing-acc-ble-statechange_** with this modified code: 
 - Eliminate accidental state changes from the sensor
 - Send data via BLE **only** when the state changes 
 - Send _boolean 1/0_ rather than the strings, "Resting" and "Ready"
