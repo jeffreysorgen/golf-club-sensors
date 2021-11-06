@@ -1,7 +1,6 @@
-- organize BLE page better
-- move Step Four over to BLE page
-- determine what to do with the on/off data coming from the device _(Android Studio?)_
-- Need new GIF for "tilt LED"
+- Android Studio
+- edit BLE page
+  - move Step Four over to BLE page
 
 [*[ Overview ]*](README.md/#golf-swing-sensors)
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
