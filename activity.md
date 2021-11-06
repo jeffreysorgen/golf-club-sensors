@@ -108,8 +108,10 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 #
 
 #
-(move to BLE page, bottom)
+##### [_(link to step four)_](EnablingBLE.md#link-to-step-four)
+
 ##
+(move this)
 ##### Step Four:
 # Enable Smartphone Response
 
@@ -128,7 +130,7 @@ We want to develop an Android app that will turn on and off its flashlight or be
 - Make high and low pitches for "Ready" state on/off (as the example) and apply this same code later. 
 - _Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way._
 
-
+(move end)
 
 #
 
