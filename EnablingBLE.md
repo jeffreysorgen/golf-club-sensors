@@ -363,9 +363,16 @@ We're starting from scratch with Android Studio. Let's move on to...
 _... which is entirely new to me at this point._
 
 ##### Links: 
-(first page)(top)(next)
-[("Reference, etc" page)](activity.md#reference)
-(kws)(notes)
+
+[*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
+[*[ 1 ]*](implementation.md/#the-accelerometer)
+[*[ 2 ]*](implementation.md/#solve-for-power)
+[*[ 3 ]*](#step-three)
+**[Next: _4_](#step-four)**
+[*[ Reference ]*](activity.md/#reference)
+[*[ KWS ]*](KWS.md/#key-word-spotting)
+[*[ 5 & 6 ]*](activity.md/#steps-five-and-six)
+[_[ notes ]_](thoughtsandnotes.md/#other-projects)
 
 ##
 
