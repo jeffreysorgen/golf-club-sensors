@@ -353,8 +353,9 @@ Created **_golf-swing-acc-ble-statechange_** with this modified code:
 - Use the shorter 16-bit UUID, like `ffe0` and `ffe1` [_(More about UUID)_](activity.md#uuid-info)
 
 ##
-. . . . . . . . . . . .
 
+#
+<-- **(edit everything below here)** -->
 #
 
 _(It's sending all y-axis information right now too, but that will change later)_
