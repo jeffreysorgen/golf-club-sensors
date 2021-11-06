@@ -15,11 +15,46 @@
 ##
 
 This page:
-- [UUID Info](#uuid-info)
 - [Reference](#reference)
+- [UUID Info](#uuid-info)
+- [Magic Wand Info](#magic-wand)
 - [Enable Smartphone Response](#step-four)
 - [Enabling the gyro](#steps-five-and-six)
 - [Recording the data](#steps-five-and-six) 
+
+##
+# Reference:
+
+- Here's the okdo.com example, including [_BLE Hello World_](#the-ble-hello-world-sketch): [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc)
+- **Hackster** tutorial: Here's a helpful [IMU and BLE](https://www.hackster.io/gov/imu-to-you-ae53e1) tutorial from hackster.io
+- Wiki about [C data types](https://en.wikipedia.org/wiki/C_data_types#stdint.h)
+- Helpful from Argenox:
+  - [**Argenox website**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a good place to READ about BLE
+  - Here's the [Bluetooth Low Energy Library](https://www.argenox.com/library/bluetooth-low-energy/)
+  - Here is a link for [BLE and batteries](https://www.argenox.com/library/bluetooth-low-energy/powering-ble-batt/)
+- **Arduino** resources:
+  - Arduino's reference for BLE](#arduinos-reference-for-ble) _(double check this link)_
+  - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE**
+  - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
+  - A complete [reference](https://www.arduino.cc/reference/en/)
+  - And one specifically for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
+- **Nordic Semi** resources:
+  - Helpful [**beginners tutorial**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/ble-advertising-a-beginners-tutorial) from Nordic Semi. 
+  - And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/bluetooth-smart-and-the-nordics-softdevices-part-1)
+- **nRF Connect:**
+  - nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
+  - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
+#### _Reader and Sender:_ 
+- Definition from [ArduinoBLE Reference](https://www.arduino.cc/en/Reference/ArduinoBLE)
+- Think of this as _Sender_ and _Reader_. 
+ArduinoBLESense device is the _sender_ (Peripheral). 
+When a reading changes, the nRF Connect app is going to be the _reader_ (Client).
+The model BLE uses is known as a "publish-and-subscribe" model.
+#### _Coding Tips:_
+- The all-inclusive Arduino file will be saved as _golf-sensors.ino_ when more sensors are involved.
+  - Multiple "h" file can probably be included, to split off logically (see: [_magic wand_](#magic-wand) example) from the _.ino_ file.
+- For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
+- Change LED from one state to the other: `digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));`
 
 ##
 ## UUID Info:
@@ -60,55 +95,8 @@ fa94204d-dc71-4585-aa63-98b8133c5266
 ##### UUID BLE specification:
 _I read that this was important for BLE:_ UUID for BLE: _"XXXXXXXX-0000-1000-8000-00805F9B34FB"_ _(Look this up to find standard BLE list)_
 
-#
-
 ##
-# Reference:
-
-- Here's the okdo.com example, including [_BLE Hello World_](#the-ble-hello-world-sketch): [**getting started** from *okdo.com*](https://www.okdo.com/getting-started/get-started-with-arduino-nano-33-ble/#h-1-configure-ide-toc)
-- **Hackster** tutorial: Here's a helpful [IMU and BLE](https://www.hackster.io/gov/imu-to-you-ae53e1) tutorial from hackster.io
-- Wiki about [C data types](https://en.wikipedia.org/wiki/C_data_types#stdint.h)
-- Helpful from Argenox:
-  - [**Argenox website**](https://www.argenox.com/library/bluetooth-low-energy/ble-advertising-primer/) is a good place to READ about BLE
-  - Here's the [Bluetooth Low Energy Library](https://www.argenox.com/library/bluetooth-low-energy/)
-  - Here is a link for [BLE and batteries](https://www.argenox.com/library/bluetooth-low-energy/powering-ble-batt/)
-- **Arduino** resources:
-  - Arduino's reference for BLE](#arduinos-reference-for-ble) _(double check this link)_
-  - Go through all the _ArduinoBLE_ sketches **in the Examples folder in the IDE**
-  - Also use the [**Arduino guide for NANO33BLESense**](https://www.arduino.cc/en/Guide/NANO33BLESense) for reference
-  - A complete [reference](https://www.arduino.cc/reference/en/)
-  - And one specifically for [BLE](https://www.arduino.cc/reference/en/libraries/arduinoble/)
-- **Nordic Semi** resources:
-  - Helpful [**beginners tutorial**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/ble-advertising-a-beginners-tutorial) from Nordic Semi. 
-  - And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/bluetooth-smart-and-the-nordics-softdevices-part-1)
-- **nRF Connect:**
-  - nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
-  - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
-#### _Reader and Sender_ 
-- Definition from [ArduinoBLE Reference](https://www.arduino.cc/en/Reference/ArduinoBLE)
-- Think of this as _Sender_ and _Reader_. 
-ArduinoBLESense device is the _sender_ (Peripheral). 
-When a reading changes, the nRF Connect app is going to be the _reader_ (Client).
-The model BLE uses is known as a "publish-and-subscribe" model.
-
-
-
-
-
-
-##
-
-**Tips for the code:**
-
-- The all-inclusive Arduino file will be saved as _golf-sensors.ino_ when more sensors are involved.
-  - Multiple "h" file can probably be included, to split off logically (see: [_magic wand_](#magic-wand) example) from the _.ino_ file.
-- For images, this is helpful: resizing and centering with `<p align="center"><img src="http://some_place.com/image.png" /></p>`
-- Change LED from one state to the other: `digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));`
-
-##
-
-##### Digging deeper into the _magic wand_
-### magic wand
+## magic wand
 - **LEARN** 
 [from the course](https://learning.edx.org/course/course-v1:HarvardX+TinyML3+1T2021/block-v1:HarvardX+TinyML3+1T2021+type@sequential+block@e355a78c0dcd49b6acbeeaf8f7492859/block-v1:HarvardX+TinyML3+1T2021+type@vertical+block@6e2f8e18dd814e63ad68f60e380b6633)
 about the _magic-wand_ sketch to see how the DATA is recorded there and what gets transmitted to the Serial Monitor, and then how that data displays on the Monitor from that data. What converts that data to the 'readable' visualization of the motion?
