@@ -6,7 +6,7 @@
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
 [*[ 2 Solve for Power ]*](implementation.md/#solve-for-power)
 [*[ 3 Enable BLE ]*](EnablingBLE.md#step-three)
-[*[ Step Four: Enable Smartphone Response ]*](#step-four)
+[*[ Step Four: Enable Smartphone Response ]*](EnablingBLE.md/#step-four)
 [*[ Step 4.5: Enable KWS ]*](KWS.md)
 [*[ Enabling the Gyro ]*](#steps-five-and-six)
 [*[ Recording the Data ]*](#steps-five-and-six)
@@ -16,7 +16,7 @@ This page:
 - [Reference](#reference)
 - [UUID Info](#uuid-info)
 - [Magic Wand Info](#magic-wand)
-- [Enable Smartphone Response](#step-four)
+- [(Enable Smartphone Response -->)](EnablingBLE.md/#step-four)
 - [Enabling the gyro](#steps-five-and-six)
 - [Recording the data](#steps-five-and-six) 
 
@@ -101,45 +101,21 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 - **_Can this activity happen LOCALLY?_** Because the exercise actually resided on _tinymlx.io_ or something. And that's where all the data got generated.
 - **How much reliance upon external websites is necessary? Why not ALL local?**
 
-#
+##
 
 #
 
 #
-
-#
-##### [_(link to step four)_](EnablingBLE.md#link-to-step-four)
 
 ##
-(move this)
-##### Step Four:
-# Enable Smartphone Response
-
-
-Now that data is being transmitted from the Nano33BLESense, we need to develop an Android application that receives it. (Might be in _nrfconnect_ or might be using Android Studio instead.)
-
-We want to develop an Android app that will turn on and off its flashlight or beep high and low, depending on the Resting state.
-
-### App Development
-- Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
-- Here is **Android BLE [guide](https://punchthrough.com/android-ble-guide/)**
-- What can be configured in my phone when it receives commands from the nRF Connect (or other) application?
-  - Can the phone app trigger **BEEP** or a vibration/buzz?
-  - Can the App turn on/off the phone's **flashlight**?
-- Enable smartphone functions with _nrfconnect_ or Android Studio (Requires SDK and toolchain)
-- Make high and low pitches for "Ready" state on/off (as the example) and apply this same code later. 
-- _Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way._
-
-(move end)
+##### [_(link to step four)_](EnablingBLE.md#step-four)
+##
 
 #
 
 #
 
-#
-
-#
-
+##
 # And...
 
 **_Now that we've created an Android app:_**
