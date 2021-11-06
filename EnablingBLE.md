@@ -366,25 +366,13 @@ While the flashlight functionality won't be used in the end, that solution is cr
 
 #
 
-**Important to enable Notify for Change of State**
+(reference section?)
 
-One of the future modifications needs to be utilizing the BLE code that features **state change only** notifications, so that nRF only receives one-time signal that the state has changed between Ready and Resting, rather than as it is now, which always prints its state to BLE. 
-
-#
-
-- So we need to enable functionality within _nrfconnect_ to do something.
-- We've already sent the data once, so do something, and when it changes, do something else.
-- Code: When Y-axis, `y < -0.85`, changes from True to False or back, this is the moment to send BLE data and nothing else, to save on BLE energy.
-- We're going to try to enable one element of the BLE functionality which will send a notification only when the state changes.
-- The code will send a change of state notification when it happens, which can then be held in the nRF Connect app until the next update.
-
-#
-
-**Notify or Indicate.** 
-(Here's something from [ArduinoBLE Reference](https://www.arduino.cc/en/Reference/ArduinoBLE))
+**_Reader and Sender_** 
+(Definition from [ArduinoBLE Reference](https://www.arduino.cc/en/Reference/ArduinoBLE))
 Think of this as _Sender_ and _Reader_. 
-ArduinoBLESense device is the _sender_, or Peripheral. 
-When a reading changes, the nRF Connect app is going to be the _reader_, or Client.
+ArduinoBLESense device is the _sender_ (Peripheral). 
+When a reading changes, the nRF Connect app is going to be the _reader_ (Client).
 The model BLE uses is known as a "publish-and-subscribe" model.
 
 #
