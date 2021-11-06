@@ -353,15 +353,8 @@ Created **_golf-swing-acc-ble-statechange_** with this modified code:
 #
 ...........
 
-But we don't want information to be sent via BLE every time the code loops.
-Instead, we need to send notifications about a change of state to the Client (nRF Connect) when the sensor changes its state from Ready to Resting or back.
-When the Client app reads "Ready!" or "Resting!" it receives every character, 6 or 8 bytes of information, from the device constantly, which is excessive.
 _(It's sending all y-axis information right now too, but that will change later)_
 
-The code:
-- Add logic to the code so that Resting is 1 and Ready is 0
-- Add an interval buffer to accommodate for any unintentional bounces when it checks its state.
-- Write to BLE only when the state changes
 
 ##
 ##
