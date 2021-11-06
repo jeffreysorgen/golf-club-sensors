@@ -1,4 +1,5 @@
 - Android Studio
+- slide code to bottom
 
 [*[ Overview ]*](GolfSwingSensors.md/#golf-swing-sensors)
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
