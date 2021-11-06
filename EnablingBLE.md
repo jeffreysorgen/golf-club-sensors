@@ -348,15 +348,12 @@ Created **_golf-swing-acc-ble-statechange_** with this modified code:
 - Send _boolean 1/0_ rather than the strings, "Resting" and "Ready"
 - Use the shorter 16-bit UUID, like `ffe0` and `ffe1` [_(More about UUID)_](activity.md#uuid-info)
 
-#
+##
+............
 
 #
-...........
 
 _(It's sending all y-axis information right now too, but that will change later)_
-
-
-#
 
 #
 
@@ -364,30 +361,31 @@ _(It's sending all y-axis information right now too, but that will change later)
 What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
 While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
 
-#
-
-(reference section?)
-
-**_Reader and Sender_** 
-(Definition from [ArduinoBLE Reference](https://www.arduino.cc/en/Reference/ArduinoBLE))
-Think of this as _Sender_ and _Reader_. 
-ArduinoBLESense device is the _sender_ (Peripheral). 
-When a reading changes, the nRF Connect app is going to be the _reader_ (Client).
-The model BLE uses is known as a "publish-and-subscribe" model.
+##
 
 #
 
 #
-##### _(drop step four here)_
+
+##
+[(link to "Reference, etc" page)](activity.md#reference)
+##
 ##### Step Four:
 # Enable Smartphone Response
 
+(edit)
 
-Now that data is being transmitted from the Nano33BLESense, we need to develop an Android application that receives it. (Might be in _nrfconnect_ or might be using Android Studio instead.)
+#
+
+Now that data is being transmitted from the Nano33BLESense, we need to develop an Android application that receives it. (Android Studio)
+
+#
 
 We want to develop an Android app that will turn on and off its flashlight or beep high and low, depending on the Resting state.
 
-### App Development
+#
+
+##### App Development
 - Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
 - Here is **Android BLE [guide](https://punchthrough.com/android-ble-guide/)**
 - What can be configured in my phone when it receives commands from the nRF Connect (or other) application?
@@ -397,15 +395,9 @@ We want to develop an Android app that will turn on and off its flashlight or be
 - Make high and low pitches for "Ready" state on/off (as the example) and apply this same code later. 
 - _Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way._
 
-(move end)
+#
 
-##
-##### link to step four:
-**[*[ Step Four: Enable Smartphone Response ]*](activity.md#step-four)**
-##
-##
-
-### the key:
+#### the key:
 **Link to [KABLE](https://github.com/JuulLabs/kable)**
 - "Kotlin Asynchronous Bluetooth Low Energy provides a simple Coroutines-powered API for interacting with Bluetooth Low Energy devices."
 
@@ -430,41 +422,6 @@ This is the research I am doing now.
 #
 
 #
-...........^
-##
-##### State change: (pseudo code)
-
-This **_pseudo code_** models the code we used to transform into functionality that updates the current readyState every half-second. (used `millis()`) (x)
-In the loop it checks whether the state has changed, and if it did, it sends boolean data to the client smartphone. (x)
-
-##### still need this pseudo code for reference but can delete later (now delete it) (x)
-```
-resting = state("Resting");
-ready = state("Ready");
-earlier = now;
-now = update.state();        // returns "Ready" or "Resting"
-
-if ( now !== earlier ) {     // if state has now changed
-    if (now == resting) {    // and is now Resting
-        beep(low);           // then beep low for new Resting state
-        notifyBit = 0;
-        }
-    else if (now == ready) {
-        beep(high);          // otherwise beep high for new Ready state
-        notifyBit = 1;
-        }
-    blenotify(notifyBit);    // sends BIT to BLE "descriptor" (or something)
-    }
-
-else {
-    pass;                    // now == earlier, so no state change
-    }
-
-earlier=now;                 // update earlier state with now state
- (x)
-```
-(time to delete pseudo code) (x)
-##
 
 #
 
@@ -473,6 +430,7 @@ earlier=now;                 // update earlier state with now state
 ##
 
 **Stuff I'm no longer considering but might be useful:**
+
 - There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely, but for now I built it into this code. 
 - Is there a way for the client to ask the peripheral whether the state has changed? Maybe. But how frequently and how much power consumption. Of course, the peripheral could ignore requests for update as well. Unless there's another way to think about this, I don't think this matters much. No savings of effort or energy.
 - Another way to look at this is by doing a check on **whether the states match** on the peripheral and client, and if it doesn't, to update the client, although it might require more communication between devices.
