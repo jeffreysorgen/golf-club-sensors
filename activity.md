@@ -84,7 +84,7 @@ _I read that this was important for BLE:_ UUID for BLE: _"XXXXXXXX-0000-1000-800
 - **nRF Connect:**
   - nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
   - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
-##### _Reader and Sender_ 
+#### _Reader and Sender_ 
 - Definition from [ArduinoBLE Reference](https://www.arduino.cc/en/Reference/ArduinoBLE)
 - Think of this as _Sender_ and _Reader_. 
 ArduinoBLESense device is the _sender_ (Peripheral). 
