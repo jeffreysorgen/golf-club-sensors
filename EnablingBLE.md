@@ -362,35 +362,35 @@ We're starting from scratch with Android Studio. Let's move on to...
 
 _... which is entirely new to me at this point._
 
+##### Links: 
+(first page)(top)(next)
+[("Reference, etc" page)](activity.md#reference)
+(kws)(notes)
+
 ##
 
-(move code to here in the end)
+(move code to here)
 
 - Link to [_BLE Hello World_ code is here](#ble-hello-world-code-is-here)
 - Link to [_golf-swing-acc-ble_ code is here](#all-the-golf-swing-acc-ble-code-is-here)
 
 ##
 
-##
-
-
-#
-
-#
-
 #
 
 #
 
 ##
 
-[(link to "Reference, etc" page)](activity.md#reference)
+[3](#step-three)
 
 ##
 ##### Step Four:
 # Enable Smartphone Response
 
-(edit)
+**<-- edit below here -->**
+
+- utilize virtual environment
 
 #
 
@@ -440,5 +440,14 @@ This is the research I am doing now.
 
 ##
 ##
+
+(end)
+
+
+
+
+
+
+
 
 
