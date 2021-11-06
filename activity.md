@@ -8,7 +8,7 @@
 [*[ Recording the Data ]*](#steps-five-and-six)
 [_[ jump to new project ideas-> ]_](thoughtsandnotes.md/#other-projects)
 
-This page is now "Reference, etc."
+**This page is now "Reference, etc."**
 - [Reference](#reference)
 - [UUID Info](#uuid-info)
 - [Magic Wand Info](#magic-wand)
