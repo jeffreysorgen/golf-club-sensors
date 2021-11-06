@@ -342,7 +342,7 @@ and the other is to reduce the amount of BLE communication, sending only once at
 
 **Peripheral-side code is done**
 
-Created **_golf-swing-acc-ble-statechange_** and modified the code: 
+Created **_golf-swing-acc-ble-statechange_** with this modified code: 
 - Eliminate accidental state changes from the sensor
 - Send data via BLE **only** when the state changes 
 - Send _boolean 1/0_ rather than the strings, "Resting" and "Ready"
