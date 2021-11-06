@@ -49,7 +49,7 @@ But a [**battery-only**](implementation.md/#current-development-solution) soluti
 - **Comment out `//while (!Serial);`** 
 
 After being untethered from the computer, the device was trying to find the serial port from which it's now disconnected.
-So this one change will allow the device to function in nRF Connect the same way as it did before.
+So this one change will allow the device to function in _nRF Connect_ the same way as it did before.
 
 ##
 ### The Hello World BLE Sketch
@@ -59,8 +59,8 @@ Now that we've got the BLE connecting, and IMU data showing up in _nRF Connect_,
 There is a _BLE Hello World_ sketch from [okdo.com](activity.md/#reference) 
 that turns on the amber LED on the Arduino board when it connects, 
 and we can then read "Hello World" on the Client (smartphone) app.
-Starting with this simple code as a base, **we'll combine it with our own _golf-swing-acc_ sketch** 
-so that we can see what gets sent to _nRF Connect_ from the Nano33BLESense.
+So starting with this simple code as a base, **we'll combine it with our own _golf-swing-acc_ sketch** 
+so that we can see what gets sent from the Nano33BLESense.
 
 ##### _BLE Hello World_ code is here:
 ```
@@ -124,14 +124,14 @@ void loop() {
 }
 ```
 
-- _Hello World BLE code_ is [**here**](#ble-hello-world-code-is-here)
+- View the _Hello World BLE code_ [**here**](#ble-hello-world-code-is-here)
 - [(back)](#the-hello-world-ble-sketch)
 
 **How we will use this:**
 
 The big takeaway with this code is that the `while (central.connected())` command just hangs the activity until BLE disconnects and then the code turns the LED off. 
 **_It's LED-centric code._** 
-The code for the LED will be useful for indicating "Ready" and "Resting" states.
+The LED will be useful for indicating "Ready" and "Resting" states.
 
 **_We've seen in those two examples what a basic `.ino` file looks like._** Here's a summary...
 
