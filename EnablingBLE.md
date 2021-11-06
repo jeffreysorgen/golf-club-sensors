@@ -69,7 +69,7 @@ The big takeaway with this code is that the `while (central.connected())` comman
 **_It's LED-centric code._** 
 The LED will be useful for indicating "Ready" and "Resting" states.
 
-**_We've seen in those two examples what a basic `.ino` file looks like._** Here's a summary...
+We've seen in those two examples what a basic `.ino` file looks like. **_Here's a summary:_**
 
 ## Arduino File Structure
 
