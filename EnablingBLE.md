@@ -120,7 +120,7 @@ Here we will describe the very basic structure of an Arduino `.ino` file.
 
 - subroutines _(and other stuff)_
 
-
+##
 ## Creating the new code
 
 **Importing new functionality into our code:**
@@ -136,7 +136,6 @@ We're now going to take what we've learned from our two examples and incorporate
   (3) <img src="images/myBLEtilt.gif" width="30%">
 </p>
 
-##
 #### Accomplished so far:
 
 We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
@@ -159,13 +158,12 @@ Created **_golf-swing-acc-ble-statechange_** with this modified code:
 - Use the shorter 16-bit UUID, like `ffe0` and `ffe1` [_(More about UUID)_](activity.md#uuid-info)
 
 ##
+## Summary:
 
-Now that the Nano33BLESense has been programmed to communicate with a Client (central), it's time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy.
+The Nano33BLESense has been programmed to communicate with a Client (central), so it's now time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy.
 
 We're starting from scratch with Android Studio. Let's move on to...
-
 **Step Four: App Development, aka [_Enable Smartphone Response_](#step-four)**
-
 _... which is entirely new to me at this point._
 
 **Pages:**
@@ -386,9 +384,11 @@ void loop() {
 
 #
 
+##
+
 (move to its own page _AppDev.md_)
 
-##
+#
 
 [*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
 [*[ 1 ]*](implementation.md/#the-accelerometer)
