@@ -448,6 +448,17 @@ earlier=now;                 // update earlier state with now state
 
 #
 
+#
+
+#
+
+#
+
+
+
+
+#
+
 **Stuff I'm no longer considering but might be useful:**
 - There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely, but for now I built it into this code. 
 - Is there a way for the client to ask the peripheral whether the state has changed? Maybe. But how frequently and how much power consumption. Of course, the peripheral could ignore requests for update as well. Unless there's another way to think about this, I don't think this matters much. No savings of effort or energy.
