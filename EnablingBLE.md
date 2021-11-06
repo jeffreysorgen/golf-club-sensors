@@ -330,17 +330,26 @@ void loop() {
 </p>
 
 ##
-## Accomplished so far:
-..........
+##### Accomplished so far:
 
+We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
+Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
+After experimenting with a couple of example sketches, we incorporated the BLE library to the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming from the Nano33BLE.
 
-
-
-
+(Now we need to reduce the amount of communication coming from the BLE device and modify the logic so to avoid the bounce.)
 
 #
 
-**We have created code that displays Ready/Resting on the serial monitor and in the nRF Connect app, but also, we got the LED on the device to light up as well!**
+
+
+
+
+
+
+
+
+
+We have created code that displays Ready/Resting on the serial monitor and in the nRF Connect app.
 
 In this section we have transformed the _golf-swing-acc_ code to include BLE communication. We took two example sketches to learn about the [Arduino file structure](#arduino-file-structure), and then imported the code we needed into **_golf-swing-acc-ble_** to enable it to communicate with a smartphone running the _nRF Connect_ app.
 
