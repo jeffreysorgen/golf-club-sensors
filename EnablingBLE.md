@@ -369,6 +369,12 @@ While the flashlight functionality won't be used in the end, that solution is cr
 
 #
 
+#
+
+(move code to here in the end)
+
+Link to [BLE Hello World code is here](#ble-hello-world-code-is-here)
+
 ##
 
 [(link to "Reference, etc" page)](activity.md#reference)
