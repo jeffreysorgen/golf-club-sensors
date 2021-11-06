@@ -356,12 +356,7 @@ Created **_golf-swing-acc-ble-statechange_** with this modified code:
 _(It's sending all y-axis information right now too, but that will change later)_
 
 
-##
-##
-
-We modified _golf-swing-acc-ble_ (now **_golf-swing-acc-ble-statechange_**) to include the code that will notify the client of a state change.
-
-We can see this change in the Value field of the UUID ("0xFFE2") for the specific characteristic: `value (0x) 00` and `value (0x) 01`.
+#
 
 #
 
