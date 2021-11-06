@@ -373,7 +373,14 @@ While the flashlight functionality won't be used in the end, that solution is cr
 #
 
 ##
+
 [(link to "Reference, etc" page)](activity.md#reference)
+
+##
+Now that the Nano33BLESense has been programmed to communicate with a Client (central), it's time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy.
+
+We're starting from scratch with Android Studio. _This is entirely new to me._
+
 ##
 ##### Step Four:
 # Enable Smartphone Response
