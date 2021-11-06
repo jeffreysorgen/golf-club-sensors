@@ -1,6 +1,5 @@
 - Android Studio
 - slide code to bottom
-- create _AppDev.md_ for Step Four
 
 [*[ Overview ]*](GolfSwingSensors.md/#golf-swing-sensors)
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
@@ -357,9 +356,11 @@ Created **_golf-swing-acc-ble-statechange_** with this modified code:
 
 Now that the Nano33BLESense has been programmed to communicate with a Client (central), it's time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy.
 
-We're starting from scratch with Android Studio. _This is entirely new to me._
+We're starting from scratch with Android Studio. Let's move on to...
 
-Let's move on to **Step Four: App Development, aka [_Enable Smartphone Response_](#step-four)**
+**Step Four: App Development, aka [_Enable Smartphone Response_](#step-four)**
+
+_... which is entirely new to me at this point._
 
 ##
 
@@ -372,9 +373,6 @@ Let's move on to **Step Four: App Development, aka [_Enable Smartphone Response_
 
 ##
 
-**Now that state changes can be sent to the smartphone, try to turn its flashlight on/off with the signal!**
-What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
-While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
 
 #
 
@@ -393,6 +391,12 @@ While the flashlight functionality won't be used in the end, that solution is cr
 # Enable Smartphone Response
 
 (edit)
+
+#
+
+**Now that state changes can be sent to the smartphone, try to turn its flashlight on/off with the signal!**
+What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
+While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
 
 #
 
