@@ -466,6 +466,27 @@ earlier=now;                 // update earlier state with now state
 
 #
 
+#
+
+#
+
+
+**For nRF Connect Development:**
+
+_We've connected the device to the nRF Connect App, and now it's time to figure out how to get a response from it._
+- nRF Connect App Development: 
+Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
+- I need nRF Connect for Desktop: 
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
+- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop: 
+[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
+- It looks complicated, but the videos were pretty clear (and recently made). The **videos** for installation are here on [_YouTube._](https://youtu.be/2cv_jjqk5hg) Might be more from a recent webinar November 3.
+
+
+
+
+#
+
 **might be unrelated to our own project**
 
 Here's the [FORUM for Arduino.](https://forum.arduino.cc/c/using-arduino/programming-questions/20)
