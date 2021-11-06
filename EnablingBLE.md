@@ -55,8 +55,6 @@ Now that we've got the BLE connecting, and IMU data showing up in nRF Connect, i
 
 There is a simple _BLE Hello World_ sketch from [okdo.com](#reference) that turns on the amber LED on the Arduino board when it connects. And after connecting with nRF Connect, we can read "Hello World" on our smartphone.
 
-_What's interesting to me (newbie!) is using `static const char* greeting = "Hello World!";` first, and then later using `greetingCharacteristic.setValue(greeting);` for that string to appear through the characteristic._
-
 ##
 
 Starting with this simple code as a base, **we'll combine it with our own _golf-swing-acc_ sketch** 
@@ -320,60 +318,40 @@ void loop() {
   } //v
 ```
 
-##
-
 ##### Phone screen with device listed: (1)Scanning, (2)Connected, (3)Tilting on the y-axis to turn on/off the LED
 <p align="center">
-  (1)<img src="images/BLEScanning.png" width="20%">
-  (2)<img src="images/BLEConnected.png" width="20%">
-  (3)<img src="images/myBLEtilt.gif" width="30%">
+  (1) <img src="images/BLEScanning.png" width="20%">
+  (2) <img src="images/BLEConnected.png" width="20%">
+  (3) <img src="images/myBLEtilt.gif" width="30%">
 </p>
 
 ##
-##### Accomplished so far:
+#### Accomplished so far:
 
 We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
 Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
-After experimenting with a couple of example sketches, we incorporated the BLE library to the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming from the Nano33BLE.
+After experimenting with a couple of example sketches, we incorporated the BLE library into the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming from the Nano33BLESense.
 
-(Now we need to reduce the amount of communication coming from the BLE device and modify the logic so to avoid the bounce.)
+Although things are working well, there are still two things we should improve upon. 
+One tweak is to accommodate for an unintentional state change from a bounce of the sensor, 
+and the other is to reduce the amount of BLE communication, sending only once at the moment of a state change.
+
+##
+##### BLE sends data only when the words "State change to" appear
+<img src="images/stateshanges.gif" width="80%">
+
+**Peripheral-side code is done**
+
+Created **_golf-swing-acc-ble-statechange_** and modified the code: 
+- Eliminate accidental state changes from the sensor
+- Send data via BLE **only** when the state changes 
+- Send _boolean 1/0_ rather than the strings, "Resting" and "Ready"
+- Use the shorter 16-bit UUID, like "ffe0" and "ffe1". [_(More about UUID)_](activity.md#uuid-info)
 
 #
 
-
-
-
-
-
-
-
-
-
-We have created code that displays Ready/Resting on the serial monitor and in the nRF Connect app.
-
-In this section we have transformed the _golf-swing-acc_ code to include BLE communication. We took two example sketches to learn about the [Arduino file structure](#arduino-file-structure), and then imported the code we needed into **_golf-swing-acc-ble_** to enable it to communicate with a smartphone running the _nRF Connect_ app.
-
-1. Data is being sent from the device to nRF Connect
-2. The device sends "Ready"/"Resting" to the app depending on a threshold in the code
-3. Accelerometer value is sent in the form of a **_hex_** (don't know if this makes a difference to the project)
-4. We used UUIDs in their long form as constants [_(About UUID)_](activity.md#uuid-info)
-5. Then started to use a shorter, 16-bit form of UUID, like "ffe0" and "ffe1"
-
-##
-
-**Making that change, and...**
-
-## Peripheral-side code is done
-
-**The new code now has this function.** (_golf-swing-acc-ble-statechange_) 
-We modified the code so that it will only send data via BLE when necessary, when the state switches between Ready and Resting. 
-This reduces the BLE communication (which is the most energy-hungry part of this project) down to a single instance: _a characteristic change_ (state change). 
-We substituted using entire words, "Resting" and "Ready", and instead now use _boolean 1/0_ to do the same thing.
-
-It sends BLE data only at the point of the state change (note the words "State change to" in the monitor)
-
-##### State changes by tilting on the y-axis
-  <p align="center"><img src="images/stateshanges.gif"  width="80%"></p>
+#
+...........
 
 But we don't want information to be sent via BLE every time the code loops.
 Instead, we need to send notifications about a change of state to the Client (nRF Connect) when the sensor changes its state from Ready to Resting or back.
