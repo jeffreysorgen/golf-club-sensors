@@ -12,8 +12,6 @@
 [*[ Recording the Data ]*](#steps-five-and-six)
 [_[ jump to new project ideas-> ]_](thoughtsandnotes.md/#other-projects)
 
-##
-
 This page:
 - [Reference](#reference)
 - [UUID Info](#uuid-info)
