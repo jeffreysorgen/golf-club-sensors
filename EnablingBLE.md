@@ -151,7 +151,7 @@ So we created **_golf-swing-acc-ble-statechange_** with this modified code:
 
 ## Summary:
 
-**Server/peripheral-side programming is done.**
+**Server/peripheral-side BLE programming is done for now.**
 
 We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
 Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
