@@ -13,12 +13,12 @@
 [_[ jump to new project ideas-> ]_](thoughtsandnotes.md/#other-projects)
 
 This page:
-- [Reference](#reference)
-- [UUID Info](#uuid-info)
-- [Magic Wand Info](#magic-wand)
-- [Enable Smartphone Response](#step-four)
-- [Enabling the gyro](#steps-five-and-six)
-- [Recording the data](#steps-five-and-six) 
+- [*[ Reference ]*](#reference)
+[*[ UUID Info ]*](#uuid-info)
+[*[ Magic Wand Info ]*](#magic-wand)
+- [*[ Enable Smartphone Response ]*](#step-four)
+[*[ Enabling the gyro ]*](#steps-five-and-six)
+[*[ Recording the data ]*](#steps-five-and-six) 
 
 ##
 # Reference:
