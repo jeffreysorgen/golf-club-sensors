@@ -221,7 +221,7 @@ Swinging the club around won't put it into that Resting state unless it register
 
 - This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
 - There's a power solution in the TinyML Course, attaching a 9V battery to the **Learning Kit Shield**. 
-  - This [**Appendix**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
+  - This [**Appendix from the TinyMLx repo**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
   - It's certainly not designed for swinging around, but it is proof that there's a pinout solution.
   - It's a good example for a stationary device.
 
