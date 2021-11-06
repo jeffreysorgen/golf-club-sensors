@@ -112,10 +112,6 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 
 #
 
-**_other headings:_**
-##### Digging into App Dev
-##### Enable Smartphone to BEEP
-##### Getting Started with the SDK
 ##
 ##### Step Four:
 # Enable Smartphone Response
