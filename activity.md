@@ -131,6 +131,10 @@ We want to develop an Android app that will turn on and off its flashlight or be
 - Make high and low pitches for "Ready" state on/off (as the example) and apply this same code later. 
 - _Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way._
 
+
+
+#
+(delete)
 ##### For nRF Connect Development:
 **We've connected the device to the nRF Connect App, and now it's time to figure out how to get a response from it.**
 - nRF Connect App Development: 
@@ -141,6 +145,7 @@ Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-softwa
 [link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
 - It looks complicated, but the videos were pretty clear (and recently made). The **videos** for installation are here on [_YouTube._](https://youtu.be/2cv_jjqk5hg) Might be more from a recent webinar November 3.
 
+(delete to here)
 
 **Might not need nRF Connect. Might instead need _Android Studio_.**
 
