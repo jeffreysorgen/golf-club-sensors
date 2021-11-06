@@ -10,8 +10,6 @@
 [*[ Steps 5 & 6 ]*](activity.md/#steps-five-and-six)
 [_[ jump to new project ideas-> ]_](thoughtsandnotes.md/#other-projects)
 
-[*[ "Accomplished so far..." ]*](#accomplished-so-far)
-
 ##
 ##### Step Three:
 # Enabling BLE
@@ -178,10 +176,14 @@ _... which is entirely new to me at this point._
 [*[ 5 & 6 ]*](activity.md/#steps-five-and-six)
 [_[ notes ]_](thoughtsandnotes.md/#other-projects)
 
-## Code:
+
+##
+### Code:
 
 ##
 ##### _BLE Hello World_ code is here:
+[(back)](#the-hello-world-ble-sketch)
+
 ```
 /*
   Arduino Nano 33 BLE Getting Started
@@ -242,10 +244,11 @@ void loop() {
   }
 }
 ```
-- [(back)](#the-hello-world-ble-sketch)
 
 ##
 ##### All the _golf-swing-acc-ble_ code is here:
+[(back)](#creating-the-new-code)
+
 ```
 /*
  * Arduino LSM9DS1 
@@ -376,7 +379,7 @@ void loop() {
     }
   } //v
 ```
-- [(back)](#creating-the-new-code)
+_(end)_
 
 ##
 
