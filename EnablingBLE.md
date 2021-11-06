@@ -441,3 +441,14 @@ While this specific functionality won't be used in the end, the solution is cruc
 #
 
 #
+
+[*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
+[*[ 1 ]*](implementation.md/#the-accelerometer)
+[*[ 2 ]*](implementation.md/#solve-for-power)
+[*[ 3 ]*](#step-three)
+[_[ 4 ]_](#step-four)
+[*[ Reference ]*](activity.md/#reference)
+[**_Next: [ 4.5 KWS ]_**](KWS.md/#key-word-spotting)
+[*[ 5 & 6 ]*](activity.md/#steps-five-and-six)
+[_[ notes ]_](thoughtsandnotes.md/#other-projects)
+
