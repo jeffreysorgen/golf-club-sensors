@@ -64,10 +64,10 @@ so that we can see what gets sent from the Nano33BLESense.
 - View the _Hello World BLE code_ [**here**](#ble-hello-world-code-is-here)
 
 The big takeaway with this code is that the `while (central.connected())` command just hangs the activity until BLE disconnects and then the code turns the LED off. 
-**_It's LED-centric code._** 
+(It's LED-centric code.) 
 The LED will be useful for indicating "Ready" and "Resting" states.
 
-We've seen in those two examples what a basic `.ino` file looks like. **_Here's a summary:_**
+We've seen in those two examples what a basic `.ino` file looks like. **Here's a summary:**
 
 ## Arduino File Structure
 
