@@ -183,7 +183,7 @@ void loop() {
 ```
 
 
-## Conclusion:
+## Summary:
 This section was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
 The goal was to basically create on/off states, accomplished here by using a threshold for the Ready and Resting states. 
 
