@@ -146,8 +146,6 @@ Here we will describe the very basic structure of an Arduino `.ino` file.
 3. `void loop()` and
 4. *"other functions"*
 
-##
-
 **1. prior to `void setup()`**
 
 - These can be within _namespace_
