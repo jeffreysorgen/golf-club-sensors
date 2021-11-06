@@ -63,68 +63,6 @@ and we can then read "Hello World" on the Client (smartphone) app.
 So starting with this simple code as a base, **we'll combine it with our own _golf-swing-acc_ sketch** 
 so that we can see what gets sent from the Nano33BLESense.
 
-##### _BLE Hello World_ code is here:
-```
-/*
-  Arduino Nano 33 BLE Getting Started
-  BLE peripheral with a simple Hello World greeting service that can be viewed
-  on a mobile phone
-  Adapted from Arduino BatteryMonitor example
-*/
-
-#include <ArduinoBLE.h>
-
-static const char* greeting = "Hello World!";
-
-BLEService greetingService("180C");  // User defined service
-
-BLEStringCharacteristic greetingCharacteristic("2A56",  // standard 16-bit characteristic UUID
-    BLERead, 13); // remote clients will only be able to read this
-
-void setup() {
-  Serial.begin(9600);    // initialize serial communication
-  while (!Serial);
-
-  pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin
-
-  if (!BLE.begin()) {   // initialize BLE
-    Serial.println("starting BLE failed!");
-    while (1);
-  }
-
-  BLE.setLocalName("Nano33BLE");  // Set name for connection
-  BLE.setAdvertisedService(greetingService); // Advertise service
-  greetingService.addCharacteristic(greetingCharacteristic); // Add characteristic to service
-  BLE.addService(greetingService); // Add service
-  greetingCharacteristic.setValue(greeting); // Set greeting string
-
-  BLE.advertise();  // Start advertising
-  Serial.print("Peripheral device MAC: ");
-  Serial.println(BLE.address());
-  Serial.println("Waiting for connections...");
-}
-
-void loop() {
-  BLEDevice central = BLE.central();  // Wait for a BLE central to connect
-
-  // if a central is connected to the peripheral:
-  if (central) {
-    Serial.print("Connected to central MAC: ");
-    // print the central's BT address:
-    Serial.println(central.address());
-    // turn on the LED to indicate the connection:
-    digitalWrite(LED_BUILTIN, HIGH);
-
-    while (central.connected()){} // keep looping while connected
-    
-    // when the central disconnects, turn off the LED:
-    digitalWrite(LED_BUILTIN, LOW);
-    Serial.print("Disconnected from central MAC: ");
-    Serial.println(central.address());
-  }
-}
-```
-- [(back)](#the-hello-world-ble-sketch)
 - View the _Hello World BLE code_ [**here**](#ble-hello-world-code-is-here)
 
 **How we will use this:**
@@ -189,6 +127,126 @@ Here we will describe the very basic structure of an Arduino `.ino` file.
 
 We're now going to take what we've learned from our two examples and incorporate them into our feature code, now called **_golf-swing-acc-ble_**.
 
+- View the combined code [**here**](#all-the-golf-swing-acc-ble-code-is-here)
+
+##### Phone screen with device listed: (1) scanning, (2) connected, (3) tilting on the y-axis to turn on/off the LED
+<p align="center">
+  (1) <img src="images/BLEScanning.png" width="20%">
+  (2) <img src="images/BLEConnected.png" width="20%">
+  (3) <img src="images/myBLEtilt.gif" width="30%">
+</p>
+
+##
+#### Accomplished so far:
+
+We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
+Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
+After experimenting with a couple of example sketches, we incorporated the BLE library into the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming from the Nano33BLESense.
+
+Although things are working well, there are still two things we should improve upon. 
+One tweak is to accommodate for an unintentional state change from a bounce of the sensor, 
+and the other is to reduce the amount of BLE communication, sending only once at the moment of a state change.
+
+##### BLE sends data only when the words "State change to" appear
+<img src="images/stateshanges.gif" width="80%">
+
+**Peripheral-side code is done**
+
+Created **_golf-swing-acc-ble-statechange_** with this modified code: 
+- Eliminate accidental state changes from the sensor
+- Send data via BLE **only** when the state changes 
+- Send _boolean 1/0_ rather than the strings, "Resting" and "Ready"
+- Use the shorter 16-bit UUID, like `ffe0` and `ffe1` [_(More about UUID)_](activity.md#uuid-info)
+
+##
+
+Now that the Nano33BLESense has been programmed to communicate with a Client (central), it's time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy.
+
+We're starting from scratch with Android Studio. Let's move on to...
+
+**Step Four: App Development, aka [_Enable Smartphone Response_](#step-four)**
+
+_... which is entirely new to me at this point._
+
+**Pages:**
+
+[*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
+[*[ 1 ]*](implementation.md/#the-accelerometer)
+[*[ 2 ]*](implementation.md/#solve-for-power)
+[*[ 3 ]*](#step-three)
+**[Next: _[ 4 ]_](#step-four)**
+[*[ Reference ]*](activity.md/#reference)
+[*[ KWS ]*](KWS.md/#key-word-spotting)
+[*[ 5 & 6 ]*](activity.md/#steps-five-and-six)
+[_[ notes ]_](thoughtsandnotes.md/#other-projects)
+
+## Code:
+
+##
+##### _BLE Hello World_ code is here:
+```
+/*
+  Arduino Nano 33 BLE Getting Started
+  BLE peripheral with a simple Hello World greeting service that can be viewed
+  on a mobile phone
+  Adapted from Arduino BatteryMonitor example
+*/
+
+#include <ArduinoBLE.h>
+
+static const char* greeting = "Hello World!";
+
+BLEService greetingService("180C");  // User defined service
+
+BLEStringCharacteristic greetingCharacteristic("2A56",  // standard 16-bit characteristic UUID
+    BLERead, 13); // remote clients will only be able to read this
+
+void setup() {
+  Serial.begin(9600);    // initialize serial communication
+  while (!Serial);
+
+  pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin
+
+  if (!BLE.begin()) {   // initialize BLE
+    Serial.println("starting BLE failed!");
+    while (1);
+  }
+
+  BLE.setLocalName("Nano33BLE");  // Set name for connection
+  BLE.setAdvertisedService(greetingService); // Advertise service
+  greetingService.addCharacteristic(greetingCharacteristic); // Add characteristic to service
+  BLE.addService(greetingService); // Add service
+  greetingCharacteristic.setValue(greeting); // Set greeting string
+
+  BLE.advertise();  // Start advertising
+  Serial.print("Peripheral device MAC: ");
+  Serial.println(BLE.address());
+  Serial.println("Waiting for connections...");
+}
+
+void loop() {
+  BLEDevice central = BLE.central();  // Wait for a BLE central to connect
+
+  // if a central is connected to the peripheral:
+  if (central) {
+    Serial.print("Connected to central MAC: ");
+    // print the central's BT address:
+    Serial.println(central.address());
+    // turn on the LED to indicate the connection:
+    digitalWrite(LED_BUILTIN, HIGH);
+
+    while (central.connected()){} // keep looping while connected
+    
+    // when the central disconnects, turn off the LED:
+    digitalWrite(LED_BUILTIN, LOW);
+    Serial.print("Disconnected from central MAC: ");
+    Serial.println(central.address());
+  }
+}
+```
+- [(back)](#the-hello-world-ble-sketch)
+
+##
 ##### All the _golf-swing-acc-ble_ code is here:
 ```
 /*
@@ -321,100 +379,14 @@ void loop() {
   } //v
 ```
 - [(back)](#creating-the-new-code)
-- View the combined code [**here**](#all-the-golf-swing-acc-ble-code-is-here)
-
-##### Phone screen with device listed: (1) scanning, (2) connected, (3) tilting on the y-axis to turn on/off the LED
-<p align="center">
-  (1) <img src="images/BLEScanning.png" width="20%">
-  (2) <img src="images/BLEConnected.png" width="20%">
-  (3) <img src="images/myBLEtilt.gif" width="30%">
-</p>
-
-##
-#### Accomplished so far:
-
-We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
-Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
-After experimenting with a couple of example sketches, we incorporated the BLE library into the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming from the Nano33BLESense.
-
-Although things are working well, there are still two things we should improve upon. 
-One tweak is to accommodate for an unintentional state change from a bounce of the sensor, 
-and the other is to reduce the amount of BLE communication, sending only once at the moment of a state change.
-
-##### BLE sends data only when the words "State change to" appear
-<img src="images/stateshanges.gif" width="80%">
-
-**Peripheral-side code is done**
-
-Created **_golf-swing-acc-ble-statechange_** with this modified code: 
-- Eliminate accidental state changes from the sensor
-- Send data via BLE **only** when the state changes 
-- Send _boolean 1/0_ rather than the strings, "Resting" and "Ready"
-- Use the shorter 16-bit UUID, like `ffe0` and `ffe1` [_(More about UUID)_](activity.md#uuid-info)
-
-##
-
-Now that the Nano33BLESense has been programmed to communicate with a Client (central), it's time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy.
-
-We're starting from scratch with Android Studio. Let's move on to...
-
-**Step Four: App Development, aka [_Enable Smartphone Response_](#step-four)**
-
-_... which is entirely new to me at this point._
-
-**Links:**
-
-[*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
-[*[ 1 ]*](implementation.md/#the-accelerometer)
-[*[ 2 ]*](implementation.md/#solve-for-power)
-[*[ 3 ]*](#step-three)
-**[Next: _[ 4 ]_](#step-four)**
-[*[ Reference ]*](activity.md/#reference)
-[*[ KWS ]*](KWS.md/#key-word-spotting)
-[*[ 5 & 6 ]*](activity.md/#steps-five-and-six)
-[_[ notes ]_](thoughtsandnotes.md/#other-projects)
-
-### Code:
-
-(move code to here)
-
-- Link to [_BLE Hello World_ code is here](#ble-hello-world-code-is-here)
-- Link to [_golf-swing-acc-ble_ code is here](#all-the-golf-swing-acc-ble-code-is-here)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ##
 
 #
 
 #
+
+(move to its own page _AppDev.md_)
 
 ##
 
@@ -488,12 +460,4 @@ This is the research I am doing now.
 ##
 
 (end)
-
-
-
-
-
-
-
-
 
