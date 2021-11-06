@@ -378,7 +378,7 @@ The model BLE uses is known as a "publish-and-subscribe" model.
 #
 
 #
-
+_(drop step four here)_
 ##
 ##### link to step four:
 **[*[ Step Four: Enable Smartphone Response ]*](activity.md#step-four)**
@@ -410,14 +410,14 @@ This is the research I am doing now.
 #
 
 #
-
+...........^
 ##
 ##### State change: (pseudo code)
 
-This **_pseudo code_** models the code we used to transform into functionality that updates the current readyState every half-second. (used `millis()`) 
-In the loop it checks whether the state has changed, and if it did, it sends boolean data to the client smartphone.
+This **_pseudo code_** models the code we used to transform into functionality that updates the current readyState every half-second. (used `millis()`) (x)
+In the loop it checks whether the state has changed, and if it did, it sends boolean data to the client smartphone. (x)
 
-##### still need this pseudo code for reference but can delete later
+##### still need this pseudo code for reference but can delete later (now delete it) (x)
 ```
 resting = state("Resting");
 ready = state("Ready");
@@ -441,35 +441,23 @@ else {
     }
 
 earlier=now;                 // update earlier state with now state
-
+ (x)
 ```
-
+(time to delete pseudo code) (x)
 ##
 
 #
 
 #
 
-#
-
-#
-
-
-
-
-#
+##
 
 **Stuff I'm no longer considering but might be useful:**
 - There may be BLE-specific code that transmits _only_ when there's a state change, and could shorten this entirely, but for now I built it into this code. 
 - Is there a way for the client to ask the peripheral whether the state has changed? Maybe. But how frequently and how much power consumption. Of course, the peripheral could ignore requests for update as well. Unless there's another way to think about this, I don't think this matters much. No savings of effort or energy.
 - Another way to look at this is by doing a check on **whether the states match** on the peripheral and client, and if it doesn't, to update the client, although it might require more communication between devices.
 
-#
-
-#
-
-#
-
+##
 
 **For nRF Connect Development:**
 
@@ -482,10 +470,7 @@ Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-softwa
 [link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
 - It looks complicated, but the videos were pretty clear (and recently made). The **videos** for installation are here on [_YouTube._](https://youtu.be/2cv_jjqk5hg) Might be more from a recent webinar November 3.
 
-
-
-
-#
+##
 
 **might be unrelated to our own project**
 
@@ -501,6 +486,6 @@ He's discussing the nRF Connect functionality with Notify and Indicate. Also ref
   - In nRF Connect shows up as "0x2902"
 
 **Should go back to this FORUM to see if this makes more sense now that I finished with this step.**
-#
 
-#
+##
+##
