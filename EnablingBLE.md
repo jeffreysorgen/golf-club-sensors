@@ -402,33 +402,43 @@ void loop() {
 [*[ 5 & 6 ]*](activity.md/#steps-five-and-six)
 [_[ notes ]_](thoughtsandnotes.md/#other-projects)
 
+
+
+
+
+
+
+
+
+
+
 ##
 ##### Step Four:
 # Enable Smartphone Response
 
 **Description:**
 
-- Now that data is being transmitted from the Nano33BLESense, we need to develop an Android application that receives it.
-- What we want to do for this project is to read information from the sensor and then get the phone app to act upon the capabilities of the phone, such as turning on a flashight or beeping. 
-- While the flashlight functionality won't be used in the end, that solution is crucial for when we're trying to get the phone to chirp good/bad golf swings. 
-- _Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way._
+Now that data is being transmitted from the Nano33BLESense, we need to have an Android application that receives it.
+
+For development, we'll turn on and off the flashlight or get the phone to beep high and low, depending on the Resting state.
+
+While this specific functionality won't be used in the end, the solution is crucial for when we're trying to get the phone to chirp good and bad golf swings, or take action in some other way.
 
 **To do:**
+
 1. Develop the Hello World of Android Apps
 
 **<-- edit everything below here -->**
 
-- We want to develop an Android app that will turn on and off its flashlight or beep high and low, depending on the Resting state.
-- Make high and low pitches for "Ready" state on/off (as the example) and apply this same code later. 
-- Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
-- Flashlight: When the state goes from 0 to 1, turn the flashlight on, and vice versa.
-  
-##### Dev:
-- Try and utilize virtual environment.
-- Figure out what to do with an Android app, and **act upon the UUID changing from 0 to 1**_
-- Here is **Android BLE [guide](https://punchthrough.com/android-ble-guide/)**
-- Enable smartphone functions with Android Studio (Requires SDK and toolchain)
+##### Development:
 
+- Enable smartphone functions with Android Studio 
+- Try and utilize a virtual environment.
+- Enable the app to act upon a BLE characteristic changing from 0 to 1
+- Here is **Android BLE [guide](https://punchthrough.com/android-ble-guide/)**
+
+# And...
+### Now that we've installed a functional app on our Android: 
 ##### the key:
 **Link to [KABLE](https://github.com/JuulLabs/kable)**
 - "Kotlin Asynchronous Bluetooth Low Energy provides a simple Coroutines-powered API for interacting with Bluetooth Low Energy devices."
@@ -436,18 +446,3 @@ void loop() {
 #
 
 #
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
-#
-
