@@ -362,25 +362,54 @@ We're starting from scratch with Android Studio. Let's move on to...
 
 _... which is entirely new to me at this point._
 
-##### Links: 
+**Links:**
 
 [*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
 [*[ 1 ]*](implementation.md/#the-accelerometer)
 [*[ 2 ]*](implementation.md/#solve-for-power)
 [*[ 3 ]*](#step-three)
-**[Next: _4_](#step-four)**
+**[Next: _[ 4 ]_](#step-four)**
 [*[ Reference ]*](activity.md/#reference)
 [*[ KWS ]*](KWS.md/#key-word-spotting)
 [*[ 5 & 6 ]*](activity.md/#steps-five-and-six)
 [_[ notes ]_](thoughtsandnotes.md/#other-projects)
 
-##
+### Code:
 
 (move code to here)
 
 - Link to [_BLE Hello World_ code is here](#ble-hello-world-code-is-here)
 - Link to [_golf-swing-acc-ble_ code is here](#all-the-golf-swing-acc-ble-code-is-here)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ##
 
 #
@@ -389,11 +418,21 @@ _... which is entirely new to me at this point._
 
 ##
 
-[3](#step-three)
+[*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
+[*[ 1 ]*](implementation.md/#the-accelerometer)
+[*[ 2 ]*](implementation.md/#solve-for-power)
+[*[ 3 ]*](#step-three)
+**[Next: _[ 4 ]_](#step-four)**
+[*[ Reference ]*](activity.md/#reference)
+[*[ KWS ]*](KWS.md/#key-word-spotting)
+[*[ 5 & 6 ]*](activity.md/#steps-five-and-six)
+[_[ notes ]_](thoughtsandnotes.md/#other-projects)
 
 ##
 ##### Step Four:
 # Enable Smartphone Response
+
+**Description:**
 
 **<-- edit below here -->**
 
