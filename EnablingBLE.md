@@ -429,7 +429,7 @@ This is the research I am doing now.
 #
 
 #
-
+(delete all of below)
 ##
 
 **Stuff I'm no longer considering but might be useful:**
@@ -469,3 +469,4 @@ He's discussing the nRF Connect functionality with Notify and Indicate. Also ref
 **Should go back to this FORUM to see if this makes more sense now that I finished with this step.**
 
 ##
+(delete down to here)
