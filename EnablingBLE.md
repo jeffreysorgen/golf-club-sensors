@@ -159,8 +159,6 @@ After experimenting with a couple of example sketches, we incorporated the BLE l
 
 We're starting from scratch with Android Studio in [**Step Four**](#step-four) (which is entirely new to me at this point).
 
-**Pages:**
-
 [*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
 [*[ 1 ]*](implementation.md/#the-accelerometer)
 [*[ 2 ]*](implementation.md/#solve-for-power)
