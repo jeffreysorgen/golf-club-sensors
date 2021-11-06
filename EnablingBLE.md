@@ -155,9 +155,7 @@ So we created **_golf-swing-acc-ble-statechange_** with this modified code:
 
 We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
 Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
-After experimenting with a couple of example sketches, we incorporated the BLE library into the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming from the Nano33BLESense.
-
-The Nano33BLESense has been programmed to communicate with a Client (central), so it's now time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy.
+After experimenting with a couple of example sketches, we incorporated the BLE library into the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming in. The Nano33BLESense has now been programmed to communicate with a Client (central), so it's time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy.
 
 We're starting from scratch with Android Studio. Let's move on to...
 **Step Four: App Development, aka [_Enable Smartphone Response_](#step-four)**
