@@ -124,9 +124,8 @@ void loop() {
   }
 }
 ```
-
-- View the _Hello World BLE code_ [**here**](#ble-hello-world-code-is-here)
 - [(back)](#the-hello-world-ble-sketch)
+- View the _Hello World BLE code_ [**here**](#ble-hello-world-code-is-here)
 
 **How we will use this:**
 
@@ -321,9 +320,8 @@ void loop() {
     }
   } //v
 ```
-
-- View the combined code [**here**](#all-the-golf-swing-acc-ble-code-is-here)
 - [(back)](#creating-the-new-code)
+- View the combined code [**here**](#all-the-golf-swing-acc-ble-code-is-here)
 
 ##### Phone screen with device listed: (1) scanning, (2) connected, (3) tilting on the y-axis to turn on/off the LED
 <p align="center">
