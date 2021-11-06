@@ -39,9 +39,6 @@ This page:
 - **Nordic Semi** resources:
   - Helpful [**beginners tutorial**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/ble-advertising-a-beginners-tutorial) from Nordic Semi. 
   - And another [**here.**](https://devzone.nordicsemi.com/nordic/short-range-guides/b/bluetooth-low-energy/posts/bluetooth-smart-and-the-nordics-softdevices-part-1)
-- **nRF Connect:**
-  - nRF Connect is good for testing and connecting. I don't know yet how it dovetails into specific app development, but using nRF Connect seems to be the right phone app to use for this.
-  - In my case, I would set up my Arduino as the server, and the nRF Connect as the client. Because the server/sensor sends out information and the client receives it.
 #### _Reader and Sender:_ 
 - Definition from [ArduinoBLE Reference](https://www.arduino.cc/en/Reference/ArduinoBLE)
 - Think of this as _Sender_ and _Reader_. 
@@ -111,7 +108,7 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 #
 
 #
-
+(move to BLE page, bottom)
 ##
 ##### Step Four:
 # Enable Smartphone Response
@@ -134,20 +131,6 @@ We want to develop an Android app that will turn on and off its flashlight or be
 
 
 #
-(delete)
-##### For nRF Connect Development:
-**We've connected the device to the nRF Connect App, and now it's time to figure out how to get a response from it.**
-- nRF Connect App Development: 
-Use [**nRF Connect SDK**](https://www.nordicsemi.com/Products/Development-software/nrf-connect-sdk)
-- I need nRF Connect for Desktop: 
-[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-desktop/Download?lang=en#infotabs)
-- There is a nRF Connect for VS Code, downloadable from the Toolchain Manager in nRF Connect for Desktop: 
-[link](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-VS-Code/Download#infotabs)
-- It looks complicated, but the videos were pretty clear (and recently made). The **videos** for installation are here on [_YouTube._](https://youtu.be/2cv_jjqk5hg) Might be more from a recent webinar November 3.
-
-(delete to here)
-
-**Might not need nRF Connect. Might instead need _Android Studio_.**
 
 #
 
@@ -211,7 +194,7 @@ Collecting all the data. This step will be after data collection is sorted out, 
 
 **But first, do step [five](#step-five) and [six](#step-six)**
 
-#
+##
 
 #
 
@@ -248,7 +231,7 @@ Collecting all the data. This step will be after data collection is sorted out, 
 - testing prototype
 - collect 10X more data
 
-#
+##
 
 #
 
