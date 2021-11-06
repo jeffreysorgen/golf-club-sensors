@@ -129,7 +129,7 @@ void loop() {
 
 **How we will use this:**
 
-The big takeaway with this code is that the `while (central.connected()){` command just hangs the activity until BLE disconnects and then the code turns the LED off. 
+The big takeaway with this code is that the `while (central.connected())` command just hangs the activity until BLE disconnects and then the code turns the LED off. 
 **_It's LED-centric code._** 
 The code for the LED will be useful for indicating "Ready" and "Resting" states.
 
