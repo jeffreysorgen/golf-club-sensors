@@ -378,7 +378,27 @@ The model BLE uses is known as a "publish-and-subscribe" model.
 #
 
 #
-_(drop step four here)_
+##### _(drop step four here)_
+##### Step Four:
+# Enable Smartphone Response
+
+
+Now that data is being transmitted from the Nano33BLESense, we need to develop an Android application that receives it. (Might be in _nrfconnect_ or might be using Android Studio instead.)
+
+We want to develop an Android app that will turn on and off its flashlight or beep high and low, depending on the Resting state.
+
+### App Development
+- Lookup: How to control Android with... (controller, another android, etc) and find some development apps?
+- Here is **Android BLE [guide](https://punchthrough.com/android-ble-guide/)**
+- What can be configured in my phone when it receives commands from the nRF Connect (or other) application?
+  - Can the phone app trigger **BEEP** or a vibration/buzz?
+  - Can the App turn on/off the phone's **flashlight**?
+- Enable smartphone functions with _nrfconnect_ or Android Studio (Requires SDK and toolchain)
+- Make high and low pitches for "Ready" state on/off (as the example) and apply this same code later. 
+- _Beep triggered by in/out of Ready state is not for final product, but good for this development, because there is other activity that will require prompting smartphone to act on something in some way._
+
+(move end)
+
 ##
 ##### link to step four:
 **[*[ Step Four: Enable Smartphone Response ]*](activity.md#step-four)**
