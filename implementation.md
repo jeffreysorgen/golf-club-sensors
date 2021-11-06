@@ -79,7 +79,7 @@ _skip to
   - _Beep/buzz if good swing_
   - _Silent (or low tone) if no match_
 
-#
+##
 ##### Step One:
 # The Accelerometer
 
@@ -191,7 +191,7 @@ The goal was to basically create on/off states, accomplished here by using a thr
 
 Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason. **This exception has been resolved in later code.**
 
-#
+##
 ##### Step Two:
 # Solve for Power
 
