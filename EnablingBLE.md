@@ -8,6 +8,7 @@
 [*[ Reference, etc. ]*](activity.md/#reference)
 [_[ jump to new project ideas-> ]_](thoughtsandnotes.md/#other-projects)
 
+##
 ##### Step Three:
 # Enabling BLE
 
