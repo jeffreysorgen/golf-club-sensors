@@ -123,6 +123,8 @@ void loop() {
 }
 ```
 
+_([Link to code](#ble-hello-world-code-is-here))_
+
 **How we will use this:**
 
 The big takeaway with this code is that the `while (central.connected()){` command just hangs the activity until BLE disconnects and then the code turns the LED off. 
