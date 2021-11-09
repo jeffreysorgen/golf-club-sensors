@@ -2,7 +2,7 @@
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
 [*[ 2 Solve for Power ]*](implementation.md/#solve-for-power)
 [*[ 3 Enabling BLE ]*](#step-three)
-**[*[ Step Four: Enable Smartphone Response ]*](#step-four)**
+**[*[ Step Four: Enable Smartphone Response ]*](AppDev.md/#step-four)**
 [*[ Step 4.5: Enable KWS ]*](KWS.md/#key-word-spotting)
 [*[ Steps 5 & 6 ]*](activity.md/#steps-five-and-six)
 [*[ Reference, etc. ]*](activity.md/#reference)
@@ -163,16 +163,11 @@ We're starting from scratch with Android Studio in [**Step Four**](#step-four) (
 [*[ 1 ]*](implementation.md/#the-accelerometer)
 [*[ 2 ]*](implementation.md/#solve-for-power)
 [*[ 3 ]*](#step-three)
-**[Next: _[ 4 ]_](#step-four)**
+**Next: [_[ 4 Enable Smartphone Response ]_](AppDev.md#step-four)**
 [*[ Reference ]*](activity.md/#reference)
-[*[ KWS ]*](KWS.md/#key-word-spotting)
+[*[ 4.5 KWS ]*](KWS.md/#key-word-spotting)
 [*[ 5 & 6 ]*](activity.md/#steps-five-and-six)
 [_[ notes ]_](thoughtsandnotes.md/#other-projects)
-
-
-
-
-
 
 
 ##
@@ -377,78 +372,16 @@ void loop() {
     }
   } //v
 ```
-(end)
 
 ##
-
-#
-
-#
-
-##
-
-[(Link to _AppDev.md_)](AppDev.md)
-
-#
-- Android Studio
 
 [*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
 [*[ 1 ]*](implementation.md/#the-accelerometer)
 [*[ 2 ]*](implementation.md/#solve-for-power)
 [*[ 3 ]*](#step-three)
-**[_Next: [ 4 ]_](#step-four)**
+**[_Next: [ 4 ]_](AppDev.md/#step-four)**
 [*[ Reference ]*](activity.md/#reference)
 [*[ KWS ]*](KWS.md/#key-word-spotting)
-[*[ 5 & 6 ]*](activity.md/#steps-five-and-six)
-[_[ notes ]_](thoughtsandnotes.md/#other-projects)
-
-##
-##### Step Four:
-# Enable Smartphone Response
-
-**Description:**
-
-Now that data is being transmitted from the Nano33BLESense, we need to have an Android application that receives it.
-For development, we'll turn on and off the flashlight or get the phone to beep high and low, depending on the Resting state.
-While this specific functionality won't be used in the end, the solution is crucial for when we're trying to get the phone to chirp good and bad golf swings, or take action in some other way.
-
-**To do:**
-
-1. Develop the Hello World of Android Apps
-
-##### Development:
-
-- Enable smartphone functions with Android Studio 
-- Try and utilize a virtual environment.
-- Enable the app to act upon a BLE characteristic changing from 0 to 1
-- Here is **Android BLE [guide](https://punchthrough.com/android-ble-guide/)**
-
-##
-
-#
-
-#
-
-##
-
-## And now that we've installed a functional app on our Android...
-
-##### the key:
-
-**Link to [KABLE](https://github.com/JuulLabs/kable)**
-- "Kotlin Asynchronous Bluetooth Low Energy provides a simple Coroutines-powered API for interacting with Bluetooth Low Energy devices."
-
-#
-
-#
-
-[*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
-[*[ 1 ]*](implementation.md/#the-accelerometer)
-[*[ 2 ]*](implementation.md/#solve-for-power)
-[*[ 3 ]*](#step-three)
-[_[ 4 ]_](#step-four)
-[*[ Reference ]*](activity.md/#reference)
-[**_Next: [ 4.5 KWS ]_**](KWS.md/#key-word-spotting)
 [*[ 5 & 6 ]*](activity.md/#steps-five-and-six)
 [_[ notes ]_](thoughtsandnotes.md/#other-projects)
 
