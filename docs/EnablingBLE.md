@@ -372,9 +372,6 @@ void loop() {
     }
   } //v
 ```
-(end)
-
-##
 
 [*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
 [*[ 1 ]*](implementation.md/#the-accelerometer)
