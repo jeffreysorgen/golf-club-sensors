@@ -59,10 +59,13 @@ Fixing stuff:
 - "Typo" name of package has been added to dict.
 - IGNORING THIS: `On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute `android:fullBackupContent` to specify an `@xml` resource which configures which files to backup, or just set `android:fullBackupOnly=true`. More info: https://developer.android.com/guide/topics/data/autobackup'
 
+
+
 Run the app:
 - Connect the old phone (Samsung GalaxySiii) via USB, and then put it in Developer mode (per the Dev guide)
 - The app RUNS when selected! _(insert image here)_ 
 
+<img src="/images/app-hello-world.png" width="50%">
 
 
 TODO:
