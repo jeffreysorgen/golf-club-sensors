@@ -45,12 +45,9 @@ While this specific functionality won't be used in the end, the solution is cruc
   - _WorkManager_ performs background tasks (so implement this for BLE connectivity?)
   - _Using minimum version API 19_ (defalut was 21) because of my old Android
 - Enable GitHub connection:
-  - Enable local authentication
-
-<img src="/images/gitloginlocal.PNG" width="50%">
-
-- "/images/gitloginlocal.PNG"
-
+  - Enable local authentication:
+  - First challenge: `<img src="/images/gitloginlocal.PNG" width="50%">`
+  - Solved with [this video: "Integrate Github Login with Android Studio"](https://www.youtube.com/watch?v=K0smcN8Q-XM)
 - [Kotlin course](https://developer.android.com/courses/android-basics-kotlin/course)
 
 #
