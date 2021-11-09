@@ -126,9 +126,9 @@ We're now going to take what we've learned from our two examples and incorporate
 ##### Phone screen with device listed: (1) scanning, (2) connected, (3) tilting on the y-axis to turn on/off the LED
 
 <p align="center">
-  (1) <img src="images/BLEScanning.png" width="20%">
-  (2) <img src="images/BLEConnected.png" width="20%">
-  (3) <img src="images/myBLEtilt.gif" width="30%">
+  (1) <img src="/images/BLEScanning.png" width="20%">
+  (2) <img src="/images/BLEConnected.png" width="20%">
+  (3) <img src="/images/myBLEtilt.gif" width="30%">
 </p>
 
 ##
@@ -147,7 +147,7 @@ So we created **_golf-swing-acc-ble-statechange_** with this modified code:
 
 ##### BLE sends data only when the words "State change to" appear
 
-<img src="images/stateshanges.gif" width="80%">
+<img src="/images/stateshanges.gif" width="80%">
 
 ## Summary:
 
