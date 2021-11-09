@@ -387,11 +387,6 @@ void loop() {
 
 ##
 
-[(Link to _AppDev.md_)](AppDev.md)
-
-#
-- Android Studio
-
 [*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
 [*[ 1 ]*](implementation.md/#the-accelerometer)
 [*[ 2 ]*](implementation.md/#solve-for-power)
