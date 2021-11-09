@@ -70,5 +70,8 @@ Do this right after I finish attaching the flashlight to the y-axis tilt.
 #
 Data collection. How can Edgeimpulse be used for data collection? Prof said I could use it somehow but there's no indication about how they could collect data. They like to acquire it though. I send it up, and then they do something with it. But that doesn't make easier the data collection.
 #
+Bought motion.golf domain 21nov9
+#
+#
 ##### Immeditate needs:
 I am hoping to capture the attention of someone. I don't know who or why or how, but I am trying to listen creatively where I can for opportunities.
