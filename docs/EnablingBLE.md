@@ -2,7 +2,7 @@
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
 [*[ 2 Solve for Power ]*](implementation.md/#solve-for-power)
 [*[ 3 Enabling BLE ]*](#step-three)
-**[*[ Step Four: Enable Smartphone Response ]*](#step-four)**
+**[*[ Step Four: Enable Smartphone Response ]*](AppDev.md/#step-four)**
 [*[ Step 4.5: Enable KWS ]*](KWS.md/#key-word-spotting)
 [*[ Steps 5 & 6 ]*](activity.md/#steps-five-and-six)
 [*[ Reference, etc. ]*](activity.md/#reference)
@@ -402,7 +402,8 @@ void loop() {
 [*[ 5 & 6 ]*](activity.md/#steps-five-and-six)
 [_[ notes ]_](thoughtsandnotes.md/#other-projects)
 
-##
+## wrong one
+
 ##### Step Four:
 # Enable Smartphone Response
 
