@@ -32,7 +32,7 @@ While this specific functionality won't be used in the end, the solution is cruc
 ##### Development:
 
 - Enable smartphone functions with Android Studio 
-- Try and utilize a virtual environment.
+- Try and utilize a virtual environment. _(not for this)_
 - Enable the app to act upon a BLE characteristic changing from 0 to 1
 - Here is **Android BLE [guide](https://punchthrough.com/android-ble-guide/)**
 
