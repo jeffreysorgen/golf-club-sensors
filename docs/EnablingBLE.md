@@ -163,16 +163,11 @@ We're starting from scratch with Android Studio in [**Step Four**](#step-four) (
 [*[ 1 ]*](implementation.md/#the-accelerometer)
 [*[ 2 ]*](implementation.md/#solve-for-power)
 [*[ 3 ]*](#step-three)
-**[Next: _[ 4 ]_](AppDev.md#step-four)**
+**Next: [_[ 4 Enable Smartphone Response ]_](AppDev.md#step-four)**
 [*[ Reference ]*](activity.md/#reference)
-[*[ KWS (4.5) ]*](KWS.md/#key-word-spotting)
+[*[ 4.5 KWS ]*](KWS.md/#key-word-spotting)
 [*[ 5 & 6 ]*](activity.md/#steps-five-and-six)
 [_[ notes ]_](thoughtsandnotes.md/#other-projects)
-
-
-
-
-
 
 
 ##
@@ -381,12 +376,6 @@ void loop() {
 
 ##
 
-#
-
-#
-
-##
-
 [*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
 [*[ 1 ]*](implementation.md/#the-accelerometer)
 [*[ 2 ]*](implementation.md/#solve-for-power)
@@ -396,8 +385,4 @@ void loop() {
 [*[ KWS ]*](KWS.md/#key-word-spotting)
 [*[ 5 & 6 ]*](activity.md/#steps-five-and-six)
 [_[ notes ]_](thoughtsandnotes.md/#other-projects)
-
-#
-##### Step Four:
-## wrong one
 
