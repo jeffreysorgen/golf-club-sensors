@@ -47,7 +47,7 @@ _skip to
 24. **Power** Documented several potential development and prototyping [**battery solutions**](#solve-for-power)
 25. Generated _pseudo code_ for state changes. (Was hepful, now deleted.)
 26. **New Code** Created [_golf-swing-imu-ble_](EnablingBLE.md#all-the-golf-swing-acc-ble-code-is-here) which communicates via BLE to a smartphone
-27. **Editing** Consolidated the documentation in preparation for moving to **Step Four: [the SDK!](activity.md#step-four)**
+27. **Editing** Consolidated the documentation in preparation for moving to **Step Four: [the SDK!](EnablingBLE.md#step-four)**
 28. **Posted to Reddit!** [HERE](https://www.reddit.com/r/arduino/comments/qja9y6/nano33blesense_project_first_step_solve_for_power/)
 
 ##### _2021 Nov_
