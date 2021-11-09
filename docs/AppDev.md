@@ -39,12 +39,12 @@ While this specific functionality won't be used in the end, the solution is cruc
 ##
 
 - Install Android Studio. (done)
+- Buy _motion.golf_ domain. (done)
 - [Build first app.](https://developer.android.com/training/basics/firstapp)
-
-
-
-
-#
+  - Create vector icon
+  - _WorkManager_ performs background tasks (so implement this for BLE connectivity?)
+  - _Using minimum version API 19_ (defalut was 21) because of my old Android
+- [Kotlin course](https://developer.android.com/courses/android-basics-kotlin/course)
 
 #
 
@@ -54,7 +54,7 @@ While this specific functionality won't be used in the end, the solution is cruc
 
 ### And now that we've installed a functional app on our Android...
 
-##### the key:
+##### the BLE key:
 
 **Link to [KABLE](https://github.com/JuulLabs/kable)**
 - "Kotlin Asynchronous Bluetooth Low Energy provides a simple Coroutines-powered API for interacting with Bluetooth Low Energy devices."
