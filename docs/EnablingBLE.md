@@ -163,7 +163,7 @@ We're starting from scratch with Android Studio in [**Step Four**](#step-four) (
 [*[ 1 ]*](implementation.md/#the-accelerometer)
 [*[ 2 ]*](implementation.md/#solve-for-power)
 [*[ 3 ]*](#step-three)
-**[Next: _[ 4 ]_](#step-four)**
+**[Next: _[ 4 ]_](AppDev.md#step-four)**
 [*[ Reference ]*](activity.md/#reference)
 [*[ KWS ]*](KWS.md/#key-word-spotting)
 [*[ 5 & 6 ]*](activity.md/#steps-five-and-six)
