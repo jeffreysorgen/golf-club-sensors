@@ -57,7 +57,8 @@ Fixing stuff:
 - Avoid "+" character in the build.gradle file: `Avoid using + in version numbers; can lead to unpredictable and unrepeatable builds (junit:junit:4.+)` so I **updated** the "4.+" to current (4.13.2) (per [stackoverflow, here](https://stackoverflow.com/questions/46793888/build-gradle-warning-avoid-using-in-version-numbers)) and problem solved.
 - At this point, once I found no problems in Studio, I did `file | invalidate caches and restart` to clean things up
 - "Typo" name of package has been added to dict.
-- IGNORING THIS: `On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute 'android:fullBackupContent' to specify an '@xml' resource which configures which files to backup, or just set 'android:fullBackupOnly=true'. More info: https://developer.android.com/guide/topics/data/autobackup'
+- IGNORING THIS: `On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute 'android:fullBackupContent' to specify an '@xml' resource which configures which files to backup, or just set 'android:fullBackupOnly=true'. More info: https://developer.android.com/guide/topics/data/autobackup` and will come back if needed.
+- Suppressed `jcenter()` (old repository) error because `mavenCentral()` repo is in the list already
 
 
 
