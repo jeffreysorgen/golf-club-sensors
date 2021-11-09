@@ -35,7 +35,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 6. (App) Scan for and connect to the device (its name was declared in the sketch)
 7. (App) Touch _UnknownService, UUID: 0x180C_ (_"180C"_ is unregistered generic UUID)
 8. Watch Monitor again for services to pop up
-9. (App) Touch the "triple down arrow" <img src="images/3downarrows.png" width="20em" /> for each of the three services for this example
+9. (App) Touch the "triple down arrow" <img src="/images/3downarrows.png" width="20em" /> for each of the three services for this example
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 
 ##### Caveat:
