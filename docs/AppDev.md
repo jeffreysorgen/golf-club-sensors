@@ -38,13 +38,20 @@ While this specific functionality won't be used in the end, the solution is cruc
 
 ##
 
+Install Android Studio.
+
+
+
+
+#
+
 #
 
 #
 
 ##
 
-## And now that we've installed a functional app on our Android...
+### And now that we've installed a functional app on our Android...
 
 ##### the key:
 
