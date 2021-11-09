@@ -119,9 +119,9 @@ These readings will determine the Ready or Resting state orientation
 
 ##### Images: (1)Attach the device to a stick (2)Ready orientation (3)Device orientation (4)Resting orientation
 (1)<img src="/images/Sm-attaching to a stick.png" width="20%">
-(2)<img src="images/Sm-start orientation.png" width="20%">
-(3)<img src="images/Sm-device orientation.png" width="20%">
-(4)<img src="images/Sm-rest orientation.png" width="20%">
+(2)<img src="/images/Sm-start orientation.png" width="20%">
+(3)<img src="/images/Sm-device orientation.png" width="20%">
+(4)<img src="/images/Sm-rest orientation.png" width="20%">
 
 **The readings of the accelerometer, according to the setup in the images:**
 
@@ -145,7 +145,7 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 - When `y > -.85`, then the Monitor shows "Ready!" 
   - and displays all the sensor readings (currently just acc)
 
-<img src="images/one second delay.PNG" width="50%"/>
+<img src="/images/one second delay.PNG" width="50%"/>
 
 ### Updating the Arduino Nano 33 BLE
 - **Find** the _SimpleAccelerometer_ sketch from the Example files in the **Arduino_LSM9DS1 folder**
@@ -216,7 +216,7 @@ Swinging the club around won't put it into that Resting state unless it register
 
 ##### Charging up a dead old phone, simultaneously powering Nano33BLE
 
-<img src="images/Sm-batterypack.png" width="35%">
+<img src="/images/Sm-batterypack.png" width="35%">
 
 #### Alternative development solution
 
