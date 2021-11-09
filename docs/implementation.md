@@ -58,6 +58,7 @@ _skip to
 32. Modified the _README.md_ down to one sentence, and then created [_GolfSwingSensors.md_](GolfSwingSensors.md) for the rest.
 33. Determined that Android Studio will be the starting point to develop the Client app for the project (step four)
 34. **Android Studio** Completed "Android Studio Essential Training 2020" in **LinkedIn Learning**
+35. Bought domain _"motion.golf"_
 
 ##### Learning about this:
 - **[Kotlin](https://kotlinlang.org/)** and **Android Studio**
