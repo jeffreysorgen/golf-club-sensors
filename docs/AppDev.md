@@ -38,7 +38,8 @@ While this specific functionality won't be used in the end, the solution is cruc
 
 ##
 
-Install Android Studio.
+- Install Android Studio. (done)
+- [Build first app.](https://developer.android.com/training/basics/firstapp)
 
 
 
