@@ -44,6 +44,7 @@ While this specific functionality won't be used in the end, the solution is cruc
   - Create vector icon
   - _WorkManager_ performs background tasks (so implement this for BLE connectivity?)
   - _Using minimum version API 19_ (defalut was 21) because of my old Android
+- Enable Git
 - [Kotlin course](https://developer.android.com/courses/android-basics-kotlin/course)
 
 #
