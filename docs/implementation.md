@@ -54,7 +54,7 @@ _skip to
 
 29. **CODE** Solved the sensor "bounce" problem with accelerometer and enabled READY/RESTING states. _(golf-swing-imu-ble-statechange)_
 30. **Bluetooth** BLE has been properly enabled to communicate with smartphone, time to dig into the SDK
-31. **KWS.md** Page for Key Word Spotting step has been set up, [_here_](kws.md), and step is in progress.
+31. **KWS.md** Page for Key Word Spotting step has been set up, [_here_](KWS.md), and step is in progress.
 32. Modified the _README.md_ down to one sentence, and then created [_GolfSwingSensors.md_](GolfSwingSensors.md) for the rest.
 33. Determined that Android Studio will be the starting point to develop the Client app for the project (step four)
 34. **Android Studio** Completed "Android Studio Essential Training 2020" in **LinkedIn Learning**
