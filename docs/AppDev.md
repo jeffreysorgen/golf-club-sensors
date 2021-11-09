@@ -65,7 +65,7 @@ Run the app:
 - Connect the old phone (Samsung GalaxySiii) via USB, and then put it in Developer mode (per the Dev guide)
 - The app RUNS when selected! _(insert image here)_ 
 
-<img src="/images/app-hello-world.png" width="50%">
+<img src="/images/app-hello-world.png" width="30%">
 
 
 TODO:
