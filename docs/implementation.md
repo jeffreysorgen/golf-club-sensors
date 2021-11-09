@@ -39,7 +39,7 @@ _skip to
 16. LEARNED that it's easy to mess up in GitHub desktop, so _be careful_
 17. **Electronics** Learned cursory principles of electronics from __LinkedIn Learning__.
 18. **3D Printing** Learned Basics of 3D Printing from __LinkedIn Learning__.
-19. **Arduino sketch** created for Accelerometer - _golf-swing-acc_ ([here](EnablingBLE.md#updating-the-arduino-nano-33-ble)) and kept it **simple**. 
+19. **Arduino sketch** created for Accelerometer - _golf-swing-acc_ ([here](#updating-the-arduino-nano-33-ble)) and kept it **simple**. 
 20. **GitHub Markdown** Learned styling for tables, images and code block
 21. Added code block and image from Monitor to this documentation. 
 22. **Accelerometer** Completed documentation, and it's time to move on to [**adding BLE**](EnablingBLE.md/#enabling-ble) to the system!
