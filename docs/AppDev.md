@@ -60,7 +60,7 @@ Fixing stuff:
 - IGNORING THIS: `On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute 'android:fullBackupContent' to specify an '@xml' resource which configures which files to backup, or just set 'android:fullBackupOnly=true'. More info: https://developer.android.com/guide/topics/data/autobackup` and will come back if needed.
 - Suppressed `jcenter()` (old repository) error because `mavenCentral()` repo is in the list already
 - Set this from "true" to: `android:allowBackup="false"` so that the error goes. It was suggesting to create an XML file instead, but doesn't matter (per LinkedIn course)
-
+- There is an emulation package from Intel (I'm running on AMD though) that makes testing run faster called HAXM. _HAXM fails to install_ and it's possible that it's AMD? Or maybe some other reason. **_Still able to run the simulation._**
 
 
 Run the app:
