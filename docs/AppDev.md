@@ -71,6 +71,9 @@ Run the app:
 
 
 TODO:
+- Enable the "frame" if there is one, in the simulator, then post the image here next to the real phone.
+- "Install" an icon to the simulated phone
+- Test the simulation to turn its **flashlight on**
 - [Kotlin course](https://developer.android.com/courses/android-basics-kotlin/course)
 - Create an app that does one thing, flashlight on and off, and then make it beep high and low pitches.
 - Create vector icon
