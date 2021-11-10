@@ -57,11 +57,10 @@ Conceptually, this is still **the subway analogy.** But makes it easier to think
 Using this analogy, it really seems like it's been done before: _self-driving cars,_ and that whole system. What are they using? Do they rely on GPS too much? Yes, in comparison, I think they do. But they do speed, distance, turns, bumps, motion, etc. And they collect data, and they make inferences along the way.
 
 However, I am removing all the horsepower. I am greatly simplifying what's been done with giant compute power. If I can reduce this information into data points with a _shape_ under 10 (xyz axes, time stamp, plus other related params) then I'm going to be able to utilize MCU rather than the larger devices. And if I'm able to use this in the form of **Fourier Series** then it might be able to be **reduced further in the ML model.** Yes, I'm back to that again! I know there's complicated math. And anything beyond 2D is hard to describe. I don't yet understand the correlation with the FFT (fast fourier transform used for converting audio spectragrams) but I feel strongly that this is _important._
+##
 #
 #
-#
-#
-#
+##
 **Note for repository description.** This repository is the narrative of my own progress in development, from start to... to wherever I am now. This can be a beginners guide because it's all new to me, and I am including all the stuff that I need to always remember.
 #
 IDEA: (I didn't know where to put this)
@@ -72,6 +71,13 @@ Data collection. How can Edgeimpulse be used for data collection? Prof said I co
 #
 Bought motion.golf domain 21nov9
 #
+There are a lot of new data science people out there. I need to capitalize on those fresh skills and provide a place for those skills to be useful. 
+I need to get my ML code/model perfected and I'm giong to need some of these pros to help do that.
+I obviously can't afford to pay a pro. But I can offer a dataset to use, with goals to attain.
+As I do some of this on my own, I'll be able to understand where my weaknesses are and then ask for specific milestones to be accomplished well by others.
+I have always thought that **Kaggle** would be a good place to start. But there are probably other ways too.
+#
+
 #
 ##### Immeditate needs:
 I am hoping to capture the attention of someone. I don't know who or why or how, but I am trying to listen creatively where I can for opportunities.
