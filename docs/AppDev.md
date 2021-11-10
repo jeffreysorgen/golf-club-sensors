@@ -26,6 +26,7 @@ While this specific functionality won't be used in the end, the solution is cruc
 **To do:**
 
 1. Develop the Hello World of Android Apps
+  a. Then add buttons 
 2. Add BLE capability
 3. Move on to KWS
 
