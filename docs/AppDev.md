@@ -67,7 +67,7 @@ Fixing stuff:
 - There is an emulation package from Intel (I'm running on AMD though) that makes testing run faster called HAXM. _HAXM fails to install_ and it's possible that it's AMD? Or maybe some other reason. **_Still able to run the simulation._**
 
 
-Run the app:
+**Run the app:**
 - Connect the old phone (Samsung GalaxySiii) via USB, and then put it in Developer mode (per the Dev guide)
 - The app RUNS when selected! _(insert image here)_ 
 
