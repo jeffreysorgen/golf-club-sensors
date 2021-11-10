@@ -26,17 +26,20 @@ While this specific functionality won't be used in the end, the solution is cruc
 **To do:**
 
 1. Develop the Hello World of Android Apps
-  a. Then add buttons 
+    1. Then add buttons: "On" "Off" "Quit"
+    1. Enable flashlight to turn on and off
+        1. When on, "On" is greyed out, etc.
+    1. Then enable high and low tone beeps for each button
 2. Add BLE capability
 3. Move on to KWS
 
 ##### Development:
 
 - Enable smartphone functions with Android Studio 
-- Try and utilize a virtual environment. _(not for this)_
 - Enable the app to act upon a BLE characteristic changing from 0 to 1
 
 ##
+### Working with Android Studio
 
 - Install Android Studio. (done)
 - Buy _motion.golf_ domain. (done)
@@ -72,6 +75,7 @@ Run the app:
 
 
 TODO:
+- Update Git via Android Studio
 - Enable the "frame" if there is one, in the simulator, then post the image here next to the real phone.
 - "Install" an icon to the simulated phone
 - Test the simulation to turn its **flashlight on**
