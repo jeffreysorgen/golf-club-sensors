@@ -160,6 +160,8 @@ The final step of the project is figuring out how to send the collected data to 
 There is no user-specific information in the data being collected, so the sky is the limit.
 Collecting all the data. This step will be after data collection is sorted out, and PCB prototyping is being considered.
 
+And [here's a recent article](https://www.hackster.io/monica/analyze-accelerometer-data-on-maaxboard-with-edge-impulse-b7f28c) from hackster.io that may or may not be useful.
+
 **But first, do steps [five](#step-five) and [six](#step-six)**
 
 ##
