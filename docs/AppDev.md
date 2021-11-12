@@ -87,7 +87,7 @@ TODO:
 - A bit more advanced for [Camera2/CameraManager](https://tylerwalker.medium.com/integrating-camera2-api-on-android-feat-kotlin-4a4e65dc593f)
 
 #
-
+[Fundamentals documentation](https://developer.android.com/guide/components/fundamentals)
 #
 
 ##
