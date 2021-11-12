@@ -81,7 +81,8 @@ TODO:
 - Test the simulation to turn its **flashlight on**
 - [Kotlin course](https://developer.android.com/courses/android-basics-kotlin/course)
 - Create an app that does one thing, flashlight on and off, and then make it beep high and low pitches.
-- Create vector icon
+- [Android hardware LightState reference](https://developer.android.com/reference/kotlin/android/hardware/lights/LightState)
+- Create vector icon (done)
 
 #
 
@@ -90,11 +91,13 @@ TODO:
 ##
 
 ### And now that we've installed a functional app on our Android...
-
+(Finish flashlight and beep in the app.)
 ##### keys to BLE:
 
 1. **Link to repository: [KABLE](https://github.com/JuulLabs/kable)** "Kotlin Asynchronous Bluetooth Low Energy provides a simple Coroutines-powered API for interacting with Bluetooth Low Energy devices."
 2. Here is **Android BLE [guide](https://punchthrough.com/android-ble-guide/)** which might help
+3. [Android hardware **BLE** device reference](https://developer.android.com/reference/kotlin/android/companion/BluetoothLeDeviceFilter.html)
+4. [<usesfeature>](https://developer.android.com/guide/topics/manifest/uses-feature-element)
 
 TODO:
 - Enable app to turn on flashlight with a button, and then make it work with BLE external prompt
