@@ -77,6 +77,7 @@ I obviously can't afford to pay a pro. But I can offer a dataset to use, with go
 As I do some of this on my own, I'll be able to understand where my weaknesses are and then ask for specific milestones to be accomplished well by others.
 I have always thought that **Kaggle** would be a good place to start. But there are probably other ways too.
 #
+The Nano33BLESense has RGB LED. I want the app to trigger the BLUE led when it receives data from the Android, such as a button push or a toggle.
 
 #
 ##### Immeditate needs:
