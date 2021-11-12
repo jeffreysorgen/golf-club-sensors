@@ -81,8 +81,10 @@ TODO:
 - Test the simulation to turn its **flashlight on**
 - [Kotlin course](https://developer.android.com/courses/android-basics-kotlin/course)
 - Create an app that does one thing, flashlight on and off, and then make it beep high and low pitches.
+- [Beginner flashlight app (java)](https://www.geeksforgeeks.org/how-to-build-a-simple-flashlight-torchlight-android-app/)
 - [Android hardware LightState reference](https://developer.android.com/reference/kotlin/android/hardware/lights/LightState)
-- Create vector icon (done)
+- [camera2/CameraManager](https://developer.android.com/reference/kotlin/android/hardware/camera2/CameraManager)
+- A bit more advanced for [Camera2/CameraManager](https://tylerwalker.medium.com/integrating-camera2-api-on-android-feat-kotlin-4a4e65dc593f)
 
 #
 
