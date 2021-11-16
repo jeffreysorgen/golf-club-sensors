@@ -24,11 +24,12 @@ Now that data is being transmitted from the Nano33BLESense, we need to have an A
 For development, we'll turn on and off the flashlight or get the phone to beep high and low, depending on the Resting state.
 While this specific functionality won't be used in the end, the solution is crucial for when we're trying to get the phone to chirp good and bad golf swings, or take action in some other way.
 
-In terms of the Android application itself, create the Hello World of Android development, and then the focus needs to be WorkManager functionality. This is where activity within the app interacts with other functions outside of the application.
+In terms of the Android application itself, first create the Hello World of Android development, and then the focus needs to be WorkManager functionality. This is where activity within the app interacts with other functions outside of the application.
 
 **To do:**
 
-1. Develop the Hello World of Android Apps (do this again)
+1. **Develop the Hello World of Android Apps (do this again)**
+    1. _(Need screenshot of virtual device for this page)_
     1. Then add buttons: "On" "Off" "Quit" (simple)
     1. Enable flashlight to turn on and off (use WorkManager)
         1. When on, "On" is greyed out, etc.
@@ -96,8 +97,16 @@ TODO:
 
 ##
 
+
+
+
+
+
+
 ### And now that we've installed a functional app on our Android...
+
 (Finish flashlight and beep in the app.)
+
 ##### keys to BLE:
 
 1. **Link to repository: [KABLE](https://github.com/JuulLabs/kable)** "Kotlin Asynchronous Bluetooth Low Energy provides a simple Coroutines-powered API for interacting with Bluetooth Low Energy devices."
