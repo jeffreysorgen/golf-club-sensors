@@ -60,6 +60,7 @@ _skip to
 34. **Android Studio** Completed "Android Studio Essential Training 2020" in **LinkedIn Learning**
 35. Bought domain _"motion.golf"_
 36. **App Development** Installed Android Studio
+37. _"Hello World"_ app created for Android
 
 ##### Learning about this:
 - **[Kotlin](https://kotlinlang.org/)** and **Android Studio**
