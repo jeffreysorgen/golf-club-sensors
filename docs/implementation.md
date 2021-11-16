@@ -61,6 +61,9 @@ _skip to
 35. Bought domain _"motion.golf"_
 36. **App Development** Installed Android Studio
 37. _"Hello World"_ app created for Android
+38. Set up **Virtual environment**
+39. Set up **Git** in the virtual environment
+40. Set up **Jupyter Notebooks** to function in the virtual environment
 
 ##### Learning about this:
 - **[Kotlin](https://kotlinlang.org/)** and **Android Studio**
