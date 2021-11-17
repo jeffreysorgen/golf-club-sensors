@@ -28,14 +28,13 @@ In terms of the Android application itself, first create the Hello World of Andr
 
 **To do:**
 
-1. **Develop the Hello World of Android Apps (do this again)**
-    1. _(Need screenshot of virtual device for this page)_
-    1. Then add buttons: "On" "Off" "Quit" (simple)
-    1. Enable flashlight to turn on and off (use WorkManager)
-        1. When on, "On" is greyed out, etc.
-    1. Then enable high and low tone beeps for each button
-2. Add BLE capability (use WorkManager and do what it takes)
-3. Move on to KWS
+1. Develop the Hello World of Android Apps (do this again)
+1. Add buttons: "On" "Off" "Quit" (simple)
+1. Enable flashlight to turn on and off (use **WorkManager**)
+    1. When on, "On" is greyed out, etc.
+1. Then enable high and low tone beeps for each button
+1. Add BLE capability (use WorkManager and do what it takes)
+1. Move on to KWS
 
 ##### Development:
 
@@ -75,14 +74,16 @@ Fixing stuff:
 
 **Run the app:**
 - Connect the old phone (Samsung GalaxySiii) via USB, and then put it in Developer mode (per the Dev guide)
-- The app RUNS when selected! _(insert image here)_ 
+- The app RUNS when selected!
 
 <img src="/images/app-hello-world.png" width="30%">
 
 
 TODO:
-- Update Git via Android Studio
-- Post the image here next to the real phone.
+- Install "empty" app
+- Add button (how?)
+- Make the button toggle _something_
+- 
 - Test the simulation to turn its **flashlight on**
 - [Kotlin course](https://developer.android.com/courses/android-basics-kotlin/course)
 - Create an app that does one thing, flashlight on and off, and then make it beep high and low pitches.
