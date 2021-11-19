@@ -24,6 +24,29 @@ Now that data is being transmitted from the Nano33BLESense, we need to have an A
 For development, we'll turn on and off the flashlight or get the phone to beep high and low, depending on the Resting state.
 While this specific functionality won't be used in the end, the solution is crucial for when we're trying to get the phone to chirp good and bad golf swings, or take action in some other way.
 
+<-- -->
+
+Go directly to beep.
+WorkManager accesses the functions of this.
+**Study WorkManager.**
+For WorkManager to do something, it has to be triggered by something.
+It needs to be enabled once there's a connection to BLE.
+**So before WorkManager can do anything, the app needs to enable BLE.**
+Working backwards, make the flashlight on/off with buttons. 
+
+Truth is I'm going to have to build several example apps before I figure out how to do things on my own.
+I installed the basic "hello world" app, but it didn't really teach me anything.
+I still need to learn about the structure of application development.
+It looks like there are a few basic files which are XML files.
+There is also **Gradle** which is a build system.
+Android Studio uses Gradle, which is a build automation tool.
+There is Manifest, which seems like the starting point. _Is it?_
+I'm trying to understand the flow of the code. 
+I believe that Manifest file is where it starts.
+Is it like Python where it goes line by line and runs stuff?
+
+<-- -->
+
 In terms of the Android application itself, first create the Hello World of Android development, and then the focus needs to be WorkManager functionality. This is where activity within the app interacts with other functions outside of the application.
 
 **To do:**
