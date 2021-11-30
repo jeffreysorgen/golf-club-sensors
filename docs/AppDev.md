@@ -21,6 +21,7 @@ AppDev.md
 **Description:**
 
 Now that data is being transmitted from the Nano33BLESense, we need to have an Android application that receives it.
+
 For development, we'll turn on and off the flashlight or get the phone to beep high and low, depending on the Resting state.
 While this specific functionality won't be used in the end, the solution is crucial for when we're trying to get the phone to chirp good and bad golf swings, or take action in some other way.
 
