@@ -32,7 +32,7 @@ The BLE service provides a way to record data without restrictions. It's simply 
 ### Flow:
 Uses BLE:
 - Start by connecting the MCU to the smartphone
-- Begin IMU void loop
+- Begin IMU loop
 
 Uses IMU:
 - If Event Data exists, send data via BLE and clear buffer
