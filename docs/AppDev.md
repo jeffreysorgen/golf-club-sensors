@@ -21,11 +21,17 @@ AppDev.md
 **Description:**
 
 Now that data is being transmitted from the Nano33BLESense, we need to have an Android application that receives it.
+
 For development, we'll turn on and off the flashlight or get the phone to beep high and low, depending on the Resting state.
 While this specific functionality won't be used in the end, the solution is crucial for when we're trying to get the phone to chirp good and bad golf swings, or take action in some other way.
 - **Enable beeps in App before trying BLE**
     - Make buttons for flashlight (on, off, exit)
     - Convert function to beeps (high, low, exit) 
+
+I've already created the hello-world app a couple of times, and it's very simple and shows how to enable the app on the Android device.
+There is another example app, a flashlight app, which will show how app functionality will work on the system. 
+This is a good start to collecting various pieces that will get combined in the end. 
+Hello World (kotlin, LinkedIn Learning), and then [Flashlight app](https://www.geeksforgeeks.org/how-to-build-a-simple-flashlight-torchlight-android-app/) or this other webpage with a [better more helpful video](https://programmerworld.co/android/how-to-switch-torch-or-flash-light-on-and-off-from-your-android-app-complete-source-code/)
 
 <-- -->
 
@@ -55,7 +61,7 @@ In terms of the Android application itself, first create the Hello World of Andr
 **To do:**
 
 1. Develop the Hello World of Android Apps (do this again)
-1. Add buttons: "On" "Off" "Quit" (simple)
+1. Add buttons: "On" "Off" "Quit" (simple) There is a flashlight example app out there. _Find it._
 1. Enable flashlight to turn on and off (use **WorkManager**)
     1. When on, "On" is greyed out, etc.
 1. Then enable high and low tone beeps for each button
