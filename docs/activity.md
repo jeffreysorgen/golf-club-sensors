@@ -122,6 +122,14 @@ What are the specific physical instruments needed to determine whether the motio
 - I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
 - It might just be the other 2 axes from the accelerometer. In this case, don't include the axis to which gravity is applied. Only use the other 2, and when they're below a threshold, they're still. (Having said that, I believe the gyro will be even more obvious)
 
+#####_DO THIS_
+- First, find a way to stop and start the recording of data.
+- Once recording starts, record 100 3D data points and corresponding time stamp.
+- Once 100 data points are recorded, **SAVE THE DATA**
+
+
+
+
 ##
 ##### Step Five:
 ## Get Gyro going
