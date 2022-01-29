@@ -17,6 +17,9 @@ _(Jot down ideas for other projects here)_
 - This formula has hyperparameters which I believe can be learned by a Neural Net. A golf swing consists of a time series of 3D points (say, 100 3-dimensional points per second), and can entirely be drawn with a **Fourier Series!**
 - Technically, although virtually impossible to visualize as a human being, this will work in _**n-dimensions!**_ 
 
+This Fourier part might be the most important and useful.
+If I can find a way to collect instances of 4 dimensional data, I can record the motion of anything a sensor is attached to in 3D space with velocity.
+
 ### This means?
 - that a _multi-dimensional_ line can be generated, against which comparisons can be made for a VERY QUICK INFERENCE!
 - To illustrate, imagine a drone on a 3D path, plus time, and add 2 more dimensions (parameters) such as temperature and pressure. Now it's a 6-dimensional "line" (shape) against which a model can make a quick inference!
@@ -95,6 +98,8 @@ Alter this project using all-wired, plus buzzer and buttons on a breadboard firs
 Handwritten labels on the buttons, record stuff in the database.
 
 **How to create a database in the arduino?**
+
+
 
 #
 ##### Immeditate needs:
