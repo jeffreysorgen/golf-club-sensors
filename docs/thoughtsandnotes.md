@@ -20,7 +20,7 @@ _(Jot down ideas for other projects here)_
 This Fourier part might be the most important and useful part of the project.
 If I can find a way to collect instances of 4 dimensional data, I can record the motion of anything a sensor is attached to in 3D space with velocity. **There will be math calculations involved. Start with 2D. Break down the coefficients into a list. But first, figure out how to record the data.**
 
-The reason we want to use Fourier Series rather than just data points, is that it can be (what is that word for reducing the size of the memory footprint?)
+The reason we want to use Fourier Series rather than just data points, is that it can use quantization. Is the memory footprint smaller using data points, or using float? Fourier Series needs to use Float because it's using complex numbers. **Just use data points**
 
 ### This means?
 - that a _multi-dimensional_ line can be generated, against which comparisons can be made for a VERY QUICK INFERENCE!
