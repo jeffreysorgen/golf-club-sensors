@@ -34,6 +34,12 @@ The above might describe some complete science fiction. I  may be thinking about
 - all I really need is something that we learned about when we were analyzing spectrograms from AUDIO samples, and transforming them using **FFT (Fast Fourier Transform)** so maybe this can be applied to my problem, where there is a singular path (2D), but with one additional corresponding parameter.
 - It's actually much like combining multiple sensors, isn't it?!! After all, an IMU with 9DOF actually has 9 readings, so of course being a mere human being, I couldn't see that we would just utilze what ML already knows how to do.
 
+Think about how FFT works and what it works on: audio input in the form of a sound wave. Many data points, parsed out to become a list of **data points.** So rather than thinking that what I'm doing needs to **become** a Fourier Series, we simply need to CREATE A DATABASE OF DATA POINTS, which clearly will be small footprint, in the order of 1k rather than 1M. If one **swing** contains one hundred points of four dimensions, then 4x100 = 400 characters. TINY.
+
+I'M OVERTHINKING THIS IF I'M USING FOURIER SERIES! **JUST USE A DATABASE, JUST COLLECT DATA.**
+
+Even if I wanted to recreate the golf swing in an animation, I would only need these data points. The 4th dimension would be set to a clock, and the other 3 are axes.
+
 ### So what am I looking for, anyway? (I'm exhausted.)
 - I think all I'm actually looking for is a real-time 3d representation connecting all the data points of the golf swing. The ML can figure out all the other stuff on its own when I send it in the right direction.
 - **is FFT useful here?** is this going to be like converting audio spectrograms?
