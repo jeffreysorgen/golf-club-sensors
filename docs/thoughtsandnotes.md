@@ -78,6 +78,23 @@ As I do some of this on my own, I'll be able to understand where my weaknesses a
 I have always thought that **Kaggle** would be a good place to start. But there are probably other ways too.
 #
 The Nano33BLESense has RGB LED. I want the app to trigger the BLUE led when it receives data from the Android, such as a button push or a toggle.
+##
+#
+#
+##
+What if I'm decomposing this problem incorrectly?
+
+Why not get everything working without the app and then when that's done try putting the app together?
+
+It seems that the application is an ambiguous concept for me, because the flow isn't precisely clear.
+I have wanted the MVP, the hello world for my project that included an app with which to record Y/N into the database.
+
+But I do not have a database.
+
+Alter this project using all-wired, plus buzzer and buttons on a breadboard first for Y/N.
+Handwritten labels on the buttons, record stuff in the database.
+
+**How to create a database in the arduino?**
 
 #
 ##### Immeditate needs:
