@@ -17,8 +17,10 @@ _(Jot down ideas for other projects here)_
 - This formula has hyperparameters which I believe can be learned by a Neural Net. A golf swing consists of a time series of 3D points (say, 100 3-dimensional points per second), and can entirely be drawn with a **Fourier Series!**
 - Technically, although virtually impossible to visualize as a human being, this will work in _**n-dimensions!**_ 
 
-This Fourier part might be the most important and useful.
-If I can find a way to collect instances of 4 dimensional data, I can record the motion of anything a sensor is attached to in 3D space with velocity.
+This Fourier part might be the most important and useful part of the project.
+If I can find a way to collect instances of 4 dimensional data, I can record the motion of anything a sensor is attached to in 3D space with velocity. **There will be math calculations involved. Start with 2D. Break down the coefficients into a list. But first, figure out how to record the data.**
+
+The reason we want to use Fourier Series rather than just data points, is that it can be (what is that word for reducing the size of the memory footprint?)
 
 ### This means?
 - that a _multi-dimensional_ line can be generated, against which comparisons can be made for a VERY QUICK INFERENCE!
