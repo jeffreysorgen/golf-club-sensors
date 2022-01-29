@@ -109,6 +109,9 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 # And...
 **_Now that we've created an Android app:_**
 
+
+
+
 ##
 # steps five and six
 ## Where we left off with the Accelerometer:
@@ -116,13 +119,64 @@ about the _magic-wand_ sketch to see how the DATA is recorded there and what get
 **What is the Accelerometer doing at this point?**
 - When the Accelerometer is in the Ready state, another sensor (gyro, or maybe acc) identifies the Stillness state and prepares to record movement.
 
+##### Record data
+We need to have a starting point for when to record data. Then we need to record 100 or 500 points of data, using physical space orientation or movement. So what are the xyz coordinates when the accelerometer printed out information? Record this data every 20ms to start with.
+
+**Where does this data go? Can it be stored within the Arduino Nano 33 BLE Sense?** And then how to access it? What data can we collect? Once we collect data, can we spit it out to the Serial Monitor? Can we collect multiple instances of the swing?
+
+- How to collect a series of data points
+  - Find moment in accelerometer where, even though it's in Ready State, it is "still" enough to register to begin recording data
+  - Once "still", start recording data points, every 100ms, for 4 seconds. (This is 10 points of data per second, 4 seconds, which is 40 data points, and each data point is \[x,y,z,t], where t is the time stamp in ms from beginning of measurement.)
+  - Still State is priority over recording. If during recording the readings are again at Still, then reset and wait for movement again.
+  - From Still State goes backswing direction, followed by x,y,z,t as compared to its previous "location"
+  - Data point 0 is t=0ms. Data point 1 is t=100ms and has moved X distance in this direction from point 0. So, x1 - x0 = x for this data point.
+  - So one data point (p1) gets stored, and the next data point (p2) is in relation to prior data point. Data point p2 contains x,y,z, and a unique t compared to the other data points. One data record contains 160 bytes (_is this right?_) of data, which is x,y,z,t times 4 seconds, times 10 data points per second.
+  - Swing is measured in 5000ms, or 5 seconds. Once it ends, wait for Still State.
+
+- How to identify Still State
+  - Device is already in Ready State
+  - Device is moving around measurably - as if waving in the air
+  - Device stops moving (within threshold of being still) - as if stationary upon a surface.
+  - Next, Device waits to discover movement and the first data point is recorded at x0,y0,z0,t00ms
+  - Next, second data point is recorded at x1,y1,z1,t100ms
+  - This continues for five seconds.
+
+- Trim Data
+  - Every swing begins with Still State followed by a backswing, swing, and then in 5 seconds stops recording.
+  - If Device detects motion becoming much slower on average, trim data here. (How to calc average? Distance between two data points is shorter than prior pair of data points on average.)  
+
+- Trimmed Data has a 3D shape and speed
+  - Every swing can be layered upon another in different colors for example, and will create "normal" swing
+  - Outliers will be those which have almost no acceleration, the distance between data points is very small. (Nobody waves a club around as much as a practice swing or a real swing.)
+  - Difference between a Practice Swing and a Real Swing is the hitting of a ball, which will spike the accelerometer at around the fastest point of the swing.
+
+- How to record sample data
+  - On a table, Device is stationary
+  - Wave the device back and forth and then stop
+  - 40 data points should print out (per second), and no other information printed (Serial Monitor)
+  - Print swing to Serial Monitor, don't print non-swing
+  - For this example, when Device moves, print the information.
+  - But if it stops prior to 4 seconds, then it's Still State again, so don't print, will have fewer data points.
+  - Serial Monitor should print nothing except for a completed record of 4 seconds of movement.
+  - Print occurs when Still State is reached
+  - Motion, then Still State, then print data points of that Motion
+
+##### Question is: Is this the right sensor? Or is it a gyro?
+Can find this out by recording sample data
+
+- What happens to data while power is on? Is data persistant so I can plug Device into my computer to find it? Probably retrieve a dump of C code?
+- Once "buffer" (EEPROM?) is full, records over old data as FIFO
+- **How to retrieve the data as a dataset???**
+- First, DOES the code record retrievable data?
+- If yes, then HOW MUCH data gets recorded?
+
 **Notes:**
 
 What are the specific physical instruments needed to determine whether the motion has stopped? 
 - I could say, wait until all motion has stopped, but is there one in particular which 100% will say this? 
 - It might just be the other 2 axes from the accelerometer. In this case, don't include the axis to which gravity is applied. Only use the other 2, and when they're below a threshold, they're still. (Having said that, I believe the gyro will be even more obvious)
 
-#####_DO THIS_
+##### _DO THIS_
 - First, find a way to stop and start the recording of data.
 - Once recording starts, record 100 3D data points and corresponding time stamp.
 - Once 100 data points are recorded, **SAVE THE DATA**
