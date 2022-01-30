@@ -161,6 +161,9 @@ We need to have a starting point for when to record data. Then we need to record
   - Print occurs when Still State is reached
   - Motion, then Still State, then print data points of that Motion
 
+- Steps
+  - _**First, get serial monitor going and get it to print out data points**_
+
 ##### Question is: Is this the right sensor? Or is it a gyro?
 Can find this out by recording sample data
 
