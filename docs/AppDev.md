@@ -3,6 +3,7 @@ AppDev.md
 #
 - Android Studio
 - break out _completed_ section to its own page
+- develop new ideas about collecting data
 
 [*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
 [*[ 1 ]*](implementation.md/#the-accelerometer)
