@@ -184,6 +184,26 @@ What are the specific physical instruments needed to determine whether the motio
 - Once recording starts, record 100 3D data points and corresponding time stamp.
 - Once 100 data points are recorded, **SAVE THE DATA**
 
+# So...
+### Now that we have Resting and Ready states:
+If in Resting State, loop continues with two second delay between checks
+If in Ready State, more things happen.
+In Ready State, the club head is either moving or it is not.
+- Check if club head is still
+
+#### Change Serial Monitor to show data
+Is the x,y,z showing "zero"? No. It is showing GPS-type information. It's showing **orientation.**
+Use the Gyro to show that it's sitting still.
+Use the Gyro to show that it's moving.
+While Device is in Ready State, determine if the Gyro is sitting still.
+Within the code loop which is in Ready State, use the Gyro data to determine whether the Device is moving.
+
+
+
+
+
+
+
 
 
 
