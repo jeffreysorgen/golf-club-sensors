@@ -163,6 +163,7 @@ We need to have a starting point for when to record data. Then we need to record
 
 - Steps
   - _**First, get serial monitor going and get it to print out data points**_
+  - It can print out data points / plot, but can it collect them and print out after movement stops?
 
 ##### Question is: Is this the right sensor? Or is it a gyro?
 Can find this out by recording sample data
