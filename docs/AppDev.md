@@ -1,9 +1,9 @@
 AppDev.md
 
 #
-- Android Studio
-- break out _completed_ section to its own page
 - develop new ideas about collecting data
+- break out _completed_ section to its own page
+- Android Studio (on hold for now)
 
 [*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
 [*[ 1 ]*](implementation.md/#the-accelerometer)
@@ -29,11 +29,30 @@ While this specific functionality won't be used in the end, the solution is cruc
     - Make buttons for flashlight (on, off, exit)
     - Convert function to beeps (high, low, exit) 
 
+**Notes:**
+
 _I've already created the hello-world app a couple of times, and it's very simple and shows how to enable the app on the Android device.
 There is another example app, a flashlight app, which will show how app functionality will work on the system. 
 This is a good start to collecting various pieces that will get combined in the end. 
 Hello World (kotlin, LinkedIn Learning), and then [Flashlight app](https://www.geeksforgeeks.org/how-to-build-a-simple-flashlight-torchlight-android-app/) or this other webpage with a [better more helpful video](https://programmerworld.co/android/how-to-switch-torch-or-flash-light-on-and-off-from-your-android-app-complete-source-code/)_
 
+
+##### Current status for app:
+
+**I have paused here,** because building an app is a completely new topic. 
+I have taken some quality steps, but haven't made significant progress toward connecting the app to the device.
+The approach needs to change.
+Rather than work on Android Studio and develop an app for the project, I will work on data collection.
+
+Originally, I thought it would be a good idea to include a BLE solution because it would contribute to the MVP and make it easier to describe the complete project which includes interaction with the smartphone application.
+But using Android Studio is a giant project, and configuring BLE (arbitrarily?) to work with the app proved difficult without more specific components to the project.
+
+**I have decided to work on data collection with the Arduino because that is the clear next step.** 
+
+##
+#
+#
+##
 <-- -->
 
 Go directly to beep.
