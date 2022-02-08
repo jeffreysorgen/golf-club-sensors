@@ -164,6 +164,13 @@ We need to have a starting point for when to record data. Then we need to record
 - Steps
   - _**First, get serial monitor going and get it to print out data points**_
   - It can print out data points / plot, but can it collect them and print out after movement stops?
+  - It's possible to send "every sesson" of movement via BLE, if I can figure out how to RECORD the bytes, which are the x,y,z,t coordinates
+    - And once it has been send via BLE to a computer, can be compiled into a data set
+
+
+
+
+
 
 ##### Question is: Is this the right sensor? Or is it a gyro?
 Can find this out by recording sample data
