@@ -157,13 +157,17 @@ We started with physically setting up the Arduino Nano33BLESense as if it were a
 Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
 After experimenting with a couple of example sketches, we incorporated the BLE library into the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming in. The Nano33BLESense has now been programmed to communicate with a Client (central), so it's time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy.
 
-We're starting from scratch with Android Studio in [**Step Four**](AppDev.md#step-four) (which is entirely new to me at this point).
+_We're ready to connect the smartphone client, but rather than focusing immediately on the application, we should collect data on the device which can then be sent via BLE._
+**Enabling BLE documentation might need to be shifted out to after Data Collection.**
+
+\[delete:] We're starting from scratch with Android Studio in [**Step Four**](AppDev.md#step-four) (which is entirely new to me at this point).
 
 [*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
 [*[ 1 ]*](implementation.md/#the-accelerometer)
 [*[ 2 ]*](implementation.md/#solve-for-power)
-[*[ 3 ]*](#step-three)
-**Next: [_[ 4 Enable Smartphone Response ]_](AppDev.md#step-four)**
+[*[ 3 (top) ]*](#step-three)
+[*[ 4 data collection ]*](activity.md/#steps-five-and-six)
+[_[ 0 Enable Smartphone Response (in progress) ]_](AppDev.md#step-four)
 [*[ Reference ]*](activity.md/#reference)
 [*[ 4.5 KWS ]*](KWS.md/#key-word-spotting)
 [*[ 5 & 6 ]*](activity.md/#steps-five-and-six)
