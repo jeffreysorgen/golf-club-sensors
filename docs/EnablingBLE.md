@@ -165,7 +165,7 @@ _Rather than focusing immediately on the smartphone application, we should colle
 The section above describes two things: One, reading data from the Accelerometer, and two, setting up one side of a BLE connection.
 **Both are important.**
 Reading the Accelerometer is important because it determines whether the golf club is actually being used (is in Ready state).
-And BLE will be used to send swing data to a smartphone _or computer_, because there's only 256k available within the Device.
+And BLE will need to be used to send swing data to a smartphone _or computer_ because there's only 256k available within the Device.
 
 #### The next step is to collect and record swing data from the Gyroscope.
 
