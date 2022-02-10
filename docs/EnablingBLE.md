@@ -2,7 +2,8 @@
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
 [*[ 2 Solve for Power ]*](implementation.md/#solve-for-power)
 [*[ 3 Enabling BLE ]*](#step-three)
-**[*[ Step Four: Enable Smartphone Response ]*](AppDev.md/#step-four)**
+**[*[ 4 Collect Gyro Data ]*](#step-four-gyro)**
+[*[ Step Four: Enable Smartphone Response ]*](AppDev.md/#step-four)
 [*[ Step 4.5: Enable KWS ]*](KWS.md/#key-word-spotting)
 [*[ Steps 5 & 6 ]*](activity.md/#steps-five-and-six)
 [*[ Reference, etc. ]*](activity.md/#reference)
