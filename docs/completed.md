@@ -2,10 +2,12 @@
 ##### Completed:
 
 _skip to
+2021
 [\[Sept\]](#2021-sept)
 [\[Oct\]](#2021-oct)
 [\[Nov\]](#2021-nov)
-2021_
+2022
+[\[Feb\]](#2021-nov)_
 
 ##### _2021 Sept_ 
 
@@ -55,6 +57,11 @@ _skip to
 38. Set up **Virtual environment**
 39. Set up **Git** in the virtual environment
 40. Set up **Jupyter Notebooks** to function in the virtual environment
+
+##### _2022 Feb_
+
+41. Halted App Development in favor of **Data Collection**
+
 
 ##### Learning about this:
 - **[Kotlin](https://kotlinlang.org/)** and **Android Studio**
