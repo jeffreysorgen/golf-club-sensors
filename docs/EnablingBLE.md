@@ -155,10 +155,22 @@ So we created **_golf-swing-acc-ble-statechange_** with this modified code:
 
 We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
 Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
-After experimenting with a couple of example sketches, we incorporated the BLE library into the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming in. The Nano33BLESense has now been programmed to communicate with a Client (central), so it's time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy.
+After experimenting with a couple of example sketches, we incorporated the BLE library into the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming in. 
 
-_We're ready to connect the smartphone client, but rather than focusing immediately on the application, we should collect data on the device which can then be sent via BLE._
-**Enabling BLE documentation might need to be shifted out to after Data Collection.**
+The Nano33BLESense has now been programmed to communicate with a Client (central), so it's time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy. 
+(This idea was based on being less time consuming and being easier for app development.)
+**Enabling BLE communication with a smartphone will instead be shifted out to a step after Data Collection.**
+_Rather than focusing immediately on the smartphone application, we should collect data on the device which can then be sent via BLE._
+
+The section above describes two things: One, reading data from the Accelerometer, and two, setting up one side of a BLE connection.
+**Both are important.**
+Reading the Accelerometer is important because it determines whether the golf club is actually being used (is in Ready state).
+And BLE will be used to send swing data to a smartphone _or computer_, because there's only 256k available within the Device.
+
+#### The next step is to collect and record swing data from the Gyroscope.
+
+
+##
 
 \[delete:] We're starting from scratch with Android Studio in [**Step Four**](AppDev.md#step-four) (which is entirely new to me at this point).
 
