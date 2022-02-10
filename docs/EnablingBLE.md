@@ -169,11 +169,18 @@ And BLE will need to be used to send swing data to a smartphone _or computer_ be
 
 #### The next step is to collect and record swing data from the Gyroscope.
 
+##
+##### Step Four (gyro)
+# Collecting Gyro Data
+
+
+
+
 
 ##
-
-\[delete:] We're starting from scratch with Android Studio in [**Step Four**](AppDev.md#step-four) (which is entirely new to me at this point).
-
+#
+#
+##
 [*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
 [*[ 1 ]*](implementation.md/#the-accelerometer)
 [*[ 2 ]*](implementation.md/#solve-for-power)
