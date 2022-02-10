@@ -19,10 +19,10 @@ _skip to
 6. **GitHub Pages** Added using [this guide](https://guides.github.com/features/pages/) and is accessible _here_ (ongoing)
 7. Changed _hello-world_ (this) repository to PRIVATE, so it now isn't publicly available on GitHub Pages either (Now renamed to _golf-swing-sensors_ and **is** public. GHPages not enabled.)
 8. Installed **GitHub Desktop**, and added [_ArduinoBLE-to-Android_](https://github.com/jeffreysorgen/ArduinoBLE-to-Android) repository (now may not be needed)
-9. Defined Golf Swing Data Flow, [_below_](#flow-for-golf-swing-sensors)
+9. Defined Golf Swing Data Flow, [_below_](implementation.md#flow-for-golf-swing-sensors)
 10. Created _new-readme.md_, _(then README.md, then [GolfSwingSensors.md](GolfSwingSensors.md))_, added implementation.md (this) and made [activity.md](activity.md) into a TO-DO list. (Now deleted the old readme-old.md.)
 11. Renamed (this) repository: _hello-world_ is now _golf-swing-sensors_, and updated README.md _(now content is in [GolfSwingSensors.md](GolfSwingSensors.md#golf-swing-sensors)_
-12. [Implementation Part One:](#the-accelerometer) **Set up Accelerometer**
+12. [Implementation Part One:](implementation.md#the-accelerometer) **Set up Accelerometer**
 
 ##### _2021 Oct_
 
@@ -32,12 +32,12 @@ _skip to
 16. LEARNED that it's easy to mess up in GitHub desktop, so _be careful_
 17. **Electronics** Learned cursory principles of electronics from __LinkedIn Learning__.
 18. **3D Printing** Learned Basics of 3D Printing from __LinkedIn Learning__.
-19. **Arduino sketch** created for Accelerometer - _golf-swing-acc_ ([here](#updating-the-arduino-nano-33-ble)) and kept it **simple**. 
+19. **Arduino sketch** created for Accelerometer - _golf-swing-acc_ ([here](implementation.md#updating-the-arduino-nano-33-ble)) and kept it **simple**. 
 20. **GitHub Markdown** Learned styling for tables, images and code block
 21. Added code block and image from Monitor to this documentation. 
 22. **Accelerometer** Completed documentation, and it's time to move on to [**adding BLE**](EnablingBLE.md/#enabling-ble) to the system!
 23. **Add BLE** Successfully [copied the process](EnablingBLE.md/#try-the-ble-example-sketch) of a YouTuber to add BLE services on the device.
-24. **Power** Documented several potential development and prototyping [**battery solutions**](#solve-for-power)
+24. **Power** Documented several potential development and prototyping [**battery solutions**](implementation.md#solve-for-power)
 25. Generated _pseudo code_ for state changes. (Was hepful, now deleted.)
 26. **New Code** Created [_golf-swing-imu-ble_](EnablingBLE.md#all-the-golf-swing-acc-ble-code-is-here) which communicates via BLE to a smartphone
 27. **Editing** Consolidated the documentation in preparation for moving to **Step Four: [the SDK!](EnablingBLE.md#step-four)**
