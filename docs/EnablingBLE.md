@@ -176,7 +176,7 @@ And BLE will need to be used to send swing data to a smartphone _or computer_ be
 
 **Description:**
 
-Words here.
+[Link to Gyro Steps](activity.md/#steps-five-and-six)
 
 
 ##
