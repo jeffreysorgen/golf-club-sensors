@@ -1,7 +1,7 @@
 
 [*[ back to overview ]*](GolfSwingSensors.md#golf-swing-sensors)
-[*[ completed ]*](#completed)
-[*[ learning ]*](#learning-about-this)
+[*[ completed ]*](completed.md#completed)
+[*[ learning ]*](completed.md#learning-about-this)
 [_[ **Step One: The Accelerometer** ]_](#the-accelerometer)
 [*[ Step Two: Solve for Power ]*](#solve-for-power)
 [*[ Step Three: Enabling BLE ]*](EnablingBLE.md/#enabling-ble)
