@@ -51,12 +51,13 @@ _skip to
 32. Modified the _README.md_ down to one sentence, and then created [_GolfSwingSensors.md_](GolfSwingSensors.md) for the rest.
 33. Determined that Android Studio will be the starting point to develop the Client app for the project (step four)
 34. **Android Studio** Completed "Android Studio Essential Training 2020" in **LinkedIn Learning**
-35. Bought domain _"motion.golf"_
-36. **App Development** Installed Android Studio
-37. _"Hello World"_ app created for Android
-38. Set up **Virtual environment**
-39. Set up **Git** in the virtual environment
-40. Set up **Jupyter Notebooks** to function in the virtual environment
+35. Started working with **[Kotlin](https://kotlinlang.org/)** and **Android Studio**
+36. Bought domain _"motion.golf"_
+37. **App Development** Installed Android Studio
+38. _"Hello World"_ app created for Android
+39. Set up **Virtual environment**
+40. Set up **Git** in the virtual environment
+41. Set up **Jupyter Notebooks** to function in the virtual environment
 
 ##### _2022 Feb_
 
@@ -65,6 +66,8 @@ _skip to
 
 
 ##### Learning about this:
-- **[Kotlin](https://kotlinlang.org/)** and **Android Studio**
+- Gyroscope
+- Memory allocation
+- Arduino - **Arrays**
 - IMU sensors, BLE, C++, data collection
 - GitHub Desktop, possibly GitBASH, KiCad, LTspice, OSHPARK
