@@ -176,6 +176,14 @@ And BLE will need to be used to send swing data to a smartphone _or computer_ be
 
 **Description:**
 
+The Accelerometer has been used to determine whether a golf club is being used or has been put back in the golf bag, based upon its orientation.
+When in play, it is able to begin recording the motion of the Gyroscope.
+
+
+
+
+
+
 [Link to Gyro Steps](activity.md/#steps-five-and-six)
 
 
