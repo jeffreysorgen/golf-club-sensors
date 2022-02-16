@@ -351,7 +351,6 @@ When in play, it is able to begin recording the motion of the Gyroscope.
 [*[ Top ]*](GolfSwingSensors.md#golf-swing-sensors.md)
 [*[ Step One ]*](#step-one)
 [*[ Step Two ]*](#step-two)
-**Next: [*[ Step Three: Enabling BLE --> ]*](EnablingBLE.md/#step-three)**
+[*[ Step Three ]*](#step-three)
 [*[ 4 ]*](AppDev.md/#step-four)
-[*[ 5 ]*](activity.md/#steps-five-and-six)
 
