@@ -213,6 +213,92 @@ But a [**battery-only**](implementation.md/#current-development-solution) soluti
 After being untethered from the computer, the device was trying to find the serial port from which it's now disconnected.
 So this one change will allow the device to function in _nRF Connect_ the same way as it did before.
 
+### The Hello World BLE Sketch
+
+Now that we've got the BLE connecting, and IMU data showing up in _nRF Connect_, it's time to simplify and specialize our code.
+
+There is a _BLE Hello World_ sketch from [okdo.com](activity.md/#reference) 
+that turns on the amber LED on the Arduino board when it connects, 
+and we can then read "Hello World" on the Client (smartphone) app.
+So starting with this simple code as a base, **we'll combine it with our own _golf-swing-acc_ sketch** 
+so that we can see what gets sent from the Nano33BLESense.
+
+- View the _Hello World BLE code_ [**here**](#ble-hello-world-code-is-here)
+
+The big takeaway with this code is that the `while (central.connected())` command just hangs the activity until BLE disconnects and then the code turns the LED off. 
+(It's LED-centric code.) 
+The LED will be useful for indicating "Ready" and "Resting" states.
+
+We've seen in those two examples what a basic `.ino` file looks like. **Here's a summary:**
+
+### Arduino File Structure
+
+Here we will describe the very basic structure of an Arduino `.ino` file. 
+
+**At the most basic level, there are four sections:**
+
+1. *"prior to"*
+2. `void setup()`
+3. `void loop()` and
+4. *"other functions"*
+
+**1. prior to `void setup()`**
+
+- These can be within _namespace_
+- First add LIBRARIES
+- Initialize and name CONSTANTS
+- Initialize VARIABLES
+- Initialize BLE SERVICES
+  - Give the Services and Characteristics their UUIDs ([here](activity.md/#uuid-info) for more info)
+- Initialize respective BLE Service CHARACTERISTICS
+- Create the FUNCTION PROTOTYPE (which reside in "other functions" area)
+
+**2. `void setup()`**
+
+- Initialize the SENSORS
+- Initialize SERIAL COMMUNICATION
+- Initialize OTHER things (such as built-in LED pin)
+- Check for FAILURE
+- Create the BLE NAME to show up in the SCAN
+- Create the BLE SERVICE for advertising
+- Create the BLE Service CHARACTERISTICS
+- ADD the BLE SERVICE to advertise
+  - The variable names were previously initialized above
+- ADVERTISE BLE
+- Set VALUES for strings or constants
+  - These variables were previously initialized above
+  
+**3. `void loop()`**
+
+- conditional settings and calculations repeated within the loop
+- _if-else_ statements, etc
+- engaging LEDs, etc
+
+**4. other functions**
+
+- subroutines _(and other stuff)_
+
+### Creating the new code
+
+**Importing new functionality into our code:**
+
+We're now going to take what we've learned from our two examples and incorporate them into our feature code, now called **_golf-swing-acc-ble_**.
+
+- View the combined code [**here**](#all-the-golf-swing-acc-ble-code-is-here)
+
+##### Phone screen with device listed: (1) scanning, (2) connected, (3) tilting on the y-axis to turn on/off the LED
+
+<p align="center">
+  (1) <img src="/images/BLEScanning.png" width="20%">
+  (2) <img src="/images/BLEConnected.png" width="20%">
+  (3) <img src="/images/myBLEtilt.gif" width="30%">
+</p>
+
+##
+
+
+
+
 
 
 
