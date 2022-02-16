@@ -10,21 +10,7 @@
 
 
 
-## Flow for Golf Swing sensors:
 
-- **BLE** is enabled when the device is powered.
-- Pairs with phone app.
-- Clear device buffer and **begin loop**
-- Enable mag/acc/gyro
-- Mag/acc/gyro wait for stillness (no movement)
-- Acc then identifies direction of gravity=down.
-- Acc/gyro records movement. 
-- **Collection mode:** After movement, enables microphone.
-  - **Microphone** listens for 3 seconds, and records Null, unless it hears "yes" (**This is KWS**)
-  - Send data points to phone app with label. (_Is collection and inference possible together?_)
-- _**Inference mode:** Checks data points with **MODEL**_
-  - _Beep/buzz if good swing_
-  - _Silent (or low tone) if no match_
 
 ##
 ##### Step One:
