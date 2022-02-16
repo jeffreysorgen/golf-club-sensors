@@ -296,7 +296,50 @@ We're now going to take what we've learned from our two examples and incorporate
 
 ##
 
+**Almost done**
 
+Although things are working well, there are still two things we should improve upon. 
+One tweak is to accommodate for an unintentional state change from a bounce of the sensor, 
+and the other is to reduce the amount of BLE communication, sending only once at the moment of a state change.
+
+So we created **_golf-swing-acc-ble-statechange_** with this modified code: 
+- Eliminate accidental state changes from the sensor
+- Send data via BLE **only** when the state changes 
+- Send _boolean 1/0_ rather than the strings, "Resting" and "Ready"
+- Use the shorter 16-bit UUID, like `ffe0` and `ffe1` [_(More about UUID)_](activity.md#uuid-info)
+
+##### BLE sends data only when the words "State change to" appear
+
+<img src="/images/stateshanges.gif" width="80%">
+
+## Summary:
+
+**Server/peripheral-side BLE programming is done for now.**
+
+We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
+Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
+After experimenting with a couple of example sketches, we incorporated the BLE library into the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming in. 
+
+The Nano33BLESense has now been programmed to communicate with a Client (central), so it's time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy. 
+(This idea was based on being less time consuming and being easier for app development.)
+**Enabling BLE communication with a smartphone will instead be shifted out to a step after Data Collection.**
+_Rather than focusing immediately on the smartphone application, we should collect data on the device which can then be sent via BLE._
+
+The section above describes two things: One, reading data from the Accelerometer, and two, setting up one side of a BLE connection.
+**Both are important.**
+Reading the Accelerometer is important because it determines whether the golf club is actually being used (is in Ready state).
+And BLE will need to be used to send swing data to a smartphone _or computer_ because there's only 256k available within the Device.
+
+**The next step is to collect and record swing data from the Gyroscope.**
+
+##
+##### Step Four (gyro)
+# Collecting Gyro Data
+
+**Description:**
+
+The Accelerometer has been used to determine whether a golf club is being used or has been put back in the golf bag, based upon its orientation.
+When in play, it is able to begin recording the motion of the Gyroscope.
 
 
 
