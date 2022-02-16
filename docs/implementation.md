@@ -170,6 +170,54 @@ Finally, we'll come back to the Accelerometer and fine tune it to more closely m
 of determining whether the club is in the golf bag or being used.
 
 
+
+##
+##### Step Three:
+# Enabling BLE
+
+**Description:**
+
+Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app we can download from Google Play called _nRF Connect_. Let's go through the process of getting that started right here. 
+
+### Try the BLE example sketch
+
+I found [_**this video**_](https://youtu.be/2q_tA8v5l1Y) from _Robocraze_ to be helpful, 
+and copied the code from its [**accompanying GitHub repository**](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
+This example reads information from the sensors and then simply displays it in the phone app. 
+Upload the sketch to the device... _**And it works exactly as it does in that video.**_ 
+_But there is a [**caveat**](#caveat) which I discovered for this example._ 
+
+**To do this:**
+
+1. Download _nRF Connect_ from **Google Play** (also available for iOS)
+2. Find the `environment_sensor_ble.ino` file from the _Robocraze_ repository and copy it locally. 
+_(Right-click on _Raw_, save the file, and drop into same-name folder, as required by Arduino.)_
+3. Upload the _environment_sensor_ble_ sketch to the device
+4. Open the serial monitor, watch for "Disconnected from central..."
+5. (App) Open the phone app, _nRF Connect_, and enable Bluetooth
+6. (App) Scan for and connect to the device (its name was declared in the sketch)
+7. (App) Touch _UnknownService, UUID: 0x180C_ (_"180C"_ is unregistered generic UUID)
+8. Watch Monitor again for services to pop up
+9. (App) Touch the "triple down arrow" <img src="/images/3downarrows.png" width="20em" /> for each of the three services for this example
+10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
+
+##### Caveat:
+
+With the USB cable plugged into the computer I **_can_** discover _"Arduino Environment Sensor"_ in nRF Connect. 
+But a [**battery-only**](implementation.md/#current-development-solution) solution can **_not_**. So...
+
+**For battery-only:**
+
+- Comment out `//while (!Serial);` 
+
+After being untethered from the computer, the device was trying to find the serial port from which it's now disconnected.
+So this one change will allow the device to function in _nRF Connect_ the same way as it did before.
+
+
+
+
+
+
 #
 [*[ Top ]*](GolfSwingSensors.md#golf-swing-sensors.md)
 [*[ Step One ]*](#step-one)
