@@ -61,6 +61,7 @@ _skip to
 ##### _2022 Feb_
 
 41. Halted App Development in favor of **Data Collection**
+42. Consolidate documentation
 
 
 ##### Learning about this:
