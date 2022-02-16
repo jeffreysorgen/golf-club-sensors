@@ -158,6 +158,18 @@ Swinging the club around won't put it into that Resting state unless it register
   - It's certainly not designed for swinging around, but it is proof that there's a pinout solution.
   - It's a good example for a stationary device.
 
+
+### Summary
+
+We have enabled the Accelerometer and found a temporary solution for power.
+
+**Next**, we're going to find a way to connect the device to a smartphone utilizing BLE,
+which will be useful in the future when a smartphone application is being built.
+In the process of implementing BLE, we're going to examine the structure of the Arduino code.
+Finally, we'll come back to the Accelerometer and fine tune it to more closely match our use case
+of determining whether the club is in the golf bag or being used.
+
+
 #
 [*[ Top ]*](GolfSwingSensors.md#golf-swing-sensors.md)
 [*[ Step One ]*](#step-one)
