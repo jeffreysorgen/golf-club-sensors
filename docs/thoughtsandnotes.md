@@ -91,6 +91,14 @@ I have always thought that **Kaggle** would be a good place to start. But there 
 The Nano33BLESense has RGB LED. I want the app to trigger the BLUE led when it receives data from the Android, such as a button push or a toggle.
 ##
 #
+**RFID**
+
+Having a small form factor, the device attaches velcro to the club head.
+Velcro strip on every club head includes an RFID "strip" which makes it possible for the device to recognize which golf club it's attached to.
+#
+Think about using a raspberry pi as a "home" unit, which can reside in the golf cart or bag.
+Micro SD card is available in the raspberry pi.
+It can deliver power to the arduino (for prototyping)
 #
 ##
 What if I'm decomposing this problem incorrectly?
