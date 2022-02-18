@@ -28,19 +28,27 @@ The code for the **Gyro** will identify when the device is Still, and then and p
 
 _**The first objective is to display the data as a set of coordinates plus millis to the Serial Monitor.**_
 
-- First, enable the Gyro to read and print all data points, (x,y,z).
-- Next, print data only after each 100ms.
-- Next, print data points plus millis.
+- First, enable the Gyro to read and print all data points, (x,y,z)
+- Change data points to INTEGERS
+- Next, print data point only after each 100ms.
+- Next, print data point plus millis.
 - Next, set **threshold** to record data only when motion is faster.
 - Print "No Movement" one time, until movement is detected.
 - Next, set millis to zero for first data point when threshold is met
-- Next, print data points plus millis (which are set to begin at 0ms)
+- Next, print data point plus millis (which begin at 0ms)
 - **THIS is the set of data points to collect.**
 
 _**The second objective is to collect the series of points into an array.**_
 
-- Collect set of data points into an **array** in the code.
-- Don't print to Serial Monitor until array is complete.
+- Collect data point **series** into an **array** in the code.
+- Print array each time data point is added.
+- Then, print data point series (the array) when motion stops
+
+_**The third objective is to collect arrays**_
+
+- Collect multiple arrays (swings)
+- Accumulate 10 "swings" and print to Serial Monitor, purge memory 
+- Test accumulating 25, 50, 100, 500 arrays before printing and purging
 
 
 ### When to record data
