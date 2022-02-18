@@ -344,7 +344,7 @@ When in play, it is able to begin recording the motion of the Gyroscope.
 
 
 
-[Link to Gyro Steps](activity.md/#steps-five-and-six)
+[Link to Gyro Steps](activity.md/#step-four)
 
 
 
