@@ -24,16 +24,16 @@ When in Ready state, we're able to begin recording motion with the Gyroscope.
 
 The code for the **Gyro** will identify when the device is Still, and then and prepare to record movement.
 
-**Steps:**
+### Three Objectives:
 
 _**The first objective is to display the data as a set of coordinates plus millis to the Serial Monitor.**_
 
-- First, enable the Gyro to read and print all data points, (x,y,z)
+- First, enable the Gyro to read and print all data points, (gX, gY, gZ)
 - Change data points to INTEGERS
-- Next, print data point only after each 100ms.
-- Next, print data point plus millis.
+- Next, print data point only after each 100ms (40 points per array)
+- Next, print data point plus millis, (gX, gY, gZ, gT)
 - Next, set **threshold** to record data only when motion is faster.
-- Print "No Movement" one time, until movement is detected.
+- Print "No Movement Detected" one time, until movement is detected.
 - Next, set millis to zero for first data point when threshold is met
 - Next, print data point plus millis (which begin at 0ms)
 - **THIS is the set of data points to collect.**
@@ -47,33 +47,37 @@ _**The second objective is to collect the series of points into an array.**_
 _**The third objective is to collect arrays**_
 
 - Collect multiple arrays (swings)
+- Accumulate 2 "swings" and print to Serial Monitor, purge memory 
 - Accumulate 10 "swings" and print to Serial Monitor, purge memory 
-- Test accumulating 25, 50, 100, 500 arrays before printing and purging
+- Create 4-second arrays
+- Test accumulating 10, 25, 50, 100, 500 arrays before printing and purging
 
+_**The fourth objective is MOVING the data to another device**_ (pending)
 
-### When to record data
+- raspberry pi w SD card and BLE, then to PC for ML
+  - (does a rasp pi have a beeper or buzzer?)
+  - (can a rasp pi be power source for LiPo batt)
+- other device
+- smartphone memory
+
+##
+#
+#
+##
+
+#### When to record data
 We need to have a starting point for when to record data. 
 Then we need to record 100 or 500 points of data, using physical movement. 
 So what are the xyz coordinates when the Gyro printed out information? 
 Record this data every 20ms to start with.
 
-### How to record data 
+#### How to record data 
 **Where does this data go? Can it be stored within the Arduino Nano 33 BLE Sense?** 
 And then how to access it? What data can we collect? 
 Once we collect data, can we spit it out to the Serial Monitor? 
 Can we collect multiple instances of the swing?
 
-### First objective
-
-Collect 4 seconds of data points, \[gX, gY, gZ, gT], where gT is time in millis.
-Begin collecting data points when Gyro detects motion beyond a particular threshold.
-Collect series of coordinates plus gT, during movement, until movement slows to a threshold.
-
-Print "Movement stopped" when not sensing movement.
-When movement exceeds threshold, print coordinates and millis.
-After 100ms, print coordinates and millis and repeat.
-If Still state is reached, stop recording and reset.
-After 4 seconds, stop recording movement and reset.
+##
 
 - Display Gyro data on Serial Monitor
   - _What does it represent?_
