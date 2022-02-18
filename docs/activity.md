@@ -87,8 +87,6 @@ Can we collect multiple instances of the swing?
   - Set ms0 to first moment of movement
 - Prepare data for collecting
 
-### How to write to memory?
-- **_Learn this_**
 
 ##
 #
