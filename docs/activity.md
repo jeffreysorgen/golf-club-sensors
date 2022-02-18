@@ -1,39 +1,56 @@
 [*[ Overview ]*](README.md/#golf-swing-sensors)
 [*[ 1 The Accelerometer ]*](implementation.md/#the-accelerometer)
 [*[ 2 Solve for Power ]*](implementation.md/#solve-for-power)
-**[*[ 3 Enable BLE ]*](EnablingBLE.md#step-three)**
-[*[ Step Four: Enable Smartphone Response ]*](EnablingBLE.md/#step-four)
-[*[ Step 4.5: Enable KWS ]*](KWS.md/#key-word-spotting)
-[*[ Enabling the Gyro ]*](#steps-five-and-six)
-[*[ Recording the Data ]*](#steps-five-and-six)
+[*[ 3 Enable BLE ]*](implementation.md#step-three)
+[*[ Enabling the Gyro ]*](#step-four)
+[*[ Recording the Data ]*](#step-four)
+[*[ **Enable Smartphone Response** ]*](AppDev.md)
+[*[ Enable KWS ]*](KWS.md/#key-word-spotting)
 [_[ jump to new project ideas-> ]_](thoughtsandnotes.md/#other-projects)
 
-##
 
+##
+##### Step Four
+##### Step Four (gyro)
+# Collecting Gyro Data
+**The next step is to collect and record swing data from the Gyroscope.**
+
+**Description:**
+
+Based upon its orientation, the **Accelerometer** determines whether a golf club is being used or has been put back in the golf bag. 
+(Ready state or Resting state.)
+When in Ready state, we're able to begin recording motion with the Gyroscope.
+
+The code for the **Gyro** will identify when the device is in Stillness state and prepare to record movement.
+
+### When to record data
+We need to have a starting point for when to record data. 
+Then we need to record 100 or 500 points of data, using physical movement. 
+So what are the xyz coordinates when the Gyro printed out information? 
+Record this data every 20ms to start with.
+
+### How to record data 
+**Where does this data go? Can it be stored within the Arduino Nano 33 BLE Sense?** 
+And then how to access it? What data can we collect? 
+Once we collect data, can we spit it out to the Serial Monitor? 
+Can we collect multiple instances of the swing?
+
+### First objective
+- Display Gyro data on Serial Monitor
+  - _What does it represent?_
+  - Use integers for gX, gY, gZ
+- Set threshold to minimum movement before displaying data
+- Add TIME STAMP, gT, using `millis()`
+  - Set ms0 to first moment of movement
+- Prepare data for collecting
+
+### How to write to memory?
+- **_Learn this_**
+
+##
 #
-
 #
-
 ##
-**Link to: [*[ Step Four: Enable Smartphone Response ]*](EnablingBLE.md/#step-four)**
-
-# And...
-**_Now that we've created an Android app:_**
-
-
-
-
-##
-# steps five and six
-## Where we left off with the Accelerometer:
-
-**What is the Accelerometer doing at this point?**
-- When the Accelerometer is in the Ready state, another sensor (gyro, or maybe acc) identifies the Stillness state and prepares to record movement.
-
-##### Record data
-We need to have a starting point for when to record data. Then we need to record 100 or 500 points of data, using physical space orientation or movement. So what are the xyz coordinates when the accelerometer printed out information? Record this data every 20ms to start with.
-
-**Where does this data go? Can it be stored within the Arduino Nano 33 BLE Sense?** And then how to access it? What data can we collect? Once we collect data, can we spit it out to the Serial Monitor? Can we collect multiple instances of the swing?
 
 - How to collect a series of data points
   - Find moment in accelerometer where, even though it's in Ready State, it is "still" enough to register to begin recording data
