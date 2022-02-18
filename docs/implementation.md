@@ -217,13 +217,13 @@ So this one change will allow the device to function in _nRF Connect_ the same w
 
 Now that we've got the BLE connecting, and IMU data showing up in _nRF Connect_, it's time to simplify and specialize our code.
 
-There is a _BLE Hello World_ sketch from [okdo.com](activity.md/#reference) 
+There is a _BLE Hello World_ sketch from [okdo.com](reference.md/#reference) 
 that turns on the amber LED on the Arduino board when it connects, 
 and we can then read "Hello World" on the Client (smartphone) app.
 So starting with this simple code as a base, **we'll combine it with our own _golf-swing-acc_ sketch** 
 so that we can see what gets sent from the Nano33BLESense.
 
-- View the _Hello World BLE code_ [**here**](#ble-hello-world-code-is-here)
+- View the _Hello World BLE code_ [**here**](#ble-hello-world-code-is-here) --> _(need new link)_
 
 The big takeaway with this code is that the `while (central.connected())` command just hangs the activity until BLE disconnects and then the code turns the LED off. 
 (It's LED-centric code.) 
@@ -249,7 +249,7 @@ Here we will describe the very basic structure of an Arduino `.ino` file.
 - Initialize and name CONSTANTS
 - Initialize VARIABLES
 - Initialize BLE SERVICES
-  - Give the Services and Characteristics their UUIDs ([here](activity.md/#uuid-info) for more info)
+  - Give the Services and Characteristics their UUIDs ([here](reference.md/#uuid-info) for more info)
 - Initialize respective BLE Service CHARACTERISTICS
 - Create the FUNCTION PROTOTYPE (which reside in "other functions" area)
 
@@ -284,7 +284,7 @@ Here we will describe the very basic structure of an Arduino `.ino` file.
 
 We're now going to take what we've learned from our two examples and incorporate them into our feature code, now called **_golf-swing-acc-ble_**.
 
-- View the combined code [**here**](#all-the-golf-swing-acc-ble-code-is-here)
+- View the combined code [**here**](#all-the-golf-swing-acc-ble-code-is-here) <-- _(need new link)_
 
 ##### Phone screen with device listed: (1) scanning, (2) connected, (3) tilting on the y-axis to turn on/off the LED
 
@@ -306,7 +306,7 @@ So we created **_golf-swing-acc-ble-statechange_** with this modified code:
 - Eliminate accidental state changes from the sensor
 - Send data via BLE **only** when the state changes 
 - Send _boolean 1/0_ rather than the strings, "Resting" and "Ready"
-- Use the shorter 16-bit UUID, like `ffe0` and `ffe1` [_(More about UUID)_](activity.md#uuid-info)
+- Use the shorter 16-bit UUID, like `ffe0` and `ffe1` [_(More about UUID)_](reference.md#uuid-info)
 
 ##### BLE sends data only when the words "State change to" appear
 
@@ -320,7 +320,8 @@ We started with physically setting up the Arduino Nano33BLESense as if it were a
 Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
 After experimenting with a couple of example sketches, we incorporated the BLE library into the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming in. 
 
-The Nano33BLESense has now been programmed to communicate with a Client (central), so it's time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy. 
+The Nano33BLESense has now been programmed to communicate with a Client (central), 
+so it's time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy. 
 (This idea was based on being less time consuming and being easier for app development.)
 **Enabling BLE communication with a smartphone will instead be shifted out to a step after Data Collection.**
 _Rather than focusing immediately on the smartphone application, we should collect data on the device which can then be sent via BLE._
@@ -348,9 +349,9 @@ When in play, it is able to begin recording the motion of the Gyroscope.
 
 
 #
-[*[ Top ]*](GolfSwingSensors.md#golf-swing-sensors.md)
+[*[ Top ]*](GolfSwingSensors.md#golf-swing-sensors)
 [*[ Step One ]*](#step-one)
 [*[ Step Two ]*](#step-two)
 [*[ Step Three ]*](#step-three)
-[*[ 4 ]*](AppDev.md/#step-four)
+[*[ 4 (AppDev) ]*](AppDev.md/#step-four)
 
