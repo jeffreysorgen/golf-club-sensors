@@ -22,7 +22,26 @@ Based upon its orientation, the **Accelerometer** determines whether a golf club
 (Ready state or Resting state.)
 When in Ready state, we're able to begin recording motion with the Gyroscope.
 
-The code for the **Gyro** will identify when the device is in Stillness state and prepare to record movement.
+The code for the **Gyro** will identify when the device is Still, and then and prepare to record movement.
+
+**Steps:**
+
+_**The first objective is to display the data as a set of coordinates plus millis to the Serial Monitor.**_
+
+- First, enable the Gyro to read and print all data points, (x,y,z).
+- Next, print data only after each 100ms.
+- Next, print data points plus millis.
+- Next, set **threshold** to record data only when motion is faster.
+- Print "No Movement" one time, until movement is detected.
+- Next, set millis to zero for first data point when threshold is met
+- Next, print data points plus millis (which are set to begin at 0ms)
+- **THIS is the set of data points to collect.**
+
+_**The second objective is to collect the series of points into an array.**_
+
+- Collect set of data points into an **array** in the code.
+- Don't print to Serial Monitor until array is complete.
+
 
 ### When to record data
 We need to have a starting point for when to record data. 
