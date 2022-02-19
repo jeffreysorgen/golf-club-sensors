@@ -70,7 +70,7 @@ _**Can I use the computer to collect the data?**_
 - Can this batch of arrays write to a CSV instead?
   - _**This is where I'm stuck**_
   - Device can send data via BLE.
-  - Can my computer pair with device via BLE?
+  - There is no pairing for BLE, but there is driver for Win10
   - Can BLE be used to receive data from the device?
     - What form is that data in?
   - How to convert output to a CSV file?
