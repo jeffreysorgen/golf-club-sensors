@@ -57,8 +57,46 @@ _**The fourth objective is MOVING the data to another device**_ (pending)
 - raspberry pi w SD card and BLE, then to PC for ML
   - (does a rasp pi have a beeper or buzzer?)
   - (can a rasp pi be power source for LiPo batt)
+- my computer
 - other device
 - smartphone memory
+
+_**Can I use the computer to collect the data?**_
+
+- Data can only be sent to the Serial Monitor
+  - Set of coordinates can be sent to the _Serial Monitor_.
+  - Coordinates can be appended to an array and then sent to the _Serial Monitor_.
+  - Multiple arrays can be appended to a variable and then later sent to _Serial Monitor_.
+- Can this batch of arrays write to a CSV instead?
+  - _**This is where I'm stuck**_
+  - Device can send data via BLE.
+  - Can my computer pair with device via BLE?
+  - Can BLE be used to receive data from the device?
+    - What form is that data in?
+  - How to convert output to a CSV file?
+  - Can array be appended to a CSV?
+
+_**Objectives:**_
+
+- Collect multiple arrays into a CSV
+- Collect consistant SWINGS data
+- Graphically display array (coordinate series)
+- Append more arrays to CSV
+- 10X the data
+
+_**Description of SWING data**_
+
+- Swing data coordinates begin in one direction as a backswing.
+- Then four seconds is recorded in 100ms increments
+- Each increment saved as a data point
+- Every data point saved into an array
+- Every array saved to a data set
+- Collection of golf swings are the data set
+- Real swing is appx four seconds
+- All swings begin at 0ms
+- All swings can be graphed in 3D space
+- All swings can be graphed in 3D motion
+
 
 ##
 #
