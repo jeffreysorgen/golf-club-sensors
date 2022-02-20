@@ -30,11 +30,11 @@ _**The first objective is to display the data as a set of coordinates plus milli
 
 - First, enable the Gyro to read and print all data points, (gX, gY, gZ)
 - Change data points to INTEGERS
-- Next, print data point only after each 100ms (40 points per array)
 - Next, print data point plus millis, (gX, gY, gZ, gT)
+- Next, print data point only after each 100ms
 - Next, set **threshold** to record data only when motion is faster.
+- Next, set millis to zero for first data point
 - Print "No Movement Detected" one time, until movement is detected.
-- Next, set millis to zero for first data point when threshold is met
 - Next, print data point plus millis (which begin at 0ms)
 - **THIS is the set of data points to collect.**
 
