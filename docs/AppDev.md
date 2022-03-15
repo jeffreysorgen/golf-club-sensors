@@ -2,7 +2,6 @@ AppDev.md
 
 #
 - develop new ideas about collecting data
-- break out _completed_ section to its own page
 - Android Studio (on hold for now)
 
 [*[ top ]*](GolfSwingSensors.md/#golf-swing-sensors)
