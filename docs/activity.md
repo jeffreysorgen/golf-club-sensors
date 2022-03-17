@@ -97,6 +97,10 @@ _**Description of SWING data**_
 - All swings can be graphed in 3D space
 - All swings can be graphed in 3D motion
 
+_**Future considerations**_
+
+- Explore how to enhance the swing data to include ball striking
+- What new sensor measurements can this be adapted to include?
 
 ##
 #
