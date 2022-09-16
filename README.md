@@ -39,7 +39,9 @@ Attach a small form factor MCU to the back of a golf club head securely to engag
 ## Technical Description
 
 This is a multi-tenancy model. The IMU and Microphone function in cascade fashion. The BLE is always enabled but only transmits during data collection. 
+
 **The following describes a way to collect data for a golf swing.** 
+
 It waits for the motion to stop, and then starts looking for the motion of a swing, and then I speak into the microphone 'yes' so that it gains a label, otherwise it is null. 
 The null swings are much more frequent, because the system records everything that follows a pause of motion if the orientation of the device is at the starting position.
 The BLE service provides a way to record data without restrictions. It's simply always on, without needing to go to a cloud service which is typically necessary for IoT devices, because the smartphone application collects the data. Only the smartphone needs to be near the device, within several feet, and the device does not need to connect to anything else. So this system is ideal for remote functionality, even without cellphone service, because a smartphone can connect via Bluetooth to the device without needing wifi or Cell service.
