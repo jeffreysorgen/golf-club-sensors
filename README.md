@@ -48,7 +48,7 @@ The fourth physical stage of the system is to entirely replace the second device
 - **Second circuit board**
   - any form factor, any battery solution
   - includes (1) BLE, (2) SD card, (3) speaker
-
+  - _Explore whether MCU emulation [(renode.io)](https://renode.io) is a good alternative to try prior to configuring a second MCU._ 
 
 
 
@@ -244,7 +244,7 @@ The goal was to basically create on/off states, accomplished here by using a thr
 
 **Exception to this configuration:**
 
-Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason. **This exception has been resolved in later code.**
+Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason. _**This exception has been resolved in later code.**_
 
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
 
@@ -278,11 +278,14 @@ The initial, current solution described here will work for testing. But utilizin
 
 **Battery options:**
 
-- I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. _(There is a small Lithium cell available, around 2-3mm. There is also needed a battery regulating circuit - but I don't remember what this is called - that's needed. There are three parts: The battery, the regulating circuit, and the connector. This connector is the "2-prong" connector I am referring to here.)_ 
+- I am looking for those **2-prong** "magnetic" battery chargers, the kind of battery/connector is in that fit-watch, and where to get that rechargable battery. _(insert photo)_ 
+- _(There is a small Lithium cell available, around 2-3mm. There is also needed a battery regulating circuit - but I don't remember what this is called - that's needed. There are three parts: The battery, the regulating circuit, and the connector. This connector is the "2-prong" connector I am referring to here.)_ 
+- After researching and pinpointing what's needed, there will be a small lithium rechargable battery connected with wires to a "regulating circuit", with the wires attached to the desired connector, and the connector using USB on the other end. _(ASK RICH WHAT THE LITHIUM BATTERY NUMBER IS, OR GOOGLE IT, REALLY)_
+
+Examples (that won't work):
 - **Qi coil** is a wireless charging device.
 - **CR1220** is a small, common coin-type battery
 - **LIR2032H** is a common 3.7 rechargable, but 20mm, so like a nickel size.
-- After researching and pinpointing what's needed, there will be a small lithium rechargable battery connected with wires to a "regulating circuit", with the wires attached to the desired connector, and the connector using USB on the other end. _(ASK RICH WHAT THE LITHIUM BATTERY NUMBER IS, OR GOOGLE IT, REALLY)_
 
 
 **Alternative development solution**
