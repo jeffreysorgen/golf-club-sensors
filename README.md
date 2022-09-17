@@ -132,7 +132,7 @@ BLE will remain engaged.
 The connected smartphone device will beep only when it identifies a **state change**.
 _The beep at this point is for development purposes, and is intended for future use elsewhere._
 
-**Setting up the prototype:**
+**Physical Set-up:**
 
 These readings will determine the Ready or Resting state orientation
 - For ease of use, put the Arduino into a breadboard and then attach it to a stick in a perpendicular fashion as shown here. 
