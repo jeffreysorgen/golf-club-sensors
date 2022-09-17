@@ -39,6 +39,19 @@ The third physical stage for data collection is to remove the computer from the 
 The fourth physical stage of the system is to entirely replace the second device with a smartphone application. The smartphone can both collect data and make sounds. There is potential opportunity to utilize large scale data collection as well.
 
 
+
+**Prototyping:**
+
+- **First circuit board (the prototype device)**
+  - small form factor, independently powered
+  - includes (1) IMU, (2) microphone, (3) BLE, (4) battery
+- **Second circuit board**
+  - any form factor, any battery solution
+  - includes (1) BLE, (2) SD card, (3) speaker
+
+
+
+
 ## Technical Description
 
 This is a multi-tenancy model. The IMU and Microphone function in cascade fashion. The BLE is always enabled but only transmits during data collection. _(There's a nuance to this though.)_
@@ -48,6 +61,8 @@ This is a multi-tenancy model. The IMU and Microphone function in cascade fashio
 It waits for the motion to stop, and then starts looking for the motion of a swing, and then I speak into the microphone 'yes' so that it gains a label, otherwise it is null. 
 The null swings are much more frequent, because the system records everything that follows a pause of motion if the orientation of the device is at the starting position.
 The BLE service provides a way to record data without restrictions. It's simply always on, without needing to go to a cloud service which is typically necessary for IoT devices, because the smartphone application collects the data. Only the smartphone needs to be near the device, within several feet, and the device does not need to connect to anything else. So this system is ideal for remote functionality, even without cellphone service, because a smartphone can connect via Bluetooth to the device without needing wifi or Cell service.
+
+
 
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
 
@@ -235,39 +250,40 @@ Swinging the club around won't put it into that Resting state unless it register
 
 
 
-
-
-
-
 # Solving for Power
 (Step Two)
 
-_Solving for power_ is a challenge to resolve during the [second physical stage](#physical-description) of development, when a second device is used and the first needs independent power.
-The initial solution described here will work for testing, but utilizing a new, more practical battery solution is required to collect **real** swing data.
+_Solving for power_ is a challenge to resolve during the [second physical stage](#physical-description) of development, when a second device is included, and the first needs independent power.
 
-**Future prototyping solution:**
+The initial, current solution described here will work for testing. But utilizing a new, more practical battery solution is required to collect **real** swing data.
 
-- Later can build an obviously better solution.  
-- When 100% finished developing with my Arduino Nano 33 BLE Sense, I will be looking into using a different board for prototyping, and a battery solution will definitely be a part of the research.
-  - **The board needs to include (1) an IMU, (2) a microphone, (3) BLE, and (4) a solvable battery option**
-- Battery options:
-  - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. _(There is a small Lithium cell available, around 2-3mm. There is also needed a battery regulating circuit - but I don't remember what this is called - that's needed. There are three parts: The battery, the regulating circuit, and the connector. This connector is the "2-prong" connector I am referring to here.)_ 
-  - **Qi coil** is a wireless charging device.
-  - **CR1220** is a small, common coin-type battery
-  - **LIR2032H** is a common 3.7 rechargable, but 20mm, so like a nickel size.
-  - After researching and pinpointing what's needed, there will be a small lithium rechargable battery connected with wires to a "regulating circuit", with the wires attached to the desired connector, and the connector using USB on the other end. _(ASK RICH WHAT THE LITHIUM BATTERY NUMBER IS, OR GOOGLE IT, REALLY)_
 
-## Current development power solution
 
-- **Connect with only BLE and be _physically detached_ from the computer.**
+
+**Current development power solution:**
+
+- Connect **only** with BLE and be _physically detached_ from the computer.
 - Attach the Arduino Sense (USBmicro port) to a power source.
-- Use a lightweight **phone recharger** (with 2 USB out) to serve this purpose during development.  
+- Use a lightweight phone recharger (with 2 USB out) to serve this purpose during development.  
 - Rechargers will shut off after a short time with just a low power drain.
-- **Charging an _old phone_ at the same time will prevent this auto-shutoff** 
+- _Charging an _old phone_ at the same time will prevent this auto-shutoff._ 
 
 **Charging up a dead old phone, simultaneously powering Nano33BLE:**
 
 <img src="/images/Sm-batterypack.png" width="35%">
+
+
+
+
+
+**Battery options:**
+
+- I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. _(There is a small Lithium cell available, around 2-3mm. There is also needed a battery regulating circuit - but I don't remember what this is called - that's needed. There are three parts: The battery, the regulating circuit, and the connector. This connector is the "2-prong" connector I am referring to here.)_ 
+- **Qi coil** is a wireless charging device.
+- **CR1220** is a small, common coin-type battery
+- **LIR2032H** is a common 3.7 rechargable, but 20mm, so like a nickel size.
+- After researching and pinpointing what's needed, there will be a small lithium rechargable battery connected with wires to a "regulating circuit", with the wires attached to the desired connector, and the connector using USB on the other end. _(ASK RICH WHAT THE LITHIUM BATTERY NUMBER IS, OR GOOGLE IT, REALLY)_
+
 
 **Alternative development solution**
 
@@ -276,7 +292,7 @@ The initial solution described here will work for testing, but utilizing a new, 
   - This [**Appendix from the TinyMLx repo**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
   - It's certainly not designed for swinging around, but it is proof that there's a pinout solution.
   - It's a good example for a stationary device.
-  - _(I am closer than what's described here to settling on a better power solution.)_
+- _(I am closer than what's described here to settling on a better power solution. The 9V solution here might be good for [**third stage** physical development](#physical-description))_
 
 **Summary:**
 
