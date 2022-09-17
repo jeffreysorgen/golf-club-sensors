@@ -282,22 +282,25 @@ The initial, current solution described here will work for testing. But utilizin
 - _(There is a small Lithium cell available, around 2-3mm. There is also needed a battery regulating circuit - but I don't remember what this is called - that's needed. There are three parts: The battery, the regulating circuit, and the connector. This connector is the "2-prong" connector I am referring to here.)_ 
 - After researching and pinpointing what's needed, there will be a small lithium rechargable battery connected with wires to a "regulating circuit", with the wires attached to the desired connector, and the connector using USB on the other end. _(ASK RICH WHAT THE LITHIUM BATTERY NUMBER IS, OR GOOGLE IT, REALLY)_
 
+**The round "2-Prong" connector:**
+
 <img src="images/round connector.png" width="20%">
 
-Examples (that won't work):
+**Battery examples (that won't work):**
+
 - **Qi coil** is a wireless charging device.
 - **CR1220** is a small, common coin-type battery
 - **LIR2032H** is a common 3.7 rechargable, but 20mm, so like a nickel size.
 
 
-**Alternative development solution**
+**9V option for [third stage](#physical-description) physical development:**
 
-- This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
 - There's a power solution in the TinyML Course, attaching a 9V battery to the **Learning Kit Shield**. 
   - This [**Appendix from the TinyMLx repo**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
-  - It's certainly not designed for swinging around, but it is proof that there's a pinout solution.
-  - It's a good example for a stationary device.
-- _(I am closer than what's described here to settling on a better power solution. The 9V solution here might be good for [**third stage** physical development](#physical-description))_
+- Not practical for the _golf-club-sensors_ prototype device itself, but is a good example for a stationary device.
+- It's certainly not designed for swinging around, but it is proof that there's a pinout solution.
+
+
 
 **Summary:**
 
