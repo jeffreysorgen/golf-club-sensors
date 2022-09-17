@@ -487,7 +487,7 @@ _(The following fact should be referenced, but "State Change" needs to be extrac
 
 <img src="/images/stateshanges.gif" width="80%">
 
-## Enabling BLE Summary:
+**Summary: Enabling BLE**
 
 **Server/peripheral-side BLE programming is done for now.**
 
