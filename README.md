@@ -26,7 +26,7 @@ Attach a small form factor MCU to the back of a golf club head securely to engag
 
 **Physical Development Stages:**
 
-During the first physical stage of development, the device will be directly connected to the computer, having all sensor readings show in the Serial Monitor. Later the system is configured to collect the data onto an SD card or a folder on the computer.
+During the first physical stage of development, the device will be directly connected to the computer, having all sensor readings shown in the Serial Monitor. Later the system is configured to collect the data onto an SD card or a folder on the computer.
 
 In the second physical stage of development, a second device (another Nano33BLESense) will be employed, receiving the data transmitted to it by the first device via BLE. This second device is connected to the computer and functions the same way as had already been configured.
 
@@ -34,13 +34,13 @@ The device that's attached to the golf club head will be powered by a small Lith
 
 The third physical stage for data collection is to remove the computer from the system, having configured the second device to collect data onto an SD card directly if it's a Raspberry Pi, or to an externally attached SD card reader. Any battery solution can be used because the device is stationary.
 
-The fourth physical stage of the system is to entirely replace the second device with a smartphone application. The smartphone can both collect data and make a sound, riggered by the device due to an inference it's made.
+The fourth physical stage of the system is to entirely replace the second device with a smartphone application. The smartphone can both collect data and make sounds. There is potential opportunity to utilize large scale data collection as well.
 
 
 
 ## Technical Description
 
-This is a multi-tenancy model. The IMU and Microphone function in cascade fashion. The BLE is always enabled but only transmits during data collection. 
+This is a multi-tenancy model. The IMU and Microphone function in cascade fashion. The BLE is always enabled but only transmits during data collection. _(There's a nuance to this though.)_
 
 **The following describes a way to collect data for a golf swing.** 
 
