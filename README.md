@@ -1,7 +1,7 @@
 # Golf Swing Sensors Overview
 This repository consists of code and any related descriptive narrative about the implementation of my Golf Swing Sensors project. I'm developing this on Arduino Nano 33 BLE Sense, employing TinyML (tfmicro) for inference when needed, and BLE (Bluetooth low energy) for communication between the Nano and a smartphone.
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](collecting-gyro-data)[]()[]()[]()
 
 ## Background
 As an amateur golfer, it's important to get real-time feedback on the condition of my golf swing. I need a way to instantly know whether I am swinging my club correctly prior to hitting the ball, or if I've got it right. For me, the psychology of approaching the ball goes in two directions. One, I am confident and relaxed, or two, my mind is racing and I need to quiet it down.  
@@ -48,7 +48,7 @@ The fourth physical stage of the system is to entirely replace the second device
 - _**Second circuit board**_
   - any form factor, any battery solution
   - includes (1) BLE, (2) SD card, (3) speaker
-  - _Explore whether MCU emulation [(renode.io)](https://renode.io) is a good alternative to try prior to configuring a second MCU._ 
+  - _(Explore whether MCU emulation [(renode.io)](https://renode.io) is a good alternative to try prior to configuring a second MCU.)_ 
 
 
 
@@ -64,7 +64,7 @@ The BLE service provides a way to record data without restrictions. It's simply 
 
 
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](collecting-gyro-data)[]()[]()[]()
 
 
 
@@ -188,7 +188,7 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 <img src="/images/one second delay.PNG" width="50%"/>
 
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](collecting-gyro-data)[]()[]()[]()
 
 
 
@@ -314,20 +314,7 @@ of determining whether the club is in the golf bag or being used. _(Rewrite this
 
 
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
-
-
-
-
-
-
-(The following "Enabling BLE" is likely going to get bumped to later in this documentation based upon the descriptions under ["Physical Description: Physical Development Stages."](#physical-description)
-
-
-
-
-
-((( This is where I stopped, so far )))
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](collecting-gyro-data)[]()[]()[]()
 
 
 
@@ -335,14 +322,22 @@ of determining whether the club is in the golf bag or being used. _(Rewrite this
 
 
 
+_(The following section, "Enabling BLE", is likely going to get bumped to later in this documentation.)_
 
 
 # Enabling BLE
-(Step Three)
+(Step Three - _for now_)
+
+- _(This section should be bumped to **after** physical [first stage](#physical-description) of development.)_
+- _(There are some parts in this section which are specifically BLE and some that are NOT. These need to be separated, and anything not BLE related should be extracted and kept.)_
 
 **Description:**
 
 Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app we can download from Google Play called _nRF Connect_. Let's go through the process of getting that started right here. 
+
+
+
+((( This is where I stopped, so far )))
 
 ### Try the BLE example sketch
 
@@ -398,7 +393,7 @@ We've seen in those two examples what a basic `.ino` file looks like. **Here's a
 
 ### Arduino File Structure
 
-Here we will describe the very basic structure of an Arduino `.ino` file. 
+Here _(or maybe in an appendix instead)_ we will describe the very basic structure of an Arduino `.ino` file. 
 
 **At the most basic level, there are four sections:**
 
@@ -452,6 +447,7 @@ We're now going to take what we've learned from our two examples and incorporate
 - View the combined code [**here**](#all-the-golf-swing-acc-ble-code-is-here) <-- _(need new link)_
 
 ##### Phone screen with device listed: (1) scanning, (2) connected, (3) tilting on the y-axis to turn on/off the LED
+_(**extract this:** This image of "tilting on the y" should instead be used as an example of Ready/Resting states.)_
 
 <p align="center">
   (1) <img src="/images/BLEScanning.png" width="20%">
@@ -464,16 +460,17 @@ We're now going to take what we've learned from our two examples and incorporate
 **Almost done**
 
 Although things are working well, there are still two things we should improve upon. 
-One tweak is to accommodate for an unintentional state change from a bounce of the sensor, 
-and the other is to reduce the amount of BLE communication, sending only once at the moment of a state change.
+One tweak is to accommodate for an unintentional state change from a bounce of the sensor, and the other is to reduce the amount of BLE communication, sending only once at the moment of a state change.
+_(This para is sensor-related, so it should be extracted and kept.)_ 
 
 So we created **_golf-swing-acc-ble-statechange_** with this modified code: 
-- Eliminate accidental state changes from the sensor
-- Send data via BLE **only** when the state changes 
-- Send _boolean 1/0_ rather than the strings, "Resting" and "Ready"
-- Use the shorter 16-bit UUID, like `ffe0` and `ffe1` [_(More about UUID)_](reference.md#uuid-info)
+- Eliminate accidental state changes from the sensor _(non-BLE-related)_
+- Send data via BLE **only** when the state changes _(This means that BLE communication begins when removed from Resting state.)_
+- Send _boolean 1/0_ rather than the strings, "Resting" and "Ready" _(non-BLE-related)_
+- Use the shorter 16-bit UUID, like `ffe0` and `ffe1` [_(More about UUID)_](reference.md#uuid-info) _(This is BLE-related)_
 
 ##### BLE sends data only when the words "State change to" appear
+_(This fact should be referenced, but "State Change" needs to be extracted and kept in the Sensors documentation rather than just the BLE documentation.)_
 
 <img src="/images/stateshanges.gif" width="80%">
 
@@ -491,10 +488,23 @@ so it's time to develop an Android application that it can control, basically wi
 **Enabling BLE communication with a smartphone will instead be shifted out to a step after Data Collection.**
 _Rather than focusing immediately on the smartphone application, we should collect data on the device which can then be sent via BLE._
 
-The section above describes two things: One, reading data from the Accelerometer, and two, setting up one side of a BLE connection.
-**Both are important.**
+**Two Important Points:**
+
+This "Enabling BLE" section above describes two things: One, reading data from the Accelerometer, and two, setting up one side of a BLE connection.
 Reading the Accelerometer is important because it determines whether the golf club is actually being used (is in Ready state).
-And BLE will need to be used to send swing data to a smartphone _or computer_ because there's only 256k available within the Device.
+And BLE will need to be used to send swing data to a smartphone, a computer, or another MCU, because there's only 256k available within the Device.
+
+_(BLE is used in physical development [**stage two**](#physical-description). The above section, "Enabling BLE", needs to get bumped to **after** physical stage one development has been **completed**. This means that first the system must be fully functional without BLE.)_
+
+
+
+
+
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](collecting-gyro-data)[]()[]()[]()
+
+
+
+
 
 **The next step is to collect and record swing data from the Gyroscope.**
 
