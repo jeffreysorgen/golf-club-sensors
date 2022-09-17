@@ -282,7 +282,7 @@ The initial, current solution described here will work for testing. But utilizin
 - _(There is a small Lithium cell available, around 2-3mm. There is also needed a battery regulating circuit - but I don't remember what this is called - that's needed. There are three parts: The battery, the regulating circuit, and the connector. This connector is the "2-prong" connector I am referring to here.)_ 
 - After researching and pinpointing what's needed, there will be a small lithium rechargable battery connected with wires to a "regulating circuit", with the wires attached to the desired connector, and the connector using USB on the other end. _(ASK RICH WHAT THE LITHIUM BATTERY NUMBER IS, OR GOOGLE IT, REALLY)_
 
-<img src="images/round connector.png" width="35%">
+<img src="images/round connector.png" width="20%">
 
 Examples (that won't work):
 - **Qi coil** is a wireless charging device.
