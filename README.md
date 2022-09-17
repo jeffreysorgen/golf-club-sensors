@@ -1,15 +1,3 @@
-### Golf Swing Sensors
-This repository consists of code and any related descriptive narrative about the implementation of my Golf Swing Sensors project. 
-
-**[Read about it ->](docs/GolfSwingSensors.md#golf-swing-sensors)**
-
-(add content here)
-
-
-
-
-
-
 # Golf Swing Sensors Overview
 This repository consists of code and any related descriptive narrative about the implementation of my Golf Swing Sensors project. I'm developing this on Arduino Nano 33 BLE Sense, employing TinyML (tfmicro) for inference when needed, and BLE (Bluetooth low energy) for communication between the Nano and a smartphone.
 
@@ -26,12 +14,12 @@ If you're like me trying to remember what you saw on YouTube, then it's hard to 
 - With a good swing I'll hear a positive chirp from my smartphone, which I keep in my golf cart or bag. 
 - With a not-so-good swing, I'll hear a sad chirp.
 
-## Purpose of the Device
-There are _two_. The first is data collection, described here. Its architecture expects me to say 'yes' following a good swing. 
+## Functionality of the Device
+There are _two_ functions. The first is data collection, described here. Its architecture expects me to say 'yes' following a good swing. 
 
 The other purpose is to use collected data for an ML model that beeps a signal when it identifies a good practice swing. 
 
-**Goal is to implement both purposes simultaneously.**
+**Goal is to implement both functions simultaneously.**
 
 ## Physical Description
 Attach a small form factor MCU to the back of a golf club head securely to engage movement sensors.
@@ -45,6 +33,8 @@ This is a multi-tenancy model. The IMU and Microphone function in cascade fashio
 It waits for the motion to stop, and then starts looking for the motion of a swing, and then I speak into the microphone 'yes' so that it gains a label, otherwise it is null. 
 The null swings are much more frequent, because the system records everything that follows a pause of motion if the orientation of the device is at the starting position.
 The BLE service provides a way to record data without restrictions. It's simply always on, without needing to go to a cloud service which is typically necessary for IoT devices, because the smartphone application collects the data. Only the smartphone needs to be near the device, within several feet, and the device does not need to connect to anything else. So this system is ideal for remote functionality, even without cellphone service, because a smartphone can connect via Bluetooth to the device without needing wifi or Cell service.
+
+_**[The following section "flow" needs to be consolidated and clarified.]**_
 
 ## Flow:
 Uses BLE:
@@ -84,25 +74,12 @@ Uses KWS:
   - _Silent (or low tone) if no match_
 
 
-**Next: [*[ Implementation: Accelerometer --> ]*](implementation.md#step-one)**
 
-
-
-[*[ back to overview ]*](GolfSwingSensors.md#golf-swing-sensors)
-[*[ completed ]*](completed.md#completed)
-[*[ learning ]*](completed.md#learning-about-this)
-[_[ **Step One: The Accelerometer** ]_](#the-accelerometer)
-[*[ Step Two: Solve for Power ]*](#solve-for-power)
-[*[ Step Three: Enabling BLE ]*](EnablingBLE.md/#enabling-ble)
-
-
-
-# The Accelerometer
-
-**Description:**
+# Sensor: Accelerometer
 
 **The goal is to "turn on" readings when sensor is oriented with clubhead down at the ground.**
 What instrument determines when to begin doing something? 
+
 **The accelerometer**. 
 
 Depending on how the device is attached, one axis determines the direction of gravity. 
