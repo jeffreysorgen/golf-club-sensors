@@ -47,7 +47,7 @@ It waits for the motion to stop, and then starts looking for the motion of a swi
 The null swings are much more frequent, because the system records everything that follows a pause of motion if the orientation of the device is at the starting position.
 The BLE service provides a way to record data without restrictions. It's simply always on, without needing to go to a cloud service which is typically necessary for IoT devices, because the smartphone application collects the data. Only the smartphone needs to be near the device, within several feet, and the device does not need to connect to anything else. So this system is ideal for remote functionality, even without cellphone service, because a smartphone can connect via Bluetooth to the device without needing wifi or Cell service.
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
 
 
 
@@ -171,8 +171,7 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 <img src="/images/one second delay.PNG" width="50%"/>
 
 
-
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
 
 
 
@@ -230,7 +229,7 @@ The goal was to basically create on/off states, accomplished here by using a thr
 
 Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason. **This exception has been resolved in later code.**
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
 
 
 
@@ -286,7 +285,12 @@ of determining whether the club is in the golf bag or being used.
 
 _(This "Solving for Power" section should be simplified.)_
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
+
+
+
+
+
 
 (The following "Enabling BLE" is likely going to get bumped to later in this documentation based upon the descriptions under ["Physical Description: Physical Development Stages."](#physical-development)
 
@@ -295,6 +299,14 @@ _(This "Solving for Power" section should be simplified.)_
 
 
 ((( This is where I stopped, so far )))
+
+
+
+
+
+
+
+
 
 # Enabling BLE
 (Step Three)
