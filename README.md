@@ -143,9 +143,10 @@ When the handle is upright, the club is in play and the sensor is in Ready state
 
 **For energy conservation:**
 
+_(Rewrite this para.)_
 First, understand the orientation of the device.
 When the sensor identifies its orientation is as though the club has been put back in the golf bag, then the device just uses one accelerometer parameter, `y < -.85`, meaning Resting state, and then continues to check every two seconds for a change in state. 
-BLE will remain engaged.
+BLE will remain engaged. **(BLE is engaged all the time, but Resting and Ready positions determine whether it's transmitting. _Maybe don't mention BLE?_)**
 The connected smartphone device will beep only when it identifies a **state change**.
 _The beep at this point is for development purposes, and is intended for future use elsewhere._
 
@@ -168,7 +169,7 @@ There is a difference between the Ready(2) position and the Resting(4) orientati
 
 **Notes about Resting state:**
 
-The Resting state is meant for when the club is in the bag. If it's in the bag then it's not going to take readings. That would be wasteful. So it's meant to pause all the readings before any more readings are taken. The sensor will stay in Resting state until it senses Ready state. Once in Ready state, the other sensors (and BLE) are turned back on again.
+The Resting state is meant for when the club is in the bag. If it's in the bag then it's not going to take readings. That would be wasteful. So it's meant to pause all the readings before any more readings are taken. The sensor will stay in Resting state until it senses Ready state. Once in Ready state, the sensors are turned back on again.
 
 **What happens:**
 
@@ -176,6 +177,8 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 2. in the bag, so Resting state
 3. pulled out of the bag, senses Ready state
 4. at this point, **waits to settle** so it can begin recording motion [(in the next (gyro) section)](#step-four-gyro) _("waits to settle" is deprecated phrase(?))_
+
+_(Rewrite #4, above)_
 
 **As shown in the serial monitor:**
 
@@ -189,12 +192,13 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 
 
 
+
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
 
 
 
-
+_(fine tune the following)_
 
 
 ## Simple Accelerometer Sketch
@@ -207,6 +211,8 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
   - The _if/else_ statement creates the _-0.85_ threshold between the Ready and Resting states.
 
 _**The following code is used to learn, and then built upon during the rest of this documentation:**_
+
+_(verify that including 'code' here is the best way to document)_
 
 #### Code for the new _LOOP_ is here:
 ```
@@ -248,7 +254,11 @@ The goal was to basically create on/off states, accomplished here by using a thr
 Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason. _**This exception has been resolved in later code.**_
 
 
+
+
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
+
+
 
 
 
@@ -258,7 +268,6 @@ Swinging the club around won't put it into that Resting state unless it register
 _Solving for power_ is a challenge to resolve during the [second physical stage](#physical-description) of development, when a second device is included, and the first needs independent power.
 
 The initial, current solution described here will work for testing. But utilizing a new, more practical battery solution is required to collect **real** swing data.
-
 
 
 
@@ -280,7 +289,7 @@ The initial, current solution described here will work for testing. But utilizin
 
 **Battery options:**
 
-- I am looking for those **2-prong** "magnetic" battery chargers, the kind of battery/connector is in that fit-watch, and where to get that rechargable battery. _(insert photo)_ 
+- I am looking for those **2-prong** "magnetic" battery chargers, the kind of battery/connector is in that fit-watch, and where to get that rechargable battery.
 - _(There is a small Lithium cell available, around 2-3mm. There is also needed a battery regulating circuit - but I don't remember what this is called - that's needed. There are three parts: The battery, the regulating circuit, and the connector. This connector is the "2-prong" connector I am referring to here.)_ 
 - After researching and pinpointing what's needed, there will be a small lithium rechargable battery connected with wires to a "regulating circuit", with the wires attached to the desired connector, and the connector using USB on the other end. _(ASK RICH WHAT THE LITHIUM BATTERY NUMBER IS, OR GOOGLE IT, REALLY)_
 
@@ -308,11 +317,13 @@ The initial, current solution described here will work for testing. But utilizin
 
 We have enabled the Accelerometer and found a temporary solution for power.
 
-**Next**, we're going to find a way to connect the device to a smartphone utilizing BLE,
+_(Rewrite this para.)_ **Next**, we're going to find a way to connect the device to a smartphone utilizing BLE,
 which will be useful in the future when a smartphone application is being built.
 In the process of implementing BLE, we're going to examine the structure of the Arduino code.
 Finally, we'll come back to the Accelerometer and fine tune it to more closely match our use case
-of determining whether the club is in the golf bag or being used. _(Rewrite this para.)_
+of determining whether the club is in the golf bag or being used. 
+
+
 
 
 
@@ -335,13 +346,12 @@ _(The following section, "Enabling BLE", is likely going to get bumped to later 
 
 **Description:**
 
-Before we can get it to chirp in response to a good or bad swing, the smartphone needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app we can download from Google Play called _nRF Connect_. Let's go through the process of getting that started right here. 
+Before we can get it to chirp in response to a good or bad swing, the smartphone (because we're assuming physical _stage four_ of development) needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app we can download from Google Play called _nRF Connect_. Let's go through the process of getting that started right here. (BLE learning taking place here.)
 
 
 
-((( This is where I stopped, so far )))
 
-### Try the BLE example sketch
+## The BLE example sketch
 
 I found [_**this video**_](https://youtu.be/2q_tA8v5l1Y) from _Robocraze_ to be helpful, 
 and copied the code from its [**accompanying GitHub repository**](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
@@ -363,9 +373,9 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 9. (App) Touch the "triple down arrow" <img src="/images/3downarrows.png" width="20em" /> for each of the three services for this example
 10. (App) OBSERVE the temperature gradually reach ambient room temperature or hold in hand for it to rise
 
-##### Caveat:
+**Caveat:**
 
-With the USB cable plugged into the computer I **_can_** discover _"Arduino Environment Sensor"_ in nRF Connect. 
+_(Check if the link to power solution works.)_ With the USB cable plugged into the computer I **_can_** discover _"Arduino Environment Sensor"_ in nRF Connect. 
 But a [**battery-only**](#current-development-solution) solution can **_not_**. So...
 
 **For battery-only:**
@@ -375,7 +385,7 @@ But a [**battery-only**](#current-development-solution) solution can **_not_**. 
 After being untethered from the computer, the device was trying to find the serial port from which it's now disconnected.
 So this one change will allow the device to function in _nRF Connect_ the same way as it did before.
 
-### The Hello World BLE Sketch
+## The Hello World BLE Sketch
 
 Now that we've got the BLE connecting, and IMU data showing up in _nRF Connect_, it's time to simplify and specialize our code.
 
@@ -393,7 +403,7 @@ The LED will be useful for indicating "Ready" and "Resting" states.
 
 We've seen in those two examples what a basic `.ino` file looks like. **Here's a summary:**
 
-### Arduino File Structure
+## Arduino File Structure
 
 Here _(or maybe in an appendix instead)_ we will describe the very basic structure of an Arduino `.ino` file. 
 
@@ -440,7 +450,7 @@ Here _(or maybe in an appendix instead)_ we will describe the very basic structu
 
 - subroutines _(and other stuff)_
 
-### Creating the new code
+## Creating the new code
 
 **Importing new functionality into our code:**
 
@@ -448,7 +458,8 @@ We're now going to take what we've learned from our two examples and incorporate
 
 - View the combined code [**here**](#all-the-golf-swing-acc-ble-code-is-here) <-- _(need new link)_
 
-##### Phone screen with device listed: (1) scanning, (2) connected, (3) tilting on the y-axis to turn on/off the LED
+**Phone screen with device listed: (1) scanning, (2) connected, (3) tilting on the y-axis to turn on/off the LED**
+
 _(**extract this:** This image of "tilting on the y" should instead be used as an example of Ready/Resting states.)_
 
 <p align="center">
@@ -457,26 +468,26 @@ _(**extract this:** This image of "tilting on the y" should instead be used as a
   (3) <img src="/images/myBLEtilt.gif" width="30%">
 </p>
 
-##
-
 **Almost done**
 
+_(This para is sensor-related, so it should be extracted and kept.)_
 Although things are working well, there are still two things we should improve upon. 
 One tweak is to accommodate for an unintentional state change from a bounce of the sensor, and the other is to reduce the amount of BLE communication, sending only once at the moment of a state change.
-_(This para is sensor-related, so it should be extracted and kept.)_ 
+ 
 
 So we created **_golf-swing-acc-ble-statechange_** with this modified code: 
-- Eliminate accidental state changes from the sensor _(non-BLE-related)_
+- Eliminate accidental state changes from the sensor _(Non-BLE-related)_
 - Send data via BLE **only** when the state changes _(This means that BLE communication begins when removed from Resting state.)_
-- Send _boolean 1/0_ rather than the strings, "Resting" and "Ready" _(non-BLE-related)_
+- Send _boolean 1/0_ rather than the strings, "Resting" and "Ready" _(Non-BLE-related)_
 - Use the shorter 16-bit UUID, like `ffe0` and `ffe1` [_(More about UUID)_](reference.md#uuid-info) _(This is BLE-related)_
 
-##### BLE sends data only when the words "State change to" appear
-_(This fact should be referenced, but "State Change" needs to be extracted and kept in the Sensors documentation rather than just the BLE documentation.)_
+_(The following fact should be referenced, but "State Change" needs to be extracted and kept in the Sensors documentation rather than just the BLE documentation.)_
+
+**BLE sends data only when the words "State change to" appear:**
 
 <img src="/images/stateshanges.gif" width="80%">
 
-## Summary:
+## Enabling BLE Summary:
 
 **Server/peripheral-side BLE programming is done for now.**
 
