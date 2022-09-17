@@ -37,7 +37,6 @@ The third physical stage for data collection is to remove the computer from the 
 The fourth physical stage of the system is to entirely replace the second device with a smartphone application. The smartphone can both collect data and make sounds. There is potential opportunity to utilize large scale data collection as well.
 
 
-
 ## Technical Description
 
 This is a multi-tenancy model. The IMU and Microphone function in cascade fashion. The BLE is always enabled but only transmits during data collection. _(There's a nuance to this though.)_
@@ -48,9 +47,15 @@ It waits for the motion to stop, and then starts looking for the motion of a swi
 The null swings are much more frequent, because the system records everything that follows a pause of motion if the orientation of the device is at the starting position.
 The BLE service provides a way to record data without restrictions. It's simply always on, without needing to go to a cloud service which is typically necessary for IoT devices, because the smartphone application collects the data. Only the smartphone needs to be near the device, within several feet, and the device does not need to connect to anything else. So this system is ideal for remote functionality, even without cellphone service, because a smartphone can connect via Bluetooth to the device without needing wifi or Cell service.
 
-[Top](#golf-swing-sensors-overview)[]()
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
 
-_**[The following section "flow" needs to be consolidated and clarified.]**_
+
+
+
+
+
+
+_(The following section "flow" needs to be consolidated and clarified.)_
 
 ## Flow:
 Uses BLE:
@@ -89,9 +94,15 @@ Uses KWS:
   - _Beep/buzz if good swing_
   - _Silent (or low tone) if no match_
 
+_(The above sections should be more succinct and clear.)_
+
+
+
+
 
 
 # Sensor: Accelerometer
+(Step One)
 
 **The goal is to "turn on" readings when sensor is oriented with clubhead down at the ground.**
 What instrument determines when to begin doing something? 
@@ -116,15 +127,16 @@ When the handle is upright, the club is in play and the sensor is in Ready state
 **For energy conservation:**
 
 First, understand the orientation of the device.
-When the sensor identifies its orientation is as if the club has been put back in the golf bag, then the device just uses one accelerometer parameter, `y < -.85`, meaning Resting state, and then continues to check every two seconds for a change in state. 
+When the sensor identifies its orientation is as though the club has been put back in the golf bag, then the device just uses one accelerometer parameter, `y < -.85`, meaning Resting state, and then continues to check every two seconds for a change in state. 
 BLE will remain engaged.
-The connected smartphone device will **beep** only when it identifies a _state change_.
-The _beep_ at this point is for development purposes, and is intended for future use elsewhere.
+The connected smartphone device will beep only when it identifies a **state change**.
+_The beep at this point is for development purposes, and is intended for future use elsewhere._
 
-## Setting up the device:
+**Setting up the prototype:**
+
 These readings will determine the Ready or Resting state orientation
 - For ease of use, put the Arduino into a breadboard and then attach it to a stick in a perpendicular fashion as shown here. 
-- _Imagine your golf club is either being used, or has been put back in the golf bag._
+- _Imagine your golf club is either being used, or is sitting in the golf bag._
 
 **Images: (1)Attach the device to a stick (2)Ready orientation (3)Device orientation (4)Resting orientation**
 
@@ -139,16 +151,17 @@ There is a difference between the Ready(2) position and the Resting(4) orientati
 
 **Notes about Resting state:**
 
-The Resting state is meant for when the club is in the bag. If it's in the bag then it's not going to take readings. That would be wasteful. So it's meant to pause all the readings before any more readings are taken. The sensor will stay in Resting state until it senses Ready state. Once in Ready state, the other sensors are turned back on again.
+The Resting state is meant for when the club is in the bag. If it's in the bag then it's not going to take readings. That would be wasteful. So it's meant to pause all the readings before any more readings are taken. The sensor will stay in Resting state until it senses Ready state. Once in Ready state, the other sensors (and BLE) are turned back on again.
 
 **What happens:**
 
-1. powered on
+1. powered on (rechargeable Lithium battery)
 2. in the bag, so Resting state
 3. pulled out of the bag, senses Ready state
-4. at this point, **waits to settle** so it can begin recording motion [(in the next (gyro) section)](#step-four-gyro)
+4. at this point, **waits to settle** so it can begin recording motion [(in the next (gyro) section)](#step-four-gyro) _("waits to settle" is deprecated phrase(?))_
 
-#### As shown in the serial monitor:
+**As shown in the serial monitor:**
+
 - The Resting state:
   - the y-axis reading is near -1G (_-0.85_) and displays "One second delay..." 
   - then checks every 1 second using `delay(1000)`
@@ -157,11 +170,26 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 
 <img src="/images/one second delay.PNG" width="50%"/>
 
-### Updating the Arduino Nano 33 BLE
+
+
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
+
+
+
+
+
+
+
+## Simple Accelerometer Sketch
+
+**Updating the Arduino Nano 33 BLE**
+
 - **Find** the _SimpleAccelerometer_ sketch from the Example files in the **Arduino_LSM9DS1 folder**
 - IMPORTANT: **Save it as** _golf-swing-acc_
 - **Add the _if-else_ statements within the _void() loop_ as shown.** (the rest is unchanged) 
   - The _if/else_ statement creates the _-0.85_ threshold between the Ready and Resting states.
+
+_**The following code is used to learn, and then built upon during the rest of this documentation:**_
 
 #### Code for the new _LOOP_ is here:
 ```
@@ -193,7 +221,8 @@ void loop() {
   }
 ```
 
-## Summary:
+**Summary: Accelerometer Sensor**
+
 This section was about setting up the Accelerometer, physically and with the IDE, so that it performs as expected.
 The goal was to basically create on/off states, accomplished here by using a threshold for the Ready and Resting states. 
 
@@ -201,22 +230,30 @@ The goal was to basically create on/off states, accomplished here by using a thr
 
 Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason. **This exception has been resolved in later code.**
 
-##
-##### Step Two:
-# Solve for Power
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
 
-#### Future prototyping solution
+
+
+
+
+
+
+# Solving for Power
+(Step Two)
+
+**Future prototyping solution:**
 
 - Later can build an obviously better solution.  
 - When 100% finished developing with my Arduino Nano 33 BLE Sense, I will be looking into using a different board for prototyping, and a battery solution will definitely be a part of the research.
-  - **The board needs to include (1) an IMU, (2) a microphone, and (3) a solvable battery option**
+  - **The board needs to include (1) an IMU, (2) a microphone, (3) BLE, and (4) a solvable battery option**
 - Battery options:
-  - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. 
+  - I am looking for those **2-prong** "magnetic" battery chargers, what kind of battery is in that fit-watch, and where to get that rechargable battery. _(There is a small Lithium cell available, around 2-3mm. There is also needed a battery regulating circuit - but I don't remember what this is called - that's needed. There are three parts: The battery, the regulating circuit, and the connector. This connector is the "2-prong" connector I am referring to here.)_ 
   - **Qi coil** is a wireless charging device.
   - **CR1220** is a small, common coin-type battery
   - **LIR2032H** is a common 3.7 rechargable, but 20mm, so like a nickel size.
+  - After researching and pinpointing what's needed, there will be a small lithium rechargable battery connected with wires to a "regulating circuit", with the wires attached to the desired connector, and the connector using USB on the other end. _(ASK RICH WHAT THE LITHIUM BATTERY NUMBER IS, OR GOOGLE IT, REALLY)_
 
-#### Current development solution
+## Current development power solution
 
 - **Connect with only BLE and be _physically detached_ from the computer.**
 - Attach the Arduino Sense (USBmicro port) to a power source.
@@ -224,20 +261,20 @@ Swinging the club around won't put it into that Resting state unless it register
 - Rechargers will shut off after a short time with just a low power drain.
 - **Charging an _old phone_ at the same time will prevent this auto-shutoff** 
 
-##### Charging up a dead old phone, simultaneously powering Nano33BLE
+**Charging up a dead old phone, simultaneously powering Nano33BLE:**
 
 <img src="/images/Sm-batterypack.png" width="35%">
 
-#### Alternative development solution
+**Alternative development solution**
 
 - This is not practical for _golf-club-sensors_ project but is helpful information nonetheless.
 - There's a power solution in the TinyML Course, attaching a 9V battery to the **Learning Kit Shield**. 
   - This [**Appendix from the TinyMLx repo**](https://github.com/tinyMLx/appendix/blob/main/PoweringArduino.md#battery) is a good place to read about it.
   - It's certainly not designed for swinging around, but it is proof that there's a pinout solution.
   - It's a good example for a stationary device.
+  - _(I am closer than what's described here to settling on a better power solution.)_
 
-
-### Summary
+**Summary:**
 
 We have enabled the Accelerometer and found a temporary solution for power.
 
@@ -247,11 +284,20 @@ In the process of implementing BLE, we're going to examine the structure of the 
 Finally, we'll come back to the Accelerometer and fine tune it to more closely match our use case
 of determining whether the club is in the golf bag or being used.
 
+_(This "Solving for Power" section should be simplified.)_
+
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
+
+(The following "Enabling BLE" is likely going to get bumped to later in this documentation based upon the descriptions under ["Physical Description: Physical Development Stages."](#physical-development)
 
 
-##
-##### Step Three:
+
+
+
+((( This is where I stopped, so far )))
+
 # Enabling BLE
+(Step Three)
 
 **Description:**
 
