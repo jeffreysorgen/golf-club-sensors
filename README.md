@@ -42,10 +42,10 @@ The fourth physical stage of the system is to entirely replace the second device
 
 **Prototyping:**
 
-- **First circuit board (the prototype device)**
+- _**First circuit board (the prototype device)**_
   - small form factor, independently powered
   - includes (1) IMU, (2) microphone, (3) BLE, (4) battery
-- **Second circuit board**
+- _**Second circuit board**_
   - any form factor, any battery solution
   - includes (1) BLE, (2) SD card, (3) speaker
   - _Explore whether MCU emulation [(renode.io)](https://renode.io) is a good alternative to try prior to configuring a second MCU._ 
@@ -284,7 +284,7 @@ The initial, current solution described here will work for testing. But utilizin
 
 **The round "2-Prong" connector:**
 
-<img src="images/round connector.png" width="20%">
+<img src="images/round connector.png" width="25%">
 
 **Battery examples (that won't work):**
 
@@ -310,9 +310,9 @@ We have enabled the Accelerometer and found a temporary solution for power.
 which will be useful in the future when a smartphone application is being built.
 In the process of implementing BLE, we're going to examine the structure of the Arduino code.
 Finally, we'll come back to the Accelerometer and fine tune it to more closely match our use case
-of determining whether the club is in the golf bag or being used.
+of determining whether the club is in the golf bag or being used. _(Rewrite this para.)_
 
-_(This "Solving for Power" section should be simplified.)_
+
 
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
 
