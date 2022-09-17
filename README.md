@@ -292,7 +292,7 @@ _(This "Solving for Power" section should be simplified.)_
 
 
 
-(The following "Enabling BLE" is likely going to get bumped to later in this documentation based upon the descriptions under ["Physical Description: Physical Development Stages."](#physical-development)
+(The following "Enabling BLE" is likely going to get bumped to later in this documentation based upon the descriptions under ["Physical Description: Physical Development Stages."](#physical-description)
 
 
 
