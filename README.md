@@ -24,7 +24,7 @@ The other purpose is to use collected data for an ML model that beeps a signal w
 ## Physical Description
 Attach a small form factor MCU to the back of a golf club head securely to engage movement sensors.
 
-**Physical Stages:**
+**Physical Development Stages:**
 
 During the first physical stage of development, the device will be directly connected to the computer, having all sensor readings show in the Serial Monitor. Later the system is configured to collect the data onto an SD card or a folder on the computer.
 
