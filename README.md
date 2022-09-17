@@ -64,7 +64,7 @@ The BLE service provides a way to record data without restrictions. It's simply 
 
 
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](collecting-gyro-data)[]()[]()[]()
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
 
 
@@ -188,7 +188,8 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 <img src="/images/one second delay.PNG" width="50%"/>
 
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](collecting-gyro-data)[]()[]()[]()
+
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
 
 
@@ -246,7 +247,8 @@ The goal was to basically create on/off states, accomplished here by using a thr
 
 Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason. _**This exception has been resolved in later code.**_
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[]()[]()[]()
+
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
 
 
@@ -314,7 +316,7 @@ of determining whether the club is in the golf bag or being used. _(Rewrite this
 
 
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](collecting-gyro-data)[]()[]()[]()
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
 
 
@@ -500,7 +502,7 @@ _(BLE is used in physical development [**stage two**](#physical-description). Th
 
 
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](collecting-gyro-data)[]()[]()[]()
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
 
 
