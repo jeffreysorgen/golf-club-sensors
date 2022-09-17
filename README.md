@@ -24,6 +24,20 @@ The other purpose is to use collected data for an ML model that beeps a signal w
 ## Physical Description
 Attach a small form factor MCU to the back of a golf club head securely to engage movement sensors.
 
+**Physical Stages:**
+
+During the first physical stage of development, the device will be directly connected to the computer, having all sensor readings show in the Serial Monitor. Later the system is configured to collect the data onto an SD card or a folder on the computer.
+
+In the second physical stage of development, a second device (another Nano33BLESense) will be employed, receiving the data transmitted to it by the first device via BLE. This second device is connected to the computer and functions the same way as had already been configured.
+
+The device that's attached to the golf club head will be powered by a small Lithium battery, enabling the sensors and BLE transmission. It needs to store small amounts of data before sending it to the other device and then purging it. Proper swing data can be collected, and based upon an inference it makes, it can signal the second device to trigger its speaker.
+
+The third physical stage for data collection is to remove the computer from the system, having configured the second device to collect data onto an SD card directly if it's a Raspberry Pi, or to an externally attached SD card reader. Any battery solution can be used because the device is stationary.
+
+The fourth physical stage of the system is to entirely replace the second device with a smartphone application. The smartphone can both collect data and make a sound, riggered by the device due to an inference it's made.
+
+
+
 ## Technical Description
 
 This is a multi-tenancy model. The IMU and Microphone function in cascade fashion. The BLE is always enabled but only transmits during data collection. 
