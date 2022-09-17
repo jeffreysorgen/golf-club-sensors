@@ -521,26 +521,106 @@ _(BLE is used in physical development [**stage two**](#physical-description). Th
 
 **The next step is to collect and record swing data from the Gyroscope.**
 
-##
-##### Step Four (gyro)
+
+
+
+
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
+
+
+
 # Collecting Gyro Data
+(Step Four)
+
+The next step is to collect and record swing data from the Gyroscope.
+
+
 
 **Description:**
 
-The Accelerometer has been used to determine whether a golf club is being used or has been put back in the golf bag, based upon its orientation.
-When in play, it is able to begin recording the motion of the Gyroscope.
+The orientation of the club head determines whether the club is in play or is sitting in the golf bag. The Ready/Resting state is determined by the readings from the **Accelerometer**. When in play, in Ready state, we're able to begin recording motion with the Gyroscope.
 
 
+Based upon its orientation, the **Accelerometer** determines whether a golf club is being used or has been put back in the golf bag. 
+(Ready state or Resting state.)
+When in play (in Ready state), we're able to begin recording motion with the Gyroscope.
 
-[Link to Gyro Steps](activity.md/#step-four)
+The code for the **Gyro** will identify when the device is Still, and then and prepare to record movement.
 
+### Three Objectives:
 
+_**The first objective is to display the data as a set of coordinates plus millis to the Serial Monitor.**_
 
-#
-[*[ Top ]*](GolfSwingSensors.md#golf-swing-sensors)
-[*[ Step One ]*](#step-one)
-[*[ Step Two ]*](#step-two)
-[*[ Step Three ]*](#step-three)
-[*[ 4 (AppDev) ]*](AppDev.md/#step-four)
+- First, enable the Gyro to read and print all data points, (gX, gY, gZ)
+- Change data points to INTEGERS
+- Next, print data point plus millis, (gX, gY, gZ, gT)
+- Next, print data point only after each 100ms
+- Next, set **threshold** to record data only when motion is faster.
+- Next, set millis to zero for first data point
+- Print "No Movement Detected" one time, until movement is detected.
+- Next, print data point plus millis (which begin at 0ms)
+- **THIS is the set of data points to collect.**
 
+_**The second objective is to collect the series of points into an array.**_
 
+- Collect data point **series** into an **array** in the code.
+- Print array each time data point is added.
+- Then, print data point series (the array) when motion stops
+
+_**The third objective is to collect arrays**_
+
+- Collect multiple arrays (swings)
+- Accumulate 2 "swings" and print to Serial Monitor, purge memory 
+- Accumulate 10 "swings" and print to Serial Monitor, purge memory 
+- Create 4-second arrays
+- Test accumulating 10, 25, 50, 100, 500 arrays before printing and purging
+
+_**The fourth objective is MOVING the data to another device**_ (pending)
+
+- raspberry pi w SD card and BLE, then to PC for ML
+  - (does a rasp pi have a beeper or buzzer?)
+  - (can a rasp pi be power source for LiPo batt)
+- my computer
+- other device
+- smartphone memory
+
+_**Can I use the computer to collect the data?**_
+
+- Data can only be sent to the Serial Monitor
+  - Set of coordinates can be sent to the _Serial Monitor_.
+  - Coordinates can be appended to an array and then sent to the _Serial Monitor_.
+  - Multiple arrays can be appended to a variable and then later sent to _Serial Monitor_.
+- Can this batch of arrays write to a CSV instead?
+  - _**This is where I'm stuck**_
+  - Device can send data via BLE.
+  - There is no pairing for BLE, but there is driver for Win10
+  - Can BLE be used to receive data from the device?
+    - What form is that data in?
+  - How to convert output to a CSV file?
+  - Can array be appended to a CSV?
+
+_**Objectives:**_
+
+- Collect multiple arrays into a CSV
+- Collect consistant SWINGS data
+- Graphically display array (coordinate series)
+- Append more arrays to CSV
+- 10X the data
+
+_**Description of SWING data**_
+
+- Swing data coordinates begin in one direction as a backswing.
+- Then four seconds is recorded in 100ms increments
+- Each increment saved as a data point
+- Every data point saved into an array
+- Every array saved to a data set
+- Collection of golf swings are the data set
+- Real swing is appx four seconds
+- All swings begin at 0ms
+- All swings can be graphed in 3D space
+- All swings can be graphed in 3D motion
+
+_**Future considerations**_
+
+- Explore how to enhance the swing data to include ball striking
+- What new sensor measurements can this be adapted to include?
