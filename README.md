@@ -212,7 +212,7 @@ _(fine tune the following)_
 
 _**The following code is used to learn, and then built upon during the rest of this documentation:**_
 
-_(verify that including 'code' here is the best way to document)_
+_(verify that including `code` here is the best way to document)_
 
 #### Code for the new _LOOP_ is here:
 ```
@@ -334,8 +334,7 @@ of determining whether the club is in the golf bag or being used.
 
 
 
-
-_(The following section, "Enabling BLE", is likely going to get bumped to later in this documentation.)_
+_(Bump the entire **Enabling BLE** section into the first section of an appendix. The **Appendix** can contain code snippets as well, using a "back" link to refer to its source location.)_
 
 
 # Enabling BLE
@@ -346,12 +345,14 @@ _(The following section, "Enabling BLE", is likely going to get bumped to later 
 
 **Description:**
 
+_Second Stage of Physical Development_
+
 Before we can get it to chirp in response to a good or bad swing, the smartphone (because we're assuming physical _stage four_ of development) needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app we can download from Google Play called _nRF Connect_. Let's go through the process of getting that started right here. (BLE learning taking place here.)
 
 
 
 
-## The BLE example sketch
+**The BLE example sketch:**
 
 I found [_**this video**_](https://youtu.be/2q_tA8v5l1Y) from _Robocraze_ to be helpful, 
 and copied the code from its [**accompanying GitHub repository**](https://github.com/Robocraze/Nano-33-BLE-Examples/blob/43fbe5b3155493d3056e85d7402c54e05c84f133/environment_sensor_ble/environment_sensor_ble.ino).
@@ -375,8 +376,8 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 
 **Caveat:**
 
-_(Check if the link to power solution works.)_ With the USB cable plugged into the computer I **_can_** discover _"Arduino Environment Sensor"_ in nRF Connect. 
-But a [**battery-only**](#current-development-solution) solution can **_not_**. So...
+With the USB cable plugged into the computer I **_can_** discover _"Arduino Environment Sensor"_ in nRF Connect. 
+But a [**battery-only**](#solving-for-power) solution can **_not_**. So...
 
 **For battery-only:**
 
@@ -385,7 +386,7 @@ But a [**battery-only**](#current-development-solution) solution can **_not_**. 
 After being untethered from the computer, the device was trying to find the serial port from which it's now disconnected.
 So this one change will allow the device to function in _nRF Connect_ the same way as it did before.
 
-## The Hello World BLE Sketch
+**The Hello World BLE Sketch:**
 
 Now that we've got the BLE connecting, and IMU data showing up in _nRF Connect_, it's time to simplify and specialize our code.
 
@@ -401,11 +402,13 @@ The big takeaway with this code is that the `while (central.connected())` comman
 (It's LED-centric code.) 
 The LED will be useful for indicating "Ready" and "Resting" states.
 
-We've seen in those two examples what a basic `.ino` file looks like. **Here's a summary:**
+_(The below section, Arduino File Structure, should be in the Appendix instead.)_
 
 ## Arduino File Structure
 
-Here _(or maybe in an appendix instead)_ we will describe the very basic structure of an Arduino `.ino` file. 
+We've seen in those two examples what a basic `.ino` file looks like. **Here's a summary:**
+
+Here _(**or maybe in an appendix instead**)_ we will describe the very basic structure of an Arduino `.ino` file. 
 
 **At the most basic level, there are four sections:**
 
@@ -449,6 +452,8 @@ Here _(or maybe in an appendix instead)_ we will describe the very basic structu
 **4. other functions**
 
 - subroutines _(and other stuff)_
+
+_(The above section "Arduino File Structure" is a stand-alone section in the (new) Appendix.)_
 
 ## Creating the new code
 
