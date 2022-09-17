@@ -242,6 +242,9 @@ Swinging the club around won't put it into that Resting state unless it register
 # Solving for Power
 (Step Two)
 
+_Solving for power_ is a challenge to resolve during the [second physical stage](#physical-description) of development, when a second device is used and the first needs independent power.
+The initial solution described here will work for testing, but utilizing a new, more practical battery solution is required to collect **real** swing data.
+
 **Future prototyping solution:**
 
 - Later can build an obviously better solution.  
