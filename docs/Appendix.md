@@ -4,7 +4,7 @@
 [| Appx ](#appendix)[| BLE ](#enabling-ble)[| Arduino ](#arduino-file-structure)[]()[]()[]()
 
 
-_(The **Appendix** can contain code snippets as well, using a "back" link to refer to its source location.)_
+_This **Appendix** can contain code snippets as well, using a "back" link to refer to its source location._
 
 [Top ](https://github.com/jeffreysorgen/golf-club-sensors/tree/revised-README-1#golf-swing-sensors-overview)
 [| Appx ](#appendix)[| BLE ](#enabling-ble)[| Arduino ](#arduino-file-structure)[]()[]()[]()
@@ -69,7 +69,7 @@ so that we can see what gets sent from the Nano33BLESense.
 
 The big takeaway with this code is that the `while (central.connected())` command just hangs the activity until BLE disconnects and then the code turns the LED off. 
 (It's LED-centric code.) 
-The LED will be useful for indicating "Ready" and "Resting" states.
+The LED will be useful for indicating "Ready" and "Resting" states, during development.
 
 
 
@@ -91,40 +91,40 @@ We're now going to take what we've learned from our two examples and incorporate
 
 **Almost done**
 
-_(This para is sensor-related, so it should be extracted and kept.)_
+**_(This para is sensor-related, so it should be extracted and kept.)_**
 Although things are working well, there are still two things we should improve upon. 
 One tweak is to accommodate for an unintentional state change from a bounce of the sensor, and the other is to reduce the amount of BLE communication, sending only once at the moment of a state change.
  
 
 So we created **_golf-swing-acc-ble-statechange_** with this modified code: 
-- Eliminate accidental state changes from the sensor
+- _**Eliminate accidental state changes from the sensor**_
 - Send data via BLE **only** when the state changes _(This means that BLE communication begins when removed from Resting state.)_
 - Send _boolean 1/0_ rather than the strings, "Resting" and "Ready" _(This note is specifically about bytes transmitted, rather than 5-7 chars.)_
 - Use the shorter 16-bit UUID, like `ffe0` and `ffe1` [_(More about UUID)_](reference.md#uuid-info)
 
-_(The following fact should be referenced, but "State Change" needs to be extracted and kept in the Sensors documentation rather than just the BLE documentation. It has not yet been determined how much and when BLE transmits; first finish physical **stage one**.)_
+_(The following fact should be referenced, but **"State Change" needs to be extracted and kept in the Sensors documentation** rather than just the BLE documentation. It has not yet been determined how much and when BLE transmits; first finish physical **stage one**.)_
 
 **BLE sends data only when the words "State change to" appear:**
 
 <img src="/images/stateshanges.gif" width="80%">
 
+_**(Graphic can be used in non-BLE sections.)**_
+
 **Summary: Enabling BLE**
 
-**Server/peripheral-side BLE programming is done for now.**
-We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
-Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
-After experimenting with a couple of example sketches, we incorporated the BLE library into the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming in. 
+**Server/peripheral-side BLE programming is done for now.** 
 
-The Nano33BLESense has now been programmed to communicate with a Client (central), 
-so it's time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy. 
-(Can't do this myself. Building an app will require a large investment. $$)
-**Enabling BLE communication with a smartphone will instead be shifted out to a step after Data Collection.** (Which means it's after physical stage one of development.)
-_Rather than focusing immediately on the smartphone application, we should collect data on the device which can then be sent via BLE. (Meaning, after stage one development.)_
+_**We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head. Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.**_ After experimenting with a couple of example sketches, we incorporated the BLE library into the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming in. 
+
+The Nano33BLESense has now been programmed to communicate with a Client (central), so it's time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy. _Can't do this myself. Building an app will require a large investment. ($$)_
+
+x **Enabling BLE communication with a smartphone will instead be shifted out to a step after Data Collection.** (Which means it's after physical stage one of development.)
+x _Rather than focusing immediately on the smartphone application, we should collect data on the device which can then be sent via BLE. (Meaning, after stage one development.)_
 
 **Two Important Points:**
 
 This "Enabling BLE" section above describes two things: One, reading data from the Accelerometer, and two, setting up one side of a BLE connection.
-Reading the Accelerometer is important because it determines whether the golf club is actually being used (is in Ready state).
+_**Reading the Accelerometer is important because it determines whether the golf club is actually being used (is in Ready state).**_
 And BLE will need to be used to send swing data to a smartphone, a computer, or another MCU, because there's only 256k available within the Device.
 
 
