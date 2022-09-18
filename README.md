@@ -214,7 +214,7 @@ _**The following code is used to learn, and then built upon during the rest of t
 
 _(verify that including `code` here is the best way to document)_
 
-#### Code for the new _LOOP_ is here:
+**Code for the new _LOOP_ is here:**
 ```
 void loop() {
   float x, y, z;
