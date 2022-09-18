@@ -1,7 +1,7 @@
 # Golf Swing Sensors Overview
 This repository consists of code and any related descriptive narrative about the implementation of my Golf Swing Sensors project. I'm developing this on Arduino Nano 33 BLE Sense, employing TinyML (tfmicro) for inference when needed, and BLE (Bluetooth low energy) for communication between the Nano and a smartphone.
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
 ## Background
 As an amateur golfer, it's important to get real-time feedback on the condition of my golf swing. I need a way to instantly know whether I am swinging my club correctly prior to hitting the ball, or if I've got it right. For me, the psychology of approaching the ball goes in two directions. One, I am confident and relaxed, or two, my mind is racing and I need to quiet it down.  
@@ -64,7 +64,7 @@ The BLE service provides a way to record data without restrictions. It's simply 
 
 
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
 
 
@@ -192,7 +192,7 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 
 _(This graphic is an early version of the other graphic where threshold have been adjusted to compensate for false state changes.)_
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
 
 
@@ -260,7 +260,7 @@ _(Maybe should compare both graphics with explanations to make a better point mo
 
 
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
 
 
@@ -363,7 +363,7 @@ _(Useful graphic here)_
 And BLE will need to be used to send swing data to a smartphone, a computer, or another MCU, because there's only 256k available within the Device.
 
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
 #
 #
@@ -372,7 +372,7 @@ And BLE will need to be used to send swing data to a smartphone, a computer, or 
 
 
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
 
 
@@ -473,3 +473,6 @@ _**Future considerations**_
 
 - Explore how to enhance the swing data to include ball striking
 - What new sensor measurements can this be adapted to include?
+
+
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
