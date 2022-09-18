@@ -4,14 +4,13 @@
 [| Appx ](#appendix)[| BLE ](#enabling-ble)[]()[]()[]()[]()
 
 
-_(Bump the entire **Enabling BLE** section into the first section of an appendix. The **Appendix** can contain code snippets as well, using a "back" link to refer to its source location.)_
+_(The **Appendix** can contain code snippets as well, using a "back" link to refer to its source location.)_
 
 
 # Enabling BLE
-(Step Three - _for now_)
+(Second Stage of Physical Development)
 
-- _(This section should be bumped to **after** physical [first stage](#physical-description) of development.)_
-- _(There are some parts in this section which are specifically BLE and some that are NOT. These need to be separated, and anything not BLE related should be extracted and kept.)_
+- _(There are some parts in this section which are specifically BLE and some that are NOT. These need to be separated, and anything not BLE related should be extracted and moved.)_
 
 **Description:**
 
@@ -47,7 +46,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 **Caveat:**
 
 With the USB cable plugged into the computer I **_can_** discover _"Arduino Environment Sensor"_ in nRF Connect. 
-But a [**battery-only**](#solving-for-power) solution can **_not_**. So...
+But a [**battery-only**](readme.md#solving-for-power) solution can **_not_**. So...
 
 **For battery-only:**
 
