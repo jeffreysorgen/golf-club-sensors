@@ -190,8 +190,7 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 
 <img src="/images/one second delay.PNG" width="50%"/>
 
-
-
+_(This graphic is an early version of the other graphic where threshold have been adjusted to compensate for false state changes.)_
 
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| BLE ](#enabling-ble)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
