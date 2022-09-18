@@ -1,13 +1,13 @@
 # Appendix
 
 [Top ](https://github.com/jeffreysorgen/golf-club-sensors/tree/revised-README-1#golf-swing-sensors-overview)
-[| Appx ](#appendix)[| BLE ](#enabling-ble)[]()[]()[]()[]()
+[| Appx ](#appendix)[| BLE ](#enabling-ble)[| Arduino ](#arduino-file-structure)[]()[]()[]()
 
 
 _(The **Appendix** can contain code snippets as well, using a "back" link to refer to its source location.)_
 
 [Top ](https://github.com/jeffreysorgen/golf-club-sensors/tree/revised-README-1#golf-swing-sensors-overview)
-[| Appx ](#appendix)[| BLE ](#enabling-ble)[]()[]()[]()[]()
+[| Appx ](#appendix)[| BLE ](#enabling-ble)[| Arduino ](#arduino-file-structure)[]()[]()[]()
 
 # Enabling BLE
 (Second Stage of Physical Development)
@@ -15,8 +15,6 @@ _(The **Appendix** can contain code snippets as well, using a "back" link to ref
 - _(There are some parts in this section which are specifically BLE and some that are NOT. These need to be separated, and anything not BLE related should be extracted and moved.)_
 
 **Description:**
-
-_Second Stage of Physical Development_
 
 Before we can get it to chirp in response to a good or bad swing, the smartphone (because we're assuming physical _stage four_ of development) needs to pair up with the Arduino BLE Sense. We should be able to see on my Android whatever information we've already sent to the serial monitor. To do this, Nordic has an app we can download from Google Play called _nRF Connect_. Let's go through the process of getting that started right here. (BLE learning taking place here.)
 
@@ -73,66 +71,9 @@ The big takeaway with this code is that the `while (central.connected())` comman
 (It's LED-centric code.) 
 The LED will be useful for indicating "Ready" and "Resting" states.
 
-#
-#
-#
-#
-#
-#
-_(The below section, Arduino File Structure, should be in the Appendix instead.)_
 
-## Arduino File Structure
 
-We've seen in those two examples what a basic `.ino` file looks like. **Here's a summary:**
 
-Here _(**or maybe in an appendix instead**)_ we will describe the very basic structure of an Arduino `.ino` file. 
-
-**At the most basic level, there are four sections:**
-
-1. *"prior to"*
-2. `void setup()`
-3. `void loop()` and
-4. *"other functions"*
-
-**1. prior to `void setup()`**
-
-- These can be within _namespace_
-- First add LIBRARIES
-- Initialize and name CONSTANTS
-- Initialize VARIABLES
-- Initialize BLE SERVICES
-  - Give the Services and Characteristics their UUIDs ([here](reference.md/#uuid-info) for more info)
-- Initialize respective BLE Service CHARACTERISTICS
-- Create the FUNCTION PROTOTYPE (which reside in "other functions" area)
-
-**2. `void setup()`**
-
-- Initialize the SENSORS
-- Initialize SERIAL COMMUNICATION
-- Initialize OTHER things (such as built-in LED pin)
-- Check for FAILURE
-- Create the BLE NAME to show up in the SCAN
-- Create the BLE SERVICE for advertising
-- Create the BLE Service CHARACTERISTICS
-- ADD the BLE SERVICE to advertise
-  - The variable names were previously initialized above
-- ADVERTISE BLE
-- Set VALUES for strings or constants
-  - These variables were previously initialized above
-  
-**3. `void loop()`**
-
-- conditional settings and calculations repeated within the loop
-- _if-else_ statements, etc
-- engaging LEDs, etc
-
-**4. other functions**
-
-- subroutines _(and other stuff)_
-
-_(The above section "Arduino File Structure" is a stand-alone section in the (new) Appendix.)_
-
-## Creating the new code
 
 **Importing new functionality into our code:**
 
@@ -186,7 +127,62 @@ This "Enabling BLE" section above describes two things: One, reading data from t
 Reading the Accelerometer is important because it determines whether the golf club is actually being used (is in Ready state).
 And BLE will need to be used to send swing data to a smartphone, a computer, or another MCU, because there's only 256k available within the Device.
 
-_(BLE is used in physical development [**stage two**](#physical-description). The above section, "Enabling BLE", needs to get bumped to **after** physical stage one development has been **completed**. This means that first the system must be fully functional without BLE.)_
 
 
 
+
+[Top ](https://github.com/jeffreysorgen/golf-club-sensors/tree/revised-README-1#golf-swing-sensors-overview)
+[| Appx ](#appendix)[| BLE ](#enabling-ble)[| Arduino ](#arduino-file-structure)[]()[]()[]()
+
+
+
+# Arduino File Structure
+
+We've seen in these examples what a basic `.ino` file looks like. 
+Here we will describe the very basic structure of an Arduino `.ino` file. 
+
+**At the most basic level, there are four sections:**
+
+1. *"prior to"*
+2. `void setup()`
+3. `void loop()` and
+4. *"other functions"*
+
+**1. prior to `void setup()`**
+
+- These can be within _namespace_
+- First add LIBRARIES
+- Initialize and name CONSTANTS
+- Initialize VARIABLES
+- Initialize BLE SERVICES
+  - Give the Services and Characteristics their UUIDs ([here](reference.md/#uuid-info) for more info)
+- Initialize respective BLE Service CHARACTERISTICS
+- Create the FUNCTION PROTOTYPE (which reside in "other functions" area)
+
+**2. `void setup()`**
+
+- Initialize the SENSORS
+- Initialize SERIAL COMMUNICATION
+- Initialize OTHER things (such as built-in LED pin)
+- Check for FAILURE
+- Create the BLE NAME to show up in the SCAN
+- Create the BLE SERVICE for advertising
+- Create the BLE Service CHARACTERISTICS
+- ADD the BLE SERVICE to advertise
+  - The variable names were previously initialized above
+- ADVERTISE BLE
+- Set VALUES for strings or constants
+  - These variables were previously initialized above
+  
+**3. `void loop()`**
+
+- conditional settings and calculations repeated within the loop
+- _if-else_ statements, etc
+- engaging LEDs, etc
+
+**4. other functions**
+
+- subroutines _(and other stuff)_
+
+[Top ](https://github.com/jeffreysorgen/golf-club-sensors/tree/revised-README-1#golf-swing-sensors-overview)
+[| Appx ](#appendix)[| BLE ](#enabling-ble)[| Arduino ](#arduino-file-structure)[]()[]()[]()
