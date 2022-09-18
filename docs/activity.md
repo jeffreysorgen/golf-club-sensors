@@ -388,3 +388,4 @@ He's discussing the nRF Connect functionality with Notify and Indicate. Also ref
 
 ##
 
+
