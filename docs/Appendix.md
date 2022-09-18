@@ -46,7 +46,7 @@ _(Right-click on _Raw_, save the file, and drop into same-name folder, as requir
 **Caveat:**
 
 With the USB cable plugged into the computer I **_can_** discover _"Arduino Environment Sensor"_ in nRF Connect. 
-But a [**battery-only**](../readme.md#solving-for-power) solution can **_not_**. So...
+But a [**battery-only**](README.md) solution can **_not_**. So...
 
 **For battery-only:**
 
