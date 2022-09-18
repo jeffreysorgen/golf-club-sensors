@@ -176,9 +176,9 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 1. powered on (rechargeable Lithium battery)
 2. in the bag, so Resting state
 3. pulled out of the bag, senses Ready state
-4. at this point, **waits to settle** so it can begin recording motion [(in the next (gyro) section)](#step-four-gyro) _("waits to settle" is deprecated phrase(?))_
+4. at this point, **waits to settle** so it can begin recording motion [(in the next (gyro) section)](#collecting-gyro-data) _("waits to settle" is described later)_
 
-_(Rewrite #4, above)_
+
 
 **As shown in the serial monitor:**
 
@@ -251,7 +251,7 @@ The goal was to basically create on/off states, accomplished here by using a thr
 
 **Exception to this configuration:**
 
-Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason. _**This exception has been resolved in later code.**_
+Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason. _**The issue has been resolved in later code.**_
 
 
 
@@ -267,7 +267,7 @@ Swinging the club around won't put it into that Resting state unless it register
 
 _Solving for power_ is a challenge to resolve during the [second physical stage](#physical-description) of development, when a second device is included, and the first needs independent power.
 
-The initial, current solution described here will work for testing. But utilizing a new, more practical battery solution is required to collect **real** swing data.
+The solution described here will work for testing. But utilizing a new, more practical battery solution is required to collect **real** swing data.
 
 
 
@@ -291,7 +291,7 @@ The initial, current solution described here will work for testing. But utilizin
 
 - I am looking for those **2-prong** "magnetic" battery chargers, the kind of battery/connector is in that fit-watch, and where to get that rechargable battery.
 - _(There is a small Lithium cell available, around 2-3mm. There is also needed a battery regulating circuit - but I don't remember what this is called - that's needed. There are three parts: The battery, the regulating circuit, and the connector. This connector is the "2-prong" connector I am referring to here.)_ 
-- After researching and pinpointing what's needed, there will be a small lithium rechargable battery connected with wires to a "regulating circuit", with the wires attached to the desired connector, and the connector using USB on the other end. _(ASK RICH WHAT THE LITHIUM BATTERY NUMBER IS, OR GOOGLE IT, REALLY)_
+- After researching and pinpointing what's needed, there will be a small lithium rechargable battery connected with wires to a "regulating circuit", with the wires attached to the desired connector, and the connector using USB on the other end.
 
 **The round "2-Prong" connector:**
 
@@ -465,8 +465,6 @@ We're now going to take what we've learned from our two examples and incorporate
 
 **Phone screen with device listed: (1) scanning, (2) connected, (3) tilting on the y-axis to turn on/off the LED**
 
-_(**extract this:** This image of "tilting on the y" should instead be used as an example of Ready/Resting states.)_
-
 <p align="center">
   (1) <img src="/images/BLEScanning.png" width="20%">
   (2) <img src="/images/BLEConnected.png" width="20%">
@@ -481,12 +479,12 @@ One tweak is to accommodate for an unintentional state change from a bounce of t
  
 
 So we created **_golf-swing-acc-ble-statechange_** with this modified code: 
-- Eliminate accidental state changes from the sensor _(Non-BLE-related)_
+- Eliminate accidental state changes from the sensor
 - Send data via BLE **only** when the state changes _(This means that BLE communication begins when removed from Resting state.)_
-- Send _boolean 1/0_ rather than the strings, "Resting" and "Ready" _(Non-BLE-related)_
-- Use the shorter 16-bit UUID, like `ffe0` and `ffe1` [_(More about UUID)_](reference.md#uuid-info) _(This is BLE-related)_
+- Send _boolean 1/0_ rather than the strings, "Resting" and "Ready" _(This note is specifically about bytes transmitted, rather than 5-7 chars.)_
+- Use the shorter 16-bit UUID, like `ffe0` and `ffe1` [_(More about UUID)_](reference.md#uuid-info)
 
-_(The following fact should be referenced, but "State Change" needs to be extracted and kept in the Sensors documentation rather than just the BLE documentation.)_
+_(The following fact should be referenced, but "State Change" needs to be extracted and kept in the Sensors documentation rather than just the BLE documentation. It has not yet been determined how much and when BLE transmits; first finish physical **stage one**.)_
 
 **BLE sends data only when the words "State change to" appear:**
 
@@ -495,16 +493,15 @@ _(The following fact should be referenced, but "State Change" needs to be extrac
 **Summary: Enabling BLE**
 
 **Server/peripheral-side BLE programming is done for now.**
-
 We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
 Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
 After experimenting with a couple of example sketches, we incorporated the BLE library into the code, downloaded the nRF Connect application to a smartphone, and were **able to see readings** coming in. 
 
 The Nano33BLESense has now been programmed to communicate with a Client (central), 
 so it's time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy. 
-(This idea was based on being less time consuming and being easier for app development.)
-**Enabling BLE communication with a smartphone will instead be shifted out to a step after Data Collection.**
-_Rather than focusing immediately on the smartphone application, we should collect data on the device which can then be sent via BLE._
+(Can't do this myself. Building an app will require a large investment. $$)
+**Enabling BLE communication with a smartphone will instead be shifted out to a step after Data Collection.** (Which means it's after physical stage one of development.)
+_Rather than focusing immediately on the smartphone application, we should collect data on the device which can then be sent via BLE. (Meaning, after stage one development.)_
 
 **Two Important Points:**
 
