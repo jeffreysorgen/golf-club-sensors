@@ -6,6 +6,8 @@
 
 _(The **Appendix** can contain code snippets as well, using a "back" link to refer to its source location.)_
 
+[Top ](https://github.com/jeffreysorgen/golf-club-sensors/tree/revised-README-1#golf-swing-sensors-overview)
+[| Appx ](#appendix)[| BLE ](#enabling-ble)[]()[]()[]()[]()
 
 # Enabling BLE
 (Second Stage of Physical Development)
@@ -71,6 +73,12 @@ The big takeaway with this code is that the `while (central.connected())` comman
 (It's LED-centric code.) 
 The LED will be useful for indicating "Ready" and "Resting" states.
 
+#
+#
+#
+#
+#
+#
 _(The below section, Arduino File Structure, should be in the Appendix instead.)_
 
 ## Arduino File Structure
