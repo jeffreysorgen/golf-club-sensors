@@ -118,8 +118,6 @@ _**We started with physically setting up the Arduino Nano33BLESense as if it wer
 
 The Nano33BLESense has now been programmed to communicate with a Client (central), so it's time to develop an Android application that it can control, basically with an on/off signal sent through Bluetooth Low Energy. _Can't do this myself. Building an app will require a large investment. ($$)_
 
-x **Enabling BLE communication with a smartphone will instead be shifted out to a step after Data Collection.** (Which means it's after physical stage one of development.)
-x _Rather than focusing immediately on the smartphone application, we should collect data on the device which can then be sent via BLE. (Meaning, after stage one development.)_
 
 **Two Important Points:**
 
