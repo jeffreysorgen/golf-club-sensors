@@ -330,8 +330,10 @@ Now we need to try and collect data. We'll combine the sensors in some way, begi
 
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
+#
+#
 
-- _(There are some parts in the Enabling BLE section (now in the Appendix) which are specifically BLE and some that are NOT. These need to be separated, and anything not BLE related should be extracted and kept. **Pull these parts out of the appendix.**)_
+_(Useful statements and graphics previously written in the BLE section are here.)_
 
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
@@ -348,6 +350,7 @@ _(Might be useful graphic?)_
 
 
 _(Useful graphic here)_
+
 <img src="/images/stateshanges.gif" width="80%">
 
 
