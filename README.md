@@ -316,17 +316,21 @@ The solution described here will work for testing. But utilizing a new, more pra
 - It's certainly not designed for swinging around, but it is proof that there's a pinout solution.
 
 
-
-**Summary:**
-
-We have enabled the Accelerometer and found a temporary solution for power.
-
-_(Rewrite this para.)_ **Next**, we're going to find a way to connect the device to a smartphone utilizing BLE,
+x _(Rewrite this para.)_ **Next**, we're going to find a way to connect the device to a smartphone utilizing BLE,
 which will be useful in the future when a smartphone application is being built.
 In the process of implementing BLE, we're going to examine the structure of the Arduino code.
 Finally, we'll come back to the Accelerometer and fine tune it to more closely match our use case
 of determining whether the club is in the golf bag or being used. 
 
+
+
+
+
+**Summary:**
+
+We have enabled the Accelerometer, we have created a way with the accelerometer to determine whether the club is in the golf bag or being used. And we have found a temporary solution for power during development. Only in the **fourth stage** of physical development will we try and find a way to connect the device to a smartphone via BLE, which will allow a smartphone application to be built in the future.
+
+Now we need to try and collect data. We'll combine the sensors in some way, beginning with readings from the **gyroscope**.
 
 
 
