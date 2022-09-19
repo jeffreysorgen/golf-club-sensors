@@ -9,6 +9,13 @@ _This **Appendix** can contain code snippets as well, using a "back" link to ref
 [Top ](https://github.com/jeffreysorgen/golf-club-sensors/tree/revised-README-1#golf-swing-sensors-overview)
 [| Appx ](#appendix)[| BLE ](#enabling-ble)[| Arduino ](#arduino-file-structure)[]()[]()[]()
 
+
+
+_(Move this somewhere.)_ BLE will remain engaged. BLE is engaged all the time, but Resting and Ready positions determine whether it's transmitting. _**(Maybe don't mention BLE?)**_
+The connected smartphone device will beep only when it identifies a **state change**.
+_The beep at this point is for development purposes, and is intended for future use elsewhere._
+
+
 # Enabling BLE
 (Second Stage of Physical Development)
 
