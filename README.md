@@ -135,16 +135,6 @@ The axis is "opposite" when the club handle is pointing down and in Resting stat
 Some combination of coordinates might need to be calculated with advanced math for _gravity=zero._ But at this stage of development it probably isn't necessary.
 
 
-**To conseve energy and reduce BLE transmission:** 
-_(Maybe move down to Notes about resting state.)_
-
-First, understand the orientation of the device. When the sensor identifies that its orientation is as if the club is sitting in the golf bag, then the device just uses one parameter from the accelerometer: `y < -.85`, meaning Resting state, and then continues to check every two seconds for a change of state. The device is dormant in its Resting state and is not using more energy on sensors, and is not transmitting through BLE. 
-
-_(Example graphic of LED enabled for Ready/Resting states: insert here?)_
-
-_(Archive this statement.)_ BLE will remain engaged. BLE is engaged all the time, but Resting and Ready positions determine whether it's transmitting. _**(Maybe don't mention BLE?)**_
-The connected smartphone device will beep only when it identifies a **state change**.
-_The beep at this point is for development purposes, and is intended for future use elsewhere._
 
 
 **Physical Set-up:**
@@ -164,7 +154,10 @@ These readings will determine the Ready or Resting state orientation
 
 There is a difference between the Ready(2) position and the Resting(4) orientation. When the device is attached as shown(1), one parameter, the Y-axis (in red) of the Accelerometer, tells the system whether it's in Ready state or it's in Resting state. When the Y-axis reading is positive then the sensor is in one state, and when it's negative it's in the other. Attached this way, the graph(3) shows that the Ready state is positive and the Resting state is negative.
 
-**Notes about Resting state:**
+
+**Notes about the Resting state:**
+
+First, understand the orientation of the device. If the sensor finds that the club is sitting in the golf bag, then just one parameter is used from the accelerometer: `y < -.85`, meaning Resting state. It then checks every two seconds for a state change. The device is dormant in its Resting state and is not using more energy on sensors, and is not transmitting through BLE. 
 
 The Resting state is meant for when the club is in the bag. If it's in the bag then it's not going to take readings. That would be wasteful. So it's meant to pause all the readings before any more readings are taken. The sensor will stay in Resting state until it senses Ready state. Once in Ready state, the sensors are turned back on again.
 
@@ -387,7 +380,7 @@ And BLE will need to be used to send swing data to a smartphone, a computer, or 
 
 **Description:**
 
-The orientation of the club head determines whether the club is in play or is sitting in the golf bag. The Ready/Resting state is determined by the readings from the **Accelerometer**. When in play, in Ready state, we're able to begin recording motion with the Gyroscope.
+_(Good segue from prior section.)_ The orientation of the club head determines whether the club is in play or is sitting in the golf bag. The Ready/Resting state is determined by the readings from the **Accelerometer**. When in play, in Ready state, we're able to begin recording motion with the Gyroscope.
 
 
 Based upon its orientation, the **Accelerometer** determines whether a golf club is being used or has been put back in the golf bag. 
