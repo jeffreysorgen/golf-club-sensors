@@ -143,14 +143,16 @@ When the handle is upright, the club is in play and the sensor is in Ready state
 
 **For energy conservation:**
 
-_(Rewrite this para.)_
 First, understand the orientation of the device.
 When the sensor identifies its orientation is as though the club has been put back in the golf bag, then the device just uses one accelerometer parameter, `y < -.85`, meaning Resting state, and then continues to check every two seconds for a change in state. 
+
+_(Example graphic of LED enabled for Ready/Resting states: insert here?)_
+
 BLE will remain engaged. **(BLE is engaged all the time, but Resting and Ready positions determine whether it's transmitting. _Maybe don't mention BLE?_)**
 The connected smartphone device will beep only when it identifies a **state change**.
 _The beep at this point is for development purposes, and is intended for future use elsewhere._
 
-_(Example graphic of LED enabled for Ready/Resting states: insert here?)_
+_(Fix this section.)_
 
 **Physical Set-up:**
 
