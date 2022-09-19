@@ -1,4 +1,7 @@
-## Golf Swing Sensors
+# Golf Swing Sensors
+
+(This entire document, golf-club-sensors.md, has been incorporated in the new README.md. Ready to delete it?)
+
 This repository consists of code and any related descriptive narrative about the implementation of my Golf Swing Sensors project. I'm developing this on Arduino Nano 33 BLE Sense, employing TinyML (tfmicro) for inference when needed, and BLE (Bluetooth low energy) for communication between the Nano and a smartphone.
 
 ### Background
