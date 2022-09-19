@@ -387,7 +387,13 @@ The code for the **Gyro** will identify when the device is Still, and then and p
 
 **Three Objectives:**
 
-The first objective is to display the data as a set of coordinates plus millis to the Serial Monitor.
+1. Display data points (coordinates plus millis)
+2. Display array of data points
+3. Display multiple arrays as a data set
+4. Send data set to computer storage
+
+The **first objective** is to display the data as a set of coordinates plus millis to the Serial Monitor.
+
 - First, enable the Gyro to read and print all data points, (gX, gY, gZ)
 - Change data points to INTEGERS
 - Next, print data point plus millis, (gX, gY, gZ, gT)
@@ -398,13 +404,13 @@ The first objective is to display the data as a set of coordinates plus millis t
 - Next, print data point plus millis (which begin at 0ms)
 - **THIS is the set of data points to collect.**
 
-_**The second objective is to collect the series of points into an array.**_
+The **second objective** is to collect the series of points into an array.
 
 - Collect data point **series** into an **array** in the code.
 - Print array each time data point is added.
 - Then, print data point series (the array) when motion stops
 
-_**The third objective is to collect arrays**_
+The **third objective** is to collect arrays.
 
 - Collect multiple arrays (swings)
 - Accumulate 2 "swings" and print to Serial Monitor, purge memory 
@@ -412,14 +418,19 @@ _**The third objective is to collect arrays**_
 - Create 4-second arrays
 - Test accumulating 10, 25, 50, 100, 500 arrays before printing and purging
 
-_**The fourth objective is MOVING the data to another device**_ (pending)
+The **fourth objective** is sending the data to the computer.
 
-- raspberry pi w SD card and BLE, then to PC for ML
+Other devices to collect data:
+- my computer (physical dev stage one)
+- second device (physical dev stage three) (3?)
+  - arduino nano33blesense or raspberry pi
   - (does a rasp pi have a beeper or buzzer?)
-  - (can a rasp pi be power source for LiPo batt)
-- my computer
-- other device
-- smartphone memory
+  - (can a rasp pi be power source for LiPo batt?)
+  - via BLE to its SD card
+  - then SD card to PC for ML
+- smartphone memory (physical dev stage four)
+
+_(Old notes:)_
 
 _**Can I use the computer to collect the data?**_
 
@@ -428,13 +439,13 @@ _**Can I use the computer to collect the data?**_
   - Coordinates can be appended to an array and then sent to the _Serial Monitor_.
   - Multiple arrays can be appended to a variable and then later sent to _Serial Monitor_.
 - Can this batch of arrays write to a CSV instead?
-  - _**This is where I'm stuck**_
   - Device can send data via BLE.
-  - There is no pairing for BLE, but there is driver for Win10
+  - There is no pairing for BLE, but there is driver for Win10 (assumes I want to use BLE on Windows, which I don't any more)
   - Can BLE be used to receive data from the device?
+    - Configure data in first device, then send via BLE to second device
     - What form is that data in?
-  - How to convert output to a CSV file?
-  - Can array be appended to a CSV?
+  - How to convert output to a CSV file? (collected on the SD card)
+  - Can array be appended to a CSV? (simply append to the file)
 
 _**Objectives:**_
 
@@ -444,7 +455,9 @@ _**Objectives:**_
 - Append more arrays to CSV
 - 10X the data
 
-_**Description of SWING data**_
+_**Description of SWING data:**_ 
+
+_(This might need to be earlier in gyro section)_
 
 - Swing data coordinates begin in one direction as a backswing.
 - Then four seconds is recorded in 100ms increments
@@ -464,3 +477,82 @@ _**Future considerations**_
 
 
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
+
+
+
+#
+#
+##
+
+#### When to record data
+We need to have a starting point for when to record data. 
+Then we need to record 100 or 500 points of data, using physical movement. 
+So what are the xyz coordinates when the Gyro printed out information? 
+Record this data every 20ms to start with.
+
+#### How to record data 
+**Where does this data go? Can it be stored within the Arduino Nano 33 BLE Sense?** 
+And then how to access it? What data can we collect? 
+Once we collect data, can we spit it out to the Serial Monitor? 
+Can we collect multiple instances of the swing?
+
+##
+
+- Display Gyro data on Serial Monitor
+  - _What does it represent?_
+  - Use integers for gX, gY, gZ
+- Set threshold to minimum movement before displaying data
+- Add TIME STAMP, gT, using `millis()`
+  - Set ms0 to first moment of movement
+- Prepare data for collecting
+
+
+##
+#
+#
+##
+
+### How to collect a series of data points
+- Find moment in accelerometer where, even though it's in Ready State, it is "still" enough to register to begin recording data
+- Once "still", start recording data points, every 100ms, for 4 seconds. (This is 10 points of data per second, 4 seconds, which is 40 data points, and each data point is \[x,y,z,t], where t is the time stamp in ms from beginning of measurement.)
+- Still State is priority over recording. If during recording the readings are again at Still, then reset and wait for movement again.
+- From Still State goes backswing direction, followed by x,y,z,t as compared to its previous "location"
+- Data point 0 is t=0ms. Data point 1 is t=100ms and has moved X distance in this direction from point 0. So, x1 - x0 = x for this data point.
+- So one data point (p1) gets stored, and the next data point (p2) is in relation to prior data point. Data point p2 contains x,y,z, and a unique t compared to the other data points. One data record contains 160 bytes (_is this right?_) of data, which is x,y,z,t times 4 seconds, times 10 data points per second.
+- Swing is measured in 5000ms, or 5 seconds. Once it ends, wait for Still State.
+
+### How to identify Still State
+- Device is already in Ready State
+- Device is moving around measurably - as if waving in the air
+- Device stops moving (within threshold of being still) - as if stationary upon a surface.
+- Next, Device waits to discover movement and the first data point is recorded at x0,y0,z0,t00ms
+- Next, second data point is recorded at x1,y1,z1,t100ms
+- This continues for five seconds.
+
+### Trim Data
+- Every swing begins with Still State followed by a backswing, swing, and then in 5 seconds stops recording.
+- If Device detects motion becoming much slower on average, trim data here. (How to calc average? Distance between two data points is shorter than prior pair of data points on average.)  
+
+### Trimmed Data has a 3D shape and speed
+- Every swing can be layered upon another in different colors for example, and will create "normal" swing
+- Outliers will be those which have almost no acceleration, the distance between data points is very small. (Nobody waves a club around as much as a practice swing or a real swing.)
+- Difference between a Practice Swing and a Real Swing is the hitting of a ball, which will spike the accelerometer at around the fastest point of the swing.
+
+### How to record sample data
+- On a table, Device is stationary
+- Wave the device back and forth and then stop
+- 40 data points should print out (per second), and no other information printed (Serial Monitor)
+- Print swing to Serial Monitor, don't print non-swing
+- For this example, when Device moves, print the information.
+- But if it stops prior to 4 seconds, then it's Still State again, so don't print, will have fewer data points.
+- Serial Monitor should print nothing except for a completed record of 4 seconds of movement.
+- Print occurs when Still State is reached
+- Motion, then Still State, then print data points of that Motion
+
+### Steps
+- _**First, get serial monitor going and get it to print out data points**_
+- It can print out data points / plot, but can it collect them and print out after movement stops?
+- It's possible to send "every sesson" of movement via BLE, if I can figure out how to RECORD the bytes, which are the x,y,z,t coordinates
+  - And once it has been send via BLE to a computer, can be compiled into a data set
+
+
