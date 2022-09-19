@@ -38,8 +38,6 @@ The third physical stage for data collection is to remove the computer from the 
 
 The fourth physical stage of the system is to entirely replace the second device with a smartphone application. The smartphone can both collect data and make sounds. There is potential opportunity to utilize large scale data collection as well.
 
-
-
 **Prototyping:**
 
 - _**First circuit board (the prototype device)**_
@@ -50,8 +48,6 @@ The fourth physical stage of the system is to entirely replace the second device
   - includes (1) BLE, (2) SD card, (3) speaker
   - _(Explore whether MCU emulation [(renode.io)](https://renode.io) is a good alternative to try prior to configuring a second MCU.)_ 
 
-
-
 ## Technical Description
 
 This is a multi-tenancy model. The IMU and Microphone function in cascade fashion. The BLE is always enabled but only transmits during data collection. _(There's a nuance to this though.)_
@@ -61,8 +57,6 @@ This is a multi-tenancy model. The IMU and Microphone function in cascade fashio
 It waits for the motion to stop, and then starts looking for the motion of a swing, and then I speak into the microphone 'yes' so that it gains a label, otherwise it is null. 
 The null swings are much more frequent, because the system records everything that follows a pause of motion if the orientation of the device is at the starting position.
 The BLE service provides a way to record data without restrictions. It's simply always on, without needing to go to a cloud service which is typically necessary for IoT devices, because the smartphone application collects the data. Only the smartphone needs to be near the device, within several feet, and the device does not need to connect to anything else. So this system is ideal for remote functionality, even without cellphone service, because a smartphone can connect via Bluetooth to the device without needing wifi or Cell service.
-
-
 
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
@@ -113,6 +107,9 @@ Uses KWS:
 
 _(The above sections should be more succinct and clear.)_
 
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
+
+
 
 
 
@@ -134,9 +131,6 @@ The axis is "opposite" when the club handle is pointing down and in Resting stat
 
 Some combination of coordinates might need to be calculated with advanced math for _gravity=zero._ But at this stage of development it probably isn't necessary.
 
-
-
-
 **Physical Set-up:**
 
 These readings will determine the Ready or Resting state orientation
@@ -154,7 +148,6 @@ These readings will determine the Ready or Resting state orientation
 
 There is a difference between the Ready(2) position and the Resting(4) orientation. When the device is attached as shown(1), one parameter, the Y-axis (in red) of the Accelerometer, tells the system whether it's in Ready state or it's in Resting state. When the Y-axis reading is positive then the sensor is in one state, and when it's negative it's in the other. Attached this way, the graph(3) shows that the Ready state is positive and the Resting state is negative.
 
-
 **Notes about the Resting state:**
 
 First, understand the orientation of the device. If the sensor finds that the club is sitting in the golf bag, then just one parameter is used from the accelerometer: `y < -.85`, meaning Resting state. It then checks every two seconds for a state change. The device is dormant in its Resting state and is not using more energy on sensors, and is not transmitting through BLE. 
@@ -167,8 +160,6 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 2. in the bag, so Resting state
 3. pulled out of the bag, senses Ready state
 4. at this point, **waits to settle** so it can begin recording motion [(in the next (gyro) section)](#collecting-gyro-data) _("waits to settle" is described later)_
-
-
 
 **As shown in the serial monitor:**
 
@@ -187,7 +178,12 @@ _(This graphic is an early version of the other graphic where threshold have bee
 
 
 
+
+
+
+
 _(fine tune the following)_
+
 
 
 ## Simple Accelerometer Sketch
@@ -248,9 +244,11 @@ _(Maybe should compare both graphics with explanations to make a better point mo
 - (put second graphic next)
 - (explain what happened, and maybe include the code that made it possible)
 
-
-
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
+
+
+
+
 
 
 
@@ -263,8 +261,6 @@ _Solving for power_ is a challenge to resolve during the [second physical stage]
 
 The solution described here will work for testing. But utilizing a new, more practical battery solution is required to collect **real** swing data.
 
-
-
 **Current development power solution:**
 
 - Connect **only** with BLE and be _physically detached_ from the computer.
@@ -276,10 +272,6 @@ The solution described here will work for testing. But utilizing a new, more pra
 **Charging up a dead old phone, simultaneously powering Nano33BLE:**
 
 <img src="/images/Sm-batterypack.png" width="35%">
-
-
-
-
 
 **Battery options:**
 
@@ -297,7 +289,6 @@ The solution described here will work for testing. But utilizing a new, more pra
 - **CR1220** is a small, common coin-type battery
 - **LIR2032H** is a common 3.7 rechargable, but 20mm, so like a nickel size.
 
-
 **9V option for [third stage](#physical-description) physical development:**
 
 - There's a power solution in the TinyML Course, attaching a 9V battery to the **Learning Kit Shield**. 
@@ -305,40 +296,31 @@ The solution described here will work for testing. But utilizing a new, more pra
 - Not practical for the _golf-club-sensors_ prototype device itself, but is a good example for a stationary device.
 - It's certainly not designed for swinging around, but it is proof that there's a pinout solution.
 
-
-
-
-
 **Summary:**
 
 We have enabled the Accelerometer, we have created a way with the accelerometer to determine whether the club is in the golf bag or being used. And we have found a temporary solution for power during development. Only in the **fourth stage** of physical development will we try and find a way to connect the device to a smartphone via BLE, which will allow a smartphone application to be built in the future.
 
 Now we need to try and collect data. We'll combine the sensors in some way, beginning with readings from the **gyroscope**.
 
-
-
-
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
 
 
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
+
+
+
+
+
 
 
 
 # Collecting Gyro Data
-(Step Three, formerly Four)
+(Step Three)
+
+The orientation of the club head determines whether the club is in play or is sitting in the golf bag. The Ready/Resting state is determined by the readings from the **Accelerometer**. When in play, in Ready state, we're able to begin recording motion with the Gyroscope.
 
 
-
-**The next step is to collect and record swing data from the Gyroscope.**
-
-
-
-**Description:**
-
-_(Good segue from prior section.)_ The orientation of the club head determines whether the club is in play or is sitting in the golf bag. The Ready/Resting state is determined by the readings from the **Accelerometer**. When in play, in Ready state, we're able to begin recording motion with the Gyroscope.
 
 
 The code for the **Gyro** will identify when the device is Still, and then and prepare to record movement.
@@ -388,6 +370,13 @@ Other devices to collect data:
   - then SD card to PC for ML
 - smartphone memory (physical dev stage four)
 
+
+
+
+
+
+
+
 _(Old notes:)_
 
 _**Can I use the computer to collect the data?**_
@@ -412,6 +401,13 @@ _**Objectives:**_
 - Graphically display array (coordinate series)
 - Append more arrays to CSV
 - 10X the data
+
+
+
+
+
+
+
 
 _**Description of SWING data:**_ 
 
@@ -440,7 +436,6 @@ _**Future considerations**_
 
 #
 #
-##
 
 #### When to record data
 We need to have a starting point for when to record data. 
@@ -466,11 +461,8 @@ Can we collect multiple instances of the swing?
 
 
 ##
-#
-#
-##
 
-### How to collect a series of data points
+## How to collect a series of data points
 - Find moment in accelerometer where, even though it's in Ready State, it is "still" enough to register to begin recording data
 - Once "still", start recording data points, every 100ms, for 4 seconds. (This is 10 points of data per second, 4 seconds, which is 40 data points, and each data point is \[x,y,z,t], where t is the time stamp in ms from beginning of measurement.)
 - Still State is priority over recording. If during recording the readings are again at Still, then reset and wait for movement again.
@@ -479,7 +471,7 @@ Can we collect multiple instances of the swing?
 - So one data point (p1) gets stored, and the next data point (p2) is in relation to prior data point. Data point p2 contains x,y,z, and a unique t compared to the other data points. One data record contains 160 bytes (_is this right?_) of data, which is x,y,z,t times 4 seconds, times 10 data points per second.
 - Swing is measured in 5000ms, or 5 seconds. Once it ends, wait for Still State.
 
-### How to identify Still State
+## How to identify Still State
 - Device is already in Ready State
 - Device is moving around measurably - as if waving in the air
 - Device stops moving (within threshold of being still) - as if stationary upon a surface.
@@ -487,16 +479,16 @@ Can we collect multiple instances of the swing?
 - Next, second data point is recorded at x1,y1,z1,t100ms
 - This continues for five seconds.
 
-### Trim Data
+## Trim Data
 - Every swing begins with Still State followed by a backswing, swing, and then in 5 seconds stops recording.
 - If Device detects motion becoming much slower on average, trim data here. (How to calc average? Distance between two data points is shorter than prior pair of data points on average.)  
 
-### Trimmed Data has a 3D shape and speed
+## Trimmed Data has a 3D shape and speed
 - Every swing can be layered upon another in different colors for example, and will create "normal" swing
 - Outliers will be those which have almost no acceleration, the distance between data points is very small. (Nobody waves a club around as much as a practice swing or a real swing.)
 - Difference between a Practice Swing and a Real Swing is the hitting of a ball, which will spike the accelerometer at around the fastest point of the swing.
 
-### How to record sample data
+## How to record sample data
 - On a table, Device is stationary
 - Wave the device back and forth and then stop
 - 40 data points should print out (per second), and no other information printed (Serial Monitor)
@@ -507,11 +499,14 @@ Can we collect multiple instances of the swing?
 - Print occurs when Still State is reached
 - Motion, then Still State, then print data points of that Motion
 
-### Steps
-- _**First, get serial monitor going and get it to print out data points**_
-- It can print out data points / plot, but can it collect them and print out after movement stops?
-- It's possible to send "every sesson" of movement via BLE, if I can figure out how to RECORD the bytes, which are the x,y,z,t coordinates
-  - And once it has been send via BLE to a computer, can be compiled into a data set
+
+
+
+## Steps
+- First, get serial monitor going and get it to print out data points
+- It can print out data points / plot, but can it collect them and print out **after movement stops?**
+- It's possible to send "every sesson" of movement via BLE, if I can figure out how to RECORD the bytes, which are the x,y,z,t coordinates _(This is a BLE issue, so might not need to be here)_
+  - And once it has been send via BLE to a computer, can be compiled into a data set _(BLE sends data, CSV is created, then CSV is used in ML model.)_
 
 
 
