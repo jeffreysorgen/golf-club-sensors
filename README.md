@@ -150,6 +150,8 @@ BLE will remain engaged. **(BLE is engaged all the time, but Resting and Ready p
 The connected smartphone device will beep only when it identifies a **state change**.
 _The beep at this point is for development purposes, and is intended for future use elsewhere._
 
+_(Example graphic of LED enabled for Ready/Resting states: insert here?)_
+
 **Physical Set-up:**
 
 These readings will determine the Ready or Resting state orientation
