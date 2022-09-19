@@ -130,8 +130,7 @@ When the device is mounted flat and perpendicular to the stick (club), it change
 
 The force of gravity in one direction has an approximate reading of 1G.
 Resting state is the negative value of Ready state. 
-
-The axis is "opposite" when the club handle is pointing down and in Resting state, versus when the handle is upright and the sensor is in Ready state and the club is in play,
+The axis is "opposite" when the club handle is pointing down and in Resting state, versus when the handle is upright and the sensor is in Ready state.
 
 Some combination of coordinates might need to be calculated with advanced math for _gravity=zero._ But at this stage of development it probably isn't necessary.
 
