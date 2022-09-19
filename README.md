@@ -320,48 +320,6 @@ Now we need to try and collect data. We'll combine the sensors in some way, begi
 
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
-#
-#
-
-_(Useful statements and graphics previously written in the BLE section are here.)_
-
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
-
-
-
-_(Might be useful graphic?)_
-
-(3) tilting on the y-axis to turn on/off the LED**
-
-<p align="center">
-  (3) <img src="/images/myBLEtilt.gif" width="30%">
-</p>
-
-
-
-_(Useful graphic here)_
-
-<img src="/images/stateshanges.gif" width="80%">
-
-
-
-(Useful statements here)
-- Eliminate accidental state changes from the sensor
-- Although things are working well, there are still two things we should improve upon. 
-- One tweak is to accommodate for an unintentional state change from a bounce of the sensor, and the other is to reduce the amount of BLE communication, sending only once at the moment of a state change. _(re-write this para.)_
-- We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
-- Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
-- Reading the Accelerometer is important because it determines whether the golf club is actually being used (is in Ready state).
-
-And BLE will need to be used to send swing data to a smartphone, a computer, or another MCU, because there's only 256k available within the Device.
-
-
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
-
-#
-#
-
-
 
 
 
@@ -554,5 +512,60 @@ Can we collect multiple instances of the swing?
 - It can print out data points / plot, but can it collect them and print out after movement stops?
 - It's possible to send "every sesson" of movement via BLE, if I can figure out how to RECORD the bytes, which are the x,y,z,t coordinates
   - And once it has been send via BLE to a computer, can be compiled into a data set
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
+#
+
+_(Useful statements and graphics previously written in the BLE section are here.)_
+
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
+
+
+
+_(Might be useful graphic?)_
+
+(3) tilting on the y-axis to turn on/off the LED**
+
+<p align="center">
+  (3) <img src="/images/myBLEtilt.gif" width="30%">
+</p>
+
+
+
+_(Useful graphic here)_
+
+<img src="/images/stateshanges.gif" width="80%">
+
+
+
+(Useful statements here)
+- Eliminate accidental state changes from the sensor
+- Although things are working well, there are still two things we should improve upon. 
+- One tweak is to accommodate for an unintentional state change from a bounce of the sensor, and the other is to reduce the amount of BLE communication, sending only once at the moment of a state change. _(re-write this para.)_
+- We started with physically setting up the Arduino Nano33BLESense as if it were attached to the back of a golf club head.
+- Then we implemented the code to be able to see the readings of the Accelerometer in the Serial Monitor screen.
+- Reading the Accelerometer is important because it determines whether the golf club is actually being used (is in Ready state).
+
+And BLE will need to be used to send swing data to a smartphone, a computer, or another MCU, because there's only 256k available within the Device.
+
+
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
+
+#
+#
 
 
