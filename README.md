@@ -383,16 +383,11 @@ And BLE will need to be used to send swing data to a smartphone, a computer, or 
 _(Good segue from prior section.)_ The orientation of the club head determines whether the club is in play or is sitting in the golf bag. The Ready/Resting state is determined by the readings from the **Accelerometer**. When in play, in Ready state, we're able to begin recording motion with the Gyroscope.
 
 
-Based upon its orientation, the **Accelerometer** determines whether a golf club is being used or has been put back in the golf bag. 
-(Ready state or Resting state.)
-When in play (in Ready state), we're able to begin recording motion with the Gyroscope.
-
 The code for the **Gyro** will identify when the device is Still, and then and prepare to record movement.
 
-### Three Objectives:
+**Three Objectives:**
 
-_**The first objective is to display the data as a set of coordinates plus millis to the Serial Monitor.**_
-
+The first objective is to display the data as a set of coordinates plus millis to the Serial Monitor.
 - First, enable the Gyro to read and print all data points, (gX, gY, gZ)
 - Change data points to INTEGERS
 - Next, print data point plus millis, (gX, gY, gZ, gT)
