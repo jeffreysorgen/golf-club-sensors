@@ -121,38 +121,32 @@ _(The above sections should be more succinct and clear.)_
 # Sensor: Accelerometer
 (Step One)
 
-**The goal is to "turn on" readings when sensor is oriented with clubhead down at the ground.**
-What instrument determines when to begin doing something? 
+What instrument determines when to begin doing something? **The accelerometer**. 
 
-**The accelerometer**. 
+The goal is to turn on the sensors when the device is oriented with the clubhead down at the ground and is in play. 
+Since the Accelerometer +/- Z axis is up/down, it can determine its orientation. 
+Depending on how the device is attached, that axis may change.
+When the device is mounted flat and perpendicular to the stick (club), it changes to the Y-axis.
 
-Depending on how the device is attached, one axis determines the direction of gravity. 
-That axis has an approximate reading of 1G, the force of gravity in one direction.
-Resting state is the negative value of its Ready state.
-Some combination of coordinates might need to be calculated with advanced math for _gravity=zero._
-But at this stage of development it probably isn't necessary.
+The force of gravity in one direction has an approximate reading of 1G.
+Resting state is the negative value of Ready state. 
 
-**Why the Accelerometer?**
+The axis is "opposite" when the club handle is pointing down and in Resting state, versus when the handle is upright and the sensor is in Ready state and the club is in play,
 
-I need one reading - _knowing the orientation of the device._ 
-Since the Accelerometer +/- Z axis is up/down, then this is the sensor to use. 
-Depending on how the device is attached, it's one of the three axes. 
-It's mounted flat and perpendicular to the stick, so the axis changes to the Y-axis.
-The axis is "opposite" when the club handle is pointing down and in Resting state. 
-When the handle is upright, the club is in play and the sensor is in Ready state.
+Some combination of coordinates might need to be calculated with advanced math for _gravity=zero._ But at this stage of development it probably isn't necessary.
 
-**For energy conservation:**
 
-First, understand the orientation of the device.
-When the sensor identifies its orientation is as though the club has been put back in the golf bag, then the device just uses one accelerometer parameter, `y < -.85`, meaning Resting state, and then continues to check every two seconds for a change in state. 
+**To conseve energy and reduce BLE transmission:** 
+_(Maybe move down to Notes about resting state.)_
+
+First, understand the orientation of the device. When the sensor identifies that its orientation is as if the club is sitting in the golf bag, then the device just uses one parameter from the accelerometer: `y < -.85`, meaning Resting state, and then continues to check every two seconds for a change of state. The device is dormant in its Resting state and is not using more energy on sensors, and is not transmitting through BLE. 
 
 _(Example graphic of LED enabled for Ready/Resting states: insert here?)_
 
-BLE will remain engaged. **(BLE is engaged all the time, but Resting and Ready positions determine whether it's transmitting. _Maybe don't mention BLE?_)**
+_(Archive this statement.)_ BLE will remain engaged. BLE is engaged all the time, but Resting and Ready positions determine whether it's transmitting. _**(Maybe don't mention BLE?)**_
 The connected smartphone device will beep only when it identifies a **state change**.
 _The beep at this point is for development purposes, and is intended for future use elsewhere._
 
-_(Fix this section.)_
 
 **Physical Set-up:**
 
