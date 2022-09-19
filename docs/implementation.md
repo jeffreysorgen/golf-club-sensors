@@ -8,7 +8,7 @@
 
 ## Implementation
 
-
+_(This document, implementation.md, has been incorporated into the new README.md and Appendix.md, so maybe delete this.)_
 
 
 
