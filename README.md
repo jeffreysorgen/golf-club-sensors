@@ -310,11 +310,20 @@ Next, we need to try and collect data. We'll combine the sensors in some way, be
 # Collecting Gyro Data
 (Step Three)
 
+
+
+
 The orientation of the club head determines whether the club is in play or is sitting in the golf bag. The Ready/Resting state is determined by the readings from the **Accelerometer**. When in play, in Ready state, we're able to begin recording motion with the Gyroscope.
 
 The code for the **Gyro** will identify when the device is Still, and then and prepare to record movement.
 
 
+_Collecting data for each physical stage of development:_
+- **Stage 1: collect on computer, communicate directly**
+- Stage 2: collect on computer, communicate via BLE
+- Stage 3: collect on second device to SD card
+  - MCU with attached SD card: nano33blesense or raspberry pi
+- Stage 4: collect on tablet or smartphone
 
 
 ## Creating Data Points
@@ -374,23 +383,21 @@ Send the data to the computer.
 - Append data to the CSV file
 
 
-Next step is to provide independent power to the device and have it transmit the data via BLE.
+# PHYSICAL DEVELOPMENT STAGE TWO
 
-- Does the computer receive this BLE data? 
-- Is it into a port? Can the data be displayed in the Serial Monitor? 
-- Or does that require it to be connected? 
-- Where does the data display when it's being received via BLE?
-- Do we need an emulator of MCU?
-- How will this work!?
-
-
-Collecting data for each physical stage of development:
-
+_Collecting data for each physical stage of development:_
 - Stage 1: collect on computer, communicate directly
-- Stage 2: collect on computer, communicate via BLE
+- **Stage 2: collect on computer, communicate via BLE**
 - Stage 3: collect on second device to SD card
   - MCU with attached SD card: nano33blesense or raspberry pi
 - Stage 4: collect on tablet or smartphone
+
+**Stage Two adds the second device.** Configure the two devices to communicate via BLE.
+The first device is powered independently and transmits the data to the second device.
+The second device is attached to the computer, which operates the same way that it did before, because this is transparent to the computer. 
+_The only thing that changes here is having BLE communication between two MCUs._
+
+
 
 
 
@@ -401,6 +408,15 @@ Collecting data for each physical stage of development:
 
 #
 #
+
+Collecting data for each physical stage of development:
+
+- Stage 1: collect on computer, communicate directly
+- Stage 2: collect on computer, communicate via BLE
+- Stage 3: collect on second device to SD card
+  - MCU with attached SD card: nano33blesense or raspberry pi
+- Stage 4: collect on tablet or smartphone
+
 #
 #
 
@@ -434,33 +450,13 @@ _**Objectives:**_
 - 10X the data
 
 
-
-
-
-
-
-
-_**Description of SWING data:**_ 
-
-_(This might need to be earlier in gyro section)_
-
-- Swing data coordinates begin in one direction as a backswing.
-- Then four seconds is recorded in 100ms increments
-- Each increment saved as a data point
-- Every data point saved into an array
-- Every array saved to a data set
-- Collection of golf swings are the data set
-- Real swing is appx four seconds
-- All swings begin at 0ms
-- All swings can be graphed in 3D space
-- All swings can be graphed in 3D motion
-
-
-
 _**Future considerations**_
 
 - Explore how to enhance the swing data to include ball striking
 - What new sensor measurements can this be adapted to include?
+
+
+
 
 
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
@@ -475,15 +471,17 @@ We need to have a starting point for when to record data.
 Then we need to record 100 or 500 points of data, using physical movement. 
 So what are the xyz coordinates when the Gyro printed out information? 
 Record this data every 20ms to start with.
-
+#
+(I believe the following are the notes I wrote when developing the steps.)
 #### How to record data 
 **Where does this data go? Can it be stored within the Arduino Nano 33 BLE Sense?** 
-And then how to access it? What data can we collect? 
-Once we collect data, can we spit it out to the Serial Monitor? 
-Can we collect multiple instances of the swing?
+_(This process is worked out at the beginning while configuring the gyro to print out data points. Eventually a step is to write to a CSV file. This takes place before adding the second device.)_
+And then how to access it? What data can we collect? _(These questions have been answered by going through the steps creating the data points.)_
+Once we collect data, can we spit it out to the Serial Monitor? _(This is the part about creating an array which spits to the Monitor when it's finished in 4secs.)_
+Can we collect multiple instances of the swing? _(This is the part where multiple arrays are stored on the device and when the buffer is full it spits it out to the second device.)_
 
 ##
-
+_(The following is repeated information, it's how I came up with the steps.)_
 - Display Gyro data on Serial Monitor
   - _What does it represent?_
   - Use integers for gX, gY, gZ
@@ -494,7 +492,7 @@ Can we collect multiple instances of the swing?
 
 
 ##
-
+_(I believe that the following has been distilled into the steps created and written above.)_
 ## How to collect a series of data points
 - Find moment in accelerometer where, even though it's in Ready State, it is "still" enough to register to begin recording data
 - Once "still", start recording data points, every 100ms, for 4 seconds. (This is 10 points of data per second, 4 seconds, which is 40 data points, and each data point is \[x,y,z,t], where t is the time stamp in ms from beginning of measurement.)
@@ -504,7 +502,10 @@ Can we collect multiple instances of the swing?
 - So one data point (p1) gets stored, and the next data point (p2) is in relation to prior data point. Data point p2 contains x,y,z, and a unique t compared to the other data points. One data record contains 160 bytes (_is this right?_) of data, which is x,y,z,t times 4 seconds, times 10 data points per second.
 - Swing is measured in 5000ms, or 5 seconds. Once it ends, wait for Still State.
 
-## How to identify Still State
+#
+_(The following sections might need to add the following to the above because it's asking how to identify Still state)_
+#
+**How to identify Still State**
 - Device is already in Ready State
 - Device is moving around measurably - as if waving in the air
 - Device stops moving (within threshold of being still) - as if stationary upon a surface.
@@ -512,16 +513,16 @@ Can we collect multiple instances of the swing?
 - Next, second data point is recorded at x1,y1,z1,t100ms
 - This continues for five seconds.
 
-## Trim Data
+**Trim Data**
 - Every swing begins with Still State followed by a backswing, swing, and then in 5 seconds stops recording.
 - If Device detects motion becoming much slower on average, trim data here. (How to calc average? Distance between two data points is shorter than prior pair of data points on average.)  
 
-## Trimmed Data has a 3D shape and speed
+**Trimmed Data has a 3D shape and speed** _(This is good, it considers what to do WITH the data set.)_
 - Every swing can be layered upon another in different colors for example, and will create "normal" swing
 - Outliers will be those which have almost no acceleration, the distance between data points is very small. (Nobody waves a club around as much as a practice swing or a real swing.)
 - Difference between a Practice Swing and a Real Swing is the hitting of a ball, which will spike the accelerometer at around the fastest point of the swing.
 
-## How to record sample data
+**How to record sample data** _(This is good because it's talking about Still State, and might be helpful towards recording the data.)_
 - On a table, Device is stationary
 - Wave the device back and forth and then stop
 - 40 data points should print out (per second), and no other information printed (Serial Monitor)
@@ -535,11 +536,11 @@ Can we collect multiple instances of the swing?
 
 
 
-## Steps
+**Steps** _(This is more notes about efforts to collect data. But also it's about BLE.)_
 - First, get serial monitor going and get it to print out data points
 - It can print out data points / plot, but can it collect them and print out **after movement stops?**
 - It's possible to send "every sesson" of movement via BLE, if I can figure out how to RECORD the bytes, which are the x,y,z,t coordinates _(This is a BLE issue, so might not need to be here)_
-  - And once it has been send via BLE to a computer, can be compiled into a data set _(BLE sends data, CSV is created, then CSV is used in ML model.)_
+  - And once it has been sent via BLE to a computer, can be compiled into a data set _(BLE sends data, CSV is created, then CSV is used in ML model.)_
 
 
 
@@ -558,11 +559,11 @@ Can we collect multiple instances of the swing?
 #
 #
 
-_(Useful statements and graphics previously written in the BLE section are here.)_
+_(Following are the useful statements and graphics previously written in the BLE section.)_\
+
+#
 
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
-
-
 
 _(Might be useful graphic?)_
 
@@ -573,14 +574,12 @@ _(Might be useful graphic?)_
 </p>
 
 
-
 _(Useful graphic here)_
 
 <img src="/images/stateshanges.gif" width="80%">
 
 
-
-(Useful statements here)
+_(Useful statements here)_
 - Eliminate accidental state changes from the sensor
 - Although things are working well, there are still two things we should improve upon. 
 - One tweak is to accommodate for an unintentional state change from a bounce of the sensor, and the other is to reduce the amount of BLE communication, sending only once at the moment of a state change. _(re-write this para.)_
