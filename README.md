@@ -383,7 +383,7 @@ Send the data to the computer.
 - Append data to the CSV file
 
 
-# PHYSICAL DEVELOPMENT STAGE TWO
+# Physical Development Stage Two
 
 _Collecting data for each physical stage of development:_
 - Stage 1: collect on computer, communicate directly
