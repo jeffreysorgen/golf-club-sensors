@@ -255,7 +255,6 @@ _(Maybe should compare both graphics with explanations to make a better point mo
 
 
 # Solving for Power
-(Step Two)
 
 _Solving for power_ is a challenge to resolve during the [second physical stage](#physical-description) of development, when a second device is included, and the first needs independent power.
 
@@ -302,48 +301,44 @@ We have enabled the Accelerometer, we have created a way with the accelerometer 
 
 Next, we need to try and collect data. We'll combine the sensors in some way, beginning with readings from the **gyroscope**.
 
-[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
-
-
-
-# Collecting Gyro Data
-(Step Three)
-
-
-
-
-The orientation of the club head determines whether the club is in play or is sitting in the golf bag. The Ready/Resting state is determined by the readings from the **Accelerometer**. When in play, in Ready state, we're able to begin recording motion with the Gyroscope.
-
-The code for the **Gyro** will identify when the device is Still, and then and prepare to record movement.
-
-
-_Collecting data for each physical stage of development:_
+_**Collecting data for each physical stage of development:**_
 - **Stage 1: collect on computer, communicate directly**
 - Stage 2: collect on computer, communicate via BLE
 - Stage 3: collect on second device to SD card
   - MCU with attached SD card: nano33blesense or raspberry pi
 - Stage 4: collect on tablet or smartphone
 
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
-## Creating Data Points
 
+
+
+# Collecting Gyro Data
+
+The orientation of the club head determines whether the club is in play or is sitting in the golf bag. The Ready/Resting state is determined by the readings from the **Accelerometer**. When in play, in Ready state, we're able to begin recording motion with the **Gyroscope**.
+
+The code for the _Gyro_ will identify when the device is Still, and then and prepare to record movement. _(Is this where we put how the code looks when it's Still?)_
+
+
+**Creating Data Points:**
 
 Display the data as a set of coordinates plus millis to the Serial Monitor.
+_**(Get started on the following in order to clarify all the rest of this page.)**_
 
-Specifically in the code:
+**Building the code:**
 - First, enable the Gyro to read and print all data points, (gX, gY, gZ) _**(Current Step)**_
 - Change data points to INTEGERS
 - Next, print data point plus millis, (gX, gY, gZ, gT)
 - Next, print data point only after each 100ms
-- Next, set **threshold** to record data only when motion is faster.
+- Next, set **threshold** to record data only when motion is faster. (When it's not _Still_.)
 - Next, set millis to zero for first data point
 - Print "No Movement Detected" one time, until movement is detected.
 - Next, print data point plus millis (which begin at 0ms)
 - **THIS is the set of data points to collect.**
 
-Description:
 
+**Description:**
 - Swing data coordinates begin in one direction as a backswing.
 - Then four seconds is recorded in 100ms increments
 - Each increment saved as a data point
@@ -356,7 +351,7 @@ Description:
 - All swings can be shown in 3D motion
 
 
-## Data Collection Steps:
+**Data Collection Steps:**
 
 1. Display data points (coordinates plus millis)
 2. Display array of data points
@@ -503,7 +498,7 @@ _(I believe that the following has been distilled into the steps created and wri
 - Swing is measured in 5000ms, or 5 seconds. Once it ends, wait for Still State.
 
 #
-_(The following sections might need to add the following to the above because it's asking how to identify Still state)_
+_(The following might need to be added above because it's asking how to identify **Still** state)_
 #
 **How to identify Still State**
 - Device is already in Ready State
