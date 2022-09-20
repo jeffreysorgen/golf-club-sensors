@@ -305,14 +305,6 @@ Next, we need to try and collect data. We'll combine the sensors in some way, be
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
 
-_(Keep this statement.)_
-Only in the **fourth stage** of physical development will we try and find a way to connect the device to a smartphone via BLE, which will allow a smartphone application to be built in the future.
-
-
-
-
-
-
 
 
 # Collecting Gyro Data
@@ -320,21 +312,18 @@ Only in the **fourth stage** of physical development will we try and find a way 
 
 The orientation of the club head determines whether the club is in play or is sitting in the golf bag. The Ready/Resting state is determined by the readings from the **Accelerometer**. When in play, in Ready state, we're able to begin recording motion with the Gyroscope.
 
-
-
-
 The code for the **Gyro** will identify when the device is Still, and then and prepare to record movement.
 
-**Three Objectives:**
 
-1. Display data points (coordinates plus millis)
-2. Display array of data points
-3. Display multiple arrays as a data set
-4. Send data set to computer storage
 
-The **first objective** is to display the data as a set of coordinates plus millis to the Serial Monitor.
 
-- First, enable the Gyro to read and print all data points, (gX, gY, gZ)
+## Creating Data Points
+
+
+Display the data as a set of coordinates plus millis to the Serial Monitor.
+
+Specifically in the code:
+- First, enable the Gyro to read and print all data points, (gX, gY, gZ) _**(Current Step)**_
 - Change data points to INTEGERS
 - Next, print data point plus millis, (gX, gY, gZ, gT)
 - Next, print data point only after each 100ms
@@ -344,13 +333,34 @@ The **first objective** is to display the data as a set of coordinates plus mill
 - Next, print data point plus millis (which begin at 0ms)
 - **THIS is the set of data points to collect.**
 
-The **second objective** is to collect the series of points into an array.
+Description:
+
+- Swing data coordinates begin in one direction as a backswing.
+- Then four seconds is recorded in 100ms increments
+- Each increment saved as a data point
+- Every data point saved into _an array of 100ms to 4000ms_
+- Every array saved to a data set
+- Collection of golf swings are the data set
+- Real swing is appx four seconds
+- All swings begin at 0ms
+- All swings can be graphed in 3D space
+- All swings can be shown in 3D motion
+
+
+## Data Collection Steps:
+
+1. Display data points (coordinates plus millis)
+2. Display array of data points
+3. Display multiple arrays as a data set
+4. Send data set to computer storage
+
+Collect the series of points into an array.
 
 - Collect data point **series** into an **array** in the code.
 - Print array each time data point is added.
 - Then, print data point series (the array) when motion stops
 
-The **third objective** is to collect arrays.
+Collect arrays prior to output.
 
 - Collect multiple arrays (swings)
 - Accumulate 2 "swings" and print to Serial Monitor, purge memory 
@@ -358,24 +368,41 @@ The **third objective** is to collect arrays.
 - Create 4-second arrays
 - Test accumulating 10, 25, 50, 100, 500 arrays before printing and purging
 
-The **fourth objective** is sending the data to the computer.
+Send the data to the computer.
 
-Other devices to collect data:
-- my computer (physical dev stage one)
-- second device (physical dev stage three) (3?)
-  - arduino nano33blesense or raspberry pi
-  - (does a rasp pi have a beeper or buzzer?)
-  - (can a rasp pi be power source for LiPo batt?)
-  - via BLE to its SD card
-  - then SD card to PC for ML
-- smartphone memory (physical dev stage four)
+- Write the data to a file on the computer
+- Append data to the CSV file
 
 
+Next step is to provide independent power to the device and have it transmit the data via BLE.
+
+- Does the computer receive this BLE data? 
+- Is it into a port? Can the data be displayed in the Serial Monitor? 
+- Or does that require it to be connected? 
+- Where does the data display when it's being received via BLE?
+- Do we need an emulator of MCU?
+- How will this work!?
+
+
+Collecting data for each physical stage of development:
+
+- Stage 1: collect on computer, communicate directly
+- Stage 2: collect on computer, communicate via BLE
+- Stage 3: collect on second device to SD card
+  - MCU with attached SD card: nano33blesense or raspberry pi
+- Stage 4: collect on tablet or smartphone
 
 
 
 
 
+
+[ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
+
+#
+#
+#
+#
 
 _(Old notes:)_
 
@@ -427,6 +454,8 @@ _(This might need to be earlier in gyro section)_
 - All swings begin at 0ms
 - All swings can be graphed in 3D space
 - All swings can be graphed in 3D motion
+
+
 
 _**Future considerations**_
 
