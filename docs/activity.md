@@ -11,7 +11,6 @@
 
 ##
 ##### Step Four
-##### Step Four (gyro)
 # Collecting Gyro Data
 
 The next step is to collect and record swing data from the Gyroscope.
