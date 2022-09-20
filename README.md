@@ -298,15 +298,15 @@ The solution described here will work for testing. But utilizing a new, more pra
 
 **Summary:**
 
-We have enabled the Accelerometer, we have created a way with the accelerometer to determine whether the club is in the golf bag or being used. And we have found a temporary solution for power during development. Only in the **fourth stage** of physical development will we try and find a way to connect the device to a smartphone via BLE, which will allow a smartphone application to be built in the future.
+We have enabled the Accelerometer, we have created a way with the accelerometer to determine whether the club is in the golf bag or being used. And we have found a temporary solution for power during development. 
 
-Now we need to try and collect data. We'll combine the sensors in some way, beginning with readings from the **gyroscope**.
+Next, we need to try and collect data. We'll combine the sensors in some way, beginning with readings from the **gyroscope**.
 
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
 
-
-
+_(Keep this statement.)_
+Only in the **fourth stage** of physical development will we try and find a way to connect the device to a smartphone via BLE, which will allow a smartphone application to be built in the future.
 
 
 
@@ -378,6 +378,10 @@ Other devices to collect data:
 
 
 _(Old notes:)_
+
+_(Keep this statement.)_
+Only in the **fourth stage** of physical development will we try and find a way to connect the device to a smartphone via BLE, which will allow a smartphone application to be built in the future.
+
 
 _**Can I use the computer to collect the data?**_
 
