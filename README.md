@@ -236,7 +236,7 @@ The goal was to basically create on/off states, accomplished here by using a thr
 
 **Exception to this configuration:**
 
-Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason. _**The issue has been resolved in later code.**_ 
+Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason. _**The issue has been resolved in later code.**_ _(Must provide detail about this solution.)_
 
 _(Maybe should compare both graphics with explanations to make a better point more succinctly.)_
 - (put first graphic here)
