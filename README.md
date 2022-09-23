@@ -328,8 +328,8 @@ _**(Get started on the following in order to clarify all the rest of this page.)
 
 **Building the code:**
 - First, enable the Gyro to read and print all data points, (gX, gY, gZ) _**(Current Step)**_
-- Change data points to INTEGERS
-- Next, print data point plus millis, (gX, gY, gZ, gT)
+- Change data points to INTEGERS _**(Current Step)**_
+- Next, print data point plus millis, (gX, gY, gZ, gT) _**(Current Step)**_
 - Next, print data point only after each 100ms
 - Next, set **threshold** to record data only when motion is faster. (When it's not _Still_.)
 - Next, set millis to zero for first data point
