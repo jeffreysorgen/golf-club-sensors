@@ -65,6 +65,7 @@ The BLE service provides a way to record data without restrictions. It's simply 
 
 
 
+_(Need to tidy up the following 'Flow' section for clarity.)_
 
 ## Flow:
 Uses BLE:
@@ -85,7 +86,7 @@ Uses KWS:
 - after delay, records null label
 - after 'yes' Keyword, records Yes label then returns to IMU input
 
-## A less general description of the flow:
+## Flow: the less general description
 - **BLE** is enabled when the device is powered.
 - Pairs with phone app.
 - Clear device buffer and **begin loop**
@@ -95,12 +96,11 @@ Uses KWS:
 - Acc/gyro records movement. 
 - **Collection mode:** After movement, enables microphone.
   - **Microphone** listens for 3 seconds, and records Null, unless it hears "yes" (**This is KWS**)
-  - Send data points to phone app with label. (_Is collection and inference possible together?_)
+  - Send data points to phone app with label. (_Q: Is collection and inference possible together?_)
 - _**Inference mode:** Checks data points with **MODEL**_
   - _Beep/buzz if good swing_
   - _Silent (or low tone) if no match_
 
-_(The above sections should be more succinct and clear.)_
 
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
@@ -111,7 +111,7 @@ _(The above sections should be more succinct and clear.)_
 
 
 # Sensor: Accelerometer
-(Step One)
+("Step One")
 
 What instrument determines when to begin doing something? **The accelerometer**. 
 
@@ -166,7 +166,7 @@ The Resting state is meant for when the club is in the bag. If it's in the bag t
 
 <img src="/images/one second delay.PNG" width="50%"/>
 
-_(This graphic is an early version of the other graphic where threshold have been adjusted to compensate for false state changes.)_
+_(This graphic is an early version of the improved graphic (Update this!) where threshold have been adjusted to compensate for false state changes.)_
 
 [ Top ](#golf-swing-sensors-overview)[| Accelerometer ](#sensor-accelerometer)[| Power ](#solving-for-power)[| Gyro ](#collecting-gyro-data)[]()[]()[]()
 
@@ -192,7 +192,6 @@ _(fine tune the following)_
 
 _**The following code is used to learn, and then built upon during the rest of this documentation:**_
 
-_(verify that including `code` here is the best way to document)_
 
 **Code for the new _LOOP_ is here:**
 ```
@@ -231,9 +230,9 @@ The goal was to basically create on/off states, accomplished here by using a thr
 
 **Exception to this configuration:**
 
-Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason. _**The issue has been resolved in later code.**_ _(Must provide detail about this solution.)_
+Swinging the club around won't put it into that Resting state unless it registers that particular state of inertia below _-0.85_. While there may be a risk of hitting that threshold while the club is in play, some cursory testing shows that it's possible the risk is low and `(y<-0.85)` doesn't happen or it doesn't hit the delay for some reason. _**The issue has been resolved in later code.**_ _(Must provide detail about this solution.)_ **_(Update this!)_**
 
-_(Maybe should compare both graphics with explanations to make a better point more succinctly.)_
+_(Maybe should compare both graphics with explanations to make a better point more succinctly.)_ **_(Update this!)_**
 - (put first graphic here)
 - (explain that there needs to be an adjustment to avoid false state changes)
 - (put second graphic next)
