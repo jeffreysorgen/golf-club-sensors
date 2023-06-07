@@ -319,7 +319,10 @@ The code for the _Gyro_ will identify when the device is Still, and then and pre
 
 Display the data as a set of coordinates plus millis to the Serial Monitor.
 _**(Get started on the following in order to clarify all the rest of this page.)**_
+#
+_**(The following steps and information are being updated. More information is being added, particularly about BLE which exists in the soon-depricated "activity.md" file.)**_
 
+# current steps start here
 **Building the code:**
 - First, enable the Gyro to read and print all data points, (gX, gY, gZ) _**(Current Step)**_
 - Change data points to INTEGERS _**(Current Step)**_
