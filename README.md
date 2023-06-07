@@ -66,8 +66,6 @@ The BLE service provides a way to record data without restrictions. It's simply 
 
 
 
-_(The following section "flow" needs to be consolidated and clarified.)_
-
 ## Flow:
 Uses BLE:
 - Start by connecting the MCU to the smartphone
@@ -87,10 +85,7 @@ Uses KWS:
 - after delay, records null label
 - after 'yes' Keyword, records Yes label then returns to IMU input
 
-
-## Flow for Golf Swing sensors:
-
-**A less general description of the flow:**
+## A less general description of the flow:
 - **BLE** is enabled when the device is powered.
 - Pairs with phone app.
 - Clear device buffer and **begin loop**
