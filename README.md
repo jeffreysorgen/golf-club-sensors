@@ -194,7 +194,7 @@ _**The following code is used to learn, and then built upon during the rest of t
 
 
 **Code for the new _LOOP_ is here:**
-```
+``` cpp
 void loop() {
   float x, y, z;
 
